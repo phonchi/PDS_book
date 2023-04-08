@@ -1,0 +1,26 @@
+{
+  "index.qmd": {
+    "index.html": "10ca8a3a"
+  },
+  "01_end_to_end_machine_learning_project.ipynb": {
+    "01_end_to_end_machine_learning_project.html": "8861a792"
+  },
+  "02_Dataset.ipynb": {
+    "02_Dataset.html": "4b1ed218"
+  },
+  "03_Relational_Database_and_data_wrangling.ipynb": {
+    "03_Relational_Database_and_data_wrangling.html": "2baf54b3"
+  },
+  "04_Clean_feature_engineering.ipynb": {
+    "04_Clean_feature_engineering.html": "a7232dd6"
+  },
+  "05_Feature_selection_extraction.ipynb": {
+    "05_Feature_selection_extraction.html": "df6cc57f"
+  },
+  "06_XAI.ipynb": {
+    "06_XAI.html": "3aaf4ec2"
+  },
+  "07_Deploy.ipynb": {
+    "07_Deploy.html": "f51a066c"
+  }
+}
