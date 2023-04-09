@@ -186,6 +186,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./NumPy_tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Numpy - multidimensional data arrays for python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Colab_tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Introduction to Colab</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kaggle-explore.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Introduction to Kaggle</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -197,68 +226,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">2.1</span> Setup</a></li>
-  <li><a href="#get-the-data" id="toc-get-the-data" class="nav-link" data-scroll-target="#get-the-data"><span class="header-section-number">3</span> Get the Data</a>
+  <li><a href="#get-the-data" id="toc-get-the-data" class="nav-link" data-scroll-target="#get-the-data"><span class="header-section-number">2.2</span> Get the Data</a>
   <ul class="collapse">
-  <li><a href="#download-the-data" id="toc-download-the-data" class="nav-link" data-scroll-target="#download-the-data"><span class="header-section-number">3.1</span> Download the Data</a></li>
-  <li><a href="#take-a-quick-look-at-the-data-structure" id="toc-take-a-quick-look-at-the-data-structure" class="nav-link" data-scroll-target="#take-a-quick-look-at-the-data-structure"><span class="header-section-number">3.2</span> Take a Quick Look at the Data Structure</a></li>
-  <li><a href="#create-a-test-set" id="toc-create-a-test-set" class="nav-link" data-scroll-target="#create-a-test-set"><span class="header-section-number">3.3</span> Create a Test Set</a>
+  <li><a href="#download-the-data" id="toc-download-the-data" class="nav-link" data-scroll-target="#download-the-data"><span class="header-section-number">2.2.1</span> Download the Data</a></li>
+  <li><a href="#take-a-quick-look-at-the-data-structure" id="toc-take-a-quick-look-at-the-data-structure" class="nav-link" data-scroll-target="#take-a-quick-look-at-the-data-structure"><span class="header-section-number">2.2.2</span> Take a Quick Look at the Data Structure</a></li>
+  <li><a href="#create-a-test-set" id="toc-create-a-test-set" class="nav-link" data-scroll-target="#create-a-test-set"><span class="header-section-number">2.2.3</span> Create a Test Set</a></li>
+  </ul></li>
+  <li><a href="#discover-and-visualize-the-data-to-gain-insights" id="toc-discover-and-visualize-the-data-to-gain-insights" class="nav-link" data-scroll-target="#discover-and-visualize-the-data-to-gain-insights"><span class="header-section-number">2.3</span> Discover and Visualize the Data to Gain Insights</a>
   <ul class="collapse">
-  <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional"><span class="header-section-number">3.3.1</span> Optional</a></li>
+  <li><a href="#visualizing-geographical-data" id="toc-visualizing-geographical-data" class="nav-link" data-scroll-target="#visualizing-geographical-data"><span class="header-section-number">2.3.1</span> Visualizing Geographical Data</a></li>
+  <li><a href="#looking-for-correlations" id="toc-looking-for-correlations" class="nav-link" data-scroll-target="#looking-for-correlations"><span class="header-section-number">2.3.2</span> Looking for Correlations</a></li>
+  <li><a href="#experimenting-with-attribute-combinations" id="toc-experimenting-with-attribute-combinations" class="nav-link" data-scroll-target="#experimenting-with-attribute-combinations"><span class="header-section-number">2.3.3</span> Experimenting with Attribute Combinations</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#discover-and-visualize-the-data-to-gain-insights" id="toc-discover-and-visualize-the-data-to-gain-insights" class="nav-link" data-scroll-target="#discover-and-visualize-the-data-to-gain-insights"><span class="header-section-number">4</span> Discover and Visualize the Data to Gain Insights</a>
+  <li><a href="#prepare-the-data-for-machine-learning-algorithms" id="toc-prepare-the-data-for-machine-learning-algorithms" class="nav-link" data-scroll-target="#prepare-the-data-for-machine-learning-algorithms"><span class="header-section-number">2.4</span> Prepare the Data for Machine Learning Algorithms</a>
   <ul class="collapse">
-  <li><a href="#visualizing-geographical-data" id="toc-visualizing-geographical-data" class="nav-link" data-scroll-target="#visualizing-geographical-data"><span class="header-section-number">4.1</span> Visualizing Geographical Data</a></li>
-  <li><a href="#looking-for-correlations" id="toc-looking-for-correlations" class="nav-link" data-scroll-target="#looking-for-correlations"><span class="header-section-number">4.2</span> Looking for Correlations</a></li>
-  <li><a href="#experimenting-with-attribute-combinations" id="toc-experimenting-with-attribute-combinations" class="nav-link" data-scroll-target="#experimenting-with-attribute-combinations"><span class="header-section-number">4.3</span> Experimenting with Attribute Combinations</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">2.4.1</span> Data Cleaning</a></li>
+  <li><a href="#dealing-with-outlier-optional" id="toc-dealing-with-outlier-optional" class="nav-link" data-scroll-target="#dealing-with-outlier-optional"><span class="header-section-number">2.4.2</span> Dealing with outlier (Optional)</a></li>
+  <li><a href="#handling-text-and-categorical-attributes" id="toc-handling-text-and-categorical-attributes" class="nav-link" data-scroll-target="#handling-text-and-categorical-attributes"><span class="header-section-number">2.4.3</span> Handling Text and Categorical Attributes</a></li>
+  <li><a href="#feature-scaling-and-transformation" id="toc-feature-scaling-and-transformation" class="nav-link" data-scroll-target="#feature-scaling-and-transformation"><span class="header-section-number">2.4.4</span> Feature Scaling and Transformation</a></li>
+  <li><a href="#custom-transformers" id="toc-custom-transformers" class="nav-link" data-scroll-target="#custom-transformers"><span class="header-section-number">2.4.5</span> Custom Transformers</a></li>
+  <li><a href="#transformation-pipelines" id="toc-transformation-pipelines" class="nav-link" data-scroll-target="#transformation-pipelines"><span class="header-section-number">2.4.6</span> Transformation Pipelines</a></li>
   </ul></li>
-  <li><a href="#prepare-the-data-for-machine-learning-algorithms" id="toc-prepare-the-data-for-machine-learning-algorithms" class="nav-link" data-scroll-target="#prepare-the-data-for-machine-learning-algorithms"><span class="header-section-number">5</span> Prepare the Data for Machine Learning Algorithms</a>
+  <li><a href="#select-and-train-a-model" id="toc-select-and-train-a-model" class="nav-link" data-scroll-target="#select-and-train-a-model"><span class="header-section-number">2.5</span> Select and Train a Model</a>
   <ul class="collapse">
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">5.1</span> Data Cleaning</a></li>
-  <li><a href="#dealing-with-outlier-optional" id="toc-dealing-with-outlier-optional" class="nav-link" data-scroll-target="#dealing-with-outlier-optional"><span class="header-section-number">5.2</span> Dealing with outlier (Optional)</a></li>
-  <li><a href="#handling-text-and-categorical-attributes" id="toc-handling-text-and-categorical-attributes" class="nav-link" data-scroll-target="#handling-text-and-categorical-attributes"><span class="header-section-number">5.3</span> Handling Text and Categorical Attributes</a></li>
-  <li><a href="#feature-scaling-and-transformation" id="toc-feature-scaling-and-transformation" class="nav-link" data-scroll-target="#feature-scaling-and-transformation"><span class="header-section-number">5.4</span> Feature Scaling and Transformation</a>
+  <li><a href="#training-and-evaluating-on-the-training-set" id="toc-training-and-evaluating-on-the-training-set" class="nav-link" data-scroll-target="#training-and-evaluating-on-the-training-set"><span class="header-section-number">2.5.1</span> Training and Evaluating on the Training Set</a></li>
+  <li><a href="#better-evaluation-using-cross-validation" id="toc-better-evaluation-using-cross-validation" class="nav-link" data-scroll-target="#better-evaluation-using-cross-validation"><span class="header-section-number">2.5.2</span> Better Evaluation Using Cross-Validation</a></li>
+  </ul></li>
+  <li><a href="#fine-tune-your-model" id="toc-fine-tune-your-model" class="nav-link" data-scroll-target="#fine-tune-your-model"><span class="header-section-number">2.6</span> Fine-Tune Your Model</a>
   <ul class="collapse">
-  <li><a href="#min-max-scaling" id="toc-min-max-scaling" class="nav-link" data-scroll-target="#min-max-scaling"><span class="header-section-number">5.4.1</span> Min-max scaling</a></li>
-  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization"><span class="header-section-number">5.4.2</span> Standardization</a></li>
-  <li><a href="#other-scaling-optional" id="toc-other-scaling-optional" class="nav-link" data-scroll-target="#other-scaling-optional"><span class="header-section-number">5.4.3</span> Other scaling (Optional)</a></li>
+  <li><a href="#grid-search" id="toc-grid-search" class="nav-link" data-scroll-target="#grid-search"><span class="header-section-number">2.6.1</span> Grid Search</a></li>
+  <li><a href="#randomized-search" id="toc-randomized-search" class="nav-link" data-scroll-target="#randomized-search"><span class="header-section-number">2.6.2</span> Randomized Search</a></li>
+  <li><a href="#analyze-the-best-models-and-their-errors" id="toc-analyze-the-best-models-and-their-errors" class="nav-link" data-scroll-target="#analyze-the-best-models-and-their-errors"><span class="header-section-number">2.6.3</span> Analyze the Best Models and Their Errors</a></li>
+  <li><a href="#evaluate-your-system-on-the-test-set" id="toc-evaluate-your-system-on-the-test-set" class="nav-link" data-scroll-target="#evaluate-your-system-on-the-test-set"><span class="header-section-number">2.6.4</span> Evaluate Your System on the Test Set</a></li>
   </ul></li>
-  <li><a href="#custom-transformers" id="toc-custom-transformers" class="nav-link" data-scroll-target="#custom-transformers"><span class="header-section-number">5.5</span> Custom Transformers</a>
+  <li><a href="#launch-monitor-and-maintain-your-system" id="toc-launch-monitor-and-maintain-your-system" class="nav-link" data-scroll-target="#launch-monitor-and-maintain-your-system"><span class="header-section-number">2.7</span> Launch, Monitor, and Maintain Your System</a>
   <ul class="collapse">
-  <li><a href="#function-with-no-training-parameter-optional" id="toc-function-with-no-training-parameter-optional" class="nav-link" data-scroll-target="#function-with-no-training-parameter-optional"><span class="header-section-number">5.5.1</span> Function with no training parameter (Optional)</a></li>
-  <li><a href="#transform-with-training-parameter" id="toc-transform-with-training-parameter" class="nav-link" data-scroll-target="#transform-with-training-parameter"><span class="header-section-number">5.5.2</span> Transform with training parameter</a></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment"><span class="header-section-number">2.7.1</span> Deployment</a></li>
   </ul></li>
-  <li><a href="#transformation-pipelines" id="toc-transformation-pipelines" class="nav-link" data-scroll-target="#transformation-pipelines"><span class="header-section-number">5.6</span> Transformation Pipelines</a></li>
-  </ul></li>
-  <li><a href="#select-and-train-a-model" id="toc-select-and-train-a-model" class="nav-link" data-scroll-target="#select-and-train-a-model"><span class="header-section-number">6</span> Select and Train a Model</a>
+  <li><a href="#low-code-ml-using-pycaret" id="toc-low-code-ml-using-pycaret" class="nav-link" data-scroll-target="#low-code-ml-using-pycaret"><span class="header-section-number">2.8</span> Low-code ML using <code>PyCaret</code></a>
   <ul class="collapse">
-  <li><a href="#training-and-evaluating-on-the-training-set" id="toc-training-and-evaluating-on-the-training-set" class="nav-link" data-scroll-target="#training-and-evaluating-on-the-training-set"><span class="header-section-number">6.1</span> Training and Evaluating on the Training Set</a></li>
-  <li><a href="#better-evaluation-using-cross-validation" id="toc-better-evaluation-using-cross-validation" class="nav-link" data-scroll-target="#better-evaluation-using-cross-validation"><span class="header-section-number">6.2</span> Better Evaluation Using Cross-Validation</a></li>
+  <li><a href="#get-the-data-1" id="toc-get-the-data-1" class="nav-link" data-scroll-target="#get-the-data-1"><span class="header-section-number">2.8.1</span> Get the data</a></li>
+  <li><a href="#explore-the-data" id="toc-explore-the-data" class="nav-link" data-scroll-target="#explore-the-data"><span class="header-section-number">2.8.2</span> Explore the data</a></li>
+  <li><a href="#prepare-the-data" id="toc-prepare-the-data" class="nav-link" data-scroll-target="#prepare-the-data"><span class="header-section-number">2.8.3</span> Prepare the data</a></li>
+  <li><a href="#select-and-train-a-model-1" id="toc-select-and-train-a-model-1" class="nav-link" data-scroll-target="#select-and-train-a-model-1"><span class="header-section-number">2.8.4</span> Select and train a model</a></li>
+  <li><a href="#fine-tune-your-model-1" id="toc-fine-tune-your-model-1" class="nav-link" data-scroll-target="#fine-tune-your-model-1"><span class="header-section-number">2.8.5</span> Fine-Tune your model</a></li>
+  <li><a href="#analyze-the-model" id="toc-analyze-the-model" class="nav-link" data-scroll-target="#analyze-the-model"><span class="header-section-number">2.8.6</span> Analyze the model</a></li>
+  <li><a href="#predict-on-test-set" id="toc-predict-on-test-set" class="nav-link" data-scroll-target="#predict-on-test-set"><span class="header-section-number">2.8.7</span> Predict on test set</a></li>
+  <li><a href="#finalize-model" id="toc-finalize-model" class="nav-link" data-scroll-target="#finalize-model"><span class="header-section-number">2.8.8</span> Finalize model</a></li>
+  <li><a href="#save-and-load-the-model" id="toc-save-and-load-the-model" class="nav-link" data-scroll-target="#save-and-load-the-model"><span class="header-section-number">2.8.9</span> Save and load the model</a></li>
+  <li><a href="#deplpy" id="toc-deplpy" class="nav-link" data-scroll-target="#deplpy"><span class="header-section-number">2.8.10</span> Deplpy</a></li>
   </ul></li>
-  <li><a href="#fine-tune-your-model" id="toc-fine-tune-your-model" class="nav-link" data-scroll-target="#fine-tune-your-model"><span class="header-section-number">7</span> Fine-Tune Your Model</a>
-  <ul class="collapse">
-  <li><a href="#grid-search" id="toc-grid-search" class="nav-link" data-scroll-target="#grid-search"><span class="header-section-number">7.1</span> Grid Search</a></li>
-  <li><a href="#randomized-search" id="toc-randomized-search" class="nav-link" data-scroll-target="#randomized-search"><span class="header-section-number">7.2</span> Randomized Search</a></li>
-  <li><a href="#analyze-the-best-models-and-their-errors" id="toc-analyze-the-best-models-and-their-errors" class="nav-link" data-scroll-target="#analyze-the-best-models-and-their-errors"><span class="header-section-number">7.3</span> Analyze the Best Models and Their Errors</a></li>
-  <li><a href="#evaluate-your-system-on-the-test-set" id="toc-evaluate-your-system-on-the-test-set" class="nav-link" data-scroll-target="#evaluate-your-system-on-the-test-set"><span class="header-section-number">7.4</span> Evaluate Your System on the Test Set</a></li>
-  </ul></li>
-  <li><a href="#launch-monitor-and-maintain-your-system" id="toc-launch-monitor-and-maintain-your-system" class="nav-link" data-scroll-target="#launch-monitor-and-maintain-your-system"><span class="header-section-number">8</span> Launch, Monitor, and Maintain Your System</a>
-  <ul class="collapse">
-  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment"><span class="header-section-number">8.1</span> Deployment</a></li>
-  </ul></li>
-  <li><a href="#low-code-ml-using-pycaret" id="toc-low-code-ml-using-pycaret" class="nav-link" data-scroll-target="#low-code-ml-using-pycaret"><span class="header-section-number">9</span> Low-code ML using PyCaret</a>
-  <ul class="collapse">
-  <li><a href="#get-the-data-1" id="toc-get-the-data-1" class="nav-link" data-scroll-target="#get-the-data-1"><span class="header-section-number">9.1</span> Get the data</a></li>
-  <li><a href="#explore-the-data" id="toc-explore-the-data" class="nav-link" data-scroll-target="#explore-the-data"><span class="header-section-number">9.2</span> Explore the data</a></li>
-  <li><a href="#prepare-the-data" id="toc-prepare-the-data" class="nav-link" data-scroll-target="#prepare-the-data"><span class="header-section-number">9.3</span> Prepare the data</a></li>
-  <li><a href="#select-and-train-a-model-1" id="toc-select-and-train-a-model-1" class="nav-link" data-scroll-target="#select-and-train-a-model-1"><span class="header-section-number">9.4</span> Select and train a model</a></li>
-  <li><a href="#fine-tune-your-model-1" id="toc-fine-tune-your-model-1" class="nav-link" data-scroll-target="#fine-tune-your-model-1"><span class="header-section-number">9.5</span> Fine-Tune your model</a></li>
-  <li><a href="#analyze-the-model" id="toc-analyze-the-model" class="nav-link" data-scroll-target="#analyze-the-model"><span class="header-section-number">9.6</span> Analyze the model</a></li>
-  <li><a href="#predict-on-test-set" id="toc-predict-on-test-set" class="nav-link" data-scroll-target="#predict-on-test-set"><span class="header-section-number">9.7</span> Predict on test set</a></li>
-  <li><a href="#finalize-model" id="toc-finalize-model" class="nav-link" data-scroll-target="#finalize-model"><span class="header-section-number">9.8</span> Finalize model</a></li>
-  <li><a href="#save-and-load-the-model" id="toc-save-and-load-the-model" class="nav-link" data-scroll-target="#save-and-load-the-model"><span class="header-section-number">9.9</span> Save and load the model</a></li>
-  </ul></li>
-  <li><a href="#deplpy" id="toc-deplpy" class="nav-link" data-scroll-target="#deplpy"><span class="header-section-number">10</span> Deplpy</a></li>
   </ul>
 </nav>
     </div>
@@ -373,10 +390,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="get-the-data" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Get the Data</h1>
-<section id="download-the-data" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="download-the-data"><span class="header-section-number">3.1</span> Download the Data</h2>
+<section id="get-the-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="get-the-data"><span class="header-section-number">2.2</span> Get the Data</h2>
+<section id="download-the-data" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="download-the-data"><span class="header-section-number">2.2.1</span> Download the Data</h3>
 <p>It is preferable to create a small function to do that. It is useful in particular</p>
 <ol type="1">
 <li>If data changes regularly, as it allows you to write a small script that you can run whenever you need to fetch the latest data (or you can set up a scheduled job to do that automatically at regular intervals).</li>
@@ -403,8 +420,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-<section id="take-a-quick-look-at-the-data-structure" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="take-a-quick-look-at-the-data-structure"><span class="header-section-number">3.2</span> Take a Quick Look at the Data Structure</h2>
+<section id="take-a-quick-look-at-the-data-structure" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="take-a-quick-look-at-the-data-structure"><span class="header-section-number">2.2.2</span> Take a Quick Look at the Data Structure</h3>
 <p>Now let’s load the data using <code>Pandas</code>. Once again you should write a small function to load the data:</p>
 <div class="cell">
 <details>
@@ -864,8 +881,8 @@ Name: ocean_proximity, dtype: int64</code></pre>
 <li><p>Finally, many histograms are heavy tail and skewed right: they extend much farther to the right of the median than to the left. This may make it a bit harder for some Machine Learning algorithms to detect patterns. We will try transforming these attributes later on to have more bell-shaped distributions.</p></li>
 </ol>
 </section>
-<section id="create-a-test-set" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="create-a-test-set"><span class="header-section-number">3.3</span> Create a Test Set</h2>
+<section id="create-a-test-set" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="create-a-test-set"><span class="header-section-number">2.2.3</span> Create a Test Set</h3>
 <p>To avoid the <strong>data snooping bias</strong>. Creating a test set! This is theoretically quite simple: just pick some instances randomly, typically 20% of the dataset (or less if your dataset is very large), and set them aside</p>
 <div class="cell">
 <details>
@@ -1134,8 +1151,8 @@ Name: ocean_proximity, dtype: int64</code></pre>
   
 </div>
 </div>
-<section id="optional" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="optional"><span class="header-section-number">3.3.1</span> Optional</h3>
+<section id="optional" class="level4" data-number="2.2.3.1">
+<h4 data-number="2.2.3.1" class="anchored" data-anchor-id="optional"><span class="header-section-number">2.2.3.1</span> Optional</h4>
 <p>So far we have considered purely random sampling methods. This is generally fine if your dataset is large enough (especially relative to the number of attributes), but if it is not, you run the risk of introducing a significant sampling bias. When a survey company decides to call 1,000 people to ask them a few questions, they don’t just pick 1,000 people randomly in a phone book. They try to ensure that these 1,000 people are <strong>representative</strong> of the whole population.</p>
 <p>For example, the US population is composed of 51.3% female and 48.7% male, so a well-conducted survey in the US would try to maintain this ratio in the sample: 513 female and 487 male. This is called stratified sampling: the population is divided into homogeneous subgroups called strata, and the right number of instances is sampled from each stratum to guarantee that the <strong>test set is representative of the overall population</strong>. If they used purely random sampling, the survey results may be significantly biased.</p>
 <p><strong>Suppose you chatted with experts who told you that the median income is a very important attribute to predict median housing prices</strong>. You may want to ensure that the test set is representative of the various categories of incomes in the whole dataset.</p>
@@ -1397,8 +1414,8 @@ Name: income_cat, dtype: float64</code></pre>
 </section>
 </section>
 </section>
-<section id="discover-and-visualize-the-data-to-gain-insights" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Discover and Visualize the Data to Gain Insights</h1>
+<section id="discover-and-visualize-the-data-to-gain-insights" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="discover-and-visualize-the-data-to-gain-insights"><span class="header-section-number">2.3</span> Discover and Visualize the Data to Gain Insights</h2>
 <p>Let’s create a copy so you can play with it without harming the training set</p>
 <div class="cell">
 <details>
@@ -1407,8 +1424,8 @@ Name: income_cat, dtype: float64</code></pre>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="co">#housing = train_set.copy()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="visualizing-geographical-data" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="visualizing-geographical-data"><span class="header-section-number">4.1</span> Visualizing Geographical Data</h2>
+<section id="visualizing-geographical-data" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="visualizing-geographical-data"><span class="header-section-number">2.3.1</span> Visualizing Geographical Data</h3>
 <p>Since there is geographical information (latitude and longitude), it is a good idea to create a scatterplot of all districts to visualize the data</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2258,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676259248956,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="75ec4a37-f1bc-4256-de71-99cda9a125e0">
 <details>
@@ -1488,8 +1505,8 @@ Name: income_cat, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="looking-for-correlations" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="looking-for-correlations"><span class="header-section-number">4.2</span> Looking for Correlations</h2>
+<section id="looking-for-correlations" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="looking-for-correlations"><span class="header-section-number">2.3.2</span> Looking for Correlations</h3>
 <p>Since the dataset is not too large, you can easily compute the standard correlation coefficient (also called Pearson’s r) between every pair of attributes</p>
 <div class="cell">
 <details>
@@ -1550,8 +1567,8 @@ Name: median_house_value, dtype: float64</code></pre>
 <li><p>Second, the price cap that we noticed earlier is clearly visible as a horizontal line at <code>$500,000</code>. But this plot reveals other less obvious straight lines: a horizontal line around <code>$450,000</code>, another around <code>$350,000</code>, perhaps one around <code>$280,000</code>, and a few more below that. You may want to try removing the corresponding districts to prevent your algorithms from learning to reproduce these data quirks.</p></li>
 </ol>
 </section>
-<section id="experimenting-with-attribute-combinations" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="experimenting-with-attribute-combinations"><span class="header-section-number">4.3</span> Experimenting with Attribute Combinations</h2>
+<section id="experimenting-with-attribute-combinations" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="experimenting-with-attribute-combinations"><span class="header-section-number">2.3.3</span> Experimenting with Attribute Combinations</h3>
 <p>Hopefully the previous sections gave you an idea of a few ways you can explore the data and gain insights.</p>
 <ul>
 <li>We identified a few data quirks that you may want to clean up before feeding the data to a machine learning algorithm</li>
@@ -1597,8 +1614,8 @@ Name: median_house_value, dtype: float64</code></pre>
 <p>This round of exploration does not have to be absolutely thorough; the point is to start off on the right foot and quickly gain insights that will help you get a first reasonably good prototype. But this is an <strong>iterative process</strong>: once you get a prototype up and running, you can analyze its output to gain more insights and come back to this exploration step.</p>
 </section>
 </section>
-<section id="prepare-the-data-for-machine-learning-algorithms" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Prepare the Data for Machine Learning Algorithms</h1>
+<section id="prepare-the-data-for-machine-learning-algorithms" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="prepare-the-data-for-machine-learning-algorithms"><span class="header-section-number">2.4</span> Prepare the Data for Machine Learning Algorithms</h2>
 <p>Let’s separate the predictors and the labels since we don’t necessarily want to apply the same transformations to the predictors and the target values (note that <code>drop()</code> creates a copy of the data and does not affect <code>strat_train_set</code>):</p>
 <div class="cell">
 <details>
@@ -1607,8 +1624,8 @@ Name: median_house_value, dtype: float64</code></pre>
 <span id="cb54-2"><a href="#cb54-2"></a>housing_labels <span class="op">=</span> strat_train_set[<span class="st">"median_house_value"</span>].copy() <span class="co"># y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="data-cleaning" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">5.1</span> Data Cleaning</h2>
+<section id="data-cleaning" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">2.4.1</span> Data Cleaning</h3>
 <p>Most Machine Learning algorithms cannot work with missing features, so let’s create a few functions to take care of them. You noticed earlier that the <code>total_bedrooms</code> attribute has some missing values, so let’s fix this. You have three options:</p>
 <ul>
 <li>Get rid of the corresponding districts.</li>
@@ -2678,8 +2695,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section id="dealing-with-outlier-optional" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="dealing-with-outlier-optional"><span class="header-section-number">5.2</span> Dealing with outlier (Optional)</h2>
+<section id="dealing-with-outlier-optional" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="dealing-with-outlier-optional"><span class="header-section-number">2.4.2</span> Dealing with outlier (Optional)</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -2704,8 +2721,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </details>
 </div>
 </section>
-<section id="handling-text-and-categorical-attributes" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="handling-text-and-categorical-attributes"><span class="header-section-number">5.3</span> Handling Text and Categorical Attributes</h2>
+<section id="handling-text-and-categorical-attributes" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="handling-text-and-categorical-attributes"><span class="header-section-number">2.4.3</span> Handling Text and Categorical Attributes</h3>
 <p>So far we have only dealt with numerical attributes, but your data may also contain text attributes. In this dataset, there is just one: the <code>ocean_proximity</code> attribute. Let’s look at its value for the first few instances:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676010576373,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0759fd77-a30f-45b9-d020-6d080cff1dad">
 <details>
@@ -3201,11 +3218,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section id="feature-scaling-and-transformation" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="feature-scaling-and-transformation"><span class="header-section-number">5.4</span> Feature Scaling and Transformation</h2>
+<section id="feature-scaling-and-transformation" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="feature-scaling-and-transformation"><span class="header-section-number">2.4.4</span> Feature Scaling and Transformation</h3>
 <p>One of the most important transformations you need to apply to your data is feature scaling. With few exceptions, machine learning algorithms don’t perform well when the input numerical attributes have very different scales. This is the case for the housing data: the total number of rooms ranges from about 6 to 39,320, while the median incomes only range from 0 to 15. Without any scaling, most models will be biased toward ignoring the median income and focusing more on the number of rooms.</p>
-<section id="min-max-scaling" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="min-max-scaling"><span class="header-section-number">5.4.1</span> Min-max scaling</h3>
+<section id="min-max-scaling" class="level4" data-number="2.4.4.1">
+<h4 data-number="2.4.4.1" class="anchored" data-anchor-id="min-max-scaling"><span class="header-section-number">2.4.4.1</span> Min-max scaling</h4>
 <p>Min-max scaling (many people call this <strong>normalization</strong>) is the simplest: for each attribute, the values are shifted and rescaled so that they end up ranging from 0 to 1. This is performed by subtracting the min value and dividing by the difference between the min and the max. Scikit-Learn provides a transformer called <code>MinMaxScaler</code> for this. It has a <code>feature_range</code> hyperparameter that lets you change the range if, for some reason, you don’t want 0–1</p>
 <div class="cell">
 <details>
@@ -3217,8 +3234,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </details>
 </div>
 </section>
-<section id="standardization" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="standardization"><span class="header-section-number">5.4.2</span> Standardization</h3>
+<section id="standardization" class="level4" data-number="2.4.4.2">
+<h4 data-number="2.4.4.2" class="anchored" data-anchor-id="standardization"><span class="header-section-number">2.4.4.2</span> Standardization</h4>
 <p>Standardization is different: first it subtracts the mean value (so standardized values have a zero mean), then it divides the result by the standard deviation (so standardized values have a standard deviation equal to 1). Unlike min-max scaling, standardization does not restrict values to a specific range. <strong>However, standardization is much less affected by outliers</strong>.</p>
 <div class="cell">
 <details>
@@ -3230,8 +3247,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </details>
 </div>
 </section>
-<section id="other-scaling-optional" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="other-scaling-optional"><span class="header-section-number">5.4.3</span> Other scaling (Optional)</h3>
+<section id="other-scaling-optional" class="level4" data-number="2.4.4.3">
+<h4 data-number="2.4.4.3" class="anchored" data-anchor-id="other-scaling-optional"><span class="header-section-number">2.4.4.3</span> Other scaling (Optional)</h4>
 <p>When a feature’s distribution has a heavy tail (i.e., when values far from the mean are not exponentially rare), both min-max scaling and standardization will squash most values into a small range. Machine learning models generally don’t like this at all. So before you scale the feature, you should first transform it to shrink the heavy tail, and if possible to make the distribution roughly symmetrical. For example, a common way to do this for positive features with a heavy tail to the right is to replace the feature with its <strong>square root</strong> (or raise the feature to a power between 0 and 1). If the feature has a really long and heavy tail, such as a power law distribution, then replacing the feature with its <strong>logarithm</strong> may help.</p>
 <p>For example, the population feature roughly follows a power law</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:881,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676010813677,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d3a59426-345e-4375-c4ed-33676f980755">
@@ -3308,11 +3325,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>As the chart shows, the new age similarity feature peaks at 35, right around the spike in the housing median age distribution: if this particular age group is well correlated with lower prices, there’s a good chance that this new feature will help.</p>
 </section>
 </section>
-<section id="custom-transformers" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="custom-transformers"><span class="header-section-number">5.5</span> Custom Transformers</h2>
+<section id="custom-transformers" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="custom-transformers"><span class="header-section-number">2.4.5</span> Custom Transformers</h3>
 <p>Although <code>Scikit-Learn</code> provides many useful transformers, you will need to write your own for tasks such as custom cleanup operations or combining specific attributes.</p>
-<section id="function-with-no-training-parameter-optional" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="function-with-no-training-parameter-optional"><span class="header-section-number">5.5.1</span> Function with no training parameter (Optional)</h3>
+<section id="function-with-no-training-parameter-optional" class="level4" data-number="2.4.5.1">
+<h4 data-number="2.4.5.1" class="anchored" data-anchor-id="function-with-no-training-parameter-optional"><span class="header-section-number">2.4.5.1</span> Function with no training parameter (Optional)</h4>
 <p>For transformations that don’t require any training, you can just write a function that takes a NumPy array as input and outputs the transformed. Let’s create a log-transformer and apply it to the <code>population</code> feature:</p>
 <div class="cell">
 <details>
@@ -3323,8 +3340,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </details>
 </div>
 </section>
-<section id="transform-with-training-parameter" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="transform-with-training-parameter"><span class="header-section-number">5.5.2</span> Transform with training parameter</h3>
+<section id="transform-with-training-parameter" class="level4" data-number="2.4.5.2">
+<h4 data-number="2.4.5.2" class="anchored" data-anchor-id="transform-with-training-parameter"><span class="header-section-number">2.4.5.2</span> Transform with training parameter</h4>
 <p><code>FunctionTransformer</code> is very handy, but what if you would like your transformer to be trainable, learning some parameters in the <code>fit()</code> method and using them later in the <code>transform()</code> method? You can get <code>fit_transform()</code> for free by simply adding <code>TransformerMixin</code> as a base class: the default implementation will just call <code>fit()</code> and then <code>transform()</code>. If you add <code>BaseEstimator</code> as a base class (and avoid using <code>*args</code> and <code>**kwargs</code> in your constructor), you will also get two extra methods: <code>get_params()</code> and <code>set_params()</code>. These will be useful for automatic hyperparameter tuning.</p>
 <p>For example, the following code demonstrates custom transformer that uses a KMeans clusterer in the <code>fit()</code> method to identify the main clusters in the training data, and then uses <code>rbf_kernel()</code> in the <code>transform()</code> method to measure how similar each sample is to each cluster center:</p>
 <div class="cell">
@@ -3395,8 +3412,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>The figure shows the 10 cluster centers found by k-means. The districts are colored according to their geographic similarity to their closest cluster center. As you can see, most clusters are located in highly populated and expensive areas.</p>
 </section>
 </section>
-<section id="transformation-pipelines" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="transformation-pipelines"><span class="header-section-number">5.6</span> Transformation Pipelines</h2>
+<section id="transformation-pipelines" class="level3" data-number="2.4.6">
+<h3 data-number="2.4.6" class="anchored" data-anchor-id="transformation-pipelines"><span class="header-section-number">2.4.6</span> Transformation Pipelines</h3>
 <p>As you can see, there are many data transformation steps that need to be executed in the right order. Fortunately, Scikit-Learn provides the <code>Pipeline</code> class to help with such sequences of transformations. Here is a small pipeline for numerical attributes, which will first impute then scale the input features:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:292,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676011090027,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="37a68281-735d-4357-eebc-ea8d1236afc1">
 <details>
@@ -3692,11 +3709,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </section>
 </section>
-<section id="select-and-train-a-model" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Select and Train a Model</h1>
+<section id="select-and-train-a-model" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="select-and-train-a-model"><span class="header-section-number">2.5</span> Select and Train a Model</h2>
 <p>At last! You framed the problem, you got the data and explored it, you sampled a training set and a test set, and you wrote a preprocessing pipeline to automatically clean up and prepare your data for machine learning algorithms. You are now ready to select and train a machine learning model.</p>
-<section id="training-and-evaluating-on-the-training-set" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="training-and-evaluating-on-the-training-set"><span class="header-section-number">6.1</span> Training and Evaluating on the Training Set</h2>
+<section id="training-and-evaluating-on-the-training-set" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="training-and-evaluating-on-the-training-set"><span class="header-section-number">2.5.1</span> Training and Evaluating on the Training Set</h3>
 <p>Let’s first train a Linear Regression model</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1682,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676011259631,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0d06f333-104d-403a-d6b3-9b5dd0778698">
 <details>
@@ -3906,8 +3923,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <p>It is much more likely that the model has badly <strong>overfit</strong> the data. How can you be sure? As we saw earlier, you don’t want to touch the test set until you are ready to launch a model you are confident about, so you need to use part of the training set for training, and part for model validation.</p>
 </section>
-<section id="better-evaluation-using-cross-validation" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="better-evaluation-using-cross-validation"><span class="header-section-number">6.2</span> Better Evaluation Using Cross-Validation</h2>
+<section id="better-evaluation-using-cross-validation" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="better-evaluation-using-cross-validation"><span class="header-section-number">2.5.2</span> Better Evaluation Using Cross-Validation</h3>
 <p>One way to evaluate the Decision Tree model would be to use the <code>train_test_split</code> function to split the training set into a smaller training set and a <strong>validation set</strong>, then train your models against the smaller training set and evaluate them against the validation set.</p>
 <p>A great alternative is to use <code>Scikit-Learn</code>’s K-fold cross-validation feature. The following code randomly splits the training set into 10 distinct subsets called folds, then it trains and evaluates the Decision Tree model 10 times, picking a different fold for evaluation every time and training on the other 9 folds. The result is an array containing the 10 evaluation scores:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:9348,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676011367487,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a32e34f8-5a1f-48cc-9616-916a37833b53">
@@ -4071,11 +4088,11 @@ dtype: float64</code></pre>
 <p>Possible solutions are to simplify the model, constrain it (i.e., regularize it), or get a lot more training data. Before you dive much deeper into random forests, however, you should try out many other models from various categories of machine learning algorithms (e.g., several support vector machines with different kernels, and possibly a neural network), without spending too much time tweaking the hyperparameters. <strong>The goal is to shortlist a few (two to five) promising models.</strong></p>
 </section>
 </section>
-<section id="fine-tune-your-model" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Fine-Tune Your Model</h1>
+<section id="fine-tune-your-model" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="fine-tune-your-model"><span class="header-section-number">2.6</span> Fine-Tune Your Model</h2>
 <p>Let’s assume that you now have a shortlist of promising models. You now need to fine-tune them. Let’s look at a few ways you can do that.</p>
-<section id="grid-search" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="grid-search"><span class="header-section-number">7.1</span> Grid Search</h2>
+<section id="grid-search" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="grid-search"><span class="header-section-number">2.6.1</span> Grid Search</h3>
 <p>One way to do that would be to fiddle with the hyperparameters manually, until you find a great combination of hyperparameter values. This would be very tedious work, and you may not have time to explore many combinations.</p>
 <p>Instead you should get <code>Scikit-Learn</code>’s <code>GridSearchCV</code> to search for you. All you need to do is tell it which hyperparameters you want it to experiment with, and what values to try out, and it will evaluate all the possible combinations of hyperparameter values, using cross-validation. For example, the following code searches for the best combination of hyperparameter values for the <code>RandomForestRegressor</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:251806,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676011888111,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3a5737a2-51e5-488f-e8b7-c443fbb45716">
@@ -4525,8 +4542,8 @@ dtype: float64</code></pre>
 </div>
 <p>The mean test RMSE score for the best model is 44,042, which is better than the score you got earlier using the default hyperparameter values (which was 47,019). Congratulations, you have successfully fine-tuned your best model!</p>
 </section>
-<section id="randomized-search" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="randomized-search"><span class="header-section-number">7.2</span> Randomized Search</h2>
+<section id="randomized-search" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="randomized-search"><span class="header-section-number">2.6.2</span> Randomized Search</h3>
 <p>The grid search approach is fine when you are exploring relatively few combinations, like in the previous example, but when the hyperparameter search space is large, it is often preferable to use <code>RandomizedSearchCV</code> instead. This class can be used in much the same way as the <code>GridSearchCV</code> class, but instead of trying out all possible combinations, it evaluates a given number of random combinations by selecting a random value for each hyperparameter at every iteration.</p>
 <p>For each hyperparameter, you must provide either a list of possible values, or a probability distribution:</p>
 <p>Try 30 (<code>n_iter</code> × <code>cv</code>) random combinations of hyperparameters:</p>
@@ -4846,8 +4863,8 @@ dtype: float64</code></pre>
 </div>
 <p>Another way to fine-tune your system is to try to combine the models that perform best. This is especially true if the individual models make very different types of errors.</p>
 </section>
-<section id="analyze-the-best-models-and-their-errors" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="analyze-the-best-models-and-their-errors"><span class="header-section-number">7.3</span> Analyze the Best Models and Their Errors</h2>
+<section id="analyze-the-best-models-and-their-errors" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="analyze-the-best-models-and-their-errors"><span class="header-section-number">2.6.3</span> Analyze the Best Models and Their Errors</h3>
 <p>You will often gain good insights on the problem by inspecting the best models. For example, the <code>RandomForestRegressor</code> can indicate the relative importance of each attribute for making accurate predictions</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:49,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676012097642,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0657352e-c48c-4d50-b286-0c7490d315c4">
 <details>
@@ -4977,8 +4994,8 @@ dtype: float64</code></pre>
 <p>Now is also a good time to ensure that your model not only works well on average, but also on all categories of districts, whether they’re rural or urban, rich or poor, northern or southern, minority or not, etc. Creating subsets of your validation set for each category takes a bit of work, but it’s important: if your model performs poorly on a whole category of districts, then it should probably not be deployed until the issue is solved, or at least it should not be used to make predictions for that category, as it may do more harm than good!</p>
 </blockquote>
 </section>
-<section id="evaluate-your-system-on-the-test-set" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="evaluate-your-system-on-the-test-set"><span class="header-section-number">7.4</span> Evaluate Your System on the Test Set</h2>
+<section id="evaluate-your-system-on-the-test-set" class="level3" data-number="2.6.4">
+<h3 data-number="2.6.4" class="anchored" data-anchor-id="evaluate-your-system-on-the-test-set"><span class="header-section-number">2.6.4</span> Evaluate Your System on the Test Set</h3>
 <p>After tweaking your models for a while, you eventually have a system that performs sufficiently well. Now is the time to evaluate the final model on the test set. Just get the predictors and the labels from your test set, and run your <code>final_model</code> to transform the data and make predictions, then evaluate these predictions:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:32,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676012097643,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ce8b9cd4-ae93-4b3b-94d8-30e145d8ed1c">
 <details>
@@ -5041,8 +5058,8 @@ dtype: float64</code></pre>
 <p>In this California housing example, the final performance of the system is not much better than the experts’, but it may still be a good idea to launch it, especially if this frees up some time for the experts so they can work on more interesting and productive tasks.</p>
 </section>
 </section>
-<section id="launch-monitor-and-maintain-your-system" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Launch, Monitor, and Maintain Your System</h1>
+<section id="launch-monitor-and-maintain-your-system" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="launch-monitor-and-maintain-your-system"><span class="header-section-number">2.7</span> Launch, Monitor, and Maintain Your System</h2>
 <p>Perfect, you got approval to launch! You now need to get your solution ready for production (e.g., polish the code, write documentation and tests, and so on). Then you can deploy your model to your production environment.</p>
 <p>The most basic way to do this is just to save the best model you trained, transfer the file to your production environment, and load it. To save the model, you can use the <code>joblib</code> library like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:16,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676012097644,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9bc885cd-869e-4a74-8d8a-a70f4730da7b">
@@ -5073,8 +5090,8 @@ dtype: float64</code></pre>
 <p>Another popular strategy is to deploy your model to the cloud, for example on Google’s Vertex AI (formerly known as Google Cloud AI Platform and Google Cloud ML Engine): just save your model using <code>joblib</code> and upload it to Google Cloud Storage (GCS), then head over to Vertex AI and create a new model version, pointing it to the GCS file. That’s it! This gives you a simple web service that takes care of load balancing and scaling for you.</p>
 <p>It take JSON requests containing the input data (e.g., of a district) and returns JSON responses containing the predictions. You can then use this web service in your website (or whatever production environment you are using). As we will see in model serving lesson that we will use it on AI Platform is not much different from deploying Scikit-Learn models.</p>
 <p>But deployment is not the end of the story. You also need to write <strong>monitoring code to check your system’s live performance at regular intervals and trigger alerts when it drops</strong>. This could be a steep drop, likely due to a broken component in your infrastructure, but be aware that it could also be a gentle decay that could easily go unnoticed for a long time. This is quite common because models tend to “rot” over time: indeed, the world changes, so if the model was trained with last year’s data, it may not be adapted to today’s data.</p>
-<section id="deployment" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="deployment"><span class="header-section-number">8.1</span> Deployment</h2>
+<section id="deployment" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="deployment"><span class="header-section-number">2.7.1</span> Deployment</h3>
 <p>So you need to monitor your model’s live performance. But how do you that? Well, it depends. In some cases, the model’s performance can be inferred from <strong>downstream metrics</strong>. For example, if your model is part of a recommender system and it suggests products that the users may be interested in, then it’s easy to monitor the number of recommended products sold each day. If this number drops (compared to non-recommended products), then the prime suspect is the model. This may be because the data pipeline is broken, or perhaps the model needs to be retrained on fresh data.</p>
 <p>However, it’s not always possible to determine the model’s performance without any human analysis. For example, suppose you trained an image classification model to detect several product defects on a production line. How can you get an alert if the model’s performance drops, before thousands of defective products get shipped to your clients? One solution is to send to human raters a sample of all the pictures that the model classified (especially pictures that the model wasn’t so sure about). Depending on the task, the raters may need to be experts, or they could be nonspecialists, such as workers on a crowdsourcing platform (e.g., Amazon Mechanical Turk). In some applications they could even be the users themselves, responding for example via surveys or repurposed captchas. Either way, you need to put in place a monitoring system (with or without human raters to evaluate the live model), as well as all the relevant processes to define what to do in case of failures and how to prepare for them.</p>
 <p>Unfortunately, this can be a lot of work. In fact, <strong>it is often much more work than building and training a model</strong>. If the data keeps evolving, you will need to update your datasets and retrain your model regularly. You should probably automate the whole process as much as possible. Here are a few things you can automate:</p>
@@ -5088,8 +5105,8 @@ dtype: float64</code></pre>
 <p>As you can see, Machine Learning involves quite a lot of infrastructure, so don’t be surprised if your first ML project takes a lot of effort and time to build and deploy to production. Fortunately, once all the infrastructure is in place, going from idea to production will be much faster.</p>
 </section>
 </section>
-<section id="low-code-ml-using-pycaret" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Low-code ML using PyCaret</h1>
+<section id="low-code-ml-using-pycaret" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="low-code-ml-using-pycaret"><span class="header-section-number">2.8</span> Low-code ML using <code>PyCaret</code></h2>
 <p><code>PyCaret</code> is a high-level, low-code Python library that makes it easy to compare, train, evaluate, tune, and deploy machine learning models with only a few lines of code.</p>
 <p>At its core, <code>PyCaret</code> is basically just a large wrapper over many data science libraries such as <code>Scikit-learn</code>, <code>Yellowbrick</code>, <code>SHAP</code>, <code>Optuna</code>, and <code>Spacy</code>. Yes, you could use these libraries for the same tasks, but if you don’t want to write a lot of code, PyCaret could save you a lot of time.</p>
 <p><a href="https://pycaret.readthedocs.io/en/latest/api/regression.html">https://pycaret.readthedocs.io/en/latest/api/regression.html</a></p>
@@ -5282,8 +5299,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 <p>Remember to restart the notebook to update the modules</p>
-<section id="get-the-data-1" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="get-the-data-1"><span class="header-section-number">9.1</span> Get the data</h2>
+<section id="get-the-data-1" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="get-the-data-1"><span class="header-section-number">2.8.1</span> Get the data</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:748,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676015055540,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9b7f9c1d-af11-4d9c-8a4b-b40d429370bc">
 <details>
 <summary>Code</summary>
@@ -5463,8 +5480,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 <p>Now that we have the data, we can initialize a <code>PyCaret</code> experiment, which will preprocess the data and enable logging for all of the models that we will train on this dataset.</p>
 </section>
-<section id="explore-the-data" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="explore-the-data"><span class="header-section-number">9.2</span> Explore the data</h2>
+<section id="explore-the-data" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="explore-the-data"><span class="header-section-number">2.8.2</span> Explore the data</h3>
 <p><code>ydata-profiling</code> primary goal is to provide a one-line Exploratory Data Analysis (EDA) experience in a consistent and fast solution. Like pandas <code>df.describe()</code> function, that is so handy, <code>ydata-profiling</code> delivers an extended analysis of a DataFrame while allowing the data analysis to be exported in different formats such as html and json.</p>
 <p><a href="https://github.com/ydataai/ydata-profiling">https://github.com/ydataai/ydata-profiling</a></p>
 <div class="cell">
@@ -5643,8 +5660,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-<section id="prepare-the-data" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="prepare-the-data"><span class="header-section-number">9.3</span> Prepare the data</h2>
+<section id="prepare-the-data" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="prepare-the-data"><span class="header-section-number">2.8.3</span> Prepare the data</h3>
 <p>In order to demonstrate the <code>predict_model()</code> function on unseen data, a sample of 10% records has been withheld from the original dataset to be used for predictions. This should not be confused with a train/test split as this particular split is performed to simulate a real life scenario. Another way to think about this is that these records are not available at the time when the machine learning experiment was performed.</p>
 <div class="cell">
 <details>
@@ -6275,8 +6292,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </details>
 </div>
 </section>
-<section id="select-and-train-a-model-1" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="select-and-train-a-model-1"><span class="header-section-number">9.4</span> Select and train a model</h2>
+<section id="select-and-train-a-model-1" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="select-and-train-a-model-1"><span class="header-section-number">2.8.4</span> Select and train a model</h3>
 <p>Comparing all models to evaluate performance is the recommended starting point for modeling once the setup is completed (unless you exactly know what kind of model you need, which is often not the case). This function trains all models in the model library and scores them using k-fold cross validation for metric evaluation. The output prints a score grid that shows average MAE, MSE, RMSE,R2, RMSLE and MAPE accross the folds (10 by default) along with training time.</p>
 <p><a href="https://pycaret.gitbook.io/docs/get-started/functions/train">https://pycaret.gitbook.io/docs/get-started/functions/train</a></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:140539,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676015288528,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="428225c7-e050-4328-ad9b-a88d7dc37810">
@@ -6975,8 +6992,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-<section id="fine-tune-your-model-1" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="fine-tune-your-model-1"><span class="header-section-number">9.5</span> Fine-Tune your model</h2>
+<section id="fine-tune-your-model-1" class="level3" data-number="2.8.5">
+<h3 data-number="2.8.5" class="anchored" data-anchor-id="fine-tune-your-model-1"><span class="header-section-number">2.8.5</span> Fine-Tune your model</h3>
 <p><a href="https://pycaret.gitbook.io/docs/get-started/functions/optimize">https://pycaret.gitbook.io/docs/get-started/functions/optimize</a></p>
 <p><a href="https://pycaret.gitbook.io/docs/get-started/functions/others#automl">https://pycaret.gitbook.io/docs/get-started/functions/others#automl</a></p>
 <p><a href="https://pycaret.gitbook.io/docs/get-started/functions/optimize#ensemble_model">https://pycaret.gitbook.io/docs/get-started/functions/optimize#ensemble_model</a></p>
@@ -7145,8 +7162,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-<section id="analyze-the-model" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="analyze-the-model"><span class="header-section-number">9.6</span> Analyze the model</h2>
+<section id="analyze-the-model" class="level3" data-number="2.8.6">
+<h3 data-number="2.8.6" class="anchored" data-anchor-id="analyze-the-model"><span class="header-section-number">2.8.6</span> Analyze the model</h3>
 <p>Before model finalization, the <code>plot_model()</code> function can be used to analyze the performance across different aspects such as Residuals Plot, Prediction Error, Feature Importance etc. This function takes a trained model object and returns a plot based on the test / hold-out set.</p>
 <p>The <code>evaluate_model()</code> displays a user interface for analyzing the performance of a trained model. It calls the <code>plot_model()</code> function internally.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:620,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676015452029,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="667c4cc0-1c09-4d45-b4b5-861f39f0da3e">
@@ -7180,8 +7197,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-<section id="predict-on-test-set" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="predict-on-test-set"><span class="header-section-number">9.7</span> Predict on test set</h2>
+<section id="predict-on-test-set" class="level3" data-number="2.8.7">
+<h3 data-number="2.8.7" class="anchored" data-anchor-id="predict-on-test-set"><span class="header-section-number">2.8.7</span> Predict on test set</h3>
 <p>Before finalizing the model, it is advisable to perform one final check by predicting the test/hold-out set and reviewing the evaluation metrics.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:792,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676015460479,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="69b4b8fd-d540-4e0f-b602-a632c1a9fadb">
 <details>
@@ -7491,8 +7508,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-<section id="finalize-model" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="finalize-model"><span class="header-section-number">9.8</span> Finalize model</h2>
+<section id="finalize-model" class="level3" data-number="2.8.8">
+<h3 data-number="2.8.8" class="anchored" data-anchor-id="finalize-model"><span class="header-section-number">2.8.8</span> Finalize model</h3>
 <p>Model finalization is the last step in the experiment. A normal machine learning workflow in PyCaret starts with <code>setup()</code>, followed by comparing all models using <code>compare_models()</code> and shortlisting a few candidate models (based on the metric of interest) to perform several modeling techniques such as hyperparameter tuning, ensembling, stacking etc. This workflow will eventually lead you to the best model for use in making predictions on new and unseen data. The <code>finalize_model()</code> function fits the model onto the complete dataset including the test/hold-out sample (20% in this case). The purpose of this function is to train the model on the complete dataset before it is deployed in production.</p>
 <div class="cell">
 <details>
@@ -8039,8 +8056,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-<section id="save-and-load-the-model" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="save-and-load-the-model"><span class="header-section-number">9.9</span> Save and load the model</h2>
+<section id="save-and-load-the-model" class="level3" data-number="2.8.9">
+<h3 data-number="2.8.9" class="anchored" data-anchor-id="save-and-load-the-model"><span class="header-section-number">2.8.9</span> Save and load the model</h3>
 <p>We have now finished the experiment by finalizing the <code>tuned_lightgbm</code> model which is now stored in <code>final_lightgbm</code> variable. We have also used the model stored in <code>final_lightgbm</code> to predict <code>data_unseen</code>. This brings us to the end of our experiment, but one question is still to be asked: What happens when you have more new data to predict? Do you have to go through the entire experiment again? The answer is no, PyCaret’s inbuilt function <code>save_model()</code> allows you to save the model along with entire transformation pipeline for later use.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:736,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676016453086,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="dfebac35-89eb-4754-8005-ce68f5802d8c">
 <details>
@@ -8130,9 +8147,8 @@ google-colab 1.0.0 requires ipython~=7.9.0, but you have ipython 7.34.0 which is
 </div>
 </div>
 </section>
-</section>
-<section id="deplpy" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Deplpy</h1>
+<section id="deplpy" class="level3" data-number="2.8.10">
+<h3 data-number="2.8.10" class="anchored" data-anchor-id="deplpy"><span class="header-section-number">2.8.10</span> Deplpy</h3>
 <p><a href="https://pycaret.gitbook.io/docs/get-started/functions/deploy">https://pycaret.gitbook.io/docs/get-started/functions/deploy</a></p>
 <p><a href="https://pycaret.gitbook.io/docs/get-started/functions/others#get_config">https://pycaret.gitbook.io/docs/get-started/functions/others#get_config</a></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676016468919,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fdf51e35-fa10-4df5-9f93-10b1e4ee876e">
@@ -8188,6 +8204,7 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

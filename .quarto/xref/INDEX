@@ -22,5 +22,14 @@
   },
   "07_Deploy.ipynb": {
     "07_Deploy.html": "f51a066c"
+  },
+  "NumPy_tutorial.ipynb": {
+    "NumPy_tutorial.html": "7bb4c8de"
+  },
+  "Colab_tutorial.ipynb": {
+    "Colab_tutorial.html": "87f9230b"
+  },
+  "kaggle-explore.ipynb": {
+    "kaggle-explore.html": "0a373363"
   }
 }

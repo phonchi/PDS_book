@@ -6,3 +6,7 @@ Moreover, high-level descriptions of how to apply deep learning for computer vis
 The book is based on several well-known books and resources, including:
 
 - [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 3rd Edition](https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/)
+
+If you would like to review basics about Python, you may refer to
+
+- [Computer Programming](https://phonchi.github.io/Computer_Programming/)
