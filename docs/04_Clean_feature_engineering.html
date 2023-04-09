@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></h1>
 </div>
 
 
@@ -320,18 +320,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.1</span> Setup</h2>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install fancyimpute <span class="op">-</span>q</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install thefuzz <span class="op">-</span>q</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>pip install <span class="op">--</span>upgrade xlrd <span class="op">-</span>q</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="op">!</span>pip install category_encoders <span class="op">-</span>q</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="op">!</span>pip install cleanlab <span class="op">-</span>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Scientific computing</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">from</span> numpy.random <span class="im">import</span> multivariate_normal</span>
@@ -375,11 +370,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-41"><a href="#cb2-41"></a><span class="im">import</span> cleanlab</span>
 <span id="cb2-42"><a href="#cb2-42"></a><span class="im">from</span> cleanlab.classification <span class="im">import</span> CleanLearning</span>
 <span id="cb2-43"><a href="#cb2-43"></a><span class="im">from</span> cleanlab.benchmarking <span class="im">import</span> noise_generation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">## Make synthetic dataset for cleanlab</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>SEED <span class="op">=</span> <span class="dv">0</span></span>
@@ -468,7 +460,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-86"><a href="#cb3-86"></a>            alpha<span class="op">=</span>alpha</span>
 <span id="cb3-87"><a href="#cb3-87"></a>        )</span>
 <span id="cb3-88"><a href="#cb3-88"></a>    _ <span class="op">=</span> plt.title(title, fontsize<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="exploratory-data-analysis" class="level2" data-number="5.2">
@@ -486,61 +477,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="https://drive.google.com/uc?id=1Yo0bW4A59Se1EbE50JZMiWNueErB2eJa" alt="drawing" width="600">
 </p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Upload the API’s key JSON file to your Colab</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co"># session by running the following code in a notebook cell:</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="im">from</span> google.colab <span class="im">import</span> files</span>
 <span id="cb4-4"><a href="#cb4-4"></a>files.upload()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">!</span>mkdir <span class="op">~/</span>.kaggle</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="op">!</span>cp kaggle.json <span class="op">~/</span>.kaggle<span class="op">/</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="op">!</span>chmod <span class="dv">600</span> <span class="op">~/</span>.kaggle<span class="op">/</span>kaggle.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <blockquote class="blockquote">
 <p>In some dataset, when the first time you try to download the data, you may get a “403 Forbidden” error. That’s because you need to accept the terms associated with the dataset before you download it and click the “I Understand and Accept button”. You only need to do this once.</p>
 </blockquote>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d maxhorowitz<span class="op">/</span>nflplaybyplay2009to2016</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">!</span>unzip <span class="op">-</span>qq nflplaybyplay2009to2016</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># read in all our data</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>nfl_data <span class="op">=</span> pd.read_csv(<span class="st">"NFL Play by Play 2009-2017 (v4).csv"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="co"># set seed for reproducibility</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>np.random.seed(<span class="dv">0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The first thing to do when you get a new dataset is take a look at some of it. This lets you see that it all read in correctly and gives an idea of what’s going on with the data. In this case, let’s see if there are any missing values, which will be reprsented with <code>NaN</code> or <code>None</code>.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># look at the first five rows of the nfl_data file. </span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="co"># I can see a handful of missing data already!</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>nfl_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:289,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678677975079,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="35a6d595-254f-4275-efbe-13a5dbfebf48">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>nfl_data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>(407688, 102)</code></pre>
 </div>
@@ -550,14 +520,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="how-many-missing-data-points-do-we-have"><span class="header-section-number">5.3.2</span> How many missing data points do we have?</h3>
 <p>Ok, now we know that we do have some missing values. Let’s see how many we have in each column.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:722,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678005413,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3f95f721-c2c5-4734-b129-c04bbc44b1e6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># get the number of missing data points per column</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>missing_values_count <span class="op">=</span> nfl_data.isnull().<span class="bu">sum</span>()</span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="co"># look at the # of missing points in the first ten columns</span></span>
 <span id="cb12-5"><a href="#cb12-5"></a>missing_values_count[<span class="dv">0</span>:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Date                0
 GameID              0
@@ -573,8 +540,6 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:318,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678045091,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a4669f40-6176-4940-fa6f-0d2efc6647c1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># how many total missing values do we have?</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>total_cells <span class="op">=</span> np.product(nfl_data.shape)</span>
 <span id="cb14-3"><a href="#cb14-3"></a>total_missing <span class="op">=</span> missing_values_count.<span class="bu">sum</span>()</span>
@@ -582,7 +547,6 @@ dtype: int64</code></pre>
 <span id="cb14-5"><a href="#cb14-5"></a><span class="co"># percent of data that is missing</span></span>
 <span id="cb14-6"><a href="#cb14-6"></a>percent_missing <span class="op">=</span> (total_missing<span class="op">/</span>total_cells) <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb14-7"><a href="#cb14-7"></a><span class="bu">print</span>(percent_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>24.87214126835169</code></pre>
 </div>
@@ -596,13 +560,10 @@ dtype: int64</code></pre>
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="drop-missing-values"><span class="header-section-number">5.3.3</span> Drop missing values</h3>
 <p>If you’re sure you want to drop rows with missing values, pandas does have a handy function, <code>dropna()</code> to help you do this. Let’s try it out on our NFL dataset!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:998,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678158064,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e2667ff6-98b9-49b2-d54c-aa172f21dbb4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># remove all the rows that contain a missing value results in empty dataset</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="co"># This is because every row in our dataset had at least one missing value. </span></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="co"># We might have better luck removing all the columns that have at least one missing value instead.</span></span>
 <span id="cb16-4"><a href="#cb16-4"></a>nfl_data.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 
   <div id="df-ecb2b572-7ea1-4bd6-8893-ce6eeebbd016">
@@ -720,12 +681,9 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1442,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678178636,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0a4709d7-058b-4638-9063-5bf0fcd382cf">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># remove all columns with at least one missing value</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>columns_with_na_dropped <span class="op">=</span> nfl_data.dropna(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb17-3"><a href="#cb17-3"></a>columns_with_na_dropped.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 
   <div id="df-8170c25d-4cb2-45b0-994f-138b9152cd18">
@@ -963,12 +921,9 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:261,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678185820,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2973aec0-a86e-4f83-d3d6-2203bd9724b1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># just how much data did we lose?</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(<span class="st">"Columns in original dataset: </span><span class="sc">%d</span><span class="st"> </span><span class="ch">\n</span><span class="st">"</span> <span class="op">%</span> nfl_data.shape[<span class="dv">1</span>])</span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="bu">print</span>(<span class="st">"Columns with na's dropped: </span><span class="sc">%d</span><span class="st">"</span> <span class="op">%</span> columns_with_na_dropped.shape[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Columns in original dataset: 102 
 
@@ -978,14 +933,11 @@ Columns with na's dropped: 41</code></pre>
 <p>Notice that this can drop a lot of data that you might want to keep, particularly in smaller datasets. What if you just want to drop rows or columns that contain several or even just all null values? You specify those setting in dropna with the <code>how</code> and <code>thresh</code> parameters.</p>
 <p>By default, <code>how='any'</code>. You could alternatively specify <code>how='all'</code> so as to <strong>drop only rows or columns that contain all null values</strong>. The <code>thresh</code>parameter gives you finer-grained control: you set the number of non-null values that a row or column needs to have in order to be kept.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:286,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678214325,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6c68f4b6-cd98-49e4-9603-dccdba761c4a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df1 <span class="op">=</span> pd.DataFrame([[ <span class="dv">1</span>, np.nan, <span class="dv">7</span>], </span>
 <span id="cb20-2"><a href="#cb20-2"></a>                    [ <span class="dv">2</span>,  <span class="dv">5</span>,  <span class="dv">8</span>], </span>
 <span id="cb20-3"><a href="#cb20-3"></a>                    [ np.nan, <span class="dv">6</span>, <span class="dv">9</span>]])</span>
 <span id="cb20-4"><a href="#cb20-4"></a>df1[<span class="dv">3</span>] <span class="op">=</span> np.nan</span>
 <span id="cb20-5"><a href="#cb20-5"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 
   <div id="df-24608920-e3e7-41fb-8381-0363ec81ccae">
@@ -1106,11 +1058,8 @@ Columns with na's dropped: 41</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:343,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678228178,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f1fd53c0-c94b-4e69-dc20-6369d756390f">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># the `thresh` parameter specifies the minimum number of non-null values required in a row or column for it to be retained.</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>df1.dropna(thresh<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 
   <div id="df-f2f2eed0-e331-47ff-948c-1b084b4272e9">
@@ -1222,11 +1171,8 @@ Columns with na's dropped: 41</code></pre>
 <h3 data-number="5.3.4" class="anchored" data-anchor-id="filling-in-missing-values-automatically"><span class="header-section-number">5.3.4</span> Filling in missing values automatically</h3>
 <p>Depending on your dataset, it can sometimes make more sense to fill null values with valid ones rather than drop them. Pandas provides <code>fillna()</code>, which returns a copy of the <code>Series</code> or <code>DataFrame</code> with the missing values replaced with one of your choosing.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:276,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678273121,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7e98572f-d512-4738-b784-edd8b83cad05">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># You can fill all of the null entries with a single value, such as -9999:</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>df1.fillna(<span class="op">-</span><span class="dv">9999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 
   <div id="df-91cb42a2-eb5d-4f67-a9b3-5de71c41fac7">
@@ -1349,10 +1295,7 @@ Columns with na's dropped: 41</code></pre>
 <p>We could also replace missing values with whatever value comes directly after/before it in the same column. (This makes a lot of sense for datasets where the observations have some sort of logical order to them.)</p>
 <p>You can forward-fill null values, which is to use the last valid value to fill a null:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:303,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678298317,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="28dc1d08-fcfb-4144-dda9-e10259b79e1e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df1.fillna(method<span class="op">=</span><span class="st">'ffill'</span>, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 
   <div id="df-1d02b083-74fc-4a08-b35f-a84453b32486">
@@ -1474,10 +1417,7 @@ Columns with na's dropped: 41</code></pre>
 </div>
 <p>Backward-fill to propagate the next valid value backward to fill a null:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:260,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678318176,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="42f01a63-fdb3-4986-f29f-4695c5400773">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>df1.fillna(method<span class="op">=</span><span class="st">'bfill'</span>, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 
   <div id="df-77027e0d-8cda-433f-a59f-a735b7bdf17c">
@@ -1605,11 +1545,8 @@ Columns with na's dropped: 41</code></pre>
 <h4 data-number="5.3.5.1" class="anchored" data-anchor-id="univariate-feature-imputation"><span class="header-section-number">5.3.5.1</span> Univariate feature imputation</h4>
 <p>The <code>SimpleImputer</code> class provides basic strategies for imputing missing values. Missing values can be imputed with a provided constant value, or using the statistics (mean, median or most frequent) of each column in which the missing values are located. This class also allows for different missing values encodings.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678346080,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="88b94f7a-d6cd-4420-fed1-224ff549da6a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df2 <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>], [np.nan, <span class="dv">3</span>], [<span class="dv">7</span>, <span class="dv">6</span>]])</span>
 <span id="cb25-2"><a href="#cb25-2"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="21">
 
   <div id="df-9a649978-38dd-4e94-a126-eb375d2f872b">
@@ -1723,11 +1660,8 @@ Columns with na's dropped: 41</code></pre>
 </div>
 <p>The following snippet demonstrates how to replace missing values, encoded as <code>np.nan</code>, using the mean value of the columns that contain the missing values:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:278,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678375751,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b09b09d5-db20-4931-ff08-644bb349a87f">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>imp <span class="op">=</span> SimpleImputer(missing_values<span class="op">=</span>np.nan, strategy<span class="op">=</span><span class="st">'mean'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2"></a>imp.fit_transform(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([[1., 2.],
        [4., 3.],
@@ -1736,15 +1670,12 @@ Columns with na's dropped: 41</code></pre>
 </div>
 <p>The <code>SimpleImputer</code> class also supports categorical data represented as string values or pandas categoricals when using the <code>most_frequent</code> or <code>constant</code> strategy:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:283,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678397661,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="128d746a-96ad-4bf1-8c39-eba91c77b65e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>df2 <span class="op">=</span> pd.DataFrame([[<span class="st">"a"</span>, <span class="st">"x"</span>],</span>
 <span id="cb28-2"><a href="#cb28-2"></a>                    [np.nan, <span class="st">"y"</span>],</span>
 <span id="cb28-3"><a href="#cb28-3"></a>                    [<span class="st">"a"</span>, np.nan],</span>
 <span id="cb28-4"><a href="#cb28-4"></a>                    [<span class="st">"b"</span>, <span class="st">"y"</span>]], </span>
 <span id="cb28-5"><a href="#cb28-5"></a>                   dtype<span class="op">=</span><span class="st">"category"</span>)</span>
 <span id="cb28-6"><a href="#cb28-6"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="23">
 
   <div id="df-82416723-cd66-4ca5-a5c5-091f6b2ad062">
@@ -1862,11 +1793,8 @@ Columns with na's dropped: 41</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678410361,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9a69815c-5b73-42f9-8d3a-530be94f671c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>imp <span class="op">=</span> SimpleImputer(strategy<span class="op">=</span><span class="st">"most_frequent"</span>)</span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="bu">print</span>(imp.fit_transform(df2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[['a' 'x']
  ['a' 'y']
@@ -1879,12 +1807,9 @@ Columns with na's dropped: 41</code></pre>
 <h4 data-number="5.3.5.2" class="anchored" data-anchor-id="multivariate-feature-imputation"><span class="header-section-number">5.3.5.2</span> Multivariate feature imputation</h4>
 <p>A more sophisticated approach is to use the <code>IterativeImputer</code> class, which models each feature with missing values as a function of other features, and uses that estimate for imputation.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678452550,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5110a165-bca6-40eb-a1fe-7689ba032aaa">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>imp <span class="op">=</span> IterativeImputer(max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="co"># the model learns that the second feature is double of the first</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a>imp.fit_transform([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">6</span>], [<span class="dv">4</span>, <span class="dv">8</span>], [np.nan, <span class="dv">3</span>], [<span class="dv">7</span>, np.nan]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>array([[ 1.        ,  2.        ],
        [ 3.        ,  6.        ],
@@ -1894,13 +1819,10 @@ Columns with na's dropped: 41</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:264,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678492552,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="565b336b-fb67-4b23-ee29-753ce0de1f03">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a> <span class="co"># You can also use other regressor as well (default is BayesianRidge())</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a> est <span class="op">=</span> ExtraTreesRegressor(n_estimators<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb33-3"><a href="#cb33-3"></a> imp <span class="op">=</span> IterativeImputer(max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">0</span>, estimator<span class="op">=</span>est)</span>
 <span id="cb33-4"><a href="#cb33-4"></a> imp.fit_transform([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">6</span>], [<span class="dv">4</span>, <span class="dv">8</span>], [np.nan, <span class="dv">3</span>], [<span class="dv">7</span>, np.nan]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>array([[1. , 2. ],
        [3. , 6. ],
@@ -1912,12 +1834,9 @@ Columns with na's dropped: 41</code></pre>
 <p>The <code>KNNImputer</code> class provides imputation for filling in missing values using the k-Nearest Neighbors approach. By default, a euclidean distance metric that supports missing values, <code>nan_euclidean_distances</code>, is used to find the nearest neighbors. Each missing feature is imputed using values from <code>n_neighbors</code> nearest neighbors that have a value for the feature. The feature of the neighbors are averaged uniformly or weighted by distance to each neighbor.</p>
 <p>The following snippet demonstrates how to replace missing values, encoded as <code>np.nan</code>, using the mean feature value of the two nearest neighbors of samples with missing values:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:264,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678511053,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4481eb90-4bdb-4c2f-8781-f7fb2c9db60b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>X <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, np.nan], [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>], [np.nan, <span class="dv">6</span>, <span class="dv">5</span>], [<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">7</span>]]</span>
 <span id="cb35-2"><a href="#cb35-2"></a>imputer <span class="op">=</span> KNNImputer(n_neighbors<span class="op">=</span><span class="dv">2</span>, weights<span class="op">=</span><span class="st">"uniform"</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a>imputer.fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>array([[1. , 2. , 4. ],
        [3. , 4. , 3. ],
@@ -1927,10 +1846,7 @@ Columns with na's dropped: 41</code></pre>
 </div>
 <p>if you wishes to apply matrix completion to your data, you can use functions from <a href="https://github.com/iskandr/fancyimpute"><code>fancyimpute</code></a></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:283,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678601117,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3f94aca0-986f-4144-de69-ad8ec15d2ee8">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>SoftImpute().fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[SoftImpute] Max Singular Value of X_init = 16.044670
 [SoftImpute] Iter 1: observed MAE=0.129498 rank=3
@@ -2004,12 +1920,9 @@ Columns with na's dropped: 41</code></pre>
 <p>In addition to missing data, you will often encounter duplicated data in real-world datasets. Fortunately, <code>pandas</code> provides an easy means of detecting and removing duplicate entries.</p>
 <p>You can easily spot duplicate values using the <code>duplicated()</code> method in <code>pandas</code>, which returns a Boolean mask indicating whether an entry in a DataFrame is a duplicate of an earlier one. Let’s create another example <code>DataFrame</code> to see this in action.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:286,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678642594,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="48db6e0c-02eb-41c9-84b3-c965c67b9b8a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>df3 <span class="op">=</span> pd.DataFrame({<span class="st">'letters'</span>: [<span class="st">'A'</span>,<span class="st">'B'</span>] <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> [<span class="st">'B'</span>],</span>
 <span id="cb40-2"><a href="#cb40-2"></a>                    <span class="st">'numbers'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>]})</span>
 <span id="cb40-3"><a href="#cb40-3"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="29">
 
   <div id="df-d49ee1eb-2a7f-4091-8f76-4a4026e0a44f">
@@ -2132,10 +2045,7 @@ Columns with na's dropped: 41</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:287,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678656573,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="81e94277-dc55-445a-807b-a6b22d010b2d">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df3.duplicated()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>0    False
 1    False
@@ -2147,10 +2057,7 @@ dtype: bool</code></pre>
 </div>
 <p><code>drop_duplicates()</code> will simply returns a copy of the data for which all of the duplicated values are False:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:280,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678674468,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="eec889ed-5f88-4ab2-a76f-71be356c877c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>df3.drop_duplicates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="31">
 
   <div id="df-892d9cec-a640-4172-9427-6e02904c2b85">
@@ -2264,10 +2171,7 @@ dtype: bool</code></pre>
 </div>
 <p>Both <code>duplicated()</code> and <code>drop_duplicates()</code> default to consider all columns but you can specify that they examine only a subset of columns in your DataFrame:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:276,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678695603,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2cee7caa-6b4a-40f9-ab79-736fc85a207c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>df3.drop_duplicates([<span class="st">'letters'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="32">
 
   <div id="df-d7f343c5-20e7-4cf8-8b57-6f283d297e60">
@@ -2379,11 +2283,8 @@ dtype: bool</code></pre>
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="inconsistent-data-entry"><span class="header-section-number">5.4.2</span> Inconsistent data entry</h3>
 <p>We will use the dataset that is modified from https://www.kaggle.com/datasets/zusmani/pakistanintellectualcapitalcs.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1201,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678704614,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a4581b7b-9985-46f6-c5e4-7d8e535b0b82">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d alexisbcook<span class="op">/</span>pakistan<span class="op">-</span>intellectual<span class="op">-</span>capital</span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="op">!</span>unzip <span class="op">-</span>qq pakistan<span class="op">-</span>intellectual<span class="op">-</span>capital.<span class="bu">zip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading pakistan-intellectual-capital.zip to /content
   0% 0.00/47.8k [00:00&lt;?, ?B/s]
@@ -2391,17 +2292,11 @@ dtype: bool</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># read in all our data</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>professors <span class="op">=</span> pd.read_csv(<span class="st">"pakistan_intellectual_capital.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:289,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678714659,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="410ce7f9-f5de-4544-eafd-6543038edd3a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>professors.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="35">
 
   <div id="df-da810ac5-745e-4985-be89-365a8c6f5e0a">
@@ -2591,15 +2486,12 @@ dtype: bool</code></pre>
 </div>
 <p>Say we’re interested in cleaning up the <code>Country</code> column to make sure there’s no data entry inconsistencies in it. We could go through and check each row by hand, of course, and hand-correct inconsistencies when we find them. There’s a more efficient way to do this, though!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:263,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678737430,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2a821932-68bc-4854-8a5e-103a9ae74720">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># get all the unique values in the 'Country' column</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>countries <span class="op">=</span> professors[<span class="st">'Country'</span>].unique()</span>
 <span id="cb49-3"><a href="#cb49-3"></a></span>
 <span id="cb49-4"><a href="#cb49-4"></a><span class="co"># sort them and then take a closer look</span></span>
 <span id="cb49-5"><a href="#cb49-5"></a>countries.sort()</span>
 <span id="cb49-6"><a href="#cb49-6"></a>countries</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>array([' Germany', ' New Zealand', ' Sweden', ' USA', 'Australia',
        'Austria', 'Canada', 'China', 'Finland', 'France', 'Greece',
@@ -2614,28 +2506,22 @@ dtype: bool</code></pre>
 <p>Just looking at this, we can see some problems due to inconsistent data entry: ’ Germany’, and ‘germany’, for example, or ’ New Zealand’ (start wirh whitespace) and ‘New Zealand’.</p>
 <p>The first thing we are going to do is make everything lower case (we can change it back at the end if we like) and remove any white spaces at the beginning and end of cells. <strong>Inconsistencies in capitalizations and trailing white spaces are very common in text data and you can fix a good 80% of your text data entry inconsistencies by doing this.</strong></p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># convert to lower case</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>professors[<span class="st">'Country'</span>] <span class="op">=</span> professors[<span class="st">'Country'</span>].<span class="bu">str</span>.lower()</span>
 <span id="cb51-3"><a href="#cb51-3"></a><span class="co"># remove trailing white spaces</span></span>
 <span id="cb51-4"><a href="#cb51-4"></a>professors[<span class="st">'Country'</span>] <span class="op">=</span> professors[<span class="st">'Country'</span>].<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Note that <code>.str()</code> provide vectorized method for columns. See https://realpython.com/python-data-cleaning-numpy-pandas/#tidying-up-fields-in-the-data for more details.</p>
 <section id="use-fuzzy-matching-to-correct-inconsistent-data-entry" class="level4" data-number="5.4.2.1">
 <h4 data-number="5.4.2.1" class="anchored" data-anchor-id="use-fuzzy-matching-to-correct-inconsistent-data-entry"><span class="header-section-number">5.4.2.1</span> Use fuzzy matching to correct inconsistent data entry</h4>
 <p>Alright, let’s take another look at the <code>Country</code> column and see if there’s any more data cleaning we need to do</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:372,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678826606,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f2c5fdba-0225-4273-e84c-943507c7eb1b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># get all the unique values in the 'Country' column</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>countries <span class="op">=</span> professors[<span class="st">'Country'</span>].unique()</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
 <span id="cb52-4"><a href="#cb52-4"></a><span class="co"># sort them and then take a closer look</span></span>
 <span id="cb52-5"><a href="#cb52-5"></a>countries.sort()</span>
 <span id="cb52-6"><a href="#cb52-6"></a>countries</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>array(['australia', 'austria', 'canada', 'china', 'finland', 'france',
        'germany', 'greece', 'hongkong', 'ireland', 'italy', 'japan',
@@ -2649,14 +2535,11 @@ dtype: bool</code></pre>
 <p>It does look like there is another inconsistency: ‘southkorea’ and ‘south korea’ should be the same. We’re going to use the <a href="https://github.com/seatgeek/thefuzz"><code>thefuzz</code></a> package to help identify which strings are closest to each other. This dataset is small enough that we could probably correct errors by hand, but that approach doesn’t scale well. (Would you want to correct a thousand errors by hand? What about ten thousand? Automating things as early as possible is generally a good idea!)</p>
 <p><code>thefuzz</code> returns a ratio given two strings. The closer the ratio is to 100, the smaller the edit distance between the two strings. Here, we’re going to get the ten strings from our list of cities that have the closest distance to “south korea”</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678884471,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d99b09d6-27f8-4026-8ea2-5e620e5b0802">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># get the top 10 closest matches to "south korea"</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>matches <span class="op">=</span> process.extract(<span class="st">"south korea"</span>, countries, limit<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb54-3"><a href="#cb54-3"></a></span>
 <span id="cb54-4"><a href="#cb54-4"></a><span class="co"># take a look at them</span></span>
 <span id="cb54-5"><a href="#cb54-5"></a>matches</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>[('south korea', 100),
  ('southkorea', 95),
@@ -2673,8 +2556,6 @@ dtype: bool</code></pre>
 <p>We can see that two of the items in the cities are very close to “south korea”: “south korea” and “southkorea”. Let’s replace all rows in our “Country” column that have a score &gt; 90 with “south korea”.</p>
 <p>To do this, we are going to write a function.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># function to replace rows in the provided column of the provided dataframe</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="co"># that match the provided string above the provided ratio with the provided string</span></span>
 <span id="cb56-3"><a href="#cb56-3"></a><span class="kw">def</span> replace_matches_in_column(df, column, string_to_match, min_ratio <span class="op">=</span> <span class="dv">90</span>):</span>
@@ -2695,30 +2576,23 @@ dtype: bool</code></pre>
 <span id="cb56-18"><a href="#cb56-18"></a>    </span>
 <span id="cb56-19"><a href="#cb56-19"></a>    <span class="co"># let us know the function's done</span></span>
 <span id="cb56-20"><a href="#cb56-20"></a>    <span class="bu">print</span>(<span class="st">"All done!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Now that we have a function, we can put it to the test!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:414,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678917417,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c3555811-a4fb-42dd-a36c-2361d56d3cbb">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># use the function we just wrote to replace close matches to "south korea" with "south korea"</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>replace_matches_in_column(df<span class="op">=</span>professors, column<span class="op">=</span><span class="st">'Country'</span>, string_to_match<span class="op">=</span><span class="st">"south korea"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>All done!</code></pre>
 </div>
 </div>
 <p>And now let’s check the unique values in our “Country” column again and make sure we’ve tidied up “south korea” correctly.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:267,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678922077,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c4d9eee2-98f5-4ac5-8079-c233744ff932">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># get all the unique values in the 'Country' column</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a>countries <span class="op">=</span> professors[<span class="st">'Country'</span>].unique()</span>
 <span id="cb59-3"><a href="#cb59-3"></a></span>
 <span id="cb59-4"><a href="#cb59-4"></a><span class="co"># sort them alphabetically and then take a closer look</span></span>
 <span id="cb59-5"><a href="#cb59-5"></a>countries.sort()</span>
 <span id="cb59-6"><a href="#cb59-6"></a>countries</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>array(['australia', 'austria', 'canada', 'china', 'finland', 'france',
        'germany', 'greece', 'hongkong', 'ireland', 'italy', 'japan',
@@ -2736,61 +2610,46 @@ dtype: bool</code></pre>
 <h3 data-number="5.4.3" class="anchored" data-anchor-id="character-encoding"><span class="header-section-number">5.4.3</span> Character encoding</h3>
 <p>There are two main data types you’ll encounter when working with text in Python 3. One is is the <code>string</code>, which is what text is by default.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:280,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678954167,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a6e81e3d-9783-41a6-b99a-f80c5f18ea99">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># start with a string</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a>before <span class="op">=</span> <span class="st">"This is the euro symbol: €"</span></span>
 <span id="cb61-3"><a href="#cb61-3"></a></span>
 <span id="cb61-4"><a href="#cb61-4"></a><span class="co"># check to see what datatype it is</span></span>
 <span id="cb61-5"><a href="#cb61-5"></a><span class="bu">type</span>(before)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>str</code></pre>
 </div>
 </div>
 <p>The other data is the <a href="https://docs.python.org/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview">bytes</a> data type, which is a sequence of integers. You can convert a <code>string</code> into <code>bytes</code> by specifying which encoding it’s in:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:258,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678971381,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5df98627-b96c-4e68-f516-dcf643ffec49">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># encode it to a different encoding, replacing characters that raise errors</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a>after <span class="op">=</span> before.encode(<span class="st">"utf-8"</span>, errors<span class="op">=</span><span class="st">"replace"</span>)</span>
 <span id="cb63-3"><a href="#cb63-3"></a></span>
 <span id="cb63-4"><a href="#cb63-4"></a><span class="co"># check the type</span></span>
 <span id="cb63-5"><a href="#cb63-5"></a><span class="bu">type</span>(after)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>bytes</code></pre>
 </div>
 </div>
 <p>If you look at a <code>bytes</code> object, you’ll see that it has a <code>b</code> in front of it, and then maybe some text after. <strong>That’s because bytes are printed out as if they were characters encoded in UTF-8</strong>. Here you can see that our euro symbol has been replaced with some mojibake that looks like “” when it’s printed as if it were an UTF-8 string</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:296,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678975485,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9d7d91e2-05ea-4190-ab70-97136ec616d3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># take a look at what the bytes look like</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a>after</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>b'This is the euro symbol: \xe2\x82\xac'</code></pre>
 </div>
 </div>
 <p>When we convert our <code>bytes</code> back to a <code>string</code> with the correct encoding, we can see that our text is all there correctly, which is great! :)</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678991484,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5ffe7203-662a-4f76-b49e-a8a10e211f7d">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># convert it back to utf-8</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="bu">print</span>(after.decode(<span class="st">"utf-8"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>This is the euro symbol: €</code></pre>
 </div>
 </div>
 <p>However, when we try to use a different encoding to map our bytes into a string, we get an error. This is because the encoding we’re trying to use doesn’t know what to do with the <code>bytes</code> we’re trying to pass it. You need to tell Python the encoding that the byte string is actually supposed to be in</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;error&quot;,&quot;timestamp&quot;:1678678998998,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="662396c8-aa16-4279-a821-18a83734ddae">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># try to decode our bytes with the ascii encoding</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="bu">print</span>(after.decode(<span class="st">"ascii"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-error">
 <pre><code>UnicodeDecodeError: ignored</code></pre>
 </div>
@@ -2801,11 +2660,8 @@ dtype: bool</code></pre>
 <h3 data-number="5.4.4" class="anchored" data-anchor-id="reading-in-files-with-encoding-problems"><span class="header-section-number">5.4.4</span> Reading in files with encoding problems</h3>
 <p>Most files you’ll encounter will probably be encoded with UTF-8. This is what Python expects by default, so most of the time you won’t run into problems. However, sometimes you’ll get an error like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2739,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679026492,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e86a2aef-092b-4039-a363-5363f59ba4ac">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d kemical<span class="op">/</span>kickstarter<span class="op">-</span>projects</span>
 <span id="cb71-2"><a href="#cb71-2"></a><span class="op">!</span>unzip <span class="op">-</span>qq kickstarter<span class="op">-</span>projects.<span class="bu">zip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading kickstarter-projects.zip to /content
  68% 25.0M/36.8M [00:00&lt;00:00, 128MB/s] 
@@ -2813,11 +2669,8 @@ dtype: bool</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:312,&quot;status&quot;:&quot;error&quot;,&quot;timestamp&quot;:1678679033531,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="79d0d063-1818-40be-9373-ead0b2c22f52">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># try to read in a file not in UTF-8</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>kickstarter_2016 <span class="op">=</span> pd.read_csv(<span class="st">"ks-projects-201612.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-error">
 <pre><code>UnicodeDecodeError: ignored</code></pre>
 </div>
@@ -2825,29 +2678,23 @@ dtype: bool</code></pre>
 <p>Notice that we get the same <code>UnicodeDecodeError</code> we got when we tried to decode UTF-8 bytes! <strong>This tells us that this file isn’t actually UTF-8</strong>. We don’t know what encoding it actually <em>is</em> though. One way to figure it out is to try and test a bunch of different character encodings and see if any of them work. A better way, though, is to use the <a href="https://github.com/chardet/chardet"><code>chardet</code></a> module to try and automatically guess what the right encoding is. It’s not 100% guaranteed to be right, but it’s usually faster than just trying to guess.</p>
 <p>We are going to just look at the first ten thousand bytes of this file. This is usually enough for a good guess about what the encoding is and is much faster than trying to look at the whole file. (Especially with a large file this can be very slow.)</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:258,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679076382,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5abb6a47-2755-488e-9dd0-1738195a2100">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># look at the first ten thousand bytes to guess the character encoding</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"ks-projects-201612.csv"</span>, <span class="st">'rb'</span>) <span class="im">as</span> rawdata:</span>
 <span id="cb75-3"><a href="#cb75-3"></a>    result <span class="op">=</span> chardet.detect(rawdata.read(<span class="dv">10000</span>))</span>
 <span id="cb75-4"><a href="#cb75-4"></a></span>
 <span id="cb75-5"><a href="#cb75-5"></a><span class="co"># check what the character encoding might be</span></span>
 <span id="cb75-6"><a href="#cb75-6"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'encoding': 'Windows-1252', 'confidence': 0.73, 'language': ''}</code></pre>
 </div>
 </div>
 <p>So chardet is 73% confidence that the right encoding is “Windows-1252”. Let’s see if that’s correct:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1926,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679094834,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c9fecaa7-e693-4b1b-b860-20e433922c5a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># read in the file with the encoding detected by chardet</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>kickstarter_2016 <span class="op">=</span> pd.read_csv(<span class="st">"ks-projects-201612.csv"</span>, encoding<span class="op">=</span><span class="st">'Windows-1252'</span>)</span>
 <span id="cb77-3"><a href="#cb77-3"></a></span>
 <span id="cb77-4"><a href="#cb77-4"></a><span class="co"># look at the first few lines</span></span>
 <span id="cb77-5"><a href="#cb77-5"></a>kickstarter_2016.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/IPython/core/interactiveshell.py:3326: DtypeWarning: Columns (13,14,15) have mixed types.Specify dtype option on import or set low_memory=False.
   exec(code_obj, self.user_global_ns, self.user_ns)</code></pre>
@@ -3070,19 +2917,13 @@ dtype: bool</code></pre>
 <h3 data-number="5.4.5" class="anchored" data-anchor-id="saving-your-files-with-utf-8-encoding"><span class="header-section-number">5.4.5</span> Saving your files with UTF-8 encoding</h3>
 <p>Finally, once you’ve gone through all the trouble of getting your file into UTF-8, you’ll probably want to keep it that way. The easiest way to do that is to save your files with UTF-8 encoding. The good news is, since UTF-8 is the standard encoding in Python, when you save a file it will be saved as UTF-8 by default:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># save our file (will be saved as UTF-8 by default!)</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>kickstarter_2016.to_csv(<span class="st">"ks-projects-201612-utf8.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1888,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679108610,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7b224936-75ab-4269-b662-7ae8e90f790d">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># try to read in a file not in UTF-8</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a>kickstarter_2016 <span class="op">=</span> pd.read_csv(<span class="st">"ks-projects-201612-utf8.csv"</span>)</span>
 <span id="cb80-3"><a href="#cb80-3"></a>kickstarter_2016.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/IPython/core/interactiveshell.py:3326: DtypeWarning: Columns (14,15,16) have mixed types.Specify dtype option on import or set low_memory=False.
   exec(code_obj, self.user_global_ns, self.user_ns)</code></pre>
@@ -3312,18 +3153,12 @@ dtype: bool</code></pre>
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="standardization"><span class="header-section-number">5.5.1</span> Standardization</h3>
 <p>By scaling your variables, you can help compare different variables on equal footing. The <a href="https://scikit-learn.org/stable/modules/preprocessing.html"><code>preprocessing</code></a> module provides the <code>StandardScaler</code> utility class, which is a quick and easy way to perform the following operation on an array-like dataset.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Uncpmment below if you are using Kaggle</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a><span class="co">#!pip install gdown</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3107,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679157201,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1dbaefb6-1719-4896-dea2-5af1e16ebf7c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">HEcKRMe_bpgmQH3vFlRZVDF_gAzYGETE</span><span class="op">/</span>view?usp<span class="op">=</span>sharing <span class="co"># use --fuzzy so that it directly accept link from google drive </span></span>
 <span id="cb83-2"><a href="#cb83-2"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">GQ1z0</span><span class="op">-</span>aRPCzMQTcc1ckDgwkiF<span class="op">-</span>GNP_t3<span class="op">/</span>view?usp<span class="op">=</span>sharing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading...
 From: https://drive.google.com/uc?id=1HEcKRMe_bpgmQH3vFlRZVDF_gAzYGETE
@@ -3336,8 +3171,6 @@ To: /content/test_preprocessed.csv
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:299,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679172201,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0ff730d1-2a6e-4a01-deab-2d794b669ace">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>train <span class="op">=</span> pd.read_csv(<span class="st">'train_preprocessed.csv'</span>)</span>
 <span id="cb85-2"><a href="#cb85-2"></a>train_x <span class="op">=</span> train.drop([<span class="st">'target'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb85-3"><a href="#cb85-3"></a>train_y <span class="op">=</span> train[<span class="st">'target'</span>]</span>
@@ -3350,7 +3183,6 @@ To: /content/test_preprocessed.csv
 <span id="cb85-10"><a href="#cb85-10"></a>    <span class="cf">return</span> train_x, test_x</span>
 <span id="cb85-11"><a href="#cb85-11"></a></span>
 <span id="cb85-12"><a href="#cb85-12"></a>train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="55">
 
   <div id="df-f97b44d2-9b6a-4aa7-9e39-14feb6c2c23a">
@@ -3732,36 +3564,24 @@ To: /content/test_preprocessed.csv
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>num_cols <span class="op">=</span> [<span class="st">'age'</span>, <span class="st">'height'</span>, <span class="st">'weight'</span>, <span class="st">'amount'</span>,</span>
 <span id="cb86-2"><a href="#cb86-2"></a>            <span class="st">'medical_info_a1'</span>, <span class="st">'medical_info_a2'</span>, <span class="st">'medical_info_a3'</span>, <span class="st">'medical_info_b1'</span>] <span class="co"># some numerical columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679220941,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c9e6139d-1169-4bad-f6d3-4a260cd86fd5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>train_x, test_x <span class="op">=</span> load_data()</span>
 <span id="cb87-2"><a href="#cb87-2"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb87-3"><a href="#cb87-3"></a>scaler.fit(train_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>StandardScaler()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div>
 </div>
 </div>
 <p>Notice that <strong>you should apply the same transfrom</strong> on both training and testing dataset.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a>train_x[num_cols] <span class="op">=</span> scaler.transform(train_x[num_cols])</span>
 <span id="cb88-2"><a href="#cb88-2"></a>test_x[num_cols] <span class="op">=</span> scaler.transform(test_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:267,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679251034,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="34a25dba-ee94-4821-9ece-0a12cd2f086e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>scaler.mean_,  scaler.scale_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>(array([4.20265000e+01, 1.65892951e+02, 6.08570495e+01, 3.84084370e+06,
         2.99101200e+02, 2.49454700e+02, 1.98780000e+00, 1.44192000e+01]),
@@ -3771,10 +3591,7 @@ To: /content/test_preprocessed.csv
 </div>
 <p>Scaled data has zero mean and unit variance:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:297,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679261472,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7f0072b8-1d02-4da7-f249-a2a529314d88">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>train_x[num_cols].mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>age                6.679102e-17
 height            -2.836842e-15
@@ -3788,10 +3605,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:400,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679262254,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1036f2a7-b30b-4c1e-d6e6-7de834db5d33">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>train_x[num_cols].std(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="62">
 <pre><code>age                1.00005
 height             1.00005
@@ -3810,27 +3624,18 @@ dtype: float64</code></pre>
 <h3 data-number="5.5.2" class="anchored" data-anchor-id="scaling"><span class="header-section-number">5.5.2</span> Scaling</h3>
 <p>An alternative standardization is scaling features to lie between a given minimum and maximum value, often between zero and one.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:365,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679273263,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="31b351b0-8ee1-4f6b-f473-e9aa9c7bffc1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span>
 <span id="cb95-2"><a href="#cb95-2"></a>scaler.fit(train_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="63">
 <style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>MinMaxScaler()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked=""><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">MinMaxScaler</label><div class="sk-toggleable__content"><pre>MinMaxScaler()</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a>train_x[num_cols] <span class="op">=</span> scaler.transform(train_x[num_cols])</span>
 <span id="cb96-2"><a href="#cb96-2"></a>test_x[num_cols] <span class="op">=</span> scaler.transform(test_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679282999,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d7c03eb0-4b86-4735-f04f-ecc32882dd1c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>train_x[num_cols].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="65">
 
   <div id="df-6cceb57a-1fd2-42fd-8ed9-2be376f22f88">
@@ -4026,53 +3831,35 @@ dtype: float64</code></pre>
 <section id="logarithm-transform-and-binning" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="logarithm-transform-and-binning"><span class="header-section-number">5.5.3</span> Logarithm transform and binning</h3>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>x <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">10.0</span>, <span class="fl">100.0</span>, <span class="fl">1000.0</span>, <span class="fl">10000.0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:279,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679311064,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3d185477-fcbd-4671-dbb6-a362af4a9a7b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>np.log(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="67">
 <pre><code>array([0.        , 2.30258509, 4.60517019, 6.90775528, 9.21034037])</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:267,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679328342,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ff977af2-7a23-4add-9ef0-c778e5f57f0b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># If your data contains zero value, try to plus one first</span></span>
 <span id="cb101-2"><a href="#cb101-2"></a>np.log1p(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>array([0.69314718, 2.39789527, 4.61512052, 6.90875478, 9.21044037])</code></pre>
 </div>
 </div>
 <p>Binning allows you to transform numerical variable to categorical variable</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:268,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679350767,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3f909950-1d27-4952-d6d1-2fd381103e26">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>bin_edges <span class="op">=</span> [<span class="op">-</span><span class="bu">float</span>(<span class="st">'inf'</span>), <span class="fl">3.0</span>, <span class="fl">5.0</span>, <span class="bu">float</span>(<span class="st">'inf'</span>)]</span>
 <span id="cb104-2"><a href="#cb104-2"></a>binned <span class="op">=</span> pd.cut(x, bin_edges, labels<span class="op">=</span><span class="va">False</span>, retbins<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb104-3"><a href="#cb104-3"></a><span class="bu">print</span>(binned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>(array([0, 2, 1, 1, 2, 0]), array([-inf,   3.,   5.,  inf]))</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:250,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679360211,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d10b87b1-158d-4362-af40-60a33f3ba848">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a>binned </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="71">
 <pre><code>(array([0, 2, 1, 1, 2, 0]), array([-inf,   3.,   5.,  inf]))</code></pre>
 </div>
@@ -4081,38 +3868,24 @@ dtype: float64</code></pre>
 <section id="power-transfrom" class="level3" data-number="5.5.4">
 <h3 data-number="5.5.4" class="anchored" data-anchor-id="power-transfrom"><span class="header-section-number">5.5.4</span> Power transfrom</h3>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>train_x, test_x <span class="op">=</span> load_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Box-cox transform only works for postive data</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>pos_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> num_cols <span class="cf">if</span> (train_x[c] <span class="op">&gt;</span> <span class="fl">0.0</span>).<span class="bu">all</span>() <span class="kw">and</span> (test_x[c] <span class="op">&gt;</span> <span class="fl">0.0</span>).<span class="bu">all</span>()] <span class="co"># List comprehension which is similar to set-builder notation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:290,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679391532,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c67baf6b-f538-43c2-93c4-ca7df21a3142">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a>pt <span class="op">=</span> PowerTransformer(method<span class="op">=</span><span class="st">'box-cox'</span>)</span>
 <span id="cb110-2"><a href="#cb110-2"></a>pt.fit(train_x[pos_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="74">
 <style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>PowerTransformer(method='box-cox')</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked=""><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">PowerTransformer</label><div class="sk-toggleable__content"><pre>PowerTransformer(method='box-cox')</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>train_x[pos_cols] <span class="op">=</span> pt.transform(train_x[pos_cols])</span>
 <span id="cb111-2"><a href="#cb111-2"></a>test_x[pos_cols] <span class="op">=</span> pt.transform(test_x[pos_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:903,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679395526,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e2a0d0c2-a8dc-4feb-b30e-ecbadec1a02d">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
 <span id="cb112-2"><a href="#cb112-2"></a>original_data <span class="op">=</span> rng.lognormal(size<span class="op">=</span>(<span class="dv">1000</span>,<span class="dv">1</span>))</span>
 <span id="cb112-3"><a href="#cb112-3"></a>pt <span class="op">=</span> PowerTransformer(method<span class="op">=</span><span class="st">'box-cox'</span>)</span>
@@ -4124,37 +3897,25 @@ dtype: float64</code></pre>
 <span id="cb112-9"><a href="#cb112-9"></a>sns.histplot(transformed_data, ax<span class="op">=</span>ax[<span class="dv">1</span>], kde<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb112-10"><a href="#cb112-10"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Transformed data"</span>)</span>
 <span id="cb112-11"><a href="#cb112-11"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="04_Clean_feature_engineering_files/figure-html/cell-77-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>train_x, test_x <span class="op">=</span> load_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679403834,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c8078d0f-2c72-4c36-fa8a-4f99a4d56236">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1"></a>pt <span class="op">=</span> PowerTransformer(method<span class="op">=</span><span class="st">'yeo-johnson'</span>)</span>
 <span id="cb114-2"><a href="#cb114-2"></a>pt.fit(train_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="78">
 <style>#sk-container-id-5 {color: black;background-color: white;}#sk-container-id-5 pre{padding: 0;}#sk-container-id-5 div.sk-toggleable {background-color: white;}#sk-container-id-5 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-5 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-5 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-5 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-5 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-5 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-5 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-5 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-5 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-5 div.sk-item {position: relative;z-index: 1;}#sk-container-id-5 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-5 div.sk-item::before, #sk-container-id-5 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-5 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-5 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-5 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-5 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-5 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-5 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-5 div.sk-label-container {text-align: center;}#sk-container-id-5 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-5 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>PowerTransformer()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked=""><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">PowerTransformer</label><div class="sk-toggleable__content"><pre>PowerTransformer()</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>train_x[num_cols] <span class="op">=</span> pt.transform(train_x[num_cols])</span>
 <span id="cb115-2"><a href="#cb115-2"></a>test_x[num_cols] <span class="op">=</span> pt.transform(test_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:828,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679408331,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ee5440d7-2460-43ac-cee5-59605d58d17b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
 <span id="cb116-2"><a href="#cb116-2"></a>original_data <span class="op">=</span> rng.lognormal(size<span class="op">=</span>(<span class="dv">1000</span>,<span class="dv">1</span>))</span>
 <span id="cb116-3"><a href="#cb116-3"></a>pt <span class="op">=</span> PowerTransformer(method<span class="op">=</span><span class="st">'yeo-johnson'</span>)</span>
@@ -4166,7 +3927,6 @@ dtype: float64</code></pre>
 <span id="cb116-9"><a href="#cb116-9"></a>sns.histplot(transformed_data, ax<span class="op">=</span>ax[<span class="dv">1</span>], kde<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb116-10"><a href="#cb116-10"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Transformed data"</span>)</span>
 <span id="cb116-11"><a href="#cb116-11"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="04_Clean_feature_engineering_files/figure-html/cell-81-output-1.png" class="img-fluid"></p>
 </div>
@@ -4175,11 +3935,8 @@ dtype: float64</code></pre>
 <section id="quantile-transfrom" class="level3" data-number="5.5.5">
 <h3 data-number="5.5.5" class="anchored" data-anchor-id="quantile-transfrom"><span class="header-section-number">5.5.5</span> Quantile transfrom</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:284,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679414070,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d9d9eb05-70b6-417e-8660-eb1057278d9c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>transformer <span class="op">=</span> QuantileTransformer(n_quantiles<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">0</span>, output_distribution<span class="op">=</span><span class="st">'normal'</span>)</span>
 <span id="cb117-2"><a href="#cb117-2"></a>transformer.fit(train_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="81">
 <style>#sk-container-id-6 {color: black;background-color: white;}#sk-container-id-6 pre{padding: 0;}#sk-container-id-6 div.sk-toggleable {background-color: white;}#sk-container-id-6 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-6 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-6 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-6 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-6 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-6 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-6 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-6 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-6 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-6 div.sk-item {position: relative;z-index: 1;}#sk-container-id-6 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-6 div.sk-item::before, #sk-container-id-6 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-6 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-6 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-6 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-6 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-6 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-6 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-6 div.sk-label-container {text-align: center;}#sk-container-id-6 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-6 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>QuantileTransformer(n_quantiles=100, output_distribution='normal',
                     random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked=""><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">QuantileTransformer</label><div class="sk-toggleable__content"><pre>QuantileTransformer(n_quantiles=100, output_distribution='normal',
@@ -4187,8 +3944,6 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:981,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679426900,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ec5782fc-dc36-4638-b1f3-e310a8dcc6e7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
 <span id="cb118-2"><a href="#cb118-2"></a>original_data <span class="op">=</span> rng.lognormal(size<span class="op">=</span>(<span class="dv">1000</span>,<span class="dv">1</span>))</span>
 <span id="cb118-3"><a href="#cb118-3"></a>transformer <span class="op">=</span> QuantileTransformer(n_quantiles<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">0</span>, output_distribution<span class="op">=</span><span class="st">'normal'</span>)</span>
@@ -4200,7 +3955,6 @@ dtype: float64</code></pre>
 <span id="cb118-9"><a href="#cb118-9"></a>sns.histplot(transformed_data, ax<span class="op">=</span>ax[<span class="dv">1</span>], kde<span class="op">=</span><span class="va">True</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb118-10"><a href="#cb118-10"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Transformed data"</span>)</span>
 <span id="cb118-11"><a href="#cb118-11"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="04_Clean_feature_engineering_files/figure-html/cell-83-output-1.png" class="img-fluid"></p>
 </div>
@@ -4213,17 +3967,11 @@ dtype: float64</code></pre>
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="one-hot-encoding"><span class="header-section-number">5.6.1</span> One-hot encoding</h3>
 <p>One possibility to convert categorical features to features that can be used with <code>scikit-learn</code> estimators is to use a one-of-K, also known as one-hot or dummy encoding. This type of encoding can be obtained with the <code>OneHotEncoder</code>, which transforms each categorical feature with <code>n_categories</code> possible values into <code>n_categories</code> binary features, with one of them 1, and all others 0.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>enc <span class="op">=</span> OneHotEncoder(drop<span class="op">=</span><span class="va">None</span>, handle_unknown<span class="op">=</span><span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679495337,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="92b02e76-d0cb-47d1-cd51-b5013afed4fb">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1"></a>X <span class="op">=</span> pd.DataFrame(np.array([[<span class="st">'male'</span>, <span class="st">'from US'</span>, <span class="st">'uses Safari'</span>], [<span class="st">'female'</span>, <span class="st">'from Europe'</span>, <span class="st">'uses Firefox'</span>], [<span class="st">'female'</span>, <span class="st">'from Europe'</span>, <span class="st">'uses Chrome'</span>]]), columns<span class="op">=</span>[<span class="st">'gender'</span>, <span class="st">'locations'</span>, <span class="st">'browsers'</span>])</span>
 <span id="cb120-2"><a href="#cb120-2"></a>X.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="84">
 
   <div id="df-53ca857c-c51d-4224-bbdf-c7655bbb92b7">
@@ -4340,11 +4088,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:287,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679512673,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2f386980-0ea7-485f-a833-291fe26e7ffa">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>onehot_encoded <span class="op">=</span> enc.fit_transform(X).toarray()</span>
 <span id="cb121-2"><a href="#cb121-2"></a>pd.DataFrame(onehot_encoded, columns<span class="op">=</span>enc.get_feature_names_out())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="85">
 
   <div id="df-b645e884-4ec4-415b-a5e8-37ebd3ba3f0f">
@@ -4478,12 +4223,9 @@ dtype: float64</code></pre>
 </div>
 <p>When an unknown category is encountered during <code>transform()</code>, the resulting one-hot encoded columns for this feature will be all zeros:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:418,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679553523,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ed8d55b0-4a00-43c1-f368-a79d1753bcf2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1"></a>X_test <span class="op">=</span> pd.DataFrame(np.array([[<span class="st">'male'</span>, <span class="st">'from US'</span>, <span class="st">'uses Firefox'</span>], [<span class="st">'female'</span>, <span class="st">'from Europe'</span>, <span class="st">'uses IE'</span>]]), columns<span class="op">=</span>[<span class="st">'gender'</span>, <span class="st">'locations'</span>, <span class="st">'browsers'</span>])</span>
 <span id="cb122-2"><a href="#cb122-2"></a>onehot_encoded <span class="op">=</span> enc.transform(X_test).toarray()</span>
 <span id="cb122-3"><a href="#cb122-3"></a>pd.DataFrame(onehot_encoded, columns<span class="op">=</span>enc.get_feature_names_out())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="86">
 
   <div id="df-1989c07c-d20c-433d-bca9-8c7e7c203ac2">
@@ -4609,17 +4351,11 @@ dtype: float64</code></pre>
 <section id="ordinal-encoding" class="level3" data-number="5.6.2">
 <h3 data-number="5.6.2" class="anchored" data-anchor-id="ordinal-encoding"><span class="header-section-number">5.6.2</span> Ordinal encoding</h3>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>enc <span class="op">=</span> OrdinalEncoder(handle_unknown<span class="op">=</span><span class="st">'use_encoded_value'</span>, unknown_value<span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679582529,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3ff7c79d-0348-489c-e98f-27483df0b864">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a>X <span class="op">=</span> pd.DataFrame(np.array([[<span class="st">'male'</span>, <span class="st">'from US'</span>, <span class="st">'uses Safari'</span>], [<span class="st">'female'</span>, <span class="st">'from Europe'</span>, <span class="st">'uses Firefox'</span>], [<span class="st">'female'</span>, <span class="st">'from Europe'</span>, <span class="st">'uses Chrome'</span>]]), columns<span class="op">=</span>[<span class="st">'gender'</span>, <span class="st">'locations'</span>, <span class="st">'browsers'</span>])</span>
 <span id="cb124-2"><a href="#cb124-2"></a>X.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="88">
 
   <div id="df-0a3336a7-3617-419c-9189-c6482dc24ea4">
@@ -4736,11 +4472,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:8,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679582971,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7babac38-7c85-4a26-f970-9ca8e64442da">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a>ordinal_encoded <span class="op">=</span> enc.fit_transform(X)</span>
 <span id="cb125-2"><a href="#cb125-2"></a>pd.DataFrame(ordinal_encoded, columns<span class="op">=</span>enc.get_feature_names_out())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="89">
 
   <div id="df-c16ecc79-df7e-4f06-a546-4bd81767427d">
@@ -4857,12 +4590,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:443,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679584767,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ccecfc23-6f71-47bb-a60e-928483e1a5a3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>X_test <span class="op">=</span> pd.DataFrame(np.array([[<span class="st">'male'</span>, <span class="st">'from US'</span>, <span class="st">'uses Firefox'</span>], [<span class="st">'female'</span>, <span class="st">'from Europe'</span>, <span class="st">'uses IE'</span>]]), columns<span class="op">=</span>[<span class="st">'gender'</span>, <span class="st">'locations'</span>, <span class="st">'browsers'</span>])</span>
 <span id="cb126-2"><a href="#cb126-2"></a>ordinal_encoded <span class="op">=</span> enc.transform(X_test)</span>
 <span id="cb126-3"><a href="#cb126-3"></a>pd.DataFrame(ordinal_encoded, columns<span class="op">=</span>enc.get_feature_names_out())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="90">
 
   <div id="df-cdda797d-2e54-4f86-86ff-7ada815e470d">
@@ -4977,10 +4707,7 @@ dtype: float64</code></pre>
 <h3 data-number="5.6.3" class="anchored" data-anchor-id="target-encoding"><span class="header-section-number">5.6.3</span> Target encoding</h3>
 <p>The <a href="https://www.kaggle.com/datasets/odedgolden/movielens-1m-dataset"><em>MovieLens1M</em></a> dataset contains one-million movie ratings by users of the MovieLens website, with features describing each user and movie. This hidden cell sets everything up:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1262,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679596640,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="115450f9-68e4-4816-9d28-06519272c8ab">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d odedgolden<span class="op">/</span>movielens<span class="op">-</span><span class="dv">1</span><span class="er">m</span><span class="op">-</span>dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading movielens-1m-dataset.zip to /content
   0% 0.00/5.83M [00:00&lt;?, ?B/s] 86% 5.00M/5.83M [00:00&lt;00:00, 46.2MB/s]
@@ -4988,43 +4715,28 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1"></a><span class="op">!</span>unzip <span class="op">-</span>qq movielens<span class="op">-</span><span class="dv">1</span><span class="er">m</span><span class="op">-</span>dataset.<span class="bu">zip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7136,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679606469,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e1805f16-7091-437b-b19e-70d72f086dc4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a>ratings <span class="op">=</span> pd.read_csv(<span class="st">'ratings.dat'</span>,sep<span class="op">=</span><span class="st">'::'</span>, header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>[<span class="st">"UserID"</span>, <span class="st">"MovieID"</span>, <span class="st">"Rating"</span>, <span class="st">"Timestamp"</span>])</span>
 <span id="cb130-2"><a href="#cb130-2"></a>users <span class="op">=</span> pd.read_csv(<span class="st">'users.dat'</span>,sep<span class="op">=</span><span class="st">'::'</span>, header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>[<span class="st">"UserID"</span>, <span class="st">"Gender"</span>, <span class="st">"Age"</span>, <span class="st">"Occupation"</span>, <span class="st">"Zip-code"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators &gt; 1 char and different from '\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.
   return func(*args, **kwargs)</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1"></a>df <span class="op">=</span> pd.merge(left<span class="op">=</span>ratings, right<span class="op">=</span>users, how<span class="op">=</span><span class="st">'inner'</span>, on<span class="op">=</span><span class="st">'UserID'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:477,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679606919,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="78fa43fd-fea2-422d-c10c-dc4710e9dde7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1"></a>df <span class="op">=</span> df.astype(np.uint8, errors<span class="op">=</span><span class="st">'ignore'</span>) <span class="co"># reduce memory footprint</span></span>
 <span id="cb133-2"><a href="#cb133-2"></a><span class="bu">print</span>(<span class="st">"Number of Unique Zipcodes: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(df[<span class="st">"Zip-code"</span>].nunique()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of Unique Zipcodes: 3439</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679606919,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f265b69d-506c-4db5-b827-c2a33ea93fc5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="96">
 
   <div id="df-d78c736c-1386-475f-8f80-48584f7a2708">
@@ -5252,8 +4964,6 @@ dtype: float64</code></pre>
 <p>With over 3000 categories, the <code>Zipcode</code> feature makes a good candidate for target encoding, and the size of this dataset (over one-million rows) means we can spare some data to create the encoding.</p>
 <p>We’ll start by creating a 25% split to train the target encoder.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a>X <span class="op">=</span> df.copy()</span>
 <span id="cb136-2"><a href="#cb136-2"></a>y <span class="op">=</span> X.pop(<span class="st">'Rating'</span>)</span>
 <span id="cb136-3"><a href="#cb136-3"></a></span>
@@ -5261,12 +4971,9 @@ dtype: float64</code></pre>
 <span id="cb136-5"><a href="#cb136-5"></a>y_encode <span class="op">=</span> y[X_encode.index]</span>
 <span id="cb136-6"><a href="#cb136-6"></a>X_pretrain <span class="op">=</span> X.drop(X_encode.index)</span>
 <span id="cb136-7"><a href="#cb136-7"></a>y_train <span class="op">=</span> y[X_pretrain.index]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The <code>category_encoders</code> package in <a href="https://github.com/scikit-learn-contrib/category_encoders"><code>scikit-learn-contrib</code></a> implements an <code>MEstimateEncoder</code>, which we’ll use to encode our <code>Zipcode</code> feature.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1"></a><span class="co"># Create the encoder instance. Choose m to control noise.</span></span>
 <span id="cb137-2"><a href="#cb137-2"></a>encoder <span class="op">=</span> MEstimateEncoder(cols<span class="op">=</span>[<span class="st">"Zip-code"</span>], m<span class="op">=</span><span class="fl">5.0</span>)</span>
 <span id="cb137-3"><a href="#cb137-3"></a></span>
@@ -5275,18 +4982,14 @@ dtype: float64</code></pre>
 <span id="cb137-6"><a href="#cb137-6"></a></span>
 <span id="cb137-7"><a href="#cb137-7"></a><span class="co"># Encode the Zipcode column to create the final training data</span></span>
 <span id="cb137-8"><a href="#cb137-8"></a>X_train <span class="op">=</span> encoder.transform(X_pretrain)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Let’s compare the encoded values to the target to see how informative our encoding might be.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:9059,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679680087,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="97fe60f5-b048-4271-f3cb-2cfa8344a81f">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1"></a>plt.figure(dpi<span class="op">=</span><span class="dv">90</span>)</span>
 <span id="cb138-2"><a href="#cb138-2"></a>ax <span class="op">=</span> sns.distplot(y, kde<span class="op">=</span><span class="va">False</span>, norm_hist<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb138-3"><a href="#cb138-3"></a>ax <span class="op">=</span> sns.kdeplot(X_train[<span class="st">"Zip-code"</span>], color<span class="op">=</span><span class="st">'r'</span>, ax<span class="op">=</span>ax)</span>
 <span id="cb138-4"><a href="#cb138-4"></a>ax.set_xlabel(<span class="st">"Rating"</span>)</span>
 <span id="cb138-5"><a href="#cb138-5"></a>ax.legend(labels<span class="op">=</span>[<span class="st">'Zipcode'</span>, <span class="st">'Rating'</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
   warnings.warn(msg, FutureWarning)</code></pre>
@@ -5304,11 +5007,8 @@ dtype: float64</code></pre>
 <p>We’ll see how adding a few synthetic features to a dataset can improve the predictive performance of a random forest model.</p>
 <p>The <a href="https://www.kaggle.com/sinamhd9/concrete-comprehensive-strength"><em>Concrete</em></a> dataset contains a variety of concrete formulations and the resulting product’s <em>compressive strength</em>, which is a measure of how much load that kind of concrete can bear. The task for this dataset is to predict a concrete’s compressive strength given its formulation.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1329,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679703887,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ef2a37a5-3474-462e-c534-f57500839a42">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d sinamhd9<span class="op">/</span>concrete<span class="op">-</span>comprehensive<span class="op">-</span>strength</span>
 <span id="cb140-2"><a href="#cb140-2"></a><span class="op">!</span>unzip <span class="op">-</span>qq concrete<span class="op">-</span>comprehensive<span class="op">-</span>strength.<span class="bu">zip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading concrete-comprehensive-strength.zip to /content
   0% 0.00/32.9k [00:00&lt;?, ?B/s]
@@ -5316,11 +5016,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:9,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679703888,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="704ad8d9-4a52-4b07-d8a3-a68e47414477">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"Concrete_Data.xls"</span>)</span>
 <span id="cb142-2"><a href="#cb142-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="101">
 
   <div id="df-c76f36dd-58f2-4c0d-b5fc-52afec03fbd7">
@@ -5487,10 +5184,7 @@ dtype: float64</code></pre>
 <p>You can see here the various ingredients going into each variety of concrete. We’ll see in a moment how adding some additional synthetic features derived from these can help a model to learn important relationships among them. We’ll first establish a baseline by training the model on the un-augmented dataset. This will help us determine whether our new features are actually useful.</p>
 <p>Establishing baselines like this is good practice at the start of the feature engineering process. A baseline score can help you decide whether your new features are worth keeping, or whether you should discard them and possibly try something else.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679704928,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="54c63659-3701-40b6-f5b8-4dc3143b2665">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="102">
 <pre><code>Index(['Cement (component 1)(kg in a m^3 mixture)',
        'Blast Furnace Slag (component 2)(kg in a m^3 mixture)',
@@ -5504,8 +5198,6 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:13664,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679719232,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a9650070-946e-42f5-d8cd-0e5eb467dfbd">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1"></a>X <span class="op">=</span> df.copy()</span>
 <span id="cb145-2"><a href="#cb145-2"></a>y <span class="op">=</span> X.pop(df.columns[<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb145-3"><a href="#cb145-3"></a></span>
@@ -5517,15 +5209,12 @@ dtype: float64</code></pre>
 <span id="cb145-9"><a href="#cb145-9"></a>baseline_score <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> baseline_score.mean()</span>
 <span id="cb145-10"><a href="#cb145-10"></a></span>
 <span id="cb145-11"><a href="#cb145-11"></a><span class="bu">print</span>(<span class="ss">f"MAE Baseline Score: </span><span class="sc">{</span>baseline_score<span class="sc">:.4}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>MAE Baseline Score: 8.397</code></pre>
 </div>
 </div>
 <p>If you ever cook at home, you might know that the <strong><em>ratio</em></strong> of ingredients in a recipe is usually a better predictor of how the recipe turns out than their absolute amounts. We might reason then that ratios of the features above would be a good predictor of <code>CompressiveStrength</code>. The cell below adds three new ratio features to the dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:19531,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679738761,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5865cdec-e691-405b-c064-ef4d78ac61bb">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1"></a>X <span class="op">=</span> df.copy()</span>
 <span id="cb147-2"><a href="#cb147-2"></a>y <span class="op">=</span> X.pop(df.columns[<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb147-3"><a href="#cb147-3"></a></span>
@@ -5542,7 +5231,6 @@ dtype: float64</code></pre>
 <span id="cb147-14"><a href="#cb147-14"></a>score <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> score.mean()</span>
 <span id="cb147-15"><a href="#cb147-15"></a></span>
 <span id="cb147-16"><a href="#cb147-16"></a><span class="bu">print</span>(<span class="ss">f"MAE Score with Ratio Features: </span><span class="sc">{</span>score<span class="sc">:.4}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>MAE Score with Ratio Features: 7.732</code></pre>
 </div>
@@ -5552,12 +5240,9 @@ dtype: float64</code></pre>
 <h3 data-number="5.7.1" class="anchored" data-anchor-id="mathematical-transforms"><span class="header-section-number">5.7.1</span> Mathematical Transforms</h3>
 <p>We’ll use four datasets that having a range of feature types: <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents"><em>US Traffic Accidents</em></a>, <a href="https://www.kaggle.com/toramky/automobile-dataset"><em>1985 Automobiles</em></a>, and <a href="https://www.kaggle.com/pankajjsh06/ibm-watson-marketing-customer-value-data"><em>Customer Lifetime Value</em></a>. The following hidden cell loads them up.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4160,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679742877,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="517cb519-519e-431c-9c8b-4f8bc423925f">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d sobhanmoosavi<span class="op">/</span>us<span class="op">-</span>accidents</span>
 <span id="cb149-2"><a href="#cb149-2"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d toramky<span class="op">/</span>automobile<span class="op">-</span>dataset</span>
 <span id="cb149-3"><a href="#cb149-3"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d pankajjsh06<span class="op">/</span>ibm<span class="op">-</span>watson<span class="op">-</span>marketing<span class="op">-</span>customer<span class="op">-</span>value<span class="op">-</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading us-accidents.zip to /content
  96% 257M/269M [00:01&lt;00:00, 123MB/s]
@@ -5571,21 +5256,15 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1"></a><span class="op">!</span>unzip <span class="op">-</span>qq us<span class="op">-</span>accidents.<span class="bu">zip</span></span>
 <span id="cb151-2"><a href="#cb151-2"></a><span class="op">!</span>unzip <span class="op">-</span>qq automobile<span class="op">-</span>dataset.<span class="bu">zip</span></span>
 <span id="cb151-3"><a href="#cb151-3"></a><span class="op">!</span>unzip <span class="op">-</span>qq ibm<span class="op">-</span>watson<span class="op">-</span>marketing<span class="op">-</span>customer<span class="op">-</span>value<span class="op">-</span>data.<span class="bu">zip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3529,&quot;status&quot;:&quot;error&quot;,&quot;timestamp&quot;:1678679759802,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="70fa2914-7c3a-4f14-839c-c427f181c05b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1"></a>accidents <span class="op">=</span> pd.read_csv(<span class="st">"US_Accidents_Dec21_updated.csv"</span>)</span>
 <span id="cb152-2"><a href="#cb152-2"></a>autos <span class="op">=</span> pd.read_csv(<span class="st">"Automobile_data.csv"</span>)</span>
 <span id="cb152-3"><a href="#cb152-3"></a>concrete <span class="op">=</span> pd.read_excel(<span class="st">"Concrete_Data.xls"</span>)</span>
 <span id="cb152-4"><a href="#cb152-4"></a>customer <span class="op">=</span> pd.read_csv(<span class="st">"WA_Fn-UseC_-Marketing-Customer-Value-Analysis.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-error">
 <pre><code>ParserError: ignored</code></pre>
 </div>
@@ -5593,39 +5272,25 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <p>Relationships among numerical features are often expressed through mathematical formulas, which you’ll frequently come across as part of your domain research. In <code>Pandas</code>, you can apply arithmetic operations to columns just as if they were ordinary numbers.</p>
 <p>In the <em>Automobile</em> dataset are features describing a car’s engine. Research yields a variety of formulas for creating potentially useful new features. The “stroke ratio”, for instance, is a measure of how efficient an engine is versus how performant:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1"></a>autos.replace(<span class="st">"?"</span>, np.nan, inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb154-2"><a href="#cb154-2"></a>avg_bore<span class="op">=</span>autos[<span class="st">'bore'</span>].astype(<span class="st">'float'</span>).mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb154-3"><a href="#cb154-3"></a>autos[<span class="st">"bore"</span>].replace(np.nan, avg_bore, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb154-4"><a href="#cb154-4"></a>avg_stroke <span class="op">=</span> autos[<span class="st">"stroke"</span>].astype(<span class="st">"float"</span>).mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb154-5"><a href="#cb154-5"></a>autos[<span class="st">"stroke"</span>].replace(np.nan, avg_stroke, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1"></a>autos[[<span class="st">"bore"</span>, <span class="st">"stroke"</span>]] <span class="op">=</span> autos[[<span class="st">"bore"</span>, <span class="st">"stroke"</span>]].astype(<span class="st">"float"</span>)</span>
 <span id="cb155-2"><a href="#cb155-2"></a>autos[<span class="st">"stroke_ratio"</span>] <span class="op">=</span> autos.stroke<span class="op">/</span> autos.bore</span>
 <span id="cb155-3"><a href="#cb155-3"></a>autos[[<span class="st">"stroke"</span>, <span class="st">"bore"</span>, <span class="st">"stroke_ratio"</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Data visualization can suggest transformations, often a “reshaping” of a feature through powers or logarithms. The distribution of <code>WindSpeed</code> in <em>US Accidents</em> is highly skewed, for instance. In this case the logarithm is effective at normalizing it:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1"></a>accidents.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1"></a>accidents[<span class="st">"Wind_Speed(mph)"</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1"></a><span class="co"># If the feature has 0.0 values, use np.log1p (log(1+x)) instead of np.log</span></span>
 <span id="cb158-2"><a href="#cb158-2"></a>accidents[<span class="st">"LogWindSpeed"</span>] <span class="op">=</span> accidents[<span class="st">"Wind_Speed(mph)"</span>].<span class="bu">apply</span>(np.log1p)</span>
 <span id="cb158-3"><a href="#cb158-3"></a></span>
@@ -5633,7 +5298,6 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <span id="cb158-5"><a href="#cb158-5"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb158-6"><a href="#cb158-6"></a>sns.kdeplot(accidents[<span class="st">"Wind_Speed(mph)"</span>], shade<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axs[<span class="dv">0</span>])</span>
 <span id="cb158-7"><a href="#cb158-7"></a>sns.kdeplot(accidents.LogWindSpeed, shade<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axs[<span class="dv">1</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="counts" class="level3" data-number="5.7.2">
@@ -5641,15 +5305,12 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <p>Features describing the presence or absence of something often come in sets, the set of risk factors for a disease, say. You can aggregate such features by creating a <strong>count</strong>. These features will be <em>binary</em> (<code>1</code> for Present, <code>0</code> for Absent) or <em>boolean</em> (<code>True</code> or <code>False</code>). In Python, booleans can be added up just as if they were integers.</p>
 <p>In <em>Traffic Accidents</em> are several features indicating whether some roadway object was near the accident. This will create a count of the total number of roadway features nearby using the <code>sum()</code> method:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1"></a>roadway_features <span class="op">=</span> [<span class="st">"Amenity"</span>, <span class="st">"Bump"</span>, <span class="st">"Crossing"</span>, <span class="st">"Give_Way"</span>,</span>
 <span id="cb159-2"><a href="#cb159-2"></a>    <span class="st">"Junction"</span>, <span class="st">"No_Exit"</span>, <span class="st">"Railway"</span>, <span class="st">"Roundabout"</span>, <span class="st">"Station"</span>, <span class="st">"Stop"</span>,</span>
 <span id="cb159-3"><a href="#cb159-3"></a>    <span class="st">"Traffic_Calming"</span>, <span class="st">"Traffic_Signal"</span>]</span>
 <span id="cb159-4"><a href="#cb159-4"></a>accidents[<span class="st">"RoadwayFeatures"</span>] <span class="op">=</span> accidents[roadway_features].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb159-5"><a href="#cb159-5"></a></span>
 <span id="cb159-6"><a href="#cb159-6"></a>accidents[roadway_features <span class="op">+</span> [<span class="st">"RoadwayFeatures"</span>]].head(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="group-transforms" class="level3" data-number="5.7.3">
@@ -5657,8 +5318,6 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <p>Finally we have <strong>Group transforms</strong>, which aggregate information across multiple rows grouped by some category. With a group transform you can create features like: “the average income of a person’s state of residence,” or “the proportion of movies released on a weekday, by genre.” If you had discovered a category interaction, a group transform over that categry could be something good to investigate.</p>
 <p>Using an aggregation function, a group transform combines two features: a categorical feature that provides the grouping and another feature whose values you wish to aggregate. For an “average income by state”, you would choose <code>State</code> for the grouping feature, <code>mean()</code> for the aggregation function, and <code>Income</code> for the aggregated feature. To compute this in Pandas, we use the <code>groupby()</code> and <code>transform()</code> methods:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1"></a>customer[<span class="st">"AverageIncome"</span>] <span class="op">=</span> (</span>
 <span id="cb160-2"><a href="#cb160-2"></a>    customer.groupby(<span class="st">"State"</span>)  <span class="co"># for each state</span></span>
 <span id="cb160-3"><a href="#cb160-3"></a>    [<span class="st">"Income"</span>]                 <span class="co"># select the income</span></span>
@@ -5666,12 +5325,9 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <span id="cb160-5"><a href="#cb160-5"></a>)</span>
 <span id="cb160-6"><a href="#cb160-6"></a></span>
 <span id="cb160-7"><a href="#cb160-7"></a>customer[[<span class="st">"State"</span>, <span class="st">"Income"</span>, <span class="st">"AverageIncome"</span>]].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The <code>mean()</code> function is a built-in <code>dataframe</code> method, which means we can pass it as a string to <code>transform()</code>. Other handy methods include <code>max()</code>, <code>min()</code>, <code>median()</code>, <code>var()</code>, <code>std()</code>, and <code>count()</code>. Here’s how you could calculate the frequency with which each state occurs in the dataset:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1"></a>customer[<span class="st">"StateFreq"</span>] <span class="op">=</span> (</span>
 <span id="cb161-2"><a href="#cb161-2"></a>    customer.groupby(<span class="st">"State"</span>)</span>
 <span id="cb161-3"><a href="#cb161-3"></a>    [<span class="st">"State"</span>]</span>
@@ -5680,7 +5336,6 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <span id="cb161-6"><a href="#cb161-6"></a>)</span>
 <span id="cb161-7"><a href="#cb161-7"></a></span>
 <span id="cb161-8"><a href="#cb161-8"></a>customer[[<span class="st">"State"</span>, <span class="st">"StateFreq"</span>]].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 </section>
@@ -5688,13 +5343,10 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <h2 data-number="5.8" class="anchored" data-anchor-id="data-centric-ai-with-cleanlab"><span class="header-section-number">5.8</span> Data-centric AI with CleanLab</h2>
 <p><code>cleanlab</code> automatically finds and fixes errors in any ML dataset. This data-centric AI package facilitates machine learning with messy, real-world data by providing clean labels during training.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679765497,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6d719863-2044-4afa-c783-2466ff8f7cc4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb162"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb162-1"><a href="#cb162-1"></a>data_dict <span class="op">=</span> make_data()</span>
 <span id="cb162-2"><a href="#cb162-2"></a><span class="cf">for</span> key, val <span class="kw">in</span> data_dict.items():  <span class="co"># Map data_dict to variables in namespace</span></span>
 <span id="cb162-3"><a href="#cb162-3"></a>    <span class="bu">print</span>(key)</span>
 <span id="cb162-4"><a href="#cb162-4"></a>    <span class="bu">exec</span>(key <span class="op">+</span> <span class="st">"=val"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>data
 true_labels
@@ -5709,11 +5361,8 @@ class_names</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1143,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679770924,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="51983e01-f21a-493f-d19c-fa2a9f562925">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb164"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb164-1"><a href="#cb164-1"></a>true_errors <span class="op">=</span> np.where(true_labels <span class="op">!=</span> labels)[<span class="dv">0</span>]</span>
 <span id="cb164-2"><a href="#cb164-2"></a>plot_data(data, circles<span class="op">=</span>true_errors, title<span class="op">=</span><span class="st">"A realistic, messy dataset with 4 classes"</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="04_Clean_feature_engineering_files/figure-html/cell-118-output-1.png" class="img-fluid"></p>
 </div>
@@ -5722,20 +5371,15 @@ class_names</code></pre>
 <section id="use-cleanlearning-for-everything" class="level3" data-number="5.8.1">
 <h3 data-number="5.8.1" class="anchored" data-anchor-id="use-cleanlearning-for-everything"><span class="header-section-number">5.8.1</span> Use <code>CleanLearning()</code> for everything</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:301,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679814443,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2404d122-18dd-465b-8a82-d4a770156f21">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1"></a><span class="co"># For comparison, this is how you would have trained your model normally (without Cleanlab)</span></span>
 <span id="cb165-2"><a href="#cb165-2"></a>yourFavoriteModel <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span>SEED)</span>
 <span id="cb165-3"><a href="#cb165-3"></a>yourFavoriteModel.fit(data, labels)</span>
 <span id="cb165-4"><a href="#cb165-4"></a><span class="bu">print</span>(<span class="ss">f"Accuracy using yourFavoriteModel: </span><span class="sc">{</span>yourFavoriteModel<span class="sc">.</span>score(test_data, test_labels)<span class="sc">:.0%}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy using yourFavoriteModel: 83%</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1"></a>yourFavoriteModel <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span>SEED)</span>
 <span id="cb167-2"><a href="#cb167-2"></a></span>
 <span id="cb167-3"><a href="#cb167-3"></a><span class="co"># CleanLearning: Machine Learning with cleaned data (given messy, real-world data)</span></span>
@@ -5743,16 +5387,12 @@ class_names</code></pre>
 <span id="cb167-5"><a href="#cb167-5"></a></span>
 <span id="cb167-6"><a href="#cb167-6"></a><span class="co"># Fit model to messy, real-world data, automatically training on cleaned data.</span></span>
 <span id="cb167-7"><a href="#cb167-7"></a>_ <span class="op">=</span> cl.fit(data, labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679837596,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a5a1edd5-7c3c-44fc-94de-799ea6868573">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb168-1"><a href="#cb168-1"></a><span class="co"># But CleanLearning can do anything yourFavoriteModel can do, but enhanced.</span></span>
 <span id="cb168-2"><a href="#cb168-2"></a><span class="co"># For example, CleanLearning gives you predictions (just like yourFavoriteModel)</span></span>
 <span id="cb168-3"><a href="#cb168-3"></a><span class="co"># but the magic is that CleanLearning was trained as if your data did not have label errors.</span></span>
 <span id="cb168-4"><a href="#cb168-4"></a><span class="bu">print</span>(<span class="ss">f"Accuracy using yourFavoriteModel (+ CleanLearning): </span><span class="sc">{</span>cl<span class="sc">.</span>score(test_data, test_labels)<span class="sc">:.0%}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy using yourFavoriteModel (+ CleanLearning): 86%</code></pre>
 </div>
@@ -5762,12 +5402,9 @@ class_names</code></pre>
 <section id="use-cleanlearning-to-find_label_issues-in-one-line-of-code" class="level3" data-number="5.8.2">
 <h3 data-number="5.8.2" class="anchored" data-anchor-id="use-cleanlearning-to-find_label_issues-in-one-line-of-code"><span class="header-section-number">5.8.2</span> Use <code>CleanLearning()</code> to <code>find_label_issues()</code> in one line of code</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:784,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679861394,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a05cf3ba-979a-416d-90a0-2a841a5cc4fa">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb170-1"><a href="#cb170-1"></a><span class="co"># One line of code. Literally.</span></span>
 <span id="cb170-2"><a href="#cb170-2"></a>issues <span class="op">=</span> CleanLearning(yourFavoriteModel, seed<span class="op">=</span>SEED).find_label_issues(data, labels)</span>
 <span id="cb170-3"><a href="#cb170-3"></a>issues.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="113">
 
   <div id="df-74111080-4d76-41a3-935d-88cd8e18dd27">
@@ -5903,11 +5540,8 @@ class_names</code></pre>
 </div>
 <p>Visualize the twenty examples with lowest label quality to see if Cleanlab works.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1001,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679885702,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="148c21d5-5a5c-4091-c7a4-f04e84e00b6f">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1"></a>lowest_quality_labels <span class="op">=</span> issues[<span class="st">"label_quality"</span>].argsort()[:<span class="dv">20</span>]</span>
 <span id="cb171-2"><a href="#cb171-2"></a>plot_data(data, circles<span class="op">=</span>lowest_quality_labels, title<span class="op">=</span><span class="st">"The 20 lowest label quality examples"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="04_Clean_feature_engineering_files/figure-html/cell-123-output-1.png" class="img-fluid"></p>
 </div>
@@ -5923,14 +5557,11 @@ class_names</code></pre>
 </ul>
 <p><code>cleanlab</code> automatically finds data-set level issues like this, in one line of code. Check this out!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:283,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679898148,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bd8758eb-b991-4ca1-b94b-f607b99368a9">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb172-1"><a href="#cb172-1"></a>cleanlab.dataset.find_overlapping_classes(</span>
 <span id="cb172-2"><a href="#cb172-2"></a>    labels<span class="op">=</span>labels,</span>
 <span id="cb172-3"><a href="#cb172-3"></a>    confident_joint<span class="op">=</span>cl.confident_joint,  <span class="co"># cleanlab uses the confident_joint internally to quantify label noise (see cleanlab.count.compute_confident_joint)</span></span>
 <span id="cb172-4"><a href="#cb172-4"></a>    class_names<span class="op">=</span>class_names,</span>
 <span id="cb172-5"><a href="#cb172-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="115">
 
   <div id="df-aa30329f-2423-4183-8661-560fc093b2bf">
@@ -6092,8 +5723,6 @@ class_names</code></pre>
 </ul>
 <p>Now, let’s see what happens if we merge classes “seafoam green” and “yellow”</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:285,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679935262,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bbfb8791-b274-43be-852e-3fe33baffbd3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1"></a>yourFavoriteModel1 <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span>SEED)</span>
 <span id="cb173-2"><a href="#cb173-2"></a>yourFavoriteModel1.fit(data, labels)</span>
 <span id="cb173-3"><a href="#cb173-3"></a><span class="bu">print</span>(<span class="ss">f"[Original classes] Accuracy of yourFavoriteModel: </span><span class="sc">{</span>yourFavoriteModel1<span class="sc">.</span>score(test_data, test_labels)<span class="sc">:.0%}</span><span class="ss">"</span>)</span>
@@ -6114,7 +5743,6 @@ class_names</code></pre>
 <span id="cb173-18"><a href="#cb173-18"></a>cl3 <span class="op">=</span> cleanlab.classification.CleanLearning(yourFavoriteModel, seed<span class="op">=</span>SEED)</span>
 <span id="cb173-19"><a href="#cb173-19"></a>cl3.fit(data, merged_labels)</span>
 <span id="cb173-20"><a href="#cb173-20"></a><span class="bu">print</span>(<span class="ss">f"[Modified classes] Accuracy of yourFavoriteModel (+ CleanLearning): </span><span class="sc">{</span>cl3<span class="sc">.</span>score(test_data, merged_test_labels)<span class="sc">:.0%}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[Original classes] Accuracy of yourFavoriteModel: 83%
 [Modified classes] Accuracy of yourFavoriteModel: 94%
@@ -6127,8 +5755,6 @@ class_names</code></pre>
 <h3 data-number="5.8.4" class="anchored" data-anchor-id="clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels"><span class="header-section-number">5.8.4</span> Clean your test set too if you’re doing ML with noisy labels!</h3>
 <p>If your test and training data were randomly split, then be aware that your test labels are likely noisy too! It is thus important to fix label issues in them before we can trust measures like test accuracy.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679946036,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1a29f912-4252-4c97-90d5-225dcb3df21a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb175-1"><a href="#cb175-1"></a><span class="co"># Fit your model on noisily labeled train data</span></span>
 <span id="cb175-2"><a href="#cb175-2"></a>yourFavoriteModel <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span>SEED)</span>
 <span id="cb175-3"><a href="#cb175-3"></a>yourFavoriteModel.fit(data, labels)</span>
@@ -6142,7 +5768,6 @@ class_names</code></pre>
 <span id="cb175-11"><a href="#cb175-11"></a>    labels<span class="op">=</span>noisy_test_labels, pred_probs<span class="op">=</span>my_test_pred_probs)</span>
 <span id="cb175-12"><a href="#cb175-12"></a></span>
 <span id="cb175-13"><a href="#cb175-13"></a>issues_test.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="117">
 
   <div id="df-0c0a968c-5e75-46a7-bcac-77a8a1a08335">
@@ -6277,8 +5902,6 @@ class_names</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679949469,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8701a1aa-48a0-4077-a3ba-2a32058a85cd">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1"></a><span class="co"># You should inspect issues_test and fix issues to ensure high-quality test data labels.</span></span>
 <span id="cb176-2"><a href="#cb176-2"></a>corrected_test_labels <span class="op">=</span> test_labels  <span class="co"># Here we'll pretend you have done this perfectly :)</span></span>
 <span id="cb176-3"><a href="#cb176-3"></a></span>
@@ -6290,7 +5913,6 @@ class_names</code></pre>
 <span id="cb176-9"><a href="#cb176-9"></a><span class="bu">print</span>(<span class="ss">f" Noisy Test Accuracy (on given test labels) using yourFavoriteModel (+ CleanLearning): </span><span class="sc">{</span>accuracy_score(noisy_test_labels, cl_test_preds)<span class="sc">:.0%}</span><span class="ss">"</span>)</span>
 <span id="cb176-10"><a href="#cb176-10"></a><span class="bu">print</span>(<span class="ss">f"Actual Test Accuracy (on corrected test labels) using yourFavoriteModel: </span><span class="sc">{</span>accuracy_score(corrected_test_labels, my_test_preds)<span class="sc">:.0%}</span><span class="ss">"</span>)</span>
 <span id="cb176-11"><a href="#cb176-11"></a><span class="bu">print</span>(<span class="ss">f"Actual Test Accuracy (on corrected test labels) using yourFavoriteModel (+ CleanLearning): </span><span class="sc">{</span>accuracy_score(corrected_test_labels, cl_test_preds)<span class="sc">:.0%}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Noisy Test Accuracy (on given test labels) using yourFavoriteModel: 69%
  Noisy Test Accuracy (on given test labels) using yourFavoriteModel (+ CleanLearning): 71%
@@ -6303,14 +5925,11 @@ Actual Test Accuracy (on corrected test labels) using yourFavoriteModel (+ Clean
 <h3 data-number="5.8.5" class="anchored" data-anchor-id="one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score"><span class="header-section-number">5.8.5</span> One score to rule them all – use cleanlab’s overall dataset health score</h3>
 <p>This score can be fairly compared across datasets or across versions of a dataset to track overall dataset quality (a.k.a. dataset health) over time.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:275,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679959732,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d61ad4db-414f-422d-826e-b7e085e1d61d">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1"></a><span class="co"># One line of code.</span></span>
 <span id="cb178-2"><a href="#cb178-2"></a>health <span class="op">=</span> cleanlab.dataset.health_summary(</span>
 <span id="cb178-3"><a href="#cb178-3"></a>    labels, confident_joint<span class="op">=</span>cl.confident_joint</span>
 <span id="cb178-4"><a href="#cb178-4"></a>    <span class="co"># cleanlab uses the confident_joint internally to quantify label noise (see cleanlab.count.compute_confident_joint)</span></span>
 <span id="cb178-5"><a href="#cb178-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--------------------------------------------------------
 |  Generating a Cleanlab Dataset Health Summary        |
@@ -6612,14 +6231,11 @@ Generated with &lt;3 from Cleanlab.
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679988898,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="125f6e83-1fd3-42bf-a9e1-79e7db80c633">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb182-1"><a href="#cb182-1"></a><span class="co"># One line of code.</span></span>
 <span id="cb182-2"><a href="#cb182-2"></a>health <span class="op">=</span> cleanlab.dataset.overall_label_health_score(</span>
 <span id="cb182-3"><a href="#cb182-3"></a>    labels, confident_joint<span class="op">=</span>cl.confident_joint</span>
 <span id="cb182-4"><a href="#cb182-4"></a>    <span class="co"># cleanlab uses the confident_joint internally to quantify label noise (see cleanlab.count.compute_confident_joint)</span></span>
 <span id="cb182-5"><a href="#cb182-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> * Overall, about 28% (71 of the 250) labels in your dataset have potential issues.
  ** The overall label health score for this dataset is: 0.72.</code></pre>
@@ -6627,15 +6243,12 @@ Generated with &lt;3 from Cleanlab.
 </div>
 <p>Because we know the true labels (we created this toy dataset), we can compare with ground truth.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb184"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1"></a>label_acc <span class="op">=</span> <span class="bu">sum</span>(labels <span class="op">!=</span> true_labels) <span class="op">/</span> <span class="bu">len</span>(labels)</span>
 <span id="cb184-2"><a href="#cb184-2"></a><span class="bu">print</span>(<span class="ss">f"Percentage of label issues guessed by cleanlab </span><span class="sc">{</span><span class="dv">1</span> <span class="op">-</span> health<span class="sc">:.0%}</span><span class="ss">"</span>)</span>
 <span id="cb184-3"><a href="#cb184-3"></a><span class="bu">print</span>(<span class="ss">f"Percentage of (ground truth) label errors): </span><span class="sc">{</span>label_acc<span class="sc">:.0%}</span><span class="ss">"</span>)</span>
 <span id="cb184-4"><a href="#cb184-4"></a></span>
 <span id="cb184-5"><a href="#cb184-5"></a>offset <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> label_acc) <span class="op">-</span> health</span>
 <span id="cb184-6"><a href="#cb184-6"></a>offset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p><code>cleanlab</code> seems to be overestimating. Since data points that fall in between two overlapping distributions are often impossible to label and are counted as issues.</p>
 <p>For more details, see <a href="https://docs.cleanlab.ai/stable/tutorials/indepth_overview.html#">https://docs.cleanlab.ai/stable/tutorials/indepth_overview.html#</a></p>

@@ -260,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></h1>
 </div>
 
 
@@ -301,13 +301,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.1</span> Setup</h2>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:57752,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676862071866,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="17d25047-7cb1-42c5-97d5-63ac188a8209">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>phonchi<span class="op">/</span>pigeonXT.git </span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install cleanlab <span class="op">-</span>qq</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>pip install modAL <span class="op">-</span>qq</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="op">!</span>pip install snorkel <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting git+https://github.com/phonchi/pigeonXT.git
@@ -346,8 +343,6 @@ pigeonxt-jupyter 0.7.3 requires numpy&lt;2.0,&gt;=1.23, but you have numpy 1.22.
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:11884,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676862766726,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="56a25e44-4aa5-4edc-f537-97936517d532">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Built-in function</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> glob</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="im">import</span> os</span>
@@ -400,25 +395,25 @@ pigeonxt-jupyter 0.7.3 requires numpy&lt;2.0,&gt;=1.23, but you have numpy 1.22.
 <span id="cb3-50"><a href="#cb3-50"></a><span class="co"># Data augmentation</span></span>
 <span id="cb3-51"><a href="#cb3-51"></a><span class="im">from</span> skimage <span class="im">import</span> io</span>
 <span id="cb3-52"><a href="#cb3-52"></a><span class="im">import</span> albumentations <span class="im">as</span> A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:497: UserWarning: Can't initialize NVML
   warnings.warn("Can't initialize NVML")</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> visualize(image):</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    plt.axis(<span class="st">'off'</span>)</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    plt.imshow(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="scraping-data-using-beautifulsoup" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="scraping-data-using-beautifulsoup"><span class="header-section-number">3.2</span> Scraping data using BeautifulSoup</h2>
-<p>Sometimes we have to build our dataset using crawler. See 1. <a href="https://github.com/marvelje/weather_forecasting">https://github.com/marvelje/weather_forecasting</a> (Constructing weather dataset) 2. <a href="https://www.kaggle.com/code/pandula/a-simple-tutorial-on-beautifulsoup/notebook">https://www.kaggle.com/code/pandula/a-simple-tutorial-on-beautifulsoup/notebook</a> (Constructing IMDB dataset) 3. <a href="https://github.com/sharmasapna/Web-scraping-for-images">https://github.com/sharmasapna/Web-scraping-for-images</a> (Constructing image dataset)</p>
+<p>Sometimes we have to build our dataset using crawler. See 1. <a href="https://github.com/marvelje/weather_forecasting">https://github.com/marvelje/weather_forecasting</a> (Constructing weather dataset)</p>
+<ol start="2" type="1">
+<li><p><a href="https://www.kaggle.com/code/pandula/a-simple-tutorial-on-beautifulsoup/notebook">https://www.kaggle.com/code/pandula/a-simple-tutorial-on-beautifulsoup/notebook</a> (Constructing IMDB dataset)</p></li>
+<li><p><a href="https://github.com/sharmasapna/Web-scraping-for-images">https://github.com/sharmasapna/Web-scraping-for-images</a> (Constructing image dataset)</p></li>
+</ol>
 </section>
 <section id="manual-labeling-with-pigeonxt" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="manual-labeling-with-pigeonxt"><span class="header-section-number">3.3</span> Manual Labeling with pigeonXT</h2>
@@ -429,14 +424,11 @@ pigeonxt-jupyter 0.7.3 requires numpy&lt;2.0,&gt;=1.23, but you have numpy 1.22.
 <section id="image-classification" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="image-classification"><span class="header-section-number">3.3.1</span> Image classification</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7767,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676862959368,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d1867a3d-7413-4197-9232-7b7d5837b77e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">%%</span>bash</span>
 <span id="cb6-2"><a href="#cb6-2"></a>mkdir flower_images</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="cf">for</span> filename <span class="kw">in</span> <span class="dv">100080576</span><span class="er">_f52e8ee070_n</span>.jpg <span class="dv">10140303196</span><span class="er">_b88d3d6cec</span>.jpg <span class="dv">10172379554</span><span class="er">_b296050f82_n</span>.jpg<span class="op">;</span> do</span>
 <span id="cb6-4"><a href="#cb6-4"></a>  gsutil cp gs:<span class="op">//</span>practical<span class="op">-</span>ml<span class="op">-</span>vision<span class="op">-</span>book<span class="op">/</span>flowers_5_jpeg<span class="op">/</span>flower_photos<span class="op">/</span>daisy<span class="op">/</span>$filename flower_images</span>
 <span id="cb6-5"><a href="#cb6-5"></a>done</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Copying gs://practical-ml-vision-book/flowers_5_jpeg/flower_photos/daisy/100080576_f52e8ee070_n.jpg...
 / [0 files][    0.0 B/ 26.2 KiB]                                                / [1 files][ 26.2 KiB/ 26.2 KiB]                                                
@@ -450,24 +442,18 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863009633,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fb8dc7b0-af90-4c88-b404-09241c1971b0">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>filenames <span class="op">=</span> glob.glob(<span class="st">'flower_images/*.jpg'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(filenames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>['flower_images/10140303196_b88d3d6cec.jpg', 'flower_images/100080576_f52e8ee070_n.jpg', 'flower_images/10172379554_b296050f82_n.jpg']</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:796,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863084065,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="65262cb3-82ef-4f09-847a-0e1cc4bebc63">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>annotations <span class="op">=</span> pixt.annotate(</span>
 <span id="cb10-2"><a href="#cb10-2"></a>      filenames,</span>
 <span id="cb10-3"><a href="#cb10-3"></a>      options<span class="op">=</span>[<span class="st">'daisy'</span>, <span class="st">'tulip'</span>, <span class="st">'rose'</span>],</span>
 <span id="cb10-4"><a href="#cb10-4"></a>      display_fn<span class="op">=</span><span class="kw">lambda</span> filename: display.display(display.Image(filename))</span>
 <span id="cb10-5"><a href="#cb10-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"7130e39d43854b3bb3ecd9b445e495b0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -488,10 +474,7 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863131111,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8fe0348f-1ba8-48f5-b4e3-85f5e9ab82e0">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>annotations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 
   <div id="df-1eff3f22-9b78-4f6b-a14e-3746daa0e9dd">
@@ -611,13 +594,10 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <section id="binary-or-multi-class-text-classification" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="binary-or-multi-class-text-classification"><span class="header-section-number">3.3.2</span> Binary or multi-class text classification</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:309,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863203973,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="870c273b-1036-483f-967a-4ce72e050693">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>annotations <span class="op">=</span> pixt.annotate(</span>
 <span id="cb13-2"><a href="#cb13-2"></a>        [<span class="st">'I love this movie'</span>, <span class="st">'I was really disappointed by the book'</span>],</span>
 <span id="cb13-3"><a href="#cb13-3"></a>        options<span class="op">=</span>[<span class="st">'positive'</span>, <span class="st">'negative'</span>, <span class="st">'inbetween'</span>]</span>
 <span id="cb13-4"><a href="#cb13-4"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"a5705a66a99e48c29666efb634badba3","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -638,10 +618,7 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:463,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863236965,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4f29435a-4349-453b-9c20-e0289ea1f6e0">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>annotations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 
   <div id="df-6cadc0ee-efd7-4960-83b8-267c084ff9e7">
@@ -753,17 +730,12 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 <p>The output can be save to a CSV or JSON file.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>annotations.to_csv(<span class="st">"text_class_dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="multi-label-text-classification" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="multi-label-text-classification"><span class="header-section-number">3.3.3</span> Multi-label text classification</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:309,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863287760,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e1b80dac-52f8-451a-d9d4-52118d2ab401">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df <span class="op">=</span> pd.DataFrame([</span>
 <span id="cb17-2"><a href="#cb17-2"></a>        {<span class="st">'example'</span>: <span class="st">'Star wars'</span>},    </span>
 <span id="cb17-3"><a href="#cb17-3"></a>        {<span class="st">'example'</span>: <span class="st">'The Positively True Adventures of the Alleged Texas Cheerleader-Murdering Mom'</span>},</span>
@@ -783,7 +755,6 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <span id="cb17-17"><a href="#cb17-17"></a>        include_next<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb17-18"><a href="#cb17-18"></a>        include_back<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb17-19"><a href="#cb17-19"></a>    )  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"00f6a70fb855469081f286ebf47caf85","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -801,10 +772,7 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:288,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863360093,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9c972332-712c-44a7-d282-a396f88b2fc7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>annotations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 
   <div id="df-0034bff2-6b4a-47d7-afed-5c2199b3906b">
@@ -963,10 +931,7 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>annotations.to_csv(<span class="st">"text_multilabel_dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Anything that can be displayed on Jupyter (text, images, audio, graphs, etc.)can be displayed by pigeonXT by providing the appropriate <code>display_fn</code> argument.</p>
 <p>Additionally, custom hooks can be attached to each row update (<code>example_process_fn</code>), or when the annotating task is complete(<code>final_process_fn</code>). See https://github.com/dennisbakhuis/pigeonXT for more details.</p>
@@ -978,8 +943,6 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <p>For this part, we will generate a toy dataset that has 50 annotators and 300 examples. There are three possible classes, 0, 1 and 2.</p>
 <p>Each annotator annotates approximately 10% of the examples. We also synthetically made the last 5 annotators in our toy dataset have much noisier labels than the rest of the annotators. To generate our multiannotator data, we define a <code>make_data()</code> method</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>SEED <span class="op">=</span> <span class="dv">111</span> <span class="co"># set to None for non-reproducible randomness</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>np.random.seed(seed<span class="op">=</span>SEED)</span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
@@ -1047,24 +1010,17 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <span id="cb20-65"><a href="#cb20-65"></a>        <span class="st">"true_labels_train"</span>: true_labels_train[row_NA_check],</span>
 <span id="cb20-66"><a href="#cb20-66"></a>        <span class="st">"multiannotator_labels"</span>: s[row_NA_check].reset_index(drop<span class="op">=</span><span class="va">True</span>),</span>
 <span id="cb20-67"><a href="#cb20-67"></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Let’s view the first few rows of the data. Here are the labels selected by each annotator for the first few examples:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>data_dict <span class="op">=</span> make_data()</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a>X <span class="op">=</span> data_dict[<span class="st">"X_train"</span>]</span>
 <span id="cb21-4"><a href="#cb21-4"></a>multiannotator_labels <span class="op">=</span> data_dict[<span class="st">"multiannotator_labels"</span>]</span>
 <span id="cb21-5"><a href="#cb21-5"></a>true_labels <span class="op">=</span> data_dict[<span class="st">"true_labels_train"</span>] <span class="co"># used for comparing the accuracy of consensus labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:284,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863457414,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="26530d69-817d-4122-8833-765a576cbdfe">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>multiannotator_labels.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 
   <div id="df-c0daa652-2018-49d9-9219-f68c2e413658">
@@ -1306,32 +1262,23 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites"><span class="header-section-number">3.4.1</span> Get majority vote labels and compute out-of-sample predicted probabilites</h3>
 <p>Before training a machine learning model, we must first obtain the consensus labels from the annotators that labeled the data. The simplest way to obtain an initial set of consensus labels is to select it using majority vote.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>majority_vote_label <span class="op">=</span> get_majority_vote_label(multiannotator_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Next, we will train a model on the consensus labels obtained using majority vote to compute out-of-sample predicted probabilities. Here, we use a simple logistic regression model.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>model <span class="op">=</span> LogisticRegression()</span>
 <span id="cb24-2"><a href="#cb24-2"></a></span>
 <span id="cb24-3"><a href="#cb24-3"></a>num_crossval_folds <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb24-4"><a href="#cb24-4"></a>pred_probs <span class="op">=</span> cross_val_predict(</span>
 <span id="cb24-5"><a href="#cb24-5"></a>    estimator<span class="op">=</span>model, X<span class="op">=</span>X, y<span class="op">=</span>majority_vote_label, cv<span class="op">=</span>num_crossval_folds, method<span class="op">=</span><span class="st">"predict_proba"</span></span>
 <span id="cb24-6"><a href="#cb24-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="use-cleanlab-to-get-better-consensus-labels-and-other-statistics" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="use-cleanlab-to-get-better-consensus-labels-and-other-statistics"><span class="header-section-number">3.4.2</span> Use cleanlab to get better consensus labels and other statistics</h3>
 <p>Using the annotators’ labels and the out-of-sample predicted probabilites from the model, cleanlab can help us obtain improved consensus labels for our data.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:10370,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863610660,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a7676ab9-36d7-4e1d-95e0-c9103cdc697d">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>results <span class="op">=</span> get_label_quality_multiannotator(multiannotator_labels, pred_probs, verbose<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Annotator(s) ['A0002' 'A0027' 'A0028' 'A0029' 'A0035'] did not annotate any examples that overlap with other annotators,                 
 using the average annotator agreeement among other annotators as this annotator's agreement.
@@ -1344,10 +1291,7 @@ using the average annotator agreeement among other annotators as this annotator'
 <li><code>label_quality</code> which gives us the improved consensus labels using information from each of the annotators and the model. The DataFrame also contains information about the number of annotations, annotator agreement and consensus quality score for each example.</li>
 </ol>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:280,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863636692,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a04a647e-37c6-4076-9d16-06b468da7be7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>results[<span class="st">"label_quality"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 
   <div id="df-0afad558-a10e-4a28-961b-3f03afd2e0f7">
@@ -1528,10 +1472,7 @@ using the average annotator agreeement among other annotators as this annotator'
 <li><code>detailed_label_quality</code> which returns the label quality score for each label given by every annotator</li>
 </ol>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863683448,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7f8e5633-efa4-447e-d127-621900539705">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>results[<span class="st">"detailed_label_quality"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="21">
 
   <div id="df-b29484af-20b8-4b6d-9243-241a45ac8a79">
@@ -1916,10 +1857,7 @@ using the average annotator agreeement among other annotators as this annotator'
 <li><code>annotator_stats</code> which gives us the annotator quality score for each annotator, alongisde other information such as the number of examples each annotator labeled, their agreement with the consensus labels and the class they perform the worst at.</li>
 </ol>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863706758,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ae3b5ae8-4fa9-45bb-ebe0-62c0a4c0bdd6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>results[<span class="st">"annotator_stats"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 
   <div id="df-7d4a164a-2f8c-4469-92f3-337ff37989c8">
@@ -2370,8 +2308,6 @@ using the average annotator agreeement among other annotators as this annotator'
 </div>
 <p>We can get the improved consensus labels from the label_quality DataFrame shown above. We can compare the accuracy of the consensus labels obtained using majority vote, and the improved consensus labels obtained using cleanlab.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:482,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863766653,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2ad5c07b-75c2-4f21-abe4-0866eb8493b1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>improved_consensus_label <span class="op">=</span> results[<span class="st">"label_quality"</span>][<span class="st">"consensus_label"</span>].values</span>
 <span id="cb30-2"><a href="#cb30-2"></a></span>
 <span id="cb30-3"><a href="#cb30-3"></a>majority_vote_accuracy <span class="op">=</span> np.mean(true_labels <span class="op">==</span> majority_vote_label)</span>
@@ -2379,7 +2315,6 @@ using the average annotator agreeement among other annotators as this annotator'
 <span id="cb30-5"><a href="#cb30-5"></a></span>
 <span id="cb30-6"><a href="#cb30-6"></a><span class="bu">print</span>(<span class="ss">f"Accuracy of majority vote labels = </span><span class="sc">{</span>majority_vote_accuracy<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb30-7"><a href="#cb30-7"></a><span class="bu">print</span>(<span class="ss">f"Accuracy of cleanlab consensus labels = </span><span class="sc">{</span>cleanlab_label_accuracy<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy of majority vote labels = 0.9054054054054054
 Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
@@ -2396,8 +2331,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <p>The high level description about this strategy is as follows: Queries are selectively drawn from the pool, which is usually assumed to be closed (i.e., static or non-changing), although this is not strictly necessary. Typically, instances are queried in a greedy fashion, according to an informativeness measure used to evaluate all instances in the pool (or, perhaps if <code>U</code> is very large, some subsample thereof).</p>
 <p>Now we set up the initial training set for our classifier. If you would like to play around, you can try to modifiy the value <code>n_initial</code> below and see if it impacts the algorithm!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2552,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863891496,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ed3b7806-c583-490e-9294-310f617a60d3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>digits <span class="op">=</span> load_digits()</span>
 <span id="cb32-2"><a href="#cb32-2"></a></span>
 <span id="cb32-3"><a href="#cb32-3"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))  <span class="co"># figure size in inches</span></span>
@@ -2408,14 +2341,11 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb32-8"><a href="#cb32-8"></a>    ax.imshow(digits.images[i], cmap<span class="op">=</span>plt.cm.binary, interpolation<span class="op">=</span><span class="st">'nearest'</span>)</span>
 <span id="cb32-9"><a href="#cb32-9"></a>    <span class="co"># label the image with the target value</span></span>
 <span id="cb32-10"><a href="#cb32-10"></a>    ax.text(<span class="dv">0</span>, <span class="dv">7</span>, <span class="bu">str</span>(digits.target[i]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:261,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864065408,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c1fcc203-4f7a-48eb-c109-91b299de36d4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>n_initial <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>X, y <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="bu">print</span>(X.shape)</span>
@@ -2426,7 +2356,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb33-8"><a href="#cb33-8"></a>X_initial, y_initial <span class="op">=</span> X_train[initial_idx], y_train[initial_idx]</span>
 <span id="cb33-9"><a href="#cb33-9"></a>X_pool, y_pool <span class="op">=</span> np.delete(X_train, initial_idx, axis<span class="op">=</span><span class="dv">0</span>), np.delete(y_train, initial_idx, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb33-10"><a href="#cb33-10"></a><span class="bu">print</span>(X_pool.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>(1797, 64)
 (1247, 64)</code></pre>
@@ -2437,8 +2366,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <p>Along with our pool-based sampling strategy, <code>modAL</code>’s modular design allows you to vary parameters surrounding the active learning process, <strong>including the core estimator and query strategy.</strong></p>
 <p>Now we initialize the active learner. Feel free to change the underlying <code>RandomForestClassifier</code> or the <code>uncertainty_sampling</code>!</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>learner <span class="op">=</span> ActiveLearner(</span>
 <span id="cb35-2"><a href="#cb35-2"></a>    estimator<span class="op">=</span>RandomForestClassifier(),</span>
 <span id="cb35-3"><a href="#cb35-3"></a>    query_strategy<span class="op">=</span>uncertainty_sampling,</span>
@@ -2447,14 +2374,11 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb35-6"><a href="#cb35-6"></a></span>
 <span id="cb35-7"><a href="#cb35-7"></a><span class="co">## We also set how many queries we want to make. The more the better!</span></span>
 <span id="cb35-8"><a href="#cb35-8"></a>n_queries <span class="op">=</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="the-active-learning-loop" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="the-active-learning-loop"><span class="header-section-number">3.5.2</span> The active learning loop</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:256033,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864365852,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7bffe159-4d94-42b6-e548-e77e76368c4a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>accuracy_scores <span class="op">=</span> [learner.score(X_test, y_test)]</span>
 <span id="cb36-2"><a href="#cb36-2"></a></span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_queries):</span>
@@ -2479,7 +2403,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb36-22"><a href="#cb36-22"></a>    learner.teach(query_inst.reshape(<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>), y_new)</span>
 <span id="cb36-23"><a href="#cb36-23"></a>    X_pool, y_pool <span class="op">=</span> np.delete(X_pool, query_idx, axis<span class="op">=</span><span class="dv">0</span>), np.delete(y_pool, query_idx, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb36-24"><a href="#cb36-24"></a>    accuracy_scores.append(learner.score(X_test, y_test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
 </div>
@@ -2494,38 +2417,27 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <h3 data-number="3.5.3" class="anchored" data-anchor-id="iris-example"><span class="header-section-number">3.5.3</span> Iris example</h3>
 <p>In this example, we use <code>scikit-learn</code>’s <code>k-nearest neighbors classifier</code> as our estimator and default to <code>modAL</code>’s uncertainty sampling query strategy.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Set our RNG seed for reproducibility</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>RANDOM_STATE_SEED <span class="op">=</span> <span class="dv">123</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>np.random.seed(RANDOM_STATE_SEED)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:315,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864372202,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0d350fc4-5e4e-484d-c9e7-82d76a59ed00">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb39-2"><a href="#cb39-2"></a></span>
 <span id="cb39-3"><a href="#cb39-3"></a>iris <span class="op">=</span> load_iris()</span>
 <span id="cb39-4"><a href="#cb39-4"></a>X_raw <span class="op">=</span> iris[<span class="st">'data'</span>]</span>
 <span id="cb39-5"><a href="#cb39-5"></a>y_raw <span class="op">=</span> iris[<span class="st">'target'</span>]</span>
 <span id="cb39-6"><a href="#cb39-6"></a><span class="bu">print</span>(X_raw.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>(150, 4)</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Define our PCA transformer and fit it onto our raw dataset.</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span>RANDOM_STATE_SEED)</span>
 <span id="cb41-3"><a href="#cb41-3"></a>transformed_iris <span class="op">=</span> pca.fit_transform(X<span class="op">=</span>X_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:693,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864424083,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="acffc9ce-2241-4bc6-ee77-f233e0e8b9c7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Isolate the data we'll need for plotting.</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>x_component, y_component <span class="op">=</span> transformed_iris[:, <span class="dv">0</span>], transformed_iris[:, <span class="dv">1</span>]</span>
 <span id="cb42-3"><a href="#cb42-3"></a></span>
@@ -2534,15 +2446,12 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb42-6"><a href="#cb42-6"></a>plt.scatter(x<span class="op">=</span>x_component, y<span class="op">=</span>y_component, c<span class="op">=</span>y_raw, cmap<span class="op">=</span><span class="st">'viridis'</span>, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="dv">8</span><span class="op">/</span><span class="dv">10</span>)</span>
 <span id="cb42-7"><a href="#cb42-7"></a>plt.title(<span class="st">'Iris classes after PCA transformation'</span>)</span>
 <span id="cb42-8"><a href="#cb42-8"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Now we partition our iris dataset into a training set <code>L</code> and <code>U</code>. We first specify our training set <code>L</code> consisting of 3 random examples. The remaining examples go to our “unlabeled” pool <code>U</code>.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Isolate our examples for our labeled dataset.</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>n_labeled_examples <span class="op">=</span> X_raw.shape[<span class="dv">0</span>]</span>
 <span id="cb43-3"><a href="#cb43-3"></a>training_indices <span class="op">=</span> np.random.randint(low<span class="op">=</span><span class="dv">0</span>, high<span class="op">=</span>n_labeled_examples <span class="op">+</span> <span class="dv">1</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
@@ -2553,28 +2462,21 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb43-8"><a href="#cb43-8"></a><span class="co"># Isolate the non-training examples we'll be querying.</span></span>
 <span id="cb43-9"><a href="#cb43-9"></a>X_pool <span class="op">=</span> np.delete(X_raw, training_indices, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb43-10"><a href="#cb43-10"></a>y_pool <span class="op">=</span> np.delete(y_raw, training_indices, axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>For the classification, we are going to use a simple <code>k-nearest neighbors classifier</code>. In this step, we are also going to initialize the <code>ActiveLearner</code>.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Specify our core estimator along with it's active learning model.</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb44-3"><a href="#cb44-3"></a>learner <span class="op">=</span> ActiveLearner(estimator<span class="op">=</span>knn, X_training<span class="op">=</span>X_train, y_training<span class="op">=</span>y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Let’s see how our classifier performs on the initial training set!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:262,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864488186,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5c18af7e-db7b-48b0-b27b-b7ceeea0d317">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Isolate the data we'll need for plotting.</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="bu">print</span>(y_train)</span>
 <span id="cb45-3"><a href="#cb45-3"></a>predictions <span class="op">=</span> learner.predict(X_raw)</span>
 <span id="cb45-4"><a href="#cb45-4"></a>is_correct <span class="op">=</span> (predictions <span class="op">==</span> y_raw)</span>
 <span id="cb45-5"><a href="#cb45-5"></a></span>
 <span id="cb45-6"><a href="#cb45-6"></a>predictions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[2 2 1]</code></pre>
 </div>
@@ -2589,8 +2491,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:623,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864512980,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2539d0f0-7221-4d11-8acb-b77143517fe0">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Record our learner's score on the raw data.</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a>unqueried_score <span class="op">=</span> learner.score(X_raw, y_raw)</span>
 <span id="cb48-3"><a href="#cb48-3"></a></span>
@@ -2601,7 +2501,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb48-8"><a href="#cb48-8"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower right'</span>)</span>
 <span id="cb48-9"><a href="#cb48-9"></a>ax.set_title(<span class="st">"ActiveLearner class predictions (Accuracy: </span><span class="sc">{score:.3f}</span><span class="st">)"</span>.<span class="bu">format</span>(score<span class="op">=</span>unqueried_score))</span>
 <span id="cb48-10"><a href="#cb48-10"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
 </div>
@@ -2611,8 +2510,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <p>As we can see, our model is unable to properly learn the underlying data distribution. All of its predictions are for the third class label, and as such it is only as competitive as defaulting its predictions to a single class – if only we had more data!</p>
 <p>Below, we tune our classifier by allowing it to query 20 instances it hasn’t seen before. Using uncertainty sampling, <strong>our classifier aims to reduce the amount of uncertainty in its predictions using a variety of measures</strong> — see https://modal-python.readthedocs.io/en/latest/index.html for more on specific classification uncertainty measures. With each requested query, we remove that record from our pool <code>U</code> and record our model’s accuracy on the raw dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:448,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864568000,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="99951b46-224e-4b63-da6e-d4b00bd7d71b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>N_QUERIES <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>performance_history <span class="op">=</span> [unqueried_score]</span>
 <span id="cb49-3"><a href="#cb49-3"></a></span>
@@ -2635,7 +2532,6 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb49-20"><a href="#cb49-20"></a></span>
 <span id="cb49-21"><a href="#cb49-21"></a>  <span class="co"># Save our model's performance for plotting.</span></span>
 <span id="cb49-22"><a href="#cb49-22"></a>  performance_history.append(model_accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy after query 1: 0.6667
 Accuracy after query 2: 0.6667
@@ -2661,8 +2557,6 @@ Accuracy after query 20: 0.9267</code></pre>
 </div>
 <p>Here, we first plot the query iteration index against model accuracy. To visualize the performance of our classifier, we also plot the correct and incorrect predictions on the full dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:501,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864600779,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1855c496-3e99-4c8f-8709-c541f88a563e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Plot our performance over time.</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">8.5</span>, <span class="dv">6</span>), dpi<span class="op">=</span><span class="dv">130</span>)</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
@@ -2681,14 +2575,11 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb51-16"><a href="#cb51-16"></a>ax.set_ylabel(<span class="st">'Classification Accuracy'</span>)</span>
 <span id="cb51-17"><a href="#cb51-17"></a></span>
 <span id="cb51-18"><a href="#cb51-18"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:449,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864617525,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1e27c6a0-2e63-4df7-d4da-c18775775fac">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Isolate the data we'll need for plotting.</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>predictions <span class="op">=</span> learner.predict(X_raw)</span>
 <span id="cb52-3"><a href="#cb52-3"></a>is_correct <span class="op">=</span> (predictions <span class="op">==</span> y_raw)</span>
@@ -2703,7 +2594,6 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb52-12"><a href="#cb52-12"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower right'</span>)</span>
 <span id="cb52-13"><a href="#cb52-13"></a></span>
 <span id="cb52-14"><a href="#cb52-14"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
 </div>
@@ -2720,8 +2610,6 @@ Accuracy after query 20: 0.9267</code></pre>
 <p>We use a <a href="https://archive.ics.uci.edu/ml/datasets/YouTube+Spam+Collection">YouTube comments dataset</a> that consists of YouTube comments from 5 videos. The task is to classify each comment as being</p>
 <p>HAM: comments relevant to the video (even very simple ones), or SPAM: irrelevant (often trying to advertise something) or inappropriate messages</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:283,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864671380,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ddde3f4e-99a2-4544-cfb8-ca9330ea99bb">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="op">%%</span><span class="bu">file</span> download_data.sh</span>
 <span id="cb53-2"><a href="#cb53-2"></a></span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="co">#!/bin/bash</span></span>
@@ -2750,14 +2638,11 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb53-26"><a href="#cb53-26"></a>    rm <span class="op">-</span>rf __MACOSX</span>
 <span id="cb53-27"><a href="#cb53-27"></a>    cd ..</span>
 <span id="cb53-28"><a href="#cb53-28"></a>fi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing download_data.sh</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="kw">def</span> load_spam_dataset(load_train_labels: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>, split_dev_valid: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>):</span>
 <span id="cb55-2"><a href="#cb55-2"></a>    <span class="cf">if</span> os.path.basename(os.getcwd()) <span class="op">==</span> <span class="st">"snorkel-tutorials"</span>:</span>
 <span id="cb55-3"><a href="#cb55-3"></a>        os.chdir(<span class="st">"spam"</span>)</span>
@@ -2797,7 +2682,6 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb55-37"><a href="#cb55-37"></a>        <span class="cf">return</span> df_train, df_dev, df_valid, df_test</span>
 <span id="cb55-38"><a href="#cb55-38"></a>    <span class="cf">else</span>:</span>
 <span id="cb55-39"><a href="#cb55-39"></a>        <span class="cf">return</span> df_train, df_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We split our data into two sets:</p>
 <ul>
@@ -2820,19 +2704,13 @@ Accuracy after query 20: 0.9267</code></pre>
 </ul>
 <p>We start by loading our data. The <code>load_spam_dataset()</code> method downloads the raw CSV files from the internet, divides them into splits, converts them into <code>DataFrames</code>, and shuffles them. As mentioned above, the dataset contains comments from 5 of the most popular YouTube videos during a period between 2014 and 2015. <strong>The first four videos’ comments are combined to form the train set. This set has no gold labels. The fifth video is part of the test set.</strong></p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>df_train, df_test <span class="op">=</span> load_spam_dataset()</span>
 <span id="cb56-2"><a href="#cb56-2"></a></span>
 <span id="cb56-3"><a href="#cb56-3"></a><span class="co"># We pull out the label vectors for ease of use later</span></span>
 <span id="cb56-4"><a href="#cb56-4"></a>Y_test <span class="op">=</span> df_test.label.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:12,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864692868,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="777d56a1-8d7d-4fa5-ee41-d5c66d459fee">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>df_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="43">
 
   <div id="df-7c777fba-b7a5-42a2-93a0-4bda9bb87d52">
@@ -3022,13 +2900,10 @@ Accuracy after query 20: 0.9267</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># For clarity, we define constants to represent the class labels for spam, ham, and abstaining.</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>ABSTAIN <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
 <span id="cb58-3"><a href="#cb58-3"></a>HAM <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb58-4"><a href="#cb58-4"></a>SPAM <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="writing-labeling-functions-lfs" class="level3" data-number="3.6.2">
@@ -3054,20 +2929,15 @@ Accuracy after query 20: 0.9267</code></pre>
 <p>Let’s start developing an LF to catch instances of commenters trying to get people to “check out” their channel, video, or website. We’ll start by just looking for the exact string “check out” in the text, and see how that compares to looking for just “check” in the text. For the two versions of our rule, we’ll write a Python function over a single data point that express it, then add the decorator.</p>
 <p>One dominant pattern in the comments that look like spam (which we might know from prior domain experience, or from inspection of a few training data points) is the use of the phrase <strong>“check out”</strong> (e.g.&nbsp;“check out my channel”). Let’s start with that.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="at">@labeling_function</span>()</span>
 <span id="cb59-2"><a href="#cb59-2"></a><span class="kw">def</span> regex_check_out(x):</span>
 <span id="cb59-3"><a href="#cb59-3"></a>    <span class="cf">return</span> SPAM <span class="cf">if</span> re.search(<span class="vs">r"check.*out"</span>, x.text, flags<span class="op">=</span>re.I) <span class="cf">else</span> ABSTAIN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <ol start="2" type="a">
 <li>Keyword LFs</li>
 </ol>
 <p>For text applications, some of the simplest LFs to write are often just keyword lookups. These will often follow the same execution pattern, so we can create a template and use the resources parameter to pass in LF-specific keywords. Similar to the <code>labeling_function</code> decorator, the <code>LabelingFunction</code> class wraps a Python function (the <code>f</code> parameter), and we can use the resources parameter to pass in keyword arguments (here, our keywords to lookup) to said function.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="kw">def</span> keyword_lookup(x, keywords, label):</span>
 <span id="cb60-2"><a href="#cb60-2"></a>    <span class="cf">if</span> <span class="bu">any</span>(word <span class="kw">in</span> x.text.lower() <span class="cf">for</span> word <span class="kw">in</span> keywords):</span>
 <span id="cb60-3"><a href="#cb60-3"></a>        <span class="cf">return</span> label</span>
@@ -3101,23 +2971,17 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb60-31"><a href="#cb60-31"></a></span>
 <span id="cb60-32"><a href="#cb60-32"></a><span class="co">"""Ham comments actually talk about the video's content."""</span></span>
 <span id="cb60-33"><a href="#cb60-33"></a>keyword_song <span class="op">=</span> make_keyword_lf(keywords<span class="op">=</span>[<span class="st">"song"</span>], label<span class="op">=</span>HAM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <ol start="3" type="a">
 <li>Heuristic LFs There may other heuristics or “rules of thumb” that you come up with as you look at the data. So long as you can express it in a function, it’s a viable LF!</li>
 </ol>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="at">@labeling_function</span>()</span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="kw">def</span> short_comment(x):</span>
 <span id="cb61-3"><a href="#cb61-3"></a>    <span class="co">"""Ham comments are often short, such as 'cool video!'"""</span></span>
 <span id="cb61-4"><a href="#cb61-4"></a>    <span class="cf">return</span> HAM <span class="cf">if</span> <span class="bu">len</span>(x.text.split()) <span class="op">&lt;</span> <span class="dv">5</span> <span class="cf">else</span> ABSTAIN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>lfs <span class="op">=</span> [</span>
 <span id="cb62-2"><a href="#cb62-2"></a>    keyword_my,</span>
 <span id="cb62-3"><a href="#cb62-3"></a>    keyword_subscribe,</span>
@@ -3128,18 +2992,14 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb62-8"><a href="#cb62-8"></a>    regex_check_out,</span>
 <span id="cb62-9"><a href="#cb62-9"></a>    short_comment,</span>
 <span id="cb62-10"><a href="#cb62-10"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>To apply one or more LFs that we’ve written to a collection of data points, we use an <code>LFApplier</code>. Because our data points are represented with a <code>Pandas</code> <code>DataFrame</code> in this tutorial, we use the <code>PandasLFApplier</code>. Correspondingly, a single data point <code>x</code> that’s passed into our LFs will be a <code>Pandas</code> <code>Series</code> object.</p>
 <p>It’s important to note that these LFs will work for any object with an attribute named text, not just <code>Pandas</code> objects. <code>Snorkel</code> has several other appliers for different data point collection types which you can browse in the https://snorkel.readthedocs.io/en/master/packages/labeling.html.</p>
 <p>The output of the <code>apply(...)</code> method is a label matrix, a fundamental concept in <code>Snorkel</code>. It’s a <code>NumPy</code> array <code>L</code> with one column for each LF and one row for each data point, where <code>L[i, j]</code> is the label that the jth labeling function output for the ith data point. We’ll create a label matrix for the train set.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:305,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864999338,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a1445d36-d73a-4094-8f28-bdeea45eab0e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>applier <span class="op">=</span> PandasLFApplier(lfs<span class="op">=</span>lfs)</span>
 <span id="cb63-2"><a href="#cb63-2"></a>L_train <span class="op">=</span> applier.<span class="bu">apply</span>(df<span class="op">=</span>df_train)</span>
 <span id="cb63-3"><a href="#cb63-3"></a>L_test <span class="op">=</span> applier.<span class="bu">apply</span>(df<span class="op">=</span>df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>100%|██████████| 1586/1586 [00:00&lt;00:00, 9646.05it/s]
 100%|██████████| 250/250 [00:00&lt;00:00, 8692.21it/s]</code></pre>
@@ -3147,21 +3007,15 @@ Accuracy after query 20: 0.9267</code></pre>
 </div>
 <p>We can easily calculate the coverage of these LFs (i.e., the percentage of the dataset that they label) as follows:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:294,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865059151,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9cf37bf6-d2eb-45a0-9b0e-0eba95068ec1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>coverage <span class="op">=</span> (L_train <span class="op">!=</span> ABSTAIN).mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb65-2"><a href="#cb65-2"></a>coverage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>array([0.19861286, 0.12736444, 0.11916772, 0.05674653, 0.11223203,
        0.14186633, 0.23392182, 0.22572509])</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865059432,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ce7d5988-c54b-4429-e40b-8e4c608e4b7c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>L_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>array([[-1, -1,  1, ..., -1, -1, -1],
        [-1,  1, -1, ..., -1, -1, -1],
@@ -3175,10 +3029,7 @@ Accuracy after query 20: 0.9267</code></pre>
 <p>Lots of statistics about labeling functions - like coverage - are useful when building any <code>Snorkel</code> application. So Snorkel provides tooling for common LF analyses using the <code>LFAnalysis</code> utility.</p>
 <p>Checkout the statistics here <a href="https://snorkel.readthedocs.io/en/master/packages/_autosummary/labeling/snorkel.labeling.LFAnalysis.html">https://snorkel.readthedocs.io/en/master/packages/_autosummary/labeling/snorkel.labeling.LFAnalysis.html</a></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:285,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865064220,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="94a4e718-1001-410e-8b30-9fa11101c580">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>LFAnalysis(L<span class="op">=</span>L_train, lfs<span class="op">=</span>lfs).lf_summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="53">
 
   <div id="df-8c6b4506-782c-4433-b0f9-e1e70c72abaf">
@@ -3344,28 +3195,20 @@ Accuracy after query 20: 0.9267</code></pre>
 </div>
 <p>Our goal is now to convert the labels from our LFs into a single noise-aware probabilistic (or confidence-weighted) label per data point. A simple baseline for doing this is to take the majority vote on a per-data point basis: <strong>if more LFs voted SPAM than HAM, label it SPAM (and vice versa)</strong>. We can test this with the <code>MajorityLabelVoter</code> baseline model.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>majority_model <span class="op">=</span> MajorityLabelVoter()</span>
 <span id="cb70-2"><a href="#cb70-2"></a>preds_train <span class="op">=</span> majority_model.predict(L<span class="op">=</span>L_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The LFs may have varying properties and should not be treated identically. In addition to having varied accuracies and coverages, LFs may be correlated, resulting in certain signals being overrepresented in a majority-vote-based model.</p>
 <p>To handle these issues appropriately, we will instead use a more sophisticated Snorkel <code>LabelModel</code> to combine the outputs of the LFs. <strong>This model will ultimately produce a single set of noise-aware training labels, which are probabilistic or confidence-weighted labels. We will then use these labels to train a classifier for our task.</strong></p>
 <p>Note that no gold labels are used during the training process. The only information we need is the label matrix, which contains the output of the LFs on our training set. The <code>LabelModel</code> is able to learn weights for the labeling functions using only the label matrix as input. We also specify the <strong>cardinality, or number of classes.</strong></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:764,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865120195,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8012c5a6-48d8-41bc-9166-534b2a79aa40">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>label_model <span class="op">=</span> LabelModel(cardinality<span class="op">=</span><span class="dv">2</span>, verbose<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb71-2"><a href="#cb71-2"></a>label_model.fit(L_train<span class="op">=</span>L_train, n_epochs<span class="op">=</span><span class="dv">500</span>, log_freq<span class="op">=</span><span class="dv">100</span>, seed<span class="op">=</span><span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>100%|██████████| 500/500 [00:00&lt;00:00, 1051.93epoch/s]</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:256,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865124497,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4cfb9f8b-b4c2-4013-f0e7-f0a565aad663">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>majority_acc <span class="op">=</span> majority_model.score(L<span class="op">=</span>L_test, Y<span class="op">=</span>Y_test, tie_break_policy<span class="op">=</span><span class="st">"random"</span>)[</span>
 <span id="cb73-2"><a href="#cb73-2"></a>    <span class="st">"accuracy"</span></span>
 <span id="cb73-3"><a href="#cb73-3"></a>]</span>
@@ -3375,7 +3218,6 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb73-7"><a href="#cb73-7"></a>    <span class="st">"accuracy"</span></span>
 <span id="cb73-8"><a href="#cb73-8"></a>]</span>
 <span id="cb73-9"><a href="#cb73-9"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="st">'Label Model Accuracy:'</span><span class="sc">:&lt;25}</span><span class="ss"> </span><span class="sc">{</span>label_model_acc <span class="op">*</span> <span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Majority Vote Accuracy:   86.4%
 Label Model Accuracy:     84.8%</code></pre>
@@ -3385,8 +3227,6 @@ Label Model Accuracy:     84.8%</code></pre>
 <p>We will instead use the outputs of the <code>LabelModel</code> as training labels to train a discriminative classifier which can generalize beyond the labeling function outputs to see if we can improve performance further. This classifier will also only need the text of the comment to make predictions, making it much more suitable for inference over unseen comments.</p>
 <p>Let’s briefly confirm that the labels the <code>LabelModel</code> produces are indeed probabilistic in nature. The following histogram shows the confidences we have that each data point has the label SPAM. The points we are least certain about will have labels close to 0.5.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:327,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865176412,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2c4e0450-4102-43d0-9248-9f055c3a77ed">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="kw">def</span> plot_probabilities_histogram(Y):</span>
 <span id="cb75-2"><a href="#cb75-2"></a>    plt.hist(Y, bins<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb75-3"><a href="#cb75-3"></a>    plt.xlabel(<span class="st">"Probability of SPAM"</span>)</span>
@@ -3396,19 +3236,15 @@ Label Model Accuracy:     84.8%</code></pre>
 <span id="cb75-7"><a href="#cb75-7"></a></span>
 <span id="cb75-8"><a href="#cb75-8"></a>probs_train <span class="op">=</span> label_model.predict_proba(L<span class="op">=</span>L_train)</span>
 <span id="cb75-9"><a href="#cb75-9"></a>plot_probabilities_histogram(probs_train[:, SPAM])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-56-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>As we saw earlier, some of the data points in our train set received no labels from any of our LFs. These data points convey no supervision signal and tend to hurt performance, so we filter them out before training using a built-in utility.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>df_train_filtered, probs_train_filtered <span class="op">=</span> filter_unlabeled_dataframe(</span>
 <span id="cb76-2"><a href="#cb76-2"></a>    X<span class="op">=</span>df_train, y<span class="op">=</span>probs_train, L<span class="op">=</span>L_train</span>
 <span id="cb76-3"><a href="#cb76-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="training-a-classifier" class="level3" data-number="3.6.3">
@@ -3416,36 +3252,24 @@ Label Model Accuracy:     84.8%</code></pre>
 <p>In this final section of the tutorial, we’ll use the probabilistic training labels we generated in the last section to train a classifier for our task. The output of the <code>Snorkel</code> <code>LabelModel</code> is just a set of labels which can be used with most popular libraries for performing supervised learning. Note that typically, <code>Snorkel</code> is used (and really shines!) with much more complex, training data-hungry models, but we will use Logistic Regression here for simplicity of exposition.</p>
 <p>For simplicity and speed, we use a simple “bag of n-grams” feature representation: each data point is represented by a one-hot vector marking which words or 2-word combinations are present in the comment text.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>vectorizer <span class="op">=</span> CountVectorizer(ngram_range<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">5</span>))</span>
 <span id="cb77-2"><a href="#cb77-2"></a>X_train <span class="op">=</span> vectorizer.fit_transform(df_train_filtered.text.tolist())</span>
 <span id="cb77-3"><a href="#cb77-3"></a>X_test <span class="op">=</span> vectorizer.transform(df_test.text.tolist())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>If we want to use a library or model that doesn’t accept probabilistic labels (such as <code>Scikit-Learn</code>), we can instead replace each label distribution with the label of the class that has the maximum probability. This can easily be done using the <code>probs_to_preds</code> helper method. <strong>We do note, however, that this transformation is lossy</strong>, as we no longer have values for our confidence in each label.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>preds_train_filtered <span class="op">=</span> probs_to_preds(probs<span class="op">=</span>probs_train_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We then use these labels to train a classifier as usual.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:273,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865218658,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fe3a035f-81a8-4f48-a5c6-0e20a631e1e4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>sklearn_model <span class="op">=</span> LogisticRegression(C<span class="op">=</span><span class="fl">1e2</span>, solver<span class="op">=</span><span class="st">"liblinear"</span>)</span>
 <span id="cb79-2"><a href="#cb79-2"></a>sklearn_model.fit(X<span class="op">=</span>X_train, y<span class="op">=</span>preds_train_filtered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="62">
 <pre><code>LogisticRegression(C=100.0, solver='liblinear')</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865220047,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b711ea17-36a5-46e2-d21f-1f5b83e3e6ee">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a><span class="bu">print</span>(<span class="ss">f"Test Accuracy: </span><span class="sc">{</span>sklearn_model<span class="sc">.</span>score(X<span class="op">=</span>X_test, y<span class="op">=</span>Y_test) <span class="op">*</span> <span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Test Accuracy: 91.2%</code></pre>
 </div>
@@ -3457,10 +3281,7 @@ Label Model Accuracy:     84.8%</code></pre>
 <h2 data-number="3.7" class="anchored" data-anchor-id="data-augmentation-using-albumentations"><span class="header-section-number">3.7</span> Data augmentation using Albumentations</h2>
 <p><code>Scikit-image</code> reads an image in RGB format which is consistent with <code>Albumentations</code>.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:734,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865259947,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b77941fc-9e00-40ea-f54d-1d8d2245ca1b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>albumentations<span class="op">-</span>team<span class="op">/</span>albumentations_examples<span class="op">/</span>master<span class="op">/</span>notebooks<span class="op">/</span>images<span class="op">/</span>image_3.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--2023-02-20 03:54:21--  https://raw.githubusercontent.com/albumentations-team/albumentations_examples/master/notebooks/images/image_3.jpg
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
@@ -3476,44 +3297,33 @@ image_3.jpg         100%[===================&gt;]  56.73K  --.-KB/s    in 0.007s
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1661,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865265158,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a1f03356-4fb7-4686-99a4-64195f8cf71b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>image <span class="op">=</span> io.imread(<span class="st">'image_3.jpg'</span>)</span>
 <span id="cb85-2"><a href="#cb85-2"></a>visualize(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-63-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>We fix the random seed for visualization purposes, so the augmentation will always produce the same result. In a real computer vision pipeline, <strong>you shouldn’t fix the random seed</strong> before applying a transform to the image because, in that case, the pipeline will always output the same image. The purpose of image augmentation is to use different transformations each time</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1488,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865280190,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1f783a46-cf0a-4404-f9d7-096bc7f6f1a3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Define a single augmentation, pass the image to it and receive the augmented image</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a>transform <span class="op">=</span> A.HorizontalFlip(p<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb86-3"><a href="#cb86-3"></a>random.seed(<span class="dv">7</span>)</span>
 <span id="cb86-4"><a href="#cb86-4"></a>augmented_image <span class="op">=</span> transform(image<span class="op">=</span>image)[<span class="st">'image'</span>]</span>
 <span id="cb86-5"><a href="#cb86-5"></a>visualize(augmented_image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-64-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1624,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865295300,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="59382b4a-94fd-44f1-87a0-1f3d8febf1fa">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>transform <span class="op">=</span> A.ShiftScaleRotate(p<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb87-2"><a href="#cb87-2"></a>random.seed(<span class="dv">7</span>) </span>
 <span id="cb87-3"><a href="#cb87-3"></a>augmented_image <span class="op">=</span> transform(image<span class="op">=</span>image)[<span class="st">'image'</span>]</span>
 <span id="cb87-4"><a href="#cb87-4"></a>visualize(augmented_image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-65-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2179,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865311262,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2a136c7e-c80a-4701-d6e4-d5109b4c2ff2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a><span class="co">#Define an augmentation pipeline using Compose, pass the image to it and receive the augmented imag</span></span>
 <span id="cb88-2"><a href="#cb88-2"></a>transform <span class="op">=</span> A.Compose([</span>
 <span id="cb88-3"><a href="#cb88-3"></a>    A.CLAHE(),</span>
@@ -3528,23 +3338,16 @@ image_3.jpg         100%[===================&gt;]  56.73K  --.-KB/s    in 0.007s
 <span id="cb88-12"><a href="#cb88-12"></a>random.seed(<span class="dv">42</span>) </span>
 <span id="cb88-13"><a href="#cb88-13"></a>augmented_image <span class="op">=</span> transform(image<span class="op">=</span>image)[<span class="st">'image'</span>]</span>
 <span id="cb88-14"><a href="#cb88-14"></a>visualize(augmented_image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-66-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>io.imsave(<span class="st">'augmented_image.jpg'</span>, augmented_image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1042,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676781601826,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3e9d390b-c82a-4670-d5e9-b32d10c762cc">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>image <span class="op">=</span> io.imread(<span class="st">'augmented_image.jpg'</span>)</span>
 <span id="cb90-2"><a href="#cb90-2"></a>visualize(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="02_Dataset_files/figure-html/cell-68-output-1.png" class="img-fluid"></p>
 </div>

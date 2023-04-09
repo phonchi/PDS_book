@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></h1>
 </div>
 
 
@@ -306,15 +306,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">8.1</span> Setup</h2>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:76776,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015356667,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f730be4f-e38e-4103-c229-9847abeffbfb">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install bentoml <span class="op">-</span>qq</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install pyngrok <span class="op">-</span>qq</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>pip install PyYAML <span class="op">-</span>U <span class="op">-</span>qq</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="op">!</span>pip install streamlit <span class="op">-</span>qq</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="op">!</span>pip install gradio <span class="op">-</span>qq</span>
 <span id="cb1-6"><a href="#cb1-6"></a><span class="op">!</span>pip install evidently <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 972.5/972.5 KB 10.3 MB/s eta 0:00:00
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.9/50.9 KB 2.5 MB/s eta 0:00:00
@@ -361,8 +358,6 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 </div>
 <p>Notice that <strong>you may need to restart the kernel</strong> after the above installations.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:11914,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015573746,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Scientific computing</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -402,40 +397,28 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <span id="cb3-37"><a href="#cb3-37"></a><span class="im">import</span> zipfile</span>
 <span id="cb3-38"><a href="#cb3-38"></a><span class="im">import</span> io</span>
 <span id="cb3-39"><a href="#cb3-39"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Here are some tips for this notebook <a href="https://amitness.com/2020/06/google-colaboratory-tips/">https://amitness.com/2020/06/google-colaboratory-tips/</a> and <a href="https://stackoverflow.com/questions/59741453/is-there-a-general-way-to-run-web-applications-on-google-colab">https://stackoverflow.com/questions/59741453/is-there-a-general-way-to-run-web-applications-on-google-colab</a>.</p>
 <p><code>ngrok</code> is a reverse proxy tool that opens secure tunnels from public URLs to localhost, perfect for exposing local web servers, building webhook integrations, enabling SSH access, testing chatbots, demoing from your own machine, and more. In this lab, we will use use <a href="https://pyngrok.readthedocs.io/en/latest/integrations.html">https://pyngrok.readthedocs.io/en/latest/integrations.html</a>. However, for production environment, it is recommended to use cloud service such as AWS, GCP or Azure, see <a href="https://towardsdatascience.com/the-hierarchy-of-ml-tooling-on-the-public-cloud-ed387cac3c27">here</a> or <a href="https://pycaret.gitbook.io/docs/get-started/functions/deploy#deploy_model">https://pycaret.gitbook.io/docs/get-started/functions/deploy#deploy_model</a> for more details.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:9010,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017871741,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bad30930-0a35-42aa-c554-2c32c2545fe0" data-execution_count="68">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">print</span>(<span class="st">"Enter your authtoken, which can be copied from https://dashboard.ngrok.com/auth"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>conf.get_default().auth_token <span class="op">=</span> getpass.getpass()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter your authtoken, which can be copied from https://dashboard.ngrok.com/auth
 ··········</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:863,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017873727,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="69">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Setup a tunnel to the port 8050</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>public_url <span class="op">=</span> ngrok.<span class="ex">connect</span>(<span class="dv">8050</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:436,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017876960,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4bb1343e-069e-4d24-aba6-50e6b2f43273" data-execution_count="70">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>public_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="70">
 <pre><code>&lt;NgrokTunnel: "http://ebc0-35-234-170-255.ngrok-free.app" -&gt; "http://localhost:8050"&gt;</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:329,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015775553,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">if</span> <span class="kw">not</span> tf.config.list_physical_devices(<span class="st">'GPU'</span>):</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="bu">print</span>(<span class="st">"No GPU was detected. Neural nets can be very slow without a GPU."</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="cf">if</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules:</span>
@@ -443,7 +426,6 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <span id="cb9-5"><a href="#cb9-5"></a>              <span class="st">"accelerator."</span>)</span>
 <span id="cb9-6"><a href="#cb9-6"></a>    <span class="cf">if</span> <span class="st">"kaggle_secrets"</span> <span class="kw">in</span> sys.modules:</span>
 <span id="cb9-7"><a href="#cb9-7"></a>        <span class="bu">print</span>(<span class="st">"Go to Settings &gt; Accelerator and select GPU."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" class="level2" data-number="8.2">
@@ -453,14 +435,11 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="exporting-savedmodels"><span class="header-section-number">8.2.1</span> Exporting <code>SavedModels</code></h3>
 <p>TensorFlow provides a simple <code>tf.keras.models.save_model()</code> function to export models to the SavedModel format. All you need to do is give it the model, specifying its name and version number, and the function will save the model’s computation graph and its weights:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1587,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015839760,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a67c87fd-55f4-47b6-b65d-496c920ab25a" data-execution_count="6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Load and split the MNIST dataset</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>mnist <span class="op">=</span> tf.keras.datasets.mnist.load_data()</span>
 <span id="cb10-3"><a href="#cb10-3"></a>(X_train_full, y_train_full), (X_test, y_test) <span class="op">=</span> mnist</span>
 <span id="cb10-4"><a href="#cb10-4"></a>X_valid, X_train <span class="op">=</span> X_train_full[:<span class="dv">5000</span>], X_train_full[<span class="dv">5000</span>:]</span>
 <span id="cb10-5"><a href="#cb10-5"></a>y_valid, y_train <span class="op">=</span> y_train_full[:<span class="dv">5000</span>], y_train_full[<span class="dv">5000</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 11490434/11490434 [==============================] - 1s 0us/step</code></pre>
@@ -468,8 +447,6 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 </div>
 <p>It’s usually a good idea to include all the preprocessing layers in the final model you export so that it can ingest data in its natural form once it is deployed to production. This avoids having to take care of preprocessing separately within the application that uses the model. Bundling the preprocessing steps within the model also makes it simpler to update them later on and limits the risk of mismatch between a model and the preprocessing steps it requires!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:85541,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015968836,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5b1a616d-1617-4f66-aa99-53089d2a0a04" data-execution_count="7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Build &amp; train an MNIST model (also handles image preprocessing)</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a>tf.random.set_seed(<span class="dv">42</span>)</span>
@@ -484,7 +461,6 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <span id="cb12-12"><a href="#cb12-12"></a>              optimizer<span class="op">=</span>tf.keras.optimizers.SGD(learning_rate<span class="op">=</span><span class="fl">1e-2</span>),</span>
 <span id="cb12-13"><a href="#cb12-13"></a>              metrics<span class="op">=</span>[<span class="st">"accuracy"</span>])</span>
 <span id="cb12-14"><a href="#cb12-14"></a>model.fit(X_train, y_train, epochs<span class="op">=</span><span class="dv">10</span>, validation_data<span class="op">=</span>(X_valid, y_valid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Epoch 1/10
 1719/1719 [==============================] - 11s 3ms/step - loss: 0.6814 - accuracy: 0.8237 - val_loss: 0.3684 - val_accuracy: 0.9020
@@ -512,11 +488,8 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:359,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015971082,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="de5fd550-9670-44ec-cb25-d9f59d7f98c3" data-execution_count="8">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>X_new <span class="op">=</span> X_test[:<span class="dv">3</span>]  <span class="co"># pretend we have 3 new digit images to classify</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>np.<span class="bu">round</span>(model.predict(X_new), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>1/1 [==============================] - 0s 81ms/step</code></pre>
 </div>
@@ -529,16 +502,11 @@ Epoch 10/10
 </div>
 <p>Now to version the model, you just need to create a subdirectory for each model version:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:437,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016033696,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="9">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>model_name <span class="op">=</span> <span class="st">"my_mnist_model"</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>model_version <span class="op">=</span> <span class="st">"0001"</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>model_path <span class="op">=</span> Path(model_name) <span class="op">/</span> model_version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:924,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016035048,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="10">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>tf.keras.models.save_model(</span>
 <span id="cb19-2"><a href="#cb19-2"></a>    model,</span>
 <span id="cb19-3"><a href="#cb19-3"></a>    model_path,</span>
@@ -548,18 +516,14 @@ Epoch 10/10
 <span id="cb19-7"><a href="#cb19-7"></a>    signatures<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb19-8"><a href="#cb19-8"></a>    options<span class="op">=</span><span class="va">None</span></span>
 <span id="cb19-9"><a href="#cb19-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>A SavedModel represents a version of your model. It is stored as a directory containing a <code>saved_model.pb</code> file, which defines the computation graph (represented as a <strong>serialized protocol buffer</strong>), and a variables subdirectory containing the variable values. For models containing a large number of weights, these variable values may be split across multiple files. A SavedModel also includes an <code>assets</code> subdirectory that may contain additional data, such as vocabulary files, class names, or some example instances for this model.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:344,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016053992,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="93f6b687-1bae-4bf2-e0ac-2b15202eefdd" data-execution_count="11">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(model_name):</span>
 <span id="cb20-2"><a href="#cb20-2"></a>    indent <span class="op">=</span> <span class="st">'    '</span> <span class="op">*</span> root.count(os.sep)</span>
 <span id="cb20-3"><a href="#cb20-3"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}{}</span><span class="st">/'</span>.<span class="bu">format</span>(indent, os.path.basename(root)))</span>
 <span id="cb20-4"><a href="#cb20-4"></a>    <span class="cf">for</span> filename <span class="kw">in</span> files:</span>
 <span id="cb20-5"><a href="#cb20-5"></a>        <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}{}</span><span class="st">'</span>.<span class="bu">format</span>(indent <span class="op">+</span> <span class="st">'    '</span>, filename))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>my_mnist_model/
     0001/
@@ -574,11 +538,8 @@ Epoch 10/10
 </div>
 <p>As you might expect, you can load a SavedModel using the <code>tf.keras.models.load_model()</code> function.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:878,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016093386,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4880ff1c-db97-4c6c-a988-201705868c8d" data-execution_count="12">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>saved_model <span class="op">=</span> tf.keras.models.load_model(model_path)</span>
 <span id="cb22-2"><a href="#cb22-2"></a>np.<span class="bu">round</span>(saved_model.predict(X_new), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>1/1 [==============================] - 0s 51ms/step</code></pre>
 </div>
@@ -591,10 +552,7 @@ Epoch 10/10
 </div>
 <p>TensorFlow also comes with a small <code>saved_model_cli</code> command-line tool to inspect <code>SavedModels</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6007,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016132005,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e6cb77f1-64a2-4144-a725-730fdd3b7281" data-execution_count="13">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="op">!</span>saved_model_cli show <span class="op">--</span><span class="bu">dir</span> {model_path} <span class="op">--</span><span class="bu">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>2023-04-09 04:55:26.330899: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 
@@ -722,8 +680,6 @@ Concrete Functions:
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="serve-your-model-with-tensorflow-serving-server-side"><span class="header-section-number">8.2.2</span> Serve your model with TensorFlow Serving (Server side)</h3>
 <p>There are many ways to install TF Serving: using the system’s package manager, using a Docker image, installing from source, and more. Since Colab/Kaggle runs on Ubuntu, we can use Ubuntu’s apt package manager like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:88164,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016246520,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="883a6424-5b96-462d-baf7-fe9f7e6c4287" data-execution_count="14">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">if</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules <span class="kw">or</span> <span class="st">"kaggle_secrets"</span> <span class="kw">in</span> sys.modules:</span>
 <span id="cb27-2"><a href="#cb27-2"></a>    url <span class="op">=</span> <span class="st">"https://storage.googleapis.com/tensorflow-serving-apt"</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a>    src <span class="op">=</span> <span class="st">"stable tensorflow-model-server tensorflow-model-server-universal"</span></span>
@@ -731,7 +687,6 @@ Concrete Functions:
 <span id="cb27-5"><a href="#cb27-5"></a>    <span class="op">!</span>curl <span class="st">'</span><span class="sc">{url}</span><span class="st">/tensorflow-serving.release.pub.gpg'</span> <span class="op">|</span> apt<span class="op">-</span>key add <span class="op">-</span></span>
 <span id="cb27-6"><a href="#cb27-6"></a>    <span class="op">!</span>apt update <span class="op">-</span>q <span class="op">&amp;&amp;</span> apt<span class="op">-</span>get install <span class="op">-</span>y tensorflow<span class="op">-</span>model<span class="op">-</span>server</span>
 <span id="cb27-7"><a href="#cb27-7"></a>    <span class="op">%</span>pip install <span class="op">-</span>q <span class="op">-</span>U tensorflow<span class="op">-</span>serving<span class="op">-</span>api</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -799,28 +754,19 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <li><code>model_base_path</code>: This is the path to the directory where you’ve saved your model.</li>
 </ul>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016246520,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="15">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>os.environ[<span class="st">"MODEL_DIR"</span>] <span class="op">=</span> <span class="bu">str</span>(model_path.parent.absolute())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016247137,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="16">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>bash <span class="op">--</span>bg</span>
 <span id="cb30-2"><a href="#cb30-2"></a>nohup tensorflow_model_server <span class="op">\</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a>     <span class="op">--</span>port<span class="op">=</span><span class="dv">8500</span> <span class="op">\</span></span>
 <span id="cb30-4"><a href="#cb30-4"></a>     <span class="op">--</span>rest_api_port<span class="op">=</span><span class="dv">8050</span> <span class="op">\</span></span>
 <span id="cb30-5"><a href="#cb30-5"></a>     <span class="op">--</span>model_name<span class="op">=</span>my_mnist_model <span class="op">\</span></span>
 <span id="cb30-6"><a href="#cb30-6"></a>     <span class="op">--</span>model_base_path<span class="op">=</span><span class="st">"$</span><span class="sc">{MODEL_DIR}</span><span class="st">"</span> <span class="op">&gt;</span> server.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The <code>%%bash  --bg</code> magic command executes the cell as a bash script, running it in the background. The <code>&gt;my_server.log  2&gt;&amp;1</code> part redirects the standard output and standard error to the <code>server.log</code> file. And that’s it! TF Serving is now running in the background, and its logs are saved to <code>server.log</code>.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:362,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016348906,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="68f75ace-778a-4263-9bcf-1fed256f96d5" data-execution_count="17">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">!</span>tail server.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[warn] getaddrinfo: address family for nodename not supported
 [evhttp_server.cc : 245] NET_LOG: Entering the event loop ...</code></pre>
@@ -831,39 +777,27 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <h3 data-number="8.2.3" class="anchored" data-anchor-id="querying-tf-serving-through-the-rest-api-client-side"><span class="header-section-number">8.2.3</span> Querying TF Serving through the REST API (client side)</h3>
 <p>Let’s start by creating the query. It must contain the name of the function signature you want to call, and of course the input data. Since the request must use the JSON format, we have to convert the input images from a <code>NumPy</code> array to a Python list:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016407051,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="19">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>input_data_json <span class="op">=</span> json.dumps({</span>
 <span id="cb33-2"><a href="#cb33-2"></a>    <span class="st">"signature_name"</span>: <span class="st">"serving_default"</span>,</span>
 <span id="cb33-3"><a href="#cb33-3"></a>    <span class="st">"instances"</span>: X_new.tolist(),</span>
 <span id="cb33-4"><a href="#cb33-4"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Note that the JSON format is 100% text-based:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016408491,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9125c9a7-e9f8-4899-c013-be2799012cf1" data-execution_count="20">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="bu">repr</span>(input_data_json)[:<span class="dv">1500</span>] <span class="op">+</span> <span class="st">"..."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>'\'{"signature_name": "serving_default", "instances": [[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 84, 185, 159, 151, 60, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 222, 254, 254, 254, 254, 241, 198, 198, 198, 198, 198, 198, 198, 198, 170, 52, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 67, 114, 72, 114, 163, 227, 254, 225, 254, 254, 254, 250, 229, 254, 254, 140, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 66, 14, 67, 67, 67, 59, 21, 236, 254, 106, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 83, 253, 209, 18, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 233, 255, 83, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 254, 238, 44, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 249, 254, 62, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...'</code></pre>
 </div>
 </div>
 <p>Now let’s send the input data to TF Serving by sending an HTTP POST request. This can be done easily using the <code>requests</code> library:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016458287,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="21">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>SERVER_URL <span class="op">=</span> <span class="st">'http://localhost:8050/v1/models/my_mnist_model:predict'</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>response <span class="op">=</span> requests.post(SERVER_URL, data<span class="op">=</span>input_data_json)</span>
 <span id="cb36-3"><a href="#cb36-3"></a>response.raise_for_status() <span class="co"># raise an exception in case of error</span></span>
 <span id="cb36-4"><a href="#cb36-4"></a>response <span class="op">=</span> response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016482516,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="67df7c15-177b-46f5-b3f0-7afcbc7b3a84" data-execution_count="22">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>{'predictions': [[2.062969e-05,
    3.84173156e-08,
@@ -899,11 +833,8 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 </div>
 <p>The response is a dictionary containing a single “predictions” key. The corresponding value is the list of predictions. This list is a Python list, so let’s convert it to a <code>NumPy</code> array and round the floats it contains to the second decimal:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:356,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016491181,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="88e9d819-c9f5-47ef-9146-dcae572b9d54" data-execution_count="23">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>y_proba <span class="op">=</span> np.array(response[<span class="st">"predictions"</span>])</span>
 <span id="cb39-2"><a href="#cb39-2"></a>y_proba.<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([[0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.99, 0.  , 0.  ],
        [0.  , 0.  , 0.98, 0.01, 0.  , 0.  , 0.  , 0.  , 0.  , 0.  ],
@@ -916,8 +847,6 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <h3 data-number="8.2.4" class="anchored" data-anchor-id="deploying-a-new-model-version"><span class="header-section-number">8.2.4</span> Deploying a new model version</h3>
 <p>Now let’s create a new model version and export a SavedModel to the <code>my_mnist_model/0002</code> directory, just like earlier:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:79156,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016587187,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="dd9482d5-997c-401e-efaa-844f27f4d380" data-execution_count="24">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Change the architecture</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a></span>
 <span id="cb41-3"><a href="#cb41-3"></a>np.random.seed(<span class="dv">42</span>)</span>
@@ -934,7 +863,6 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <span id="cb41-14"><a href="#cb41-14"></a>              metrics<span class="op">=</span>[<span class="st">"accuracy"</span>])</span>
 <span id="cb41-15"><a href="#cb41-15"></a>history <span class="op">=</span> model.fit(X_train, y_train, epochs<span class="op">=</span><span class="dv">10</span>,</span>
 <span id="cb41-16"><a href="#cb41-16"></a>                    validation_data<span class="op">=</span>(X_valid, y_valid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Epoch 1/10
 1719/1719 [==============================] - 10s 5ms/step - loss: 0.7847 - accuracy: 0.7836 - val_loss: 0.3468 - val_accuracy: 0.9080
@@ -959,8 +887,6 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1151,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016588329,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="25">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>model_version <span class="op">=</span> <span class="st">"0002"</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>model_name <span class="op">=</span> <span class="st">"my_mnist_model"</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a>model_path <span class="op">=</span> os.path.join(model_name, model_version)</span>
@@ -974,17 +900,13 @@ Epoch 10/10
 <span id="cb43-11"><a href="#cb43-11"></a>    signatures<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb43-12"><a href="#cb43-12"></a>    options<span class="op">=</span><span class="va">None</span></span>
 <span id="cb43-13"><a href="#cb43-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016588330,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="95f94cf4-db1d-4c89-cf44-317a2b546113" data-execution_count="26">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(model_name):</span>
 <span id="cb44-2"><a href="#cb44-2"></a>    indent <span class="op">=</span> <span class="st">'    '</span> <span class="op">*</span> root.count(os.sep)</span>
 <span id="cb44-3"><a href="#cb44-3"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}{}</span><span class="st">/'</span>.<span class="bu">format</span>(indent, os.path.basename(root)))</span>
 <span id="cb44-4"><a href="#cb44-4"></a>    <span class="cf">for</span> filename <span class="kw">in</span> files:</span>
 <span id="cb44-5"><a href="#cb44-5"></a>        <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}{}</span><span class="st">'</span>.<span class="bu">format</span>(indent <span class="op">+</span> <span class="st">'    '</span>, filename))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>my_mnist_model/
     0002/
@@ -1007,21 +929,15 @@ Epoch 10/10
 </div>
 <p>At regular intervals (the delay is configurable), TensorFlow Serving checks for new model versions. If it finds one, it will automatically handle the transition gracefully: by default, it will answer pending requests (if any) with the previous model version, while handling new requests with the new version. As soon as every pending request has been answered, the previous model version is unloaded. You can see this at work in the TF Serving logs:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016588330,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="27">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>SERVER_URL <span class="op">=</span> <span class="st">'http://localhost:8050/v1/models/my_mnist_model:predict'</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>            </span>
 <span id="cb46-3"><a href="#cb46-3"></a>response <span class="op">=</span> requests.post(SERVER_URL, data<span class="op">=</span>input_data_json)</span>
 <span id="cb46-4"><a href="#cb46-4"></a>response.raise_for_status()</span>
 <span id="cb46-5"><a href="#cb46-5"></a>response <span class="op">=</span> response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016588330,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b811d40c-ee65-4561-fbf9-e7a07ae29c5e" data-execution_count="28">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>y_proba <span class="op">=</span> np.array(response[<span class="st">"predictions"</span>])</span>
 <span id="cb47-2"><a href="#cb47-2"></a>y_proba.<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>array([[0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.99, 0.  , 0.  ],
        [0.  , 0.  , 0.98, 0.01, 0.  , 0.  , 0.  , 0.  , 0.  , 0.  ],
@@ -1029,25 +945,16 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:509,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016601233,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="34d1da01-a9a3-4d55-ab53-86e85c54097c" data-execution_count="29">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="op">!</span>pgrep tensorflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>6207</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:341,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016697051,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="30">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="op">!</span>kill $(pgrep tensorflow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:540,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016703042,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="31">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="op">!</span>pgrep tensorflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>As you can see, TF Serving makes it quite simple to deploy new models. Moreover, if you discover that version 2 does not work as well as you expected, then rolling back to version 1 is as simple as removing the <code>my_mnist_model/0002</code> directory.</p>
 <p>You can also refer to <a href="https://github.com/microsoft/ML-For-Beginners/blob/main/3-Web-App/1-Web-App/README.md">https://github.com/microsoft/ML-For-Beginners/blob/main/3-Web-App/1-Web-App/README.md</a> or <a href="https://github.com/rodrigo-arenas/fast-ml-deploy">https://github.com/rodrigo-arenas/fast-ml-deploy</a> which use <a href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a> and <a href="https://fastapi.tiangolo.com/">FastAPI</a> that may have more flexibility.</p>
@@ -1060,8 +967,6 @@ Epoch 10/10
 <section id="train-a-classifier-model-using-the-iris-dataset" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="train-a-classifier-model-using-the-iris-dataset"><span class="header-section-number">8.3.1</span> Train a classifier model using the iris dataset</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:371,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016805045,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="10886df0-3dcc-416b-dd5d-28b1fa054f57" data-execution_count="32">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Load training data</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>iris <span class="op">=</span> datasets.load_iris()</span>
 <span id="cb53-3"><a href="#cb53-3"></a>X, y <span class="op">=</span> iris.data, iris.target</span>
@@ -1071,17 +976,13 @@ Epoch 10/10
 <span id="cb53-7"><a href="#cb53-7"></a><span class="co"># Train the model</span></span>
 <span id="cb53-8"><a href="#cb53-8"></a>clf <span class="op">=</span> svm.SVC(gamma<span class="op">=</span><span class="st">'scale'</span>)</span>
 <span id="cb53-9"><a href="#cb53-9"></a>clf.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">SVC</label><div class="sk-toggleable__content"><pre>SVC()</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016818744,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="dd6d819c-6bf6-42cd-ce76-33f361b7b07d" data-execution_count="33">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>y_pred <span class="op">=</span> clf.predict(X_test)</span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="bu">print</span>(classification_report(y_test,y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>              precision    recall  f1-score   support
 
@@ -1096,10 +997,7 @@ weighted avg       1.00      1.00      1.00        30
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016889914,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="122c3c66-fed8-4446-b96f-7717b85f0c9e" data-execution_count="37">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>clf.predict([[<span class="fl">5.9</span>, <span class="fl">3.0</span>, <span class="fl">5.1</span>, <span class="fl">1.8</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>array([2])</code></pre>
 </div>
@@ -1109,22 +1007,16 @@ weighted avg       1.00      1.00      1.00        30
 <p>It is possible to use pre-trained models directly with BentoML or import existing trained model files to BentoML. Learn more about it from <a href="https://docs.bentoml.org/en/latest/concepts/model.html">Preparing Models</a>.</p>
 </blockquote>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:892,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016844541,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a7496272-98df-4e16-9c82-b1f5f5745ab7" data-execution_count="34">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Save model to the BentoML local model store</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>saved_model <span class="op">=</span> bentoml.sklearn.save_model(<span class="st">"iris_clf"</span>, clf)</span>
 <span id="cb58-3"><a href="#cb58-3"></a><span class="bu">print</span>(<span class="ss">f"Model saved: </span><span class="sc">{</span>saved_model<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model saved: Model(tag="iris_clf:ne2yncwwssscuasc")</code></pre>
 </div>
 </div>
 <p>Models saved can be accessed via <code>bentoml models</code> CLI command:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2407,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016853387,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="430f33be-2ed7-4359-a74f-fefe785dd61d" data-execution_count="35">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="op">!</span>bentoml models <span class="bu">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Tag                        Module           Size      Creation Time       
  iris_clf:ne2yncwwssscuasc  bentoml.sklearn  5.32 KiB  2023-04-09 05:07:22 </code></pre>
@@ -1132,20 +1024,15 @@ weighted avg       1.00      1.00      1.00        30
 </div>
 <p>To verify that the saved model can be loaded correctly:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:361,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016876272,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a2b980b6-c98c-4f5e-a86e-b5e2c3840856" data-execution_count="36">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>loaded_model <span class="op">=</span> bentoml.sklearn.load_model(<span class="st">"iris_clf:latest"</span>)</span>
 <span id="cb62-2"><a href="#cb62-2"></a><span class="co"># model = bentoml.sklearn.load_model("iris_clf:wewrqnwn2s6ucasc") #we can instead load specific version of model</span></span>
 <span id="cb62-3"><a href="#cb62-3"></a>loaded_model.predict([[<span class="fl">5.9</span>, <span class="fl">3.0</span>, <span class="fl">5.1</span>, <span class="fl">1.8</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>array([2])</code></pre>
 </div>
 </div>
 <p>In BentoML, the recommended way of running ML model inference in serving is via <code>Runner</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:359,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016920082,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ba5f4e76-8df5-4440-c942-09daa48195e6" data-execution_count="38">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Create a Runner instance:</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a>iris_clf_runner <span class="op">=</span> bentoml.sklearn.get(<span class="st">"iris_clf:latest"</span>).to_runner()</span>
 <span id="cb64-3"><a href="#cb64-3"></a></span>
@@ -1154,7 +1041,6 @@ weighted avg       1.00      1.00      1.00        30
 <span id="cb64-6"><a href="#cb64-6"></a></span>
 <span id="cb64-7"><a href="#cb64-7"></a><span class="co"># This should yield the same result as the loaded model:</span></span>
 <span id="cb64-8"><a href="#cb64-8"></a>iris_clf_runner.predict.run([[<span class="fl">5.9</span>, <span class="fl">3.0</span>, <span class="fl">5.1</span>, <span class="fl">1.8</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>WARNING:bentoml._internal.runner.runner:'Runner.init_local' is for debugging and testing only. Make sure to remove it before deploying to production.</code></pre>
 </div>
@@ -1168,8 +1054,6 @@ weighted avg       1.00      1.00      1.00        30
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="create-a-bentoml-service-for-serving-the-model"><span class="header-section-number">8.3.2</span> Create a BentoML Service for serving the model</h3>
 <p>Services are the core components of BentoML, where the serving logic is defined. With the model saved in the model store, we can define the service by creating a Python file <code>service.py</code> with the following contents:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:348,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016981559,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b55b443a-a6e9-499f-c088-9307a10c9d6a" data-execution_count="39">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="op">%%</span>writefile service.py</span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb67-3"><a href="#cb67-3"></a><span class="im">import</span> bentoml</span>
@@ -1190,7 +1074,6 @@ weighted avg       1.00      1.00      1.00        30
 <span id="cb67-18"><a href="#cb67-18"></a>    result <span class="op">=</span> iris_clf_runner.predict.run(input_series)</span>
 <span id="cb67-19"><a href="#cb67-19"></a>    <span class="co"># Define post-processing logic</span></span>
 <span id="cb67-20"><a href="#cb67-20"></a>    <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing service.py</code></pre>
 </div>
@@ -1201,42 +1084,30 @@ weighted avg       1.00      1.00      1.00        30
 </blockquote>
 <p>We now have everything we need to serve our first request. Launch the server in debug mode by running the <code>bentoml serve</code> command in the current working directory. Using the <code>--reload</code> option allows the server to reflect any changes made to the <code>service.py</code> module without restarting:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:350,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017074915,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="23960faa-b332-466c-8ee5-0218cfc44784" data-execution_count="40">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="op">!</span>nohup bentoml serve .<span class="op">/</span>service.py:svc <span class="op">--</span><span class="bu">reload</span> <span class="op">--</span>port <span class="dv">8050</span> <span class="op">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>nohup: appending output to 'nohup.out'</code></pre>
 </div>
 </div>
 <p>We can then send requests to the newly started service with any HTTP client:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:355,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017193915,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="02fc77e8-be69-4215-dab8-c1fdbad2f734" data-execution_count="41">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>requests.post(</span>
 <span id="cb71-2"><a href="#cb71-2"></a>    <span class="st">"http://127.0.0.1:8050/classify"</span>,</span>
 <span id="cb71-3"><a href="#cb71-3"></a>    headers<span class="op">=</span>{<span class="st">"content-type"</span>: <span class="st">"application/json"</span>},</span>
 <span id="cb71-4"><a href="#cb71-4"></a>    data<span class="op">=</span><span class="st">"[[5.9, 3, 5.1, 1.8]]"</span></span>
 <span id="cb71-5"><a href="#cb71-5"></a>    ).text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>'[2]'</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:359,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017222901,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="67f213ca-e73e-450b-ccb7-5b8112dd3263" data-execution_count="42">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="op">!</span>pgrep bentoml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>12658</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:527,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017284552,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="44">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="op">!</span>kill $(pgrep bentoml)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="build-and-deploy-bentos" class="level3" data-number="8.3.3">
@@ -1244,8 +1115,6 @@ weighted avg       1.00      1.00      1.00        30
 <p>Once we are happy with the service definition, we can build the model and service into a <code>bento</code>. Bento is the distribution format for a service. It is a self-contained archive that contains all the source code, model files and dependency specifications required to run the service. Checkout <a href="https://docs.bentoml.org/en/latest/concepts/bento.html">Building Bentos</a> for more details.</p>
 <p>To build a Bento, first create a file named <code>bentofile.yaml</code> in your project directory:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:344,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017354065,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3838692f-9a95-48a3-e014-5d8d9087767f" data-execution_count="45">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a><span class="op">%%</span>writefile bentofile.yaml</span>
 <span id="cb76-2"><a href="#cb76-2"></a>service: <span class="st">"service.py:svc"</span>  <span class="co"># A convention for locating your service: &lt;YOUR_SERVICE_PY&gt;:&lt;YOUR_SERVICE_ANNOTATION&gt;</span></span>
 <span id="cb76-3"><a href="#cb76-3"></a>description: <span class="st">"file: ./README.md"</span></span>
@@ -1259,27 +1128,20 @@ weighted avg       1.00      1.00      1.00        30
 <span id="cb76-11"><a href="#cb76-11"></a>   <span class="op">-</span> scikit<span class="op">-</span>learn  <span class="co"># Additional libraries to be included in the bento</span></span>
 <span id="cb76-12"><a href="#cb76-12"></a>   <span class="op">-</span> pandas</span>
 <span id="cb76-13"><a href="#cb76-13"></a>  lock_packages: <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing bentofile.yaml</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017355307,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="dfbefdd4-d9f4-4090-c08c-59fec6d6a2ef" data-execution_count="46">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a><span class="op">%%</span>writefile README.md</span>
 <span id="cb78-2"><a href="#cb78-2"></a>This <span class="kw">is</span> a iris classifier build <span class="kw">in</span> math608</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing README.md</code></pre>
 </div>
 </div>
 <p>Next, use the bentoml build CLI command in the same directory to build a bento.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1837,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017367774,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9ebfc4ca-d620-4959-c7d5-6368b555d393" data-execution_count="47">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a><span class="op">!</span>bentoml build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Building BentoML service "iris_classifier:udz3qngwswfdyasc" from build context "/content".
 Packing model "iris_clf:ne2yncwwssscuasc"
@@ -1304,10 +1166,7 @@ Possible next steps:
 </div>
 <p>Bentos built will be saved in the local bento store, which you can view using the <code>bentoml list</code> CLI command.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1354,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017375867,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="947afe64-4ce4-4257-bc6e-83d608713b3e" data-execution_count="48">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="op">!</span>bentoml <span class="bu">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Tag                     Size       Creation Time        Path                   
  iris_classifier:udz3q…  18.37 KiB  2023-04-09 05:16:05  ~/bentoml/bentos/iris… </code></pre>
@@ -1315,44 +1174,32 @@ Possible next steps:
 </div>
 <p>We can serve bentos from the bento store using the <code>bentoml serve</code> <code>--production</code> CLI command. Using the <code>--production</code> option will serve the bento in production mode.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:341,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017408235,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="49">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="op">%%</span>bash <span class="op">--</span>bg</span>
 <span id="cb84-2"><a href="#cb84-2"></a>nohup bentoml serve iris_classifier:latest <span class="op">\</span></span>
 <span id="cb84-3"><a href="#cb84-3"></a>     <span class="op">--</span>production <span class="op">\</span></span>
 <span id="cb84-4"><a href="#cb84-4"></a>     <span class="op">--</span>port <span class="dv">8050</span> <span class="op">&gt;</span> bentoml.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>This is another way to query the server</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:899,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017413828,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3264ebfa-a60f-42f1-f624-e2d19354fefa" data-execution_count="50">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a><span class="op">!</span>curl <span class="op">\</span></span>
 <span id="cb85-2"><a href="#cb85-2"></a>  <span class="op">-</span>X POST <span class="op">\</span></span>
 <span id="cb85-3"><a href="#cb85-3"></a>  <span class="op">-</span>H <span class="st">"content-type: application/json"</span> \</span>
 <span id="cb85-4"><a href="#cb85-4"></a>  <span class="op">--</span>data <span class="st">"[[5.9,3,5.1,1.8]]"</span> \</span>
 <span id="cb85-5"><a href="#cb85-5"></a>  http:<span class="op">//</span><span class="fl">127.0.0.1</span>:<span class="dv">8050</span><span class="op">/</span>classify</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[2]</code></pre>
 </div>
 </div>
 <p>The Bento directory contains all code, files, models and configs required for running this service. BentoML standarlizes this file structure which enables serving runtimes and deployment tools to be built on top of it. By default, Bentos are managed under the <code>~/bentoml/bentos</code> directory:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:351,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017419100,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="51">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>path <span class="op">=</span><span class="st">"/root/bentoml/bentos/iris_classifier/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017420500,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6ce2613c-9c12-47f7-94c4-60c97569acd2" data-execution_count="52">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(path):</span>
 <span id="cb88-2"><a href="#cb88-2"></a>    indent <span class="op">=</span> <span class="st">' '</span> <span class="op">*</span> root.count(os.sep)</span>
 <span id="cb88-3"><a href="#cb88-3"></a>    <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}{}</span><span class="st">/'</span>.<span class="bu">format</span>(indent, os.path.basename(root)))</span>
 <span id="cb88-4"><a href="#cb88-4"></a>    <span class="cf">for</span> filename <span class="kw">in</span> files:</span>
 <span id="cb88-5"><a href="#cb88-5"></a>        <span class="bu">print</span>(<span class="st">'</span><span class="sc">{}{}</span><span class="st">'</span>.<span class="bu">format</span>(indent <span class="op">+</span> <span class="st">' '</span>, filename))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     /
       latest
@@ -1382,19 +1229,13 @@ Possible next steps:
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:388,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017463378,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bd128779-a7d4-450b-c194-a7d2561c8949" data-execution_count="53">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a><span class="op">!</span>pgrep bentoml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>14130</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:361,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017473266,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="54">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a><span class="op">!</span>kill $(pgrep bentoml)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>For more information, please refer to <a href="https://docs.bentoml.org/en/latest/index.html">https://docs.bentoml.org/en/latest/index.html</a>.</p>
 </section>
@@ -1404,8 +1245,6 @@ Possible next steps:
 <p>Streamlit’s simple and focused API lets you build incredibly rich and powerful tools. It contains a large number of <a href="https://docs.streamlit.io/library/api-reference">elements</a> and <a href="https://streamlit.io/components">components</a> that you can use.</p>
 <p>There are a few ways to display data (tables, arrays, data frames) in Streamlit apps. Below, <a href="https://docs.streamlit.io/library/api-reference/write-magic/magic"><code>st.write()</code></a> can be used to write anything from text, plots to tables. In addition, when you’ve got the data or model into the state that you want to explore, you can add in widgets like <code>st.slider()</code>, <code>st.button()</code> or <code>st.selectbox()</code>. Finally, Streamlit makes it easy to organize your widgets in a left panel sidebar with <code>st.sidebar</code>. Each element that’s passed to <code>st.sidebar</code> is pinned to the left, allowing users to focus on the content in your app while still having access to UI controls. For example, if you want to add a selectbox and a slider to a sidebar, use <code>st.sidebar.slider</code> and <code>st.sidebar.selectbox</code> instead of <code>st.slider</code> and <code>st.selectbox</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:356,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017564628,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6e6ef853-6fd7-449e-e717-1f305e1976dd" data-execution_count="55">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a><span class="op">%%</span>writefile iris<span class="op">-</span>app.py</span>
 <span id="cb93-2"><a href="#cb93-2"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb93-3"><a href="#cb93-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1455,49 +1294,33 @@ Possible next steps:
 <span id="cb93-47"><a href="#cb93-47"></a></span>
 <span id="cb93-48"><a href="#cb93-48"></a>st.subheader(<span class="st">'Prediction Probability'</span>)</span>
 <span id="cb93-49"><a href="#cb93-49"></a>st.write(prediction_proba)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Writing iris-app.py</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:348,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017593864,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="58">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a><span class="op">%%</span>bash <span class="op">--</span>bg </span>
 <span id="cb95-2"><a href="#cb95-2"></a>streamlit run iris<span class="op">-</span>app.py <span class="op">--</span>server.port <span class="dv">8050</span> <span class="op">&gt;</span> debug.log <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>As soon as you run the script as shown above, a local Streamlit server will spin up and your app will open in a new tab in your default web browser. The app is your canvas, where you’ll draw charts, text, widgets, tables, and more.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:543,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017595758,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="59">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="op">!</span>tail debug.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:347,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017600478,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c6052f64-08cf-4b9b-d111-b189bd3e7b25" data-execution_count="60">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>public_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>&lt;NgrokTunnel: "http://c5cb-35-234-170-255.ngrok-free.app" -&gt; "http://localhost:8050"&gt;</code></pre>
 </div>
 </div>
 <p>Try to click the above link to access the web app. For more information, please refer to <a href="https://github.com/streamlit/streamlit">https://github.com/streamlit/streamlit</a>.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:347,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017668062,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="84c449da-f787-4755-85cc-3e2559851629" data-execution_count="61">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="op">!</span>pgrep streamlit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>14947</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:533,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017677829,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="62">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="op">!</span>kill $(pgrep streamlit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="deploy-web-base-application-in-local-computer-using-gradio" class="level2" data-number="8.5">
@@ -1507,11 +1330,8 @@ Possible next steps:
 <h3 data-number="8.5.1" class="anchored" data-anchor-id="setting-up-the-image-classification-model"><span class="header-section-number">8.5.1</span> Setting up the Image Classification Model</h3>
 <p>First, we will need an image classification model. For this tutorial, we will use a pretrained Mobile Net model, as it is easily downloadable from Keras. You can use a different pretrained model or train your own.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2119,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017686143,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5916370f-d7c9-4c13-da7f-10b0a3070daf" data-execution_count="63">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a><span class="op">!</span>wget https:<span class="op">//</span>hf.space<span class="op">/</span>embed<span class="op">/</span>abidlabs<span class="op">/</span>keras<span class="op">-</span>image<span class="op">-</span>classifier<span class="op">/</span><span class="bu">file</span><span class="op">/</span>banana.jpg</span>
 <span id="cb102-2"><a href="#cb102-2"></a><span class="op">!</span>wget https:<span class="op">//</span>hf.space<span class="op">/</span>embed<span class="op">/</span>abidlabs<span class="op">/</span>keras<span class="op">-</span>image<span class="op">-</span>classifier<span class="op">/</span><span class="bu">file</span><span class="op">/</span>car.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--2023-04-09 05:21:23--  https://hf.space/embed/abidlabs/keras-image-classifier/file/banana.jpg
 Resolving hf.space (hf.space)... 54.159.43.68, 18.204.155.216, 54.81.158.24, ...
@@ -1548,10 +1368,7 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3420,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017691691,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3425239d-496a-47b4-8c4f-7f2765c2c250" data-execution_count="64">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>inception_net <span class="op">=</span> tf.keras.applications.MobileNetV2()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/mobilenet_v2/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_224.h5
 14536120/14536120 [==============================] - 1s 0us/step</code></pre>
@@ -1563,8 +1380,6 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 <p>Next, we will need to define a function that takes in the user input, which in this case is an image, and returns the prediction. The prediction should be returned as a dictionary whose keys are class name and values are confidence probabilities. We will load the class names from <a href="https://raw.githubusercontent.com/gradio-app/mobilenet-example/master/labels.txt">this text file</a>.</p>
 <p>In the case of our pretrained model, it will look like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:856,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018031594,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="71">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Download human-readable labels for ImageNet.</span></span>
 <span id="cb106-2"><a href="#cb106-2"></a>response <span class="op">=</span> requests.get(<span class="st">"https://git.io/JJkYN"</span>)</span>
 <span id="cb106-3"><a href="#cb106-3"></a>labels <span class="op">=</span> response.text.split(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
@@ -1575,7 +1390,6 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 <span id="cb106-8"><a href="#cb106-8"></a>    prediction <span class="op">=</span> inception_net.predict(inp).flatten()</span>
 <span id="cb106-9"><a href="#cb106-9"></a>    confidences <span class="op">=</span> {labels[i]: <span class="bu">float</span>(prediction[i]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>)}</span>
 <span id="cb106-10"><a href="#cb106-10"></a>    <span class="cf">return</span> confidences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Let’s break this down. The function takes one parameter: * <code>inp</code>: the input image as a NumPy array</p>
 <p>Then, the function adds a batch dimension, passes it through the model, and returns: * <code>confidences</code>: the predictions, as a dictionary whose keys are class labels and whose values are confidence probabilities</p>
@@ -1586,8 +1400,6 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 <p>The output component will be a “label”, which displays the top labels in a nice form. Since we don’t want to show all 1,000 class labels, we will customize it to show only the top 3 images.</p>
 <p>Finally, we’ll add one more parameter, the examples, which allows us to prepopulate our interfaces with a few predefined examples. The code for Gradio looks like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:916,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018065677,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ab27187c-cd1c-4566-c4ba-6dd3536b02b6" data-execution_count="74">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>gr.Interface(fn<span class="op">=</span>classify_image, </span>
 <span id="cb107-2"><a href="#cb107-2"></a>             inputs<span class="op">=</span>gr.Image(shape<span class="op">=</span>(<span class="dv">224</span>, <span class="dv">224</span>), label<span class="op">=</span><span class="st">"Input image"</span>),</span>
 <span id="cb107-3"><a href="#cb107-3"></a>             outputs<span class="op">=</span>gr.Label(num_top_classes<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"Predition Probabilities"</span>),</span>
@@ -1595,7 +1407,6 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 <span id="cb107-5"><a href="#cb107-5"></a>             description<span class="op">=</span><span class="st">"Please upload an image"</span>,</span>
 <span id="cb107-6"><a href="#cb107-6"></a>             title<span class="op">=</span><span class="st">"Classification using MobileNet"</span>,</span>
 <span id="cb107-7"><a href="#cb107-7"></a>             ).launch(server_port<span class="op">=</span><span class="dv">8050</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Colab notebook detected. To show errors in colab notebook, set debug=True in launch()
 Note: opening Chrome Inspector may crash demo inside Colab notebooks.
@@ -1637,20 +1448,14 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
 </div>
 <p>Gradio automatically produces sharable links with others, but you can also access the web app with our port as follows:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1071,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018099809,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c2455a19-aa47-4021-8600-1f6a8a41eaf2" data-execution_count="75">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a>public_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="75">
 <pre><code>&lt;NgrokTunnel: "http://ebc0-35-234-170-255.ngrok-free.app" -&gt; "http://localhost:8050"&gt;</code></pre>
 </div>
 </div>
 <p>You can see that there is a <code>flaaged</code> directory which collect data from users who try the model. To close the gradio, just call the <code>close_all()</code> function.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:359,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018061271,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c50b1bca-cb1d-4dc6-ce41-9f96ee310c28" data-execution_count="73">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1"></a>gr.close_all()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Closing server running on port: 8050</code></pre>
 </div>
@@ -1678,20 +1483,14 @@ const prediction = model.predict(image);</code></pre>
 <h3 data-number="8.8.1" class="anchored" data-anchor-id="the-task-at-hand-bike-demand-forecasting"><span class="header-section-number">8.8.1</span> The task at hand: bike demand forecasting</h3>
 <p>We took a Kaggle dataset on <a href="https://www.kaggle.com/c/bike-sharing-demand/data">Bike Sharing Demand</a>. Our goal is to predict the volume of bike rentals on an hourly basis. To do that, we have some data about the season, weather, and day of the week.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1683,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018250255,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="76">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>content <span class="op">=</span> requests.get(<span class="st">"https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip"</span>).content</span>
 <span id="cb115-2"><a href="#cb115-2"></a><span class="cf">with</span> zipfile.ZipFile(io.BytesIO(content)) <span class="im">as</span> arc:</span>
 <span id="cb115-3"><a href="#cb115-3"></a>    raw_data <span class="op">=</span> pd.read_csv(arc.<span class="bu">open</span>(<span class="st">"hour.csv"</span>), header<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">','</span>, parse_dates<span class="op">=</span>[<span class="st">'dteday'</span>], index_col<span class="op">=</span><span class="st">'dteday'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:342,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018257907,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fa4b2148-f8e2-4bc7-a107-a9527667cc21" data-execution_count="77">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1"></a>raw_data.index <span class="op">=</span> raw_data.<span class="bu">apply</span>(</span>
 <span id="cb116-2"><a href="#cb116-2"></a>    <span class="kw">lambda</span> row: datetime.combine(row.name, time(hour<span class="op">=</span><span class="bu">int</span>(row[<span class="st">'hr'</span>]))), axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb116-3"><a href="#cb116-3"></a>raw_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="77">
 
   <div id="df-957b2d82-17f2-43bf-a642-bed1f56b58ad">
@@ -1905,21 +1704,15 @@ const prediction = model.predict(image);</code></pre>
 <p>To run it, we prepare our performance data as a Pandas DataFrame. It should include: * <strong>Model application logs</strong>—features that went into the model and corresponding prediction; and * <strong>Ground truth data</strong>—the actual number of bikes rented each hour as our “target.”</p>
 <p>Once we train the model, we can take our training dataset and generated predictions and specify it as the “Reference” data. We can select this period directly from the DataFrame since it has datetime as an index:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:327,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018319624,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="78">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>reference <span class="op">=</span> raw_data.loc[<span class="st">'2011-01-01 00:00:00'</span>:<span class="st">'2011-01-28 23:00:00'</span>]</span>
 <span id="cb117-2"><a href="#cb117-2"></a></span>
 <span id="cb117-3"><a href="#cb117-3"></a>target <span class="op">=</span> <span class="st">'cnt'</span></span>
 <span id="cb117-4"><a href="#cb117-4"></a>prediction <span class="op">=</span> <span class="st">'prediction'</span></span>
 <span id="cb117-5"><a href="#cb117-5"></a>numerical_features <span class="op">=</span> [<span class="st">'temp'</span>, <span class="st">'atemp'</span>, <span class="st">'hum'</span>, <span class="st">'windspeed'</span>, <span class="st">'hr'</span>, <span class="st">'weekday'</span>]</span>
 <span id="cb117-6"><a href="#cb117-6"></a>categorical_features <span class="op">=</span> [<span class="st">'season'</span>, <span class="st">'holiday'</span>, <span class="st">'workingday'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018320495,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1ae790f2-8635-41fd-c82b-a67c0bc20876" data-execution_count="79">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1"></a>reference.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="79">
 
   <div id="df-09828f55-4eec-41de-a161-cd6f2c03fbf0">
@@ -2126,65 +1919,42 @@ const prediction = model.predict(image);</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:332,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018329379,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="85d92e74-312c-48d4-bc1c-aaf6dd219a10" data-execution_count="80">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>reference[numerical_features <span class="op">+</span> categorical_features].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="80">
 <pre><code>(618, 9)</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:334,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018336229,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="81">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>regressor <span class="op">=</span> ensemble.RandomForestRegressor(random_state <span class="op">=</span> <span class="dv">0</span>, n_estimators <span class="op">=</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:333,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018339506,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="98d70bf6-b6e0-4709-f50c-7e0325d7dec5" data-execution_count="82">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1"></a>regressor.fit(reference[numerical_features <span class="op">+</span> categorical_features], reference[target])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="82">
 <style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestRegressor(n_estimators=50, random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor(n_estimators=50, random_state=0)</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:345,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018343375,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="83">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>ref_prediction <span class="op">=</span> regressor.predict(reference[numerical_features <span class="op">+</span> categorical_features])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:333,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018345651,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="84">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a>reference[<span class="st">'prediction'</span>] <span class="op">=</span> ref_prediction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We also map the columns to show <code>Evidently</code> what each column contains and perform a correct analysis:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:337,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018364286,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="85">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a>column_mapping <span class="op">=</span> ColumnMapping()</span>
 <span id="cb125-2"><a href="#cb125-2"></a></span>
 <span id="cb125-3"><a href="#cb125-3"></a>column_mapping.target <span class="op">=</span> target</span>
 <span id="cb125-4"><a href="#cb125-4"></a>column_mapping.prediction <span class="op">=</span> prediction</span>
 <span id="cb125-5"><a href="#cb125-5"></a>column_mapping.numerical_features <span class="op">=</span> numerical_features</span>
 <span id="cb125-6"><a href="#cb125-6"></a>column_mapping.categorical_features <span class="op">=</span> categorical_features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>By default, Evidently uses the index as an x-axis in plots. In this case, it is datetime, so we do not need to add anything else explicitly. Otherwise, we would have to specify it in our column mapping.</p>
 <p>Next, we call a corresponding report for regression models.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:332,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018378698,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="86">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>regression_perfomance <span class="op">=</span> Report(metrics<span class="op">=</span>[RegressionPreset()])</span>
 <span id="cb126-2"><a href="#cb126-2"></a>regression_perfomance.run(current_data<span class="op">=</span>reference, reference_data<span class="op">=</span><span class="va">None</span>, column_mapping<span class="op">=</span>column_mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># You can also specify the metrics see https://docs.evidentlyai.com/reference/all-metrics</span></span>
 <span id="cb127-2"><a href="#cb127-2"></a><span class="co">#the_report = Report(metrics=[</span></span>
 <span id="cb127-3"><a href="#cb127-3"></a><span class="co">#    RegressionQualityMetric(),</span></span>
@@ -2192,25 +1962,18 @@ const prediction = model.predict(image);</code></pre>
 <span id="cb127-5"><a href="#cb127-5"></a><span class="co">#    RegressionErrorDistribution(),</span></span>
 <span id="cb127-6"><a href="#cb127-6"></a><span class="co">#    DataDriftPreset(stattest=anderson_stat_test, stattest_threshold=0.9),</span></span>
 <span id="cb127-7"><a href="#cb127-7"></a><span class="co">#])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>And display the results right in the Jupyter notebook.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6225,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018389043,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b2a32ab1-3988-4a6a-8d3a-05fcf27dcbac" data-execution_count="87">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1"></a>regression_perfomance.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
 </div>
 <p>We also save it as a .html file to be able to share it easily.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3365,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018561855,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="88">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a><span class="op">!</span>mkdir reports</span>
 <span id="cb130-2"><a href="#cb130-2"></a>regression_perfomance.save_html(<span class="st">'reports/regression_performance_at_training.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We can see that the model has a fine quality given that we only trained on four weeks of data! The error is symmetric and distributed around zero. There is no obvious under- or over-estimation.</p>
 <p><strong>We will continue treating this dataset from model performance in training as our “reference.”</strong> It gives us a good feel of the quality we can expect from our model in production use. So, we can contrast the future performance against this benchmark.</p>
@@ -2222,38 +1985,29 @@ const prediction = model.predict(image);</code></pre>
 <p>For demonstration purposes, we generated all predictions for several weeks ahead in a single batch. In reality, we would run the model sequentially as the data comes in.</p>
 <p>Let’s start by comparing the performance in the first week to what we have seen in training. The first 28 days are our Reference dataset; the next 7 are the Production.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:321,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018580814,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="89">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1"></a>current <span class="op">=</span> raw_data.loc[<span class="st">'2011-01-29 00:00:00'</span>:<span class="st">'2011-02-28 23:00:00'</span>]</span>
 <span id="cb131-2"><a href="#cb131-2"></a>current_prediction <span class="op">=</span> regressor.predict(current[numerical_features <span class="op">+</span> categorical_features])</span>
 <span id="cb131-3"><a href="#cb131-3"></a>current[<span class="st">'prediction'</span>] <span class="op">=</span> current_prediction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6478,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018599691,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="019f5093-961c-4a5b-f335-c87fd5900a32" data-execution_count="90">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1"></a>regression_perfomance <span class="op">=</span> Report(metrics<span class="op">=</span>[RegressionPreset()])</span>
 <span id="cb132-2"><a href="#cb132-2"></a>regression_perfomance.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-01-29 00:00:00'</span>:<span class="st">'2011-02-07 23:00:00'</span>], </span>
 <span id="cb132-3"><a href="#cb132-3"></a>                          reference_data<span class="op">=</span>reference,</span>
 <span id="cb132-4"><a href="#cb132-4"></a>                          column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb132-5"><a href="#cb132-5"></a></span>
 <span id="cb132-6"><a href="#cb132-6"></a>regression_perfomance.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
 </div>
 <p>The error has slightly increased and is leaning towards underestimation. Let’s check if there is any statistical change in our target. To do that, we will generate the Target Drift report.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3971,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018705357,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5319b24e-41f1-452d-c7ce-49d32238d136" data-execution_count="91">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1"></a>target_drift <span class="op">=</span> Report(metrics<span class="op">=</span>[TargetDriftPreset()])</span>
 <span id="cb134-2"><a href="#cb134-2"></a>target_drift.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-01-29 00:00:00'</span>:<span class="st">'2011-02-07 23:00:00'</span>],</span>
 <span id="cb134-3"><a href="#cb134-3"></a>                 reference_data<span class="op">=</span>reference,</span>
 <span id="cb134-4"><a href="#cb134-4"></a>                 column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb134-5"><a href="#cb134-5"></a></span>
 <span id="cb134-6"><a href="#cb134-6"></a>target_drift.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
@@ -2265,15 +2019,12 @@ const prediction = model.predict(image);</code></pre>
 <h3 data-number="8.8.4" class="anchored" data-anchor-id="the-second-week-failing-to-keep-up"><span class="header-section-number">8.8.4</span> The second week: failing to keep up</h3>
 <p>Once again, we benchmark our new week against the reference dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5302,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018798567,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9f095762-ca03-42f7-f746-b871a4db268e" data-execution_count="92">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a>regression_perfomance <span class="op">=</span> Report(metrics<span class="op">=</span>[RegressionPreset()])</span>
 <span id="cb136-2"><a href="#cb136-2"></a>regression_perfomance.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-02-07 00:00:00'</span>:<span class="st">'2011-02-14 23:00:00'</span>], </span>
 <span id="cb136-3"><a href="#cb136-3"></a>                          reference_data<span class="op">=</span>reference,</span>
 <span id="cb136-4"><a href="#cb136-4"></a>                          column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb136-5"><a href="#cb136-5"></a></span>
 <span id="cb136-6"><a href="#cb136-6"></a>regression_perfomance.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
@@ -2282,15 +2033,12 @@ const prediction = model.predict(image);</code></pre>
 <p>In the error distribution plot, we can see how it became “wider,” as we have more predictions with a high error. The shift to the left is visible, too. In some extreme instances, we have errors between 80 and 40 bikes that were unseen previously.</p>
 <p>Let’s check our target as well.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4645,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018822369,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="411c0ebf-6ea0-4434-c5b1-d57ac07a127d" data-execution_count="93">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1"></a>target_drift <span class="op">=</span> Report(metrics<span class="op">=</span>[TargetDriftPreset()])</span>
 <span id="cb138-2"><a href="#cb138-2"></a>target_drift.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-02-07 00:00:00'</span>:<span class="st">'2011-02-14 23:00:00'</span>],</span>
 <span id="cb138-3"><a href="#cb138-3"></a>                 reference_data<span class="op">=</span>reference,</span>
 <span id="cb138-4"><a href="#cb138-4"></a>                 column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb138-5"><a href="#cb138-5"></a></span>
 <span id="cb138-6"><a href="#cb138-6"></a>target_drift.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
@@ -2304,15 +2052,12 @@ const prediction = model.predict(image);</code></pre>
 <section id="week-3-when-things-go-south" class="level3" data-number="8.8.5">
 <h3 data-number="8.8.5" class="anchored" data-anchor-id="week-3-when-things-go-south"><span class="header-section-number">8.8.5</span> Week 3: when things go south</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5306,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018869473,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7360c5e1-e232-4363-991c-f75ca34643b5" data-execution_count="94">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1"></a>regression_perfomance <span class="op">=</span> Report(metrics<span class="op">=</span>[RegressionPreset()])</span>
 <span id="cb140-2"><a href="#cb140-2"></a>regression_perfomance.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-02-15 00:00:00'</span>:<span class="st">'2011-02-21 23:00:00'</span>], </span>
 <span id="cb140-3"><a href="#cb140-3"></a>                          reference_data<span class="op">=</span>reference,</span>
 <span id="cb140-4"><a href="#cb140-4"></a>                          column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb140-5"><a href="#cb140-5"></a></span>
 <span id="cb140-6"><a href="#cb140-6"></a>regression_perfomance.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
@@ -2323,15 +2068,12 @@ const prediction = model.predict(image);</code></pre>
 <p>After this quick analysis, we have a more specific idea about model performance and its weaknesses. The model faces new, unusually high demand. Given how it was trained, it tends to underestimate it. On top of it, these errors are not at all random. At the very least, they are related to the temperature we observe. The higher it is, the larger the underestimation. <strong>It suggests new patterns that are related to the weather that the model could not learn before. Days got warmer, and the model went rogue.</strong></p>
 <p>If we run a target drift report, we will also see a relevant change in the linear correlations between the feature and the target. Temperature and humidity stand out.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5761,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018899265,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3f7cef87-8c97-481c-e5a2-5367675c0239" data-execution_count="95">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1"></a>target_drift <span class="op">=</span> Report(metrics<span class="op">=</span>[TargetDriftPreset()])</span>
 <span id="cb142-2"><a href="#cb142-2"></a>target_drift.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-02-15 00:00:00'</span>:<span class="st">'2011-02-21 23:00:00'</span>],</span>
 <span id="cb142-3"><a href="#cb142-3"></a>                 reference_data<span class="op">=</span>reference,</span>
 <span id="cb142-4"><a href="#cb142-4"></a>                 column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb142-5"><a href="#cb142-5"></a></span>
 <span id="cb142-6"><a href="#cb142-6"></a>target_drift.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>
@@ -2345,23 +2087,17 @@ const prediction = model.predict(image);</code></pre>
 <p><strong>Once again, let’s compare the first week of production to our data in training.</strong> We can, of course, look at all our features. But we can also conclude that categorical features (like “season,” “holiday” and “workingday”) are not likely to change. Let’s look at numerical features only!</p>
 <p>We specify these features so that the tool applies the correct statistical test. It would be Kolmogorov-Smirnov in this case.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:332,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018928451,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="96">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1"></a>column_mapping <span class="op">=</span> ColumnMapping()</span>
 <span id="cb144-2"><a href="#cb144-2"></a></span>
 <span id="cb144-3"><a href="#cb144-3"></a>column_mapping.numerical_features <span class="op">=</span> numerical_features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3228,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018932210,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="74516c69-ff65-4a3a-d4c7-4467be6198cd" data-execution_count="97">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1"></a>data_drift <span class="op">=</span> Report(metrics <span class="op">=</span> [DataDriftPreset()])</span>
 <span id="cb145-2"><a href="#cb145-2"></a>data_drift.run(current_data <span class="op">=</span> current.loc[<span class="st">'2011-01-29 00:00:00'</span>:<span class="st">'2011-02-07 23:00:00'</span>],</span>
 <span id="cb145-3"><a href="#cb145-3"></a>               reference_data <span class="op">=</span> reference,</span>
 <span id="cb145-4"><a href="#cb145-4"></a>               column_mapping<span class="op">=</span>column_mapping)</span>
 <span id="cb145-5"><a href="#cb145-5"></a></span>
 <span id="cb145-6"><a href="#cb145-6"></a>data_drift.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <pre><code>Output hidden; open in https://colab.research.google.com to view.</code></pre>
 </div>

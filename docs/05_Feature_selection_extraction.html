@@ -256,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></h1>
 </div>
 
 
@@ -297,16 +297,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">6.1</span> Setup</h2>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install Boruta <span class="op">-</span>qq</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install opentsne <span class="op">-</span>qq</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>pip install umap<span class="op">-</span>learn <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900367556,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Scientific computing</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -355,7 +350,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-46"><a href="#cb2-46"></a><span class="im">import</span> umap</span>
 <span id="cb2-47"><a href="#cb2-47"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
 <span id="cb2-48"><a href="#cb2-48"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> FeatureAgglomeration</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="feature-selection" class="level2" data-number="6.2">
@@ -365,11 +359,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="removing-low-variance-features"><span class="header-section-number">6.2.1</span> Removing low variance features</h3>
 <p>Suppose that we have a dataset with boolean features, and we want to remove all features that are either one or zero (on or off) in more than 80% of the samples. Boolean features are Bernoulli random variables, and the variance of such variables is <code>0.8 * (1 - 0.8)</code></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:295,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900372348,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ed0d020c-ed76-4419-c729-24c9fc921437" data-execution_count="3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>X <span class="op">=</span> pd.DataFrame([[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]])</span>
 <span id="cb3-2"><a href="#cb3-2"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
   <div id="df-ea4d79e4-8383-4967-8e46-c81015bd855e">
@@ -504,11 +495,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:296,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900403683,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="02882012-30d3-4236-9683-a497608b5fc6" data-execution_count="4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>sel <span class="op">=</span> VarianceThreshold(threshold<span class="op">=</span>(<span class="fl">.8</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> <span class="fl">.8</span>))).set_output(transform<span class="op">=</span><span class="st">"pandas"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>sel.fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 
   <div id="df-92a9a58b-003e-405b-bfb1-0c4f6f460cc5">
@@ -641,11 +629,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="univariate-feature-selection"><span class="header-section-number">6.2.2</span> Univariate feature selection</h3>
 <p><code>Scikit-learn</code> exposes feature selection routines as objects that implement the <code>transform()</code> method. For instance, we can perform a <span class="math inline">\(\chi^2\)</span> test to the samples to retrieve only the two best features as follows:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900443470,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e60667f3-6a13-4dee-94b1-e704d347ec7f" data-execution_count="5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">True</span>) <span class="co"># Load the iris data set</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
   <div id="df-e2f24c93-24ca-4050-b732-0d121d12f10b">
@@ -823,12 +808,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:295,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900523847,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="802aca26-3eb9-4a7b-9a46-084e99198fdd" data-execution_count="6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>selecter <span class="op">=</span> SelectKBest(chi2, k<span class="op">=</span><span class="dv">2</span>).set_output(transform<span class="op">=</span><span class="st">"pandas"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>X_new <span class="op">=</span> selecter.fit_transform(X, y)</span>
 <span id="cb6-3"><a href="#cb6-3"></a>X_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
   <div id="df-33085bca-7330-4d3d-9ff8-b3c7c45ce302">
@@ -982,11 +964,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:623,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900541697,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ea51d0b4-6228-4350-8e3c-763383d0bee7" data-execution_count="7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.scatter(X_new.iloc[:,<span class="dv">0</span>], X_new.iloc[:,<span class="dv">1</span>], c<span class="op">=</span>y)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
@@ -998,8 +977,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>The methods based on F-test estimate the degree of linear dependency between two random variables. For example, we create a dataset with two informative features among a hundred. To simplify our example, we do not include either redundant or repeated features. In addition, We will explicitly not shuffle the dataset to ensure that the informative features will correspond to the three two columns of X.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:281,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900621206,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="8">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Generate synthetic dataset</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
 <span id="cb8-3"><a href="#cb8-3"></a>data, target <span class="op">=</span> make_classification(</span>
@@ -1011,7 +988,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-9"><a href="#cb8-9"></a>    random_state<span class="op">=</span><span class="dv">0</span>,</span>
 <span id="cb8-10"><a href="#cb8-10"></a>    shuffle <span class="op">=</span> <span class="va">False</span>  <span class="co"># So that we know the informative freatures are X[:, n_informative + n_redundant + n_repeated:].</span></span>
 <span id="cb8-11"><a href="#cb8-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We will create two machine learning pipelines.</p>
 <ol type="1">
@@ -1019,43 +995,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The latter will also be a random forest, but we will add a feature selection step to train this classifier.</p></li>
 </ol>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:262,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900646905,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="9">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Let’s create the model without any feature selection</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>model_without_selection <span class="op">=</span> RandomForestClassifier(n_jobs<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:467,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900683535,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="10">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Then, let’s create a pipeline where the first stage will make the feature selection processing.</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>model_with_selection <span class="op">=</span> make_pipeline(</span>
 <span id="cb10-3"><a href="#cb10-3"></a>    SelectKBest(score_func<span class="op">=</span>f_classif, k<span class="op">=</span><span class="dv">2</span>), <span class="co"># Feature slection</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a>    RandomForestClassifier(n_jobs<span class="op">=</span><span class="dv">2</span>),       <span class="co"># Model</span></span>
 <span id="cb10-5"><a href="#cb10-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We will measure the average time spent to train each pipeline and make it predict. Besides, we will compute the testing score of the model. We will collect these results via cross-validation.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:20799,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900708530,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="11">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Let’s start with the random forest without feature selection. We will store the results into a dataframe.</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>cv_results_without_selection <span class="op">=</span> cross_validate(model_without_selection, data, target)</span>
 <span id="cb11-3"><a href="#cb11-3"></a>cv_results_without_selection <span class="op">=</span> pd.DataFrame(cv_results_without_selection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3859,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900712387,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="12">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Now, we will repeat the process for the pipeline incorporating the feature selection.</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>cv_results_with_selection <span class="op">=</span> cross_validate(model_with_selection, data, target, return_estimator<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb12-3"><a href="#cb12-3"></a>cv_results_with_selection <span class="op">=</span> pd.DataFrame(cv_results_with_selection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>To analyze the results, we will merge the results from the two pipeline in a single pandas dataframe.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:12,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900712387,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="13">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>cv_results <span class="op">=</span> pd.concat(</span>
 <span id="cb13-2"><a href="#cb13-2"></a>    [cv_results_without_selection, cv_results_with_selection],</span>
 <span id="cb13-3"><a href="#cb13-3"></a>    axis<span class="op">=</span><span class="dv">1</span>,</span>
@@ -1064,54 +1026,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-6"><a href="#cb13-6"></a></span>
 <span id="cb13-7"><a href="#cb13-7"></a><span class="co"># swap the level of the multi-index of the columns</span></span>
 <span id="cb13-8"><a href="#cb13-8"></a>cv_results <span class="op">=</span> cv_results.swaplevel(axis<span class="op">=</span><span class="st">"columns"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Let’s first analyze the train and score time for each pipeline.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:711,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900717024,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d4895090-fb94-45a7-f1b4-dea3d7b45630" data-execution_count="14">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>color <span class="op">=</span> {<span class="st">"whiskers"</span>: <span class="st">"black"</span>, <span class="st">"medians"</span>: <span class="st">"black"</span>, <span class="st">"caps"</span>: <span class="st">"black"</span>}</span>
 <span id="cb14-2"><a href="#cb14-2"></a>cv_results[<span class="st">"fit_time"</span>].plot.box(color<span class="op">=</span>color, vert<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb14-3"><a href="#cb14-3"></a>plt.xlabel(<span class="st">"Elapsed time (s)"</span>)</span>
 <span id="cb14-4"><a href="#cb14-4"></a>_ <span class="op">=</span> plt.title(<span class="st">"Time to fit the model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:379,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900733705,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ab0caa51-9545-48a8-9f3d-5a87c36d5ea7" data-execution_count="15">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>cv_results[<span class="st">"score_time"</span>].plot.box(color<span class="op">=</span>color, vert<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb15-2"><a href="#cb15-2"></a>plt.xlabel(<span class="st">"Elapsed time (s)"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a>_ <span class="op">=</span> plt.title(<span class="st">"Time to make prediction"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>We can draw the same conclusions for both training and scoring elapsed time: selecting the most informative features speed-up our pipeline. Of course, such speed-up is beneficial only if the generalization performance in terms of metrics remain the same. Let’s check the testing score.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900744173,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a5d938e4-35d7-4701-b29a-0f8b18e6d811" data-execution_count="16">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>cv_results[<span class="st">"test_score"</span>].plot.box(color<span class="op">=</span>color, vert<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb16-2"><a href="#cb16-2"></a>plt.xlabel(<span class="st">"Accuracy score"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a>_ <span class="op">=</span> plt.title(<span class="st">"Test score via cross-validation"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>We can observe that the model’s generalization performance selecting a subset of features decreases compared with the model using all available features. Since we generated the dataset, we can infer that the decrease is because of the selection. <strong>The feature selection algorithm did not choose the two informative features.</strong></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:294,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900765710,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c86eb50b-6cfc-4617-a59a-80b13e6fd0ac" data-execution_count="17">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">for</span> idx, pipeline <span class="kw">in</span> <span class="bu">enumerate</span>(cv_results_with_selection[<span class="st">"estimator"</span>]):</span>
 <span id="cb17-2"><a href="#cb17-2"></a>    <span class="bu">print</span>(</span>
 <span id="cb17-3"><a href="#cb17-3"></a>        <span class="ss">f"Fold #</span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss"> - features selected are: "</span></span>
 <span id="cb17-4"><a href="#cb17-4"></a>        <span class="ss">f"</span><span class="sc">{</span>np<span class="sc">.</span>argsort(pipeline[<span class="dv">0</span>].scores_)[<span class="op">-</span><span class="dv">2</span>:]<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb17-5"><a href="#cb17-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fold #0 - features selected are: [30  1]
 Fold #1 - features selected are: [10  1]
@@ -1126,17 +1075,11 @@ Fold #4 - features selected are: [61  1]</code></pre>
 <h4 data-number="6.2.2.1" class="anchored" data-anchor-id="mutual-information"><span class="header-section-number">6.2.2.1</span> Mutual information</h4>
 <p>The <a href="https://www.kaggle.com/toramky/automobile-dataset"><em>Automobile</em></a> dataset consists of 193 cars from the 1985 model year. The goal for this dataset is to predict a car’s <code>price</code> (the target) from 23 of the car’s features, such as <code>make</code>, <code>body_style</code>, and <code>horsepower</code>. In this example, we’ll rank the features with mutual information and investigate the results by data visualization. (The original dataset requires data cleaning, you could refer to https://skill-lync.com/student-projects/project-1-1299 for more details)</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Uncpmment below if you are using Kaggle</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="co">#!pip install gdown</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2242,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900826493,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="20b6912b-5b02-4e96-d284-2026d7a04833" data-execution_count="18">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">FoCRK2LQBo1hlPWK2fDDcOjjy</span><span class="op">-</span>DnPiJw<span class="op">/</span>view?usp<span class="op">=</span>sharing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading...
 From: https://drive.google.com/uc?id=1FoCRK2LQBo1hlPWK2fDDcOjjy-DnPiJw
@@ -1145,11 +1088,8 @@ To: /content/autos.csv
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:297,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900847099,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9b8b81e0-417d-449a-ef90-a46e4584c2d2" data-execution_count="19">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"autos.csv"</span>) <span class="co"># Clean version</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 
   <div id="df-cdd0d286-051d-4215-960d-b5744580e6ce">
@@ -1388,8 +1328,6 @@ To: /content/autos.csv
 </div>
 <p>The <code>scikit-learn</code> algorithm for MI treats discrete features differently from continuous features. Consequently, you need to tell it which are which. As a rule of thumb, anything that have a <code>float</code> dtype is <em>not</em> discrete. Categoricals (<code>object</code> or <code>categorial</code> dtype) can be treated as discrete by giving them a label encoding</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:264,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900893246,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="21">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>X <span class="op">=</span> df.copy()</span>
 <span id="cb23-2"><a href="#cb23-2"></a>y <span class="op">=</span> X.pop(<span class="st">"price"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3"></a></span>
@@ -1400,12 +1338,9 @@ To: /content/autos.csv
 <span id="cb23-8"><a href="#cb23-8"></a></span>
 <span id="cb23-9"><a href="#cb23-9"></a><span class="co"># All discrete features should now have integer dtypes (double-check this before using MI!)</span></span>
 <span id="cb23-10"><a href="#cb23-10"></a>discrete_features <span class="op">=</span> X.dtypes <span class="op">==</span> <span class="bu">int</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p><code>Scikit-learn</code> has two mutual information metrics in its <code>feature_selection</code> module: one for real-valued targets (<code>mutual_info_regression()</code>) and one for categorical targets (<code>mutual_info_classif()</code>). Our target, <code>price</code>, is real-valued. The next cell computes the MI scores for our features and wraps them up in a nice dataframe.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2256,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900916935,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d9774c30-76d3-4eae-bf1b-f547a644c9eb" data-execution_count="22">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">def</span> make_mi_scores(X, y, discrete_features):</span>
 <span id="cb24-2"><a href="#cb24-2"></a>    mi_scores <span class="op">=</span> mutual_info_regression(X, y, discrete_features<span class="op">=</span>discrete_features)</span>
 <span id="cb24-3"><a href="#cb24-3"></a>    mi_scores <span class="op">=</span> pd.Series(mi_scores, name<span class="op">=</span><span class="st">"MI Scores"</span>, index<span class="op">=</span>X.columns)</span>
@@ -1414,7 +1349,6 @@ To: /content/autos.csv
 <span id="cb24-6"><a href="#cb24-6"></a></span>
 <span id="cb24-7"><a href="#cb24-7"></a>mi_scores <span class="op">=</span> make_mi_scores(X, y, discrete_features)</span>
 <span id="cb24-8"><a href="#cb24-8"></a>mi_scores[::<span class="dv">3</span>]  <span class="co"># show a few features with their MI scores</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>curb_weight          1.436041
 highway_mpg          0.948495
@@ -1428,8 +1362,6 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1379,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900935073,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="36b43819-c82a-4116-eabc-1b0b01462858" data-execution_count="23">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">def</span> plot_mi_scores(scores):</span>
 <span id="cb26-2"><a href="#cb26-2"></a>    scores <span class="op">=</span> scores.sort_values(ascending<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb26-3"><a href="#cb26-3"></a>    width <span class="op">=</span> np.arange(<span class="bu">len</span>(scores))</span>
@@ -1440,27 +1372,20 @@ Name: MI Scores, dtype: float64</code></pre>
 <span id="cb26-8"><a href="#cb26-8"></a></span>
 <span id="cb26-9"><a href="#cb26-9"></a>plt.figure(dpi<span class="op">=</span><span class="dv">100</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
 <span id="cb26-10"><a href="#cb26-10"></a>plot_mi_scores(mi_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1491,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900956798,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="49430573-601c-4a03-ae25-1d544720cc5e" data-execution_count="24">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># As we might expect, the high-scoring `curb_weight` feature exhibits a strong relationship with `price`, the target.</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>sns.relplot(x<span class="op">=</span><span class="st">"curb_weight"</span>, y<span class="op">=</span><span class="st">"price"</span>, data<span class="op">=</span>df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The <code>fuel_type</code> feature has a fairly low MI score, but as we can see from the figure below, it clearly separates two <code>price</code> populations with different trends within the <code>horsepower</code> feature. <strong>This indicates that <code>fuel_type</code> contributes an interaction effect and might not be unimportant after all.</strong> Before deciding a feature is unimportant from its MI score, it’s good to investigate any possible interaction effects – domain knowledge can offer a lot of guidance here.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1065,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900990282,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="981f4a27-3297-4853-eecb-a54254936144" data-execution_count="25">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">"horsepower"</span>, y<span class="op">=</span><span class="st">"price"</span>, hue<span class="op">=</span><span class="st">"fuel_type"</span>, data<span class="op">=</span>df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
@@ -1478,18 +1403,12 @@ Name: MI Scores, dtype: float64</code></pre>
 <p>In general, forward and backward selection do not yield equivalent results. Also, one may be much faster than the other depending on the requested number of selected features: if we have 10 features and ask for 7 selected features, forward selection would need to perform 7 iterations while backward selection would only need to perform 3.</p>
 </blockquote>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901058671,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="26">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-2"><a href="#cb29-2"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:444,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901080140,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8719c024-1dae-4bb1-fe5c-4fa45bf5c34b" data-execution_count="27">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>sfs <span class="op">=</span> SequentialFeatureSelector(knn, n_features_to_select<span class="op">=</span><span class="dv">2</span>, direction<span class="op">=</span><span class="st">'forward'</span>).set_output(transform<span class="op">=</span><span class="st">"pandas"</span>)</span>
 <span id="cb30-2"><a href="#cb30-2"></a>sfs.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SequentialFeatureSelector(estimator=KNeighborsClassifier(n_neighbors=3),
                           n_features_to_select=2)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">SequentialFeatureSelector</label><div class="sk-toggleable__content"><pre>SequentialFeatureSelector(estimator=KNeighborsClassifier(n_neighbors=3),
@@ -1497,11 +1416,8 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:272,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901094481,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="20b10eb3-6056-41c2-c3e6-98e29236bdd1" data-execution_count="28">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a> df <span class="op">=</span> sfs.transform(X)</span>
 <span id="cb31-2"><a href="#cb31-2"></a> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="28">
 
   <div id="df-903ae9c3-c470-4fb4-a9c2-72f0fda6ae21">
@@ -1655,11 +1571,8 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:467,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901105323,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7fa8e34b-4ee8-495b-dae2-e89aecfe24c9" data-execution_count="29">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>plt.scatter(df.iloc[:,<span class="dv">0</span>], df.iloc[:,<span class="dv">1</span>],c<span class="op">=</span>y)</span>
 <span id="cb32-2"><a href="#cb32-2"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
 </div>
@@ -1670,24 +1583,15 @@ Name: MI Scores, dtype: float64</code></pre>
 <p><code>SelectFromModel</code> is a meta-transformer that can be used alongside any estimator that assigns importance to each feature through a specific attribute (such as <code>coef_</code>, <code>feature_importances_</code>) or via an <code>importance_getter</code> callable after fitting. The features are considered unimportant and removed if the corresponding importance of the feature values are below the provided threshold parameter.</p>
 <p>Apart from specifying the threshold numerically, there are built-in heuristics for finding a threshold using a string argument. **Available heuristics are “mean”, “median” and float multiples of these like “0.1*mean”. In combination with the threshold criteria, one can use the <code>max_features</code> parameter to set a limit on the number of features to select.**</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:352,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901126308,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="30">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:271,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901153187,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="31">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>lsvc <span class="op">=</span> LinearSVC(C<span class="op">=</span><span class="fl">0.01</span>, penalty<span class="op">=</span><span class="st">"l1"</span>, dual<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb34-2"><a href="#cb34-2"></a>model <span class="op">=</span> SelectFromModel(lsvc).set_output(transform<span class="op">=</span><span class="st">"pandas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:281,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901178747,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="06658c5a-5653-4822-9417-ce2a1aefc4bf" data-execution_count="32">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>X_new <span class="op">=</span> model.fit_transform(X,y) <span class="co"># We use threshold instead or max_features here</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>X_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(</code></pre>
@@ -1861,19 +1765,13 @@ Name: MI Scores, dtype: float64</code></pre>
 <h3 data-number="6.2.5" class="anchored" data-anchor-id="a-concret-example"><span class="header-section-number">6.2.5</span> A Concret example</h3>
 <p>The following dataset is our old friend which is a record of neighborhoods in California district, predicting the median house value (target) given some information about the neighborhoods, as the average number of rooms, the latitude, the longitude or the median income of people in the neighborhoods (block).</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2800,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901218717,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="33">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>X, y <span class="op">=</span> fetch_california_housing(as_frame<span class="op">=</span><span class="va">True</span>, return_X_y<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:439,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901221304,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1a4130b2-4ebe-4450-ee14-3ef2fc88e42d" data-execution_count="34">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># To speed up the computation, we take the first 10,000 samples</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>X <span class="op">=</span> X[:<span class="dv">10000</span>]</span>
 <span id="cb38-3"><a href="#cb38-3"></a>y <span class="op">=</span> y[:<span class="dv">10000</span>]</span>
 <span id="cb38-4"><a href="#cb38-4"></a>X.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="34">
 
   <div id="df-780958ce-b767-4229-9669-3718ebb30ab3">
@@ -2045,15 +1943,12 @@ Name: MI Scores, dtype: float64</code></pre>
 </ul>
 <p>To assert the quality of our inspection technique, <strong>let’s add some random feature that won’t help the prediction (un-informative feature)</strong></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901244414,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0a64f124-0022-4611-b069-2e15c3c4d7d3" data-execution_count="35">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Adding random features</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">0</span>)</span>
 <span id="cb39-3"><a href="#cb39-3"></a>bin_var <span class="op">=</span> pd.Series(rng.randint(<span class="dv">0</span>, <span class="dv">2</span>, X.shape[<span class="dv">0</span>]), name<span class="op">=</span><span class="st">'rnd_bin'</span>)</span>
 <span id="cb39-4"><a href="#cb39-4"></a>num_var <span class="op">=</span> pd.Series(np.arange(X.shape[<span class="dv">0</span>]), name<span class="op">=</span><span class="st">'rnd_num'</span>)</span>
 <span id="cb39-5"><a href="#cb39-5"></a>X_with_rnd_feat <span class="op">=</span> pd.concat((X, bin_var, num_var), axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb39-6"><a href="#cb39-6"></a>X_with_rnd_feat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="35">
 
   <div id="df-67a9558c-63c6-4b2c-ae30-c3056f37fe65">
@@ -2303,22 +2198,16 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:517,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901261038,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="36">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_with_rnd_feat, y, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>In linear models, the target value is modeled as a linear combination of the features.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:292,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901268319,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c0dc37dc-4991-4f42-8df3-240230b82581" data-execution_count="37">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>model <span class="op">=</span> RidgeCV()</span>
 <span id="cb41-2"><a href="#cb41-2"></a></span>
 <span id="cb41-3"><a href="#cb41-3"></a>model.fit(X_train, y_train)</span>
 <span id="cb41-4"><a href="#cb41-4"></a></span>
 <span id="cb41-5"><a href="#cb41-5"></a><span class="bu">print</span>(<span class="ss">f'model score on training data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_train, y_train)<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb41-6"><a href="#cb41-6"></a><span class="bu">print</span>(<span class="ss">f'model score on testing data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_test, y_test)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>model score on training data: 0.6049524592207427
 model score on testing data: 0.5863921053581754</code></pre>
@@ -2326,8 +2215,6 @@ model score on testing data: 0.5863921053581754</code></pre>
 </div>
 <p>Our linear model obtains a score of .60, so it explains a significant part of the target. Its coefficient should be somehow relevant. Let’s look at the coefficient learnt</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:322,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901280920,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b24e3aac-9ebd-49d2-a9e9-4bc048b540a3" data-execution_count="38">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>coefs <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb43-2"><a href="#cb43-2"></a>   model.coef_,</span>
 <span id="cb43-3"><a href="#cb43-3"></a>   columns<span class="op">=</span>[<span class="st">'Coefficients'</span>], index<span class="op">=</span>X_train.columns</span>
@@ -2337,7 +2224,6 @@ model score on testing data: 0.5863921053581754</code></pre>
 <span id="cb43-7"><a href="#cb43-7"></a>plt.title(<span class="st">'Ridge model'</span>)</span>
 <span id="cb43-8"><a href="#cb43-8"></a>plt.axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'.5'</span>)</span>
 <span id="cb43-9"><a href="#cb43-9"></a>plt.subplots_adjust(left<span class="op">=</span><span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
 </div>
@@ -2346,23 +2232,18 @@ model score on testing data: 0.5863921053581754</code></pre>
 <p>So the <code>Population</code> coefficient is expressed in <code>“100k$/habitant”</code> while the <code>AveBedrms</code> is expressed in <code>“100k$/nb of bedrooms”</code> and the Latitude coefficient in <code>“100k$/degree”</code>. We see that changing population by one does not change the outcome, while as we go south (latitude increase) the price becomes cheaper. Also, adding a bedroom (keeping all other feature constant) shall rise the price of the house by <code>80k$</code>.</p>
 <p>So looking at the coefficient plot to gauge feature importance can be misleading as some of them vary on a small scale, while others vary a lot more, several decades. <strong>So before any interpretation, we need to scale each column (removing the mean and scaling the variance to 1).</strong></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:765,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901334295,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="000e5d6d-4da9-4ce9-c2d9-ec8084d6e4a7" data-execution_count="39">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>model <span class="op">=</span> make_pipeline(StandardScaler(), RidgeCV())</span>
 <span id="cb44-2"><a href="#cb44-2"></a></span>
 <span id="cb44-3"><a href="#cb44-3"></a>model.fit(X_train, y_train)</span>
 <span id="cb44-4"><a href="#cb44-4"></a></span>
 <span id="cb44-5"><a href="#cb44-5"></a><span class="bu">print</span>(<span class="ss">f'model score on training data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_train, y_train)<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb44-6"><a href="#cb44-6"></a><span class="bu">print</span>(<span class="ss">f'model score on testing data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_test, y_test)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>model score on training data: 0.6049222473801685
 model score on testing data: 0.586090835494786</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:312,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901338683,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a4a30132-e638-4fe0-9915-aa19bd63cfa1" data-execution_count="40">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>coefs <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb46-2"><a href="#cb46-2"></a>   model[<span class="dv">1</span>].coef_,</span>
 <span id="cb46-3"><a href="#cb46-3"></a>   columns<span class="op">=</span>[<span class="st">'Coefficients'</span>], index<span class="op">=</span>X_train.columns</span>
@@ -2372,7 +2253,6 @@ model score on testing data: 0.586090835494786</code></pre>
 <span id="cb46-7"><a href="#cb46-7"></a>plt.title(<span class="st">'Ridge model'</span>)</span>
 <span id="cb46-8"><a href="#cb46-8"></a>plt.axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'.5'</span>)</span>
 <span id="cb46-9"><a href="#cb46-9"></a>plt.subplots_adjust(left<span class="op">=</span><span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
 </div>
@@ -2381,8 +2261,6 @@ model score on testing data: 0.586090835494786</code></pre>
 <p>The plot above tells us about dependencies between a specific feature and the target when all other features remain constant, i.e., conditional dependencies. An increase of the <code>HouseAge</code> will induce an increase of the price when all other features remain constant. On the contrary, an increase of the <code>AveRooms</code> will induce an decrease of the price when all other features remain constant.</p>
 <p>We can check the coefficient variability through cross-validation: it is a form of data perturbation.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4040,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901370789,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d63d8ff6-8403-4e0c-bc9a-d369d3d00685" data-execution_count="41">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>cv_model <span class="op">=</span> cross_validate(</span>
 <span id="cb47-2"><a href="#cb47-2"></a>   model, X_with_rnd_feat, y, cv<span class="op">=</span>RepeatedKFold(n_splits<span class="op">=</span><span class="dv">5</span>, n_repeats<span class="op">=</span><span class="dv">5</span>),</span>
 <span id="cb47-3"><a href="#cb47-3"></a>   return_estimator<span class="op">=</span><span class="va">True</span>, n_jobs<span class="op">=</span><span class="dv">2</span></span>
@@ -2398,34 +2276,24 @@ model score on testing data: 0.586090835494786</code></pre>
 <span id="cb47-13"><a href="#cb47-13"></a>plt.xlabel(<span class="st">'Coefficient importance'</span>)</span>
 <span id="cb47-14"><a href="#cb47-14"></a>plt.title(<span class="st">'Coefficient importance and its variability'</span>)</span>
 <span id="cb47-15"><a href="#cb47-15"></a>plt.subplots_adjust(left<span class="op">=</span><span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-42-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Now if we want to select the four features which are the most important according to the coefficients. The <code>SelectFromModel()</code> is meant just for that. <code>SelectFromModel()</code> accepts a <code>threshold</code> parameter and will select the features whose importance (defined by the coefficients) are above this threshold.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:306,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901411615,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="81bf6eef-fb95-4030-fbb8-7a48c048e564" data-execution_count="42">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('standardscaler', StandardScaler()), ('ridgecv', RidgeCV())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('standardscaler', StandardScaler()), ('ridgecv', RidgeCV())])</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">RidgeCV</label><div class="sk-toggleable__content"><pre>RidgeCV()</pre></div></div></div></div></div></div></div>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901411911,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="43">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>importance <span class="op">=</span> np.<span class="bu">abs</span>(model[<span class="dv">1</span>].coef_)</span>
 <span id="cb49-2"><a href="#cb49-2"></a>threshold <span class="op">=</span> np.sort(importance)[<span class="op">-</span><span class="dv">5</span>] <span class="op">+</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:274,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901456613,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="135be6d0-2f0f-48f3-e934-48cb58410c10" data-execution_count="44">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>sfm <span class="op">=</span> SelectFromModel(model[<span class="dv">1</span>], threshold<span class="op">=</span>threshold).fit(X, y)</span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="bu">print</span>(<span class="ss">f"Features selected by SelectFromModel: </span><span class="sc">{</span>sfm<span class="sc">.</span>get_feature_names_out()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Features selected by SelectFromModel: ['MedInc' 'AveBedrms' 'Latitude' 'Longitude']</code></pre>
 </div>
@@ -2434,23 +2302,18 @@ model score on testing data: 0.586090835494786</code></pre>
 <h4 data-number="6.2.5.1" class="anchored" data-anchor-id="linear-models-with-sparse-coefficients-lasso"><span class="header-section-number">6.2.5.1</span> Linear models with sparse coefficients (Lasso)</h4>
 <p>In it important to keep in mind that the associations extracted depend on the model. To illustrate this point we consider a Lasso model, that performs feature selection with a L1 penalty. Let us fit a Lasso model with a strong regularization parameters <code>alpha</code></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901473622,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8d389fbe-8dd7-435f-b9fc-8a9da1067dce" data-execution_count="45">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>model <span class="op">=</span> make_pipeline(StandardScaler(), Lasso(alpha<span class="op">=</span><span class="fl">.015</span>))</span>
 <span id="cb52-2"><a href="#cb52-2"></a></span>
 <span id="cb52-3"><a href="#cb52-3"></a>model.fit(X_train, y_train)</span>
 <span id="cb52-4"><a href="#cb52-4"></a></span>
 <span id="cb52-5"><a href="#cb52-5"></a><span class="bu">print</span>(<span class="ss">f'model score on training data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_train, y_train)<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb52-6"><a href="#cb52-6"></a><span class="bu">print</span>(<span class="ss">f'model score on testing data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_test, y_test)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>model score on training data: 0.5933235371761756
 model score on testing data: 0.5673786563118284</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901479711,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a40f6d2b-9730-4fa3-cbc7-ea5cdbe62657" data-execution_count="46">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>coefs <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb54-2"><a href="#cb54-2"></a>   model[<span class="dv">1</span>].coef_,</span>
 <span id="cb54-3"><a href="#cb54-3"></a>   columns<span class="op">=</span>[<span class="st">'Coefficients'</span>], index<span class="op">=</span>X_train.columns</span>
@@ -2460,7 +2323,6 @@ model score on testing data: 0.5673786563118284</code></pre>
 <span id="cb54-7"><a href="#cb54-7"></a>plt.title(<span class="st">'Lasso model, strong regularization'</span>)</span>
 <span id="cb54-8"><a href="#cb54-8"></a>plt.axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'.5'</span>)</span>
 <span id="cb54-9"><a href="#cb54-9"></a>plt.subplots_adjust(left<span class="op">=</span><span class="fl">.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-47-output-1.png" class="img-fluid"></p>
 </div>
@@ -2471,23 +2333,18 @@ model score on testing data: 0.5673786563118284</code></pre>
 <h4 data-number="6.2.5.2" class="anchored" data-anchor-id="randomforest-with-feature-importance"><span class="header-section-number">6.2.5.2</span> Randomforest with feature importance</h4>
 <p>On some algorithms, there are some feature importance methods, inherently built within the model. It is the case in RandomForest models. Let’s investigate the built-in <code>feature_importances_</code> attribute.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:8276,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901529209,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bbccb1b4-3d67-4f86-d5a3-b6104325fa8b" data-execution_count="47">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>model <span class="op">=</span> RandomForestRegressor()</span>
 <span id="cb55-2"><a href="#cb55-2"></a></span>
 <span id="cb55-3"><a href="#cb55-3"></a>model.fit(X_train, y_train)</span>
 <span id="cb55-4"><a href="#cb55-4"></a></span>
 <span id="cb55-5"><a href="#cb55-5"></a><span class="bu">print</span>(<span class="ss">f'model score on training data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_train, y_train)<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb55-6"><a href="#cb55-6"></a><span class="bu">print</span>(<span class="ss">f'model score on testing data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_test, y_test)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>model score on training data: 0.9796643318943656
 model score on testing data: 0.8429137479202747</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:499,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901538164,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1915470e-203b-42a9-975b-5c45f1b39d37" data-execution_count="48">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>importances <span class="op">=</span> model.feature_importances_</span>
 <span id="cb57-2"><a href="#cb57-2"></a>indices <span class="op">=</span> np.argsort(importances)</span>
 <span id="cb57-3"><a href="#cb57-3"></a></span>
@@ -2495,7 +2352,6 @@ model score on testing data: 0.8429137479202747</code></pre>
 <span id="cb57-5"><a href="#cb57-5"></a>ax.barh(<span class="bu">range</span>(<span class="bu">len</span>(importances)), importances[indices])</span>
 <span id="cb57-6"><a href="#cb57-6"></a>ax.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(importances)))</span>
 <span id="cb57-7"><a href="#cb57-7"></a>_ <span class="op">=</span> ax.set_yticklabels(np.array(X_train.columns)[indices])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-49-output-1.png" class="img-fluid"></p>
 </div>
@@ -2506,8 +2362,6 @@ model score on testing data: 0.8429137479202747</code></pre>
 <h4 data-number="6.2.5.3" class="anchored" data-anchor-id="feature-importance-by-permutation"><span class="header-section-number">6.2.5.3</span> Feature importance by permutation</h4>
 <p>We introduce here a new technique to evaluate the feature importance of any given fitted model. It basically shuffles a feature and sees how the model changes its prediction. Thus, the change in prediction will correspond to the feature importance.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:11590,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901604491,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c35c365f-42f5-43d3-b4cd-3a96865ddc78" data-execution_count="49">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Any model could be used here</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a></span>
 <span id="cb58-3"><a href="#cb58-3"></a>model <span class="op">=</span> RandomForestRegressor()</span>
@@ -2515,21 +2369,15 @@ model score on testing data: 0.8429137479202747</code></pre>
 <span id="cb58-5"><a href="#cb58-5"></a></span>
 <span id="cb58-6"><a href="#cb58-6"></a><span class="bu">print</span>(<span class="ss">f'model score on training data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_train, y_train)<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb58-7"><a href="#cb58-7"></a><span class="bu">print</span>(<span class="ss">f'model score on testing data: </span><span class="sc">{</span>model<span class="sc">.</span>score(X_test, y_test)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>model score on training data: 0.9795458070557226
 model score on testing data: 0.8448700648905965</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:24836,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901639004,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="50">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>r <span class="op">=</span> permutation_importance(model, X_test, y_test, n_repeats<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co"># Notice that the model are already fitted</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:437,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901639438,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e2b4137a-301c-4817-9da9-7ee3afbd31d0" data-execution_count="51">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb61-2"><a href="#cb61-2"></a></span>
 <span id="cb61-3"><a href="#cb61-3"></a>indices <span class="op">=</span> r.importances_mean.argsort()</span>
@@ -2537,7 +2385,6 @@ model score on testing data: 0.8448700648905965</code></pre>
 <span id="cb61-5"><a href="#cb61-5"></a></span>
 <span id="cb61-6"><a href="#cb61-6"></a>ax.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(indices)))</span>
 <span id="cb61-7"><a href="#cb61-7"></a>_ <span class="op">=</span> ax.set_yticklabels(np.array(X_train.columns)[indices])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-52-output-1.png" class="img-fluid"></p>
 </div>
@@ -2547,19 +2394,13 @@ model score on testing data: 0.8448700648905965</code></pre>
 <section id="feature-rejection-using-boruta" class="level4" data-number="6.2.5.4">
 <h4 data-number="6.2.5.4" class="anchored" data-anchor-id="feature-rejection-using-boruta"><span class="header-section-number">6.2.5.4</span> Feature rejection using Boruta</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:274,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901682761,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="52">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># define Boruta feature selection method</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>model <span class="op">=</span> RandomForestRegressor()</span>
 <span id="cb62-3"><a href="#cb62-3"></a>feat_selector <span class="op">=</span> BorutaPy(model, n_estimators<span class="op">=</span><span class="st">'auto'</span>, verbose<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:46607,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901736545,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="40259f4e-fa96-42db-9365-7d98f8040ff3" data-execution_count="53">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># find all relevant features </span></span>
 <span id="cb63-2"><a href="#cb63-2"></a>feat_selector.fit(X_train.to_numpy(), y_train.to_numpy())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Iteration:  1 / 100
 Confirmed:  0
@@ -2615,10 +2456,7 @@ Rejected:   1</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901744385,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a350d5b8-f952-476b-de74-df556e3e058f" data-execution_count="54">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>X_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="54">
 
   <div id="df-124a27d1-b6a5-48d8-8791-cb1d995cf8cf">
@@ -2868,33 +2706,24 @@ Rejected:   1</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901747273,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5761a655-842e-4a6b-9e4f-bf2b2577992d" data-execution_count="55">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># check selected features </span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>np.array(X_train.columns)[feat_selector.support_]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>array(['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population',
        'AveOccup', 'Latitude', 'Longitude', 'rnd_num'], dtype=object)</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:738,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901754035,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6af37f41-2c29-4783-d699-16a840f5088a" data-execution_count="56">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># check ranking of features</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>feat_selector.ranking_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>array([1, 1, 1, 1, 1, 1, 1, 1, 2, 1])</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:297,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901767677,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="eec65028-4995-4b19-89a5-889a816a4a5e" data-execution_count="57">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># call transform() on X to filter it down to selected features</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>X_filtered <span class="op">=</span> feat_selector.transform(X_train.to_numpy())</span>
 <span id="cb70-3"><a href="#cb70-3"></a>X_filtered.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>(7500, 9)</code></pre>
 </div>
@@ -2918,8 +2747,6 @@ Rejected:   1</code></pre>
 </ul>
 <p>PCA basically gives you direct access to the correlational structure of your data. You’ll no doubt come up with applications of your own!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:350,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901796849,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="58">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a><span class="kw">def</span> plot_variance(pca, width<span class="op">=</span><span class="dv">8</span>, dpi<span class="op">=</span><span class="dv">100</span>):</span>
 <span id="cb72-2"><a href="#cb72-2"></a>    <span class="co"># Create figure</span></span>
 <span id="cb72-3"><a href="#cb72-3"></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>)</span>
@@ -2940,14 +2767,10 @@ Rejected:   1</code></pre>
 <span id="cb72-18"><a href="#cb72-18"></a>    <span class="co"># Set up figure</span></span>
 <span id="cb72-19"><a href="#cb72-19"></a>    fig.<span class="bu">set</span>(figwidth<span class="op">=</span><span class="dv">8</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb72-20"><a href="#cb72-20"></a>    <span class="cf">return</span> axs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901799544,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="63589743-1f19-44fd-9501-905be627050d" data-execution_count="59">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"autos.csv"</span>)</span>
 <span id="cb73-2"><a href="#cb73-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="59">
 
   <div id="df-f944dfb8-7bc7-4523-a19e-f88e7d851f48">
@@ -3186,8 +3009,6 @@ Rejected:   1</code></pre>
 </div>
 <p>We’ve selected four features that cover a range of properties. Each of these features also has a high MI score with the target, <code>price</code>. We’ll standardize the data since these features aren’t naturally on the same scale.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:267,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901810358,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="60">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>features <span class="op">=</span> [<span class="st">"highway_mpg"</span>, <span class="st">"engine_size"</span>, <span class="st">"horsepower"</span>, <span class="st">"curb_weight"</span>]</span>
 <span id="cb74-2"><a href="#cb74-2"></a></span>
 <span id="cb74-3"><a href="#cb74-3"></a>X <span class="op">=</span> df.copy()</span>
@@ -3196,12 +3017,9 @@ Rejected:   1</code></pre>
 <span id="cb74-6"><a href="#cb74-6"></a></span>
 <span id="cb74-7"><a href="#cb74-7"></a><span class="co"># Standardize</span></span>
 <span id="cb74-8"><a href="#cb74-8"></a>X_scaled <span class="op">=</span> (X <span class="op">-</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)) <span class="op">/</span> X.std(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Now we can fit scikit-learn’s <code>PCA</code> estimator and create the principal components. You can see here the first few rows of the transformed dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901848947,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ae5ed552-e6d4-43bc-86d4-7e4fb05e670e" data-execution_count="61">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Create principal components</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a>pca <span class="op">=</span> PCA()</span>
 <span id="cb75-3"><a href="#cb75-3"></a>X_pca <span class="op">=</span> pca.fit_transform(X_scaled)</span>
@@ -3211,7 +3029,6 @@ Rejected:   1</code></pre>
 <span id="cb75-7"><a href="#cb75-7"></a>X_pca <span class="op">=</span> pd.DataFrame(X_pca, columns<span class="op">=</span>component_names)</span>
 <span id="cb75-8"><a href="#cb75-8"></a></span>
 <span id="cb75-9"><a href="#cb75-9"></a>X_pca.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="61">
 
   <div id="df-f84d8e50-b1a9-4a0f-b838-cca4ee8041e1">
@@ -3382,15 +3199,12 @@ Rejected:   1</code></pre>
 </div>
 <p>After fitting, the <code>PCA</code> instance contains the loadings in its <code>components_</code> attribute. We’ll wrap the loadings up in a dataframe.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:288,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901863735,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="483e33c4-629c-46b3-c9ad-60480b5fb5f3" data-execution_count="62">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>loadings <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb76-2"><a href="#cb76-2"></a>    pca.components_.T,  <span class="co"># transpose the matrix of loadings</span></span>
 <span id="cb76-3"><a href="#cb76-3"></a>    columns<span class="op">=</span>component_names,  <span class="co"># so the columns are the principal components</span></span>
 <span id="cb76-4"><a href="#cb76-4"></a>    index<span class="op">=</span>X.columns,  <span class="co"># and the rows are the original features</span></span>
 <span id="cb76-5"><a href="#cb76-5"></a>)</span>
 <span id="cb76-6"><a href="#cb76-6"></a>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="62">
 
   <div id="df-53bb437e-66cf-471c-8c8b-54147cb7111c">
@@ -3518,8 +3332,6 @@ Rejected:   1</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:493,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901898196,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3350ba28-d0ce-47bc-813b-d1db0a762f4f" data-execution_count="63">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># biplot </span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>xvector <span class="op">=</span> pca.components_[<span class="dv">0</span>] </span>
 <span id="cb77-3"><a href="#cb77-3"></a>yvector <span class="op">=</span> <span class="op">-</span>pca.components_[<span class="dv">1</span>]</span>
@@ -3560,7 +3372,6 @@ Rejected:   1</code></pre>
 <span id="cb77-38"><a href="#cb77-38"></a>    </span>
 <span id="cb77-39"><a href="#cb77-39"></a>ax2.set_xlabel(<span class="st">"1'st Principal Component (Loading)"</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
 <span id="cb77-40"><a href="#cb77-40"></a>ax2.set_ylabel(<span class="st">"2'nd Principal Component (Loading)"</span>, color<span class="op">=</span><span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="63">
 <pre><code>Text(0, 0.5, "2'nd Principal Component (Loading)")</code></pre>
 </div>
@@ -3570,11 +3381,8 @@ Rejected:   1</code></pre>
 </div>
 <p>Recall that the signs and magnitudes of a component’s loadings tell us what kind of variation it’s captured. The first component (<code>PC1</code>) shows a contrast between large, powerful vehicles with poor gas milage, and smaller, more economical vehicles with good gas milage. We might call this the “Luxury/Economy” axis. The next figure shows that our four chosen features mostly vary along the Luxury/Economy axis.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:982,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901966465,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7fb3234d-b5ff-40a5-9c48-1c5dac6bfaad" data-execution_count="64">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Look at explained variance</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>plot_variance(pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>array([&lt;Axes: title={'center': '% Explained Variance'}, xlabel='Component'&gt;,
        &lt;Axes: title={'center': '% Cumulative Variance'}, xlabel='Component'&gt;],
@@ -3586,11 +3394,8 @@ Rejected:   1</code></pre>
 </div>
 <p>Let’s also look at the MI scores of the components. Not surprisingly, <code>PC1</code> is highly informative, though the remaining components, despite their small variance, still have a significant relationship with <code>price</code>. Examining those components could be worthwhile to find relationships not captured by the main Luxury/Economy axis.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:433,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901991768,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="95933c2b-710a-4c5b-a59d-5935c5389343" data-execution_count="65">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>mi_scores <span class="op">=</span> make_mi_scores(X_pca, y, discrete_features<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb81-2"><a href="#cb81-2"></a>mi_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="65">
 <pre><code>PC1    1.013739
 PC2    0.379649
@@ -3601,13 +3406,10 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 <p>The third component shows a contrast between <code>horsepower</code> and <code>curb_weight</code> – sports cars vs.&nbsp;wagons, it seems.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:497,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902027264,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a7ed75e1-7490-4266-c64d-e31b96e431b3" data-execution_count="66">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># Show dataframe sorted by PC3</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a>idx <span class="op">=</span> X_pca[<span class="st">"PC3"</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>).index</span>
 <span id="cb83-3"><a href="#cb83-3"></a>cols <span class="op">=</span> [<span class="st">"make"</span>, <span class="st">"body_style"</span>, <span class="st">"horsepower"</span>, <span class="st">"curb_weight"</span>]</span>
 <span id="cb83-4"><a href="#cb83-4"></a>df.loc[idx, cols]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="66">
 
   <div id="df-6944ffc9-ca12-45b2-81f9-386504b55070">
@@ -3786,11 +3588,8 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 <p>To express this contrast, let’s create a new ratio feature:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1415,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902100244,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ebfb7adb-9fee-4010-e3e1-c528294b8b8c" data-execution_count="67">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>df[<span class="st">"sports_or_wagon"</span>] <span class="op">=</span> X.curb_weight <span class="op">/</span> X.horsepower</span>
 <span id="cb84-2"><a href="#cb84-2"></a>sns.regplot(x<span class="op">=</span><span class="st">"sports_or_wagon"</span>, y<span class="op">=</span><span class="st">'price'</span>, data<span class="op">=</span>df, order<span class="op">=</span><span class="dv">2</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-68-output-1.png" class="img-fluid"></p>
 </div>
@@ -3801,38 +3600,27 @@ Name: MI Scores, dtype: float64</code></pre>
 <section id="t-sne" class="level4" data-number="6.4.0.1">
 <h4 data-number="6.4.0.1" class="anchored" data-anchor-id="t-sne"><span class="header-section-number">6.4.0.1</span> t-SNE</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:621,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902121031,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="68">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>digits <span class="op">=</span> load_digits()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:910,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902127297,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="59ddf6f4-9065-4d4c-b0b0-05b10aae554d" data-execution_count="69">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>X <span class="op">=</span> digits.images.reshape(<span class="op">-</span><span class="dv">1</span>, digits.images.shape[<span class="dv">1</span>]<span class="op">*</span>digits.images.shape[<span class="dv">2</span>])</span>
 <span id="cb86-2"><a href="#cb86-2"></a>X.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="69">
 <pre><code>(1797, 64)</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1788,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902134197,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="947bf83e-d614-49a6-9f65-bb19ccf6e499" data-execution_count="70">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a>fig, ax_array <span class="op">=</span> plt.subplots(<span class="dv">5</span>, <span class="dv">5</span>)</span>
 <span id="cb88-2"><a href="#cb88-2"></a>axes <span class="op">=</span> ax_array.flatten()</span>
 <span id="cb88-3"><a href="#cb88-3"></a><span class="cf">for</span> i, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes):</span>
 <span id="cb88-4"><a href="#cb88-4"></a>    ax.imshow(digits.images[i], cmap<span class="op">=</span><span class="st">'gray_r'</span>)</span>
 <span id="cb88-5"><a href="#cb88-5"></a>plt.setp(axes, xticks<span class="op">=</span>[], yticks<span class="op">=</span>[], frame_on<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb88-6"><a href="#cb88-6"></a>plt.tight_layout(h_pad<span class="op">=</span><span class="fl">0.5</span>, w_pad<span class="op">=</span><span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-71-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:589,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902137918,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="71">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>otsne <span class="op">=</span> oTSNE(</span>
 <span id="cb89-2"><a href="#cb89-2"></a>    n_components<span class="op">=</span><span class="dv">2</span>,</span>
 <span id="cb89-3"><a href="#cb89-3"></a>    perplexity<span class="op">=</span><span class="dv">30</span>,</span>
@@ -3842,13 +3630,9 @@ Name: MI Scores, dtype: float64</code></pre>
 <span id="cb89-7"><a href="#cb89-7"></a>    negative_gradient_method<span class="op">=</span><span class="st">'auto'</span>, </span>
 <span id="cb89-8"><a href="#cb89-8"></a>    verbose<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb89-9"><a href="#cb89-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:10943,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902151168,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4417dc8d-620d-4d92-8d07-507e7161849e" data-execution_count="72">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>embedding <span class="op">=</span> otsne.fit(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--------------------------------------------------------------------------------
 TSNE(early_exaggeration=12, n_jobs=2, random_state=0, verbose=True)
@@ -3881,14 +3665,11 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1167,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902152332,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f8626b8b-f430-4648-bb57-c80f981c1232" data-execution_count="73">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb92-2"><a href="#cb92-2"></a>plt.scatter(embedding[:, <span class="dv">0</span>], embedding[:, <span class="dv">1</span>], c<span class="op">=</span>digits.target, cmap<span class="op">=</span><span class="st">'Spectral'</span>, s<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb92-3"><a href="#cb92-3"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
 <span id="cb92-4"><a href="#cb92-4"></a>plt.colorbar(boundaries<span class="op">=</span>np.arange(<span class="dv">11</span>)<span class="op">-</span><span class="fl">0.5</span>).set_ticks(np.arange(<span class="dv">10</span>))</span>
 <span id="cb92-5"><a href="#cb92-5"></a>plt.title(<span class="st">'tSNE of the Digits dataset'</span>, fontsize<span class="op">=</span><span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="73">
 <pre><code>Text(0.5, 1.0, 'tSNE of the Digits dataset')</code></pre>
 </div>
@@ -3901,39 +3682,27 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <h4 data-number="6.4.0.2" class="anchored" data-anchor-id="umap"><span class="header-section-number">6.4.0.2</span> UMAP</h4>
 <p>UMAP is useful for generating visualisations, but if you want to make use of UMAP more generally for machine learning tasks it is important to be be able to train a model and then later pass new data to the model and have it transform that data into the learned space. For example if we use UMAP to learn a latent space and then train a classifier on data transformed into the latent space then the classifier is only useful for prediction if we can transform data for which we want a prediction into the latent space the classifier uses.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:301,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902166193,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="74">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(digits.data, digits.target, stratify<span class="op">=</span>digits.target, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Now to get a benchmark idea of what we are looking at let’s train a couple of different classifiers and then see how well they score on the test set. For this example let’s try a support vector classifier and a KNN classifier.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1217,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902189469,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="536d3895-801a-4016-b858-1a95eff7dd10" data-execution_count="75">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>svc <span class="op">=</span> SVC(gamma<span class="op">=</span><span class="st">'auto'</span>).fit(X_train, y_train)</span>
 <span id="cb95-2"><a href="#cb95-2"></a>knn <span class="op">=</span> KNeighborsClassifier().fit(X_train, y_train)</span>
 <span id="cb95-3"><a href="#cb95-3"></a>svc.score(X_test, y_test), knn.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="75">
 <pre><code>(0.62, 0.9844444444444445)</code></pre>
 </div>
 </div>
 <p>The goal now is to make use of UMAP as a preprocessing step that one could potentially fit into a pipeline.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:10617,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902215352,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="76">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>trans <span class="op">=</span> umap.UMAP(n_neighbors<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>).fit(X_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1321,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902216665,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ea2e0853-ded7-4512-baf2-dfcf530830de" data-execution_count="77">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb98-2"><a href="#cb98-2"></a>plt.scatter(trans.embedding_[:, <span class="dv">0</span>], trans.embedding_[:, <span class="dv">1</span>], c<span class="op">=</span>y_train, cmap<span class="op">=</span><span class="st">'Spectral'</span>, s<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb98-3"><a href="#cb98-3"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
 <span id="cb98-4"><a href="#cb98-4"></a>plt.colorbar(boundaries<span class="op">=</span>np.arange(<span class="dv">11</span>)<span class="op">-</span><span class="fl">0.5</span>).set_ticks(np.arange(<span class="dv">10</span>))</span>
 <span id="cb98-5"><a href="#cb98-5"></a>plt.title(<span class="st">'Umap of the Digits dataset'</span>, fontsize<span class="op">=</span><span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="77">
 <pre><code>Text(0.5, 1.0, 'Umap of the Digits dataset')</code></pre>
 </div>
@@ -3943,28 +3712,19 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 <p>This looks very promising! Most of the classes got very cleanly separated, and that gives us some hope that it could help with classifier performance. We can now train some new models (again an SVC and a KNN classifier) on the embedded training data. This looks exactly as before but now we pass it the embedded data.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902229844,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="78">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1"></a>svc <span class="op">=</span> SVC(gamma<span class="op">=</span><span class="st">'auto'</span>).fit(trans.embedding_, y_train)</span>
 <span id="cb100-2"><a href="#cb100-2"></a>knn <span class="op">=</span> KNeighborsClassifier().fit(trans.embedding_, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:9210,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902239335,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="79">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>test_embedding <span class="op">=</span> trans.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The next important question is what the transform did to our test data. In principle we have a new two dimensional representation of the test-set, and ideally this should be based on the existing embedding of the training set</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:643,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902239968,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f6bbc084-fe44-4f79-e848-0a6cf897bb6c" data-execution_count="80">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
 <span id="cb102-2"><a href="#cb102-2"></a>plt.scatter(test_embedding[:, <span class="dv">0</span>], test_embedding[:, <span class="dv">1</span>], c<span class="op">=</span>y_test, cmap<span class="op">=</span><span class="st">'Spectral'</span>, s<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb102-3"><a href="#cb102-3"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, <span class="st">'datalim'</span>)</span>
 <span id="cb102-4"><a href="#cb102-4"></a>plt.colorbar(boundaries<span class="op">=</span>np.arange(<span class="dv">11</span>)<span class="op">-</span><span class="fl">0.5</span>).set_ticks(np.arange(<span class="dv">10</span>))</span>
 <span id="cb102-5"><a href="#cb102-5"></a>plt.title(<span class="st">'Umap of the Digits dataset'</span>, fontsize<span class="op">=</span><span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="80">
 <pre><code>Text(0.5, 1.0, 'Umap of the Digits dataset')</code></pre>
 </div>
@@ -3974,10 +3734,7 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 <p>The results look like what we should expect; the test data has been embedded into two dimensions in exactly the locations we should expect (by class) given the embedding of the training data visualised above. This means we can now try out models that were trained on the embedded training data by handing them the newly transformed test set.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4829,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902274169,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="77e69d32-95d8-40dc-b383-a437b491b19e" data-execution_count="81">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>trans.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="81">
 <pre><code>array([[ 4.73177004e+00,  2.46851373e+00],
        [ 1.91173019e+01,  3.47619963e+00],
@@ -4432,10 +4189,7 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6208,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902285804,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="00bc449b-cc75-46b7-9660-032c64ce3267" data-execution_count="82">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a>svc.score(trans.transform(X_test), y_test), knn.score(trans.transform(X_test), y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="82">
 <pre><code>(0.98, 0.98)</code></pre>
 </div>
@@ -4453,17 +4207,11 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <p>It’s important to remember that this Cluster feature is categorical. Here, it’s shown with a label encoding (that is, as a sequence of integers) as a typical clustering algorithm would produce; depending on your model, a one-hot encoding may be more appropriate. The motivating idea <strong>for adding cluster labels is that the clusters will break up complicated relationships across features into simpler chunks</strong>. Our model can then just learn the simpler chunks one-by-one instead having to learn the complicated whole all at once. It’s a “divide and conquer” strategy.</p>
 <p>As spatial features, <a href="https://www.kaggle.com/camnugent/california-housing-prices"><em>California Housing</em></a>’s <code>'Latitude'</code> and <code>'Longitude'</code> make natural candidates for k-means clustering. In this example we’ll cluster these with <code>'MedInc'</code> (median income) to create economic segments in different regions of California. Since k-means clustering is sensitive to scale, it can be a good idea rescale or normalize data with extreme values. Our features are already roughly on the same scale, so we’ll leave them as-is.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902314854,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="83">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>df <span class="op">=</span> fetch_california_housing(as_frame<span class="op">=</span><span class="va">True</span>)[<span class="st">'frame'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902318189,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b31f9660-aaa2-4664-c3dd-3b910ac8e77d" data-execution_count="84">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>X <span class="op">=</span> df.loc[:, [<span class="st">"MedInc"</span>, <span class="st">"Latitude"</span>, <span class="st">"Longitude"</span>]]</span>
 <span id="cb109-2"><a href="#cb109-2"></a>X.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="84">
 
   <div id="df-ef8652f2-6eca-4602-a255-c99d28c42f19">
@@ -4592,15 +4340,12 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1525,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902322760,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2bd6e369-8f56-460e-eafe-8ec26912a31e" data-execution_count="85">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Create cluster feature</span></span>
 <span id="cb110-2"><a href="#cb110-2"></a>kmeans <span class="op">=</span> KMeans(n_clusters <span class="op">=</span> <span class="dv">6</span>, n_init <span class="op">=</span> <span class="dv">10</span>)</span>
 <span id="cb110-3"><a href="#cb110-3"></a>X[<span class="st">"Cluster"</span>] <span class="op">=</span> kmeans.fit_predict(X)</span>
 <span id="cb110-4"><a href="#cb110-4"></a>X[<span class="st">"Cluster"</span>] <span class="op">=</span> X[<span class="st">"Cluster"</span>].astype(<span class="st">"category"</span>)</span>
 <span id="cb110-5"><a href="#cb110-5"></a></span>
 <span id="cb110-6"><a href="#cb110-6"></a>X.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="85">
 
   <div id="df-03f33327-fba6-421a-bce2-0423b2c38f69">
@@ -4737,23 +4482,17 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <p>Notice the differnece between <code>predict()</code> and <code>transform()</code> in the KMeans. <code>predict()</code> will predict the closest cluster each sample in <code>X</code> belongs to. <code>transform()</code> will transform data to a cluster-distance space where each dimension is the distance to the cluster centers.</p>
 <p>Now let’s look at a couple plots to see how effective this was. First, a scatter plot that shows the geographic distribution of the clusters. It seems like the algorithm has created separate segments for higher-income areas on the coasts.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3205,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902362656,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e1f08d00-7b20-45d2-dc9a-70ff65c2ab1a" data-execution_count="86">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>sns.relplot(</span>
 <span id="cb111-2"><a href="#cb111-2"></a>    x<span class="op">=</span><span class="st">"Longitude"</span>, y<span class="op">=</span><span class="st">"Latitude"</span>, hue<span class="op">=</span><span class="st">"Cluster"</span>, data<span class="op">=</span>X, height<span class="op">=</span><span class="dv">6</span>,</span>
 <span id="cb111-3"><a href="#cb111-3"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-87-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The target in this dataset is <code>MedHouseVal</code> (median house value). These box-plots show the distribution of the target within each cluster. If the clustering is informative, these distributions should, for the most part, separate across <code>MedHouseVal</code>, which is indeed what we see.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:604,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902381892,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="deaa4932-774b-4946-cf4c-330d76ec4a11" data-execution_count="87">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1"></a>X[<span class="st">"MedHouseVal"</span>] <span class="op">=</span> df[<span class="st">"MedHouseVal"</span>]</span>
 <span id="cb112-2"><a href="#cb112-2"></a>sns.catplot(x<span class="op">=</span><span class="st">"MedHouseVal"</span>, y<span class="op">=</span><span class="st">"Cluster"</span>, data<span class="op">=</span>X, kind<span class="op">=</span><span class="st">"boxen"</span>, height<span class="op">=</span><span class="dv">6</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-88-output-1.png" class="img-fluid"></p>
 </div>
@@ -4762,43 +4501,31 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <section id="cluster-distance-as-a-feature" class="level3" data-number="6.5.2">
 <h3 data-number="6.5.2" class="anchored" data-anchor-id="cluster-distance-as-a-feature"><span class="header-section-number">6.5.2</span> Cluster distance as a feature</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:899,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902407085,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="88">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>X_digits, y_digits <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb113-2"><a href="#cb113-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_digits, y_digits, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Now let’s fit a Logistic Regression model and evaluate it on the test set:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1861,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902416222,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4400ca4f-44f6-4f72-89a3-703964ba22d1" data-execution_count="89">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1"></a>log_reg <span class="op">=</span> LogisticRegression(multi_class<span class="op">=</span><span class="st">"ovr"</span>, solver<span class="op">=</span><span class="st">"lbfgs"</span>, max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb114-2"><a href="#cb114-2"></a>log_reg.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="89">
 <style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=5000, multi_class='ovr', random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox" checked=""><label for="sk-estimator-id-10" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=5000, multi_class='ovr', random_state=42)</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:644,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902419325,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="afccb275-0902-49b9-f142-62111fef4e39" data-execution_count="90">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>log_reg_score <span class="op">=</span> log_reg.score(X_test, y_test)</span>
 <span id="cb115-2"><a href="#cb115-2"></a>log_reg_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="90">
 <pre><code>0.9688888888888889</code></pre>
 </div>
 </div>
 <p>Okay, that’s our baseline: 96.89% accuracy. Let’s see if we can do better by using K-Means as a preprocessing step. <strong>We will create a pipeline that will first cluster the training set into 30 clusters and replace the images with their distances to the 30 clusters</strong>, then apply a logistic regression model:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6962,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902451565,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="868a7f6e-3438-47b2-8f82-c37168b7bdce" data-execution_count="91">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>pipeline <span class="op">=</span> Pipeline([</span>
 <span id="cb117-2"><a href="#cb117-2"></a>    (<span class="st">"kmeans"</span>, KMeans(n_clusters<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>)),</span>
 <span id="cb117-3"><a href="#cb117-3"></a>    (<span class="st">"log_reg"</span>, LogisticRegression(multi_class<span class="op">=</span><span class="st">"ovr"</span>, solver<span class="op">=</span><span class="st">"lbfgs"</span>, max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">42</span>)),</span>
 <span id="cb117-4"><a href="#cb117-4"></a>])</span>
 <span id="cb117-5"><a href="#cb117-5"></a>pipeline.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <style>#sk-container-id-5 {color: black;background-color: white;}#sk-container-id-5 pre{padding: 0;}#sk-container-id-5 div.sk-toggleable {background-color: white;}#sk-container-id-5 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-5 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-5 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-5 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-5 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-5 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-5 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-5 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-5 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-5 div.sk-item {position: relative;z-index: 1;}#sk-container-id-5 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-5 div.sk-item::before, #sk-container-id-5 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-5 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-5 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-5 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-5 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-5 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-5 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-5 div.sk-label-container {text-align: center;}#sk-container-id-5 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-5 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('kmeans', KMeans(n_clusters=30, n_init=10, random_state=42)),
                 ('log_reg',
@@ -4810,30 +4537,21 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:931,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902474921,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="faaf3615-a918-46c8-a702-92a449624e08" data-execution_count="93">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1"></a>X_train.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="93">
 <pre><code>(1347, 64)</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:284,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902507818,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bc6ad0d0-cac1-4c49-9e92-bd8938f27e9d" data-execution_count="94">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1"></a>pipeline_score <span class="op">=</span> pipeline.score(X_test, y_test)</span>
 <span id="cb120-2"><a href="#cb120-2"></a>pipeline_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>0.9733333333333334</code></pre>
 </div>
 </div>
 <p>How much did the error rate drop?</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:492,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902529965,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="95640e7c-4e75-436a-f71c-cf3284254775" data-execution_count="95">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1"></a><span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">-</span> pipeline_score) <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> log_reg_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="95">
 <pre><code>0.1428571428571439</code></pre>
 </div>
@@ -4845,87 +4563,60 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <h2 data-number="6.6" class="anchored" data-anchor-id="guideline-to-determine-the-optimal-number-of-features-or-threshold"><span class="header-section-number">6.6</span> Guideline to determine the optimal number of features or threshold?</h2>
 <p>To determine the optimal hyperparameter, we can use cross validation. For instance, in the above example, we chose the number of clusters <code>k</code> completely arbitrarily. However, we can surely do better. Since K-Means is just a preprocessing step in a classification pipeline, finding a good value for <code>k</code> is the best value of <code>k</code> is simply the one that results in the best classification performance.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># The following cell may take close to 20 minutes to run, or more depending on your hardware!</span></span>
 <span id="cb124-2"><a href="#cb124-2"></a>param_grid <span class="op">=</span> <span class="bu">dict</span>(kmeans__n_clusters<span class="op">=</span><span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">60</span>))</span>
 <span id="cb124-3"><a href="#cb124-3"></a>grid_clf <span class="op">=</span> GridSearchCV(pipeline, param_grid, cv<span class="op">=</span><span class="dv">3</span>, verbose<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb124-4"><a href="#cb124-4"></a>grid_clf.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a>grid_clf.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>grid_clf.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>In the same way, you can also use cross-validation to evaluate model performance with different numbers of top-ranked features or different numbers of features and choose the optimal number based on the performance metric (e.g., highest accuracy or lowest error).</p>
 <section id="using-clustering-for-semi-supervised-learning" class="level3" data-number="6.6.1">
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="using-clustering-for-semi-supervised-learning"><span class="header-section-number">6.6.1</span> Using Clustering for Semi-Supervised Learning</h3>
 <p>Another use case for clustering is in semi-supervised learning, when we have plenty of unlabeled instances and very few labeled instances.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:261,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902620320,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="96">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a>X_digits, y_digits <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb127-2"><a href="#cb127-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_digits, y_digits, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Let’s look at the performance of a logistic regression model when we only have 50 labeled instances:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902623888,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="97">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1"></a>n_labeled <span class="op">=</span> <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:553,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902624812,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f9c22929-8d17-447e-ed3f-0cb3f1e90166" data-execution_count="98">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1"></a>log_reg <span class="op">=</span> LogisticRegression(multi_class<span class="op">=</span><span class="st">"ovr"</span>, solver<span class="op">=</span><span class="st">"lbfgs"</span>, max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb129-2"><a href="#cb129-2"></a>log_reg.fit(X_train[:n_labeled], y_train[:n_labeled])</span>
 <span id="cb129-3"><a href="#cb129-3"></a>log_reg.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="98">
 <pre><code>0.8333333333333334</code></pre>
 </div>
 </div>
 <p>The model’s accuracy is just 83.33%. It’s much less than earlier of course. Let’s see how we can do better. First, let’s cluster the training set into 50 clusters, then for each cluster let’s <strong>find the image closest to the centroid. We will call these images the representative images:</strong></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1169,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902636265,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="99">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1"></a>k <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb131-2"><a href="#cb131-2"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, random_state<span class="op">=</span><span class="dv">42</span>, n_init<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb131-3"><a href="#cb131-3"></a>X_digits_dist <span class="op">=</span> kmeans.fit_transform(X_train)</span>
 <span id="cb131-4"><a href="#cb131-4"></a>representative_digit_idx <span class="op">=</span> np.argmin(X_digits_dist, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb131-5"><a href="#cb131-5"></a>X_representative_digits <span class="op">=</span> X_train[representative_digit_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Now let’s plot these representative images and label them manually:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2128,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902641108,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="42027dc5-97e0-4ab9-8a2b-8843b854ef38" data-execution_count="100">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">2</span>))</span>
 <span id="cb132-2"><a href="#cb132-2"></a><span class="cf">for</span> index, X_representative_digit <span class="kw">in</span> <span class="bu">enumerate</span>(X_representative_digits):</span>
 <span id="cb132-3"><a href="#cb132-3"></a>    plt.subplot(k <span class="op">//</span> <span class="dv">10</span>, <span class="dv">10</span>, index <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb132-4"><a href="#cb132-4"></a>    plt.imshow(X_representative_digit.reshape(<span class="dv">8</span>, <span class="dv">8</span>), cmap<span class="op">=</span><span class="st">"binary"</span>, interpolation<span class="op">=</span><span class="st">"bilinear"</span>)</span>
 <span id="cb132-5"><a href="#cb132-5"></a>    plt.axis(<span class="st">'off'</span>)</span>
 <span id="cb132-6"><a href="#cb132-6"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-103-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:828,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902653247,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6370568a-c77d-4508-ca2a-a344ec650d0a" data-execution_count="101">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1"></a><span class="co"># Assuming we manually label these digits</span></span>
 <span id="cb133-2"><a href="#cb133-2"></a>y_train[representative_digit_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="101">
 <pre><code>array([4, 8, 0, 6, 8, 3, 7, 7, 9, 2, 5, 5, 8, 5, 2, 1, 2, 9, 6, 1, 1, 6,
        9, 0, 8, 3, 0, 7, 4, 1, 6, 5, 2, 4, 1, 8, 6, 3, 9, 2, 4, 2, 9, 4,
@@ -4933,19 +4624,13 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902653543,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="102">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1"></a>y_representative_digits <span class="op">=</span> y_train[representative_digit_idx]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Now we have a dataset with just 50 labeled instances, but instead of being completely random instances, each of them is a representative image of its cluster. Let’s see if the performance is any better:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:265,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902656298,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c5bbd594-4853-4021-a5af-822a69640604" data-execution_count="103">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a>log_reg <span class="op">=</span> LogisticRegression(multi_class<span class="op">=</span><span class="st">"ovr"</span>, solver<span class="op">=</span><span class="st">"lbfgs"</span>, max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb136-2"><a href="#cb136-2"></a>log_reg.fit(X_representative_digits, y_representative_digits)</span>
 <span id="cb136-3"><a href="#cb136-3"></a>log_reg.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="103">
 <pre><code>0.9222222222222223</code></pre>
 </div>
@@ -4953,36 +4638,25 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <p>We jumped from 83.3% accuracy to 92.2%, although we are still only training the model on 50 instances. Since it’s often costly and painful to label instances, especially when it has to be done manually by experts, it’s a good idea to make them label representative instances rather than just random instances.</p>
 <p>But perhaps we can go one step further: <strong>what if we propagated the labels to all the other instances in the same cluster?</strong></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:669,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902674761,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="104">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1"></a>y_train_propagated <span class="op">=</span> np.empty(<span class="bu">len</span>(X_train), dtype<span class="op">=</span>np.int32)</span>
 <span id="cb138-2"><a href="#cb138-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(k):</span>
 <span id="cb138-3"><a href="#cb138-3"></a>    y_train_propagated[kmeans.labels_<span class="op">==</span>i] <span class="op">=</span> y_representative_digits[i]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1512,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902679323,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b81c8369-44a3-4a00-ee81-b2cdfa19df5a" data-execution_count="105">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1"></a>log_reg <span class="op">=</span> LogisticRegression(multi_class<span class="op">=</span><span class="st">"ovr"</span>, solver<span class="op">=</span><span class="st">"lbfgs"</span>, max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb139-2"><a href="#cb139-2"></a>log_reg.fit(X_train, y_train_propagated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="105">
 <style>#sk-container-id-6 {color: black;background-color: white;}#sk-container-id-6 pre{padding: 0;}#sk-container-id-6 div.sk-toggleable {background-color: white;}#sk-container-id-6 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-6 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-6 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-6 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-6 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-6 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-6 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-6 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-6 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-6 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-6 div.sk-item {position: relative;z-index: 1;}#sk-container-id-6 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-6 div.sk-item::before, #sk-container-id-6 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-6 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-6 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-6 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-6 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-6 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-6 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-6 div.sk-label-container {text-align: center;}#sk-container-id-6 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-6 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=5000, multi_class='ovr', random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox" checked=""><label for="sk-estimator-id-14" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=5000, multi_class='ovr', random_state=42)</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:8,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902679324,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="dd7b1e48-327c-4d3c-f3e7-8410828743b6" data-execution_count="106">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1"></a>log_reg.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="106">
 <pre><code>0.9333333333333333</code></pre>
 </div>
 </div>
 <p>We got a tiny little accuracy boost. Better than nothing, <strong>but we should probably have propagated the labels only to the instances closest to the centroid, because by propagating to the full cluster, we have certainly included some outliers.</strong> Let’s only propagate the labels to the 75th percentile closest to the centroid:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902692464,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="107">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1"></a>percentile_closest <span class="op">=</span> <span class="dv">75</span></span>
 <span id="cb142-2"><a href="#cb142-2"></a></span>
 <span id="cb142-3"><a href="#cb142-3"></a>X_cluster_dist <span class="op">=</span> X_digits_dist[np.arange(<span class="bu">len</span>(X_train)), kmeans.labels_]</span>
@@ -4992,40 +4666,27 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <span id="cb142-7"><a href="#cb142-7"></a>    cutoff_distance <span class="op">=</span> np.percentile(cluster_dist, percentile_closest)</span>
 <span id="cb142-8"><a href="#cb142-8"></a>    above_cutoff <span class="op">=</span> (X_cluster_dist <span class="op">&gt;</span> cutoff_distance)</span>
 <span id="cb142-9"><a href="#cb142-9"></a>    X_cluster_dist[in_cluster <span class="op">&amp;</span> above_cutoff] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902692464,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="108">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1"></a>partially_propagated <span class="op">=</span> (X_cluster_dist <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb143-2"><a href="#cb143-2"></a>X_train_partially_propagated <span class="op">=</span> X_train[partially_propagated]</span>
 <span id="cb143-3"><a href="#cb143-3"></a>y_train_partially_propagated <span class="op">=</span> y_train_propagated[partially_propagated]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902694584,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d8edb43e-e57f-4549-85c6-edb0a7c183ef" data-execution_count="109">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1"></a>X_train.shape, X_train_partially_propagated.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="109">
 <pre><code>((1347, 64), (1003, 64))</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2085,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902696668,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="59f5efef-fbd2-40b3-c33c-d5f148543894" data-execution_count="110">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1"></a>log_reg <span class="op">=</span> LogisticRegression(multi_class<span class="op">=</span><span class="st">"ovr"</span>, solver<span class="op">=</span><span class="st">"lbfgs"</span>, max_iter<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb146-2"><a href="#cb146-2"></a>log_reg.fit(X_train_partially_propagated, y_train_partially_propagated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="110">
 <style>#sk-container-id-7 {color: black;background-color: white;}#sk-container-id-7 pre{padding: 0;}#sk-container-id-7 div.sk-toggleable {background-color: white;}#sk-container-id-7 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-7 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-7 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-7 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-7 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-7 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-7 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-7 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-7 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-7 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-7 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-7 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-7 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-7 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-7 div.sk-item {position: relative;z-index: 1;}#sk-container-id-7 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-7 div.sk-item::before, #sk-container-id-7 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-7 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-7 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-7 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-7 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-7 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-7 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-7 div.sk-label-container {text-align: center;}#sk-container-id-7 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-7 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=5000, multi_class='ovr', random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox" checked=""><label for="sk-estimator-id-15" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=5000, multi_class='ovr', random_state=42)</pre></div></div></div></div></div>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902703747,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ebe7920b-5b02-4800-b6b2-98c8c3d14d1f" data-execution_count="111">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1"></a>log_reg.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="111">
 <pre><code>0.9355555555555556</code></pre>
 </div>
@@ -5033,10 +4694,7 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <p>A bit better. With just 50 labeled instances (just 5 examples per class on average!), we got 93.5% performance, which is getting closer to the performance of logistic regression on the fully labeled digits dataset.</p>
 <p>Our propagated labels are actually pretty good: their accuracy is about 97.5%:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:326,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902710156,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="17a8adfb-fd6c-4a7a-f900-e5d845d606b9" data-execution_count="112">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1"></a>np.mean(y_train_partially_propagated <span class="op">==</span> y_train[partially_propagated])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="112">
 <pre><code>0.9750747756729811</code></pre>
 </div>
@@ -5051,24 +4709,15 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <h3 data-number="6.6.2" class="anchored" data-anchor-id="feature-agglomeration"><span class="header-section-number">6.6.2</span> Feature agglomeration</h3>
 <p><code>cluster.FeatureAgglomeration</code> applies Hierarchical clustering to group together features that behave similarly.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:893,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902725844,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="113">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:278,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902741093,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="114">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1"></a><span class="co">#set n_clusters to 2, the output will be two columns of agglomerated features (iris has 4 features)</span></span>
 <span id="cb152-2"><a href="#cb152-2"></a>agglo <span class="op">=</span> FeatureAgglomeration(n_clusters<span class="op">=</span><span class="dv">2</span>).fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:364,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902746083,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c49ac8d7-038b-48da-8e2f-15dbc7c0a91b" data-execution_count="115">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1"></a>plt.scatter(agglo[:,<span class="dv">0</span>], agglo[:,<span class="dv">1</span>],c<span class="op">=</span>y)</span>
 <span id="cb153-2"><a href="#cb153-2"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="05_Feature_selection_extraction_files/figure-html/cell-118-output-1.png" class="img-fluid"></p>
 </div>

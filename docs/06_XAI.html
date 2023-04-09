@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></h1>
 </div>
 
 
@@ -302,18 +302,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">7.1</span> Setup</h2>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install <span class="op">--</span>upgrade mlxtend <span class="op">-</span>qq</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install imodels <span class="op">-</span>qq</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="op">!</span>pip install dtreeviz <span class="op">-</span>qq</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="op">!</span>pip install lime <span class="op">-</span>qq</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="op">!</span>pip install shap <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Scientific computing</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -367,11 +362,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-51"><a href="#cb2-51"></a><span class="im">import</span> warnings</span>
 <span id="cb2-52"><a href="#cb2-52"></a>logging.getLogger(<span class="st">'matplotlib.font_manager'</span>).setLevel(level<span class="op">=</span>logging.CRITICAL) <span class="co"># For dtreeviz</span></span>
 <span id="cb2-53"><a href="#cb2-53"></a>warnings.filterwarnings(<span class="st">"ignore"</span>, category<span class="op">=</span><span class="pp">DeprecationWarning</span>) <span class="co"># For shap</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> <span class="kw">not</span> tf.config.list_physical_devices(<span class="st">'GPU'</span>):</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="bu">print</span>(<span class="st">"No GPU was detected. Neural nets can be very slow without a GPU."</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">if</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules:</span>
@@ -379,22 +371,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5"></a>              <span class="st">"accelerator."</span>)</span>
 <span id="cb3-6"><a href="#cb3-6"></a>    <span class="cf">if</span> <span class="st">"kaggle_secrets"</span> <span class="kw">in</span> sys.modules:</span>
 <span id="cb3-7"><a href="#cb3-7"></a>        <span class="bu">print</span>(<span class="st">"Go to Settings &gt; Accelerator and select GPU."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">GzAuz0gkk5arJPYC7NgnCrkVWS4rvTtW</span><span class="op">/</span>view?usp<span class="op">=</span>sharing</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">GvSaZ1E45e45ns5IH8Y6EoVu8C6Vhffy</span><span class="op">/</span>view?usp<span class="op">=</span>sharing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="decsion-rule-based-modeld-by-imodels" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="decsion-rule-based-modeld-by-imodels"><span class="header-section-number">7.2</span> Decsion-Rule based modeld by <code>imodels</code></h2>
 <p><code>imodels</code> provides a simple interface for fitting and using state-of-the-art interpretable models, all compatible with <code>scikit-learn</code>. These models can often replace black-box models (e.g.&nbsp;random forests) with simpler models (e.g.&nbsp;rule lists) while improving interpretability and computational efficiency, all without sacrificing predictive accuracy!</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>np.random.seed(<span class="dv">13</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="kw">def</span> get_ames_data():</span>
@@ -443,21 +429,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-46"><a href="#cb5-46"></a>    plt.plot(fpr, tpr)</span>
 <span id="cb5-47"><a href="#cb5-47"></a>    plt.tight_layout()</span>
 <span id="cb5-48"><a href="#cb5-48"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The Ames dataset is a housing dataset that use seveal conditions to predict the housing price. The diabetes dataset has a binary-valued variable. We would like to investigated whether the patient shows signs of diabetes according to World Health Organization criteria.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>X_train_reg, X_test_reg, y_train_reg, y_test_reg, feat_names_reg <span class="op">=</span> get_ames_data()</span>
 <span id="cb6-2"><a href="#cb6-2"></a>X_train, X_test, y_train, y_test, feat_names <span class="op">=</span> get_diabetes_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:287,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679887881201,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="063d4f75-5c3e-457e-fc5d-154e762adb8c">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>pd.DataFrame(X_train_reg, columns<span class="op">=</span>feat_names_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
   <div id="df-db57a958-bb76-4b19-ba61-e8b281b7e410">
@@ -839,20 +818,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:420,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679887897055,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d6de7928-07b1-4e64-d92a-d8ce7263269e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>y_train_reg[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>array([140200, 144900, 144000, 210000, 274970, 218000, 167500, 195400,
         76000, 246578])</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:301,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679887904121,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="433692c0-4984-4aa5-8079-f93c87ec3106">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>pd.DataFrame(X_train, columns<span class="op">=</span>feat_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 
   <div id="df-425baba4-78d5-455b-a4c7-b09fab9337a1">
@@ -1078,10 +1051,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:244,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679887915442,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="04908241-f978-4f3a-f631-1c02f5cba1a0">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>y_train[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([1, 1, 0, 1, 0, 0, 0, 0, 1, 0])</code></pre>
 </div>
@@ -1095,8 +1065,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 data-number="7.2.1.1" class="anchored" data-anchor-id="oner"><span class="header-section-number">7.2.1.1</span> oneR</h4>
 <p>Fits a rule list restricted to use only one feature</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:803,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888000232,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="054fd266-c66e-4fc0-bb8a-5c4c34b1f6a1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># fit a oneR model</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>model <span class="op">=</span> OneRClassifier()</span>
 <span id="cb13-3"><a href="#cb13-3"></a>model.fit(X_train, y<span class="op">=</span>y_train, feature_names<span class="op">=</span>feat_names) <span class="co"># stores into m.rules_</span></span>
@@ -1108,7 +1076,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-9"><a href="#cb13-9"></a></span>
 <span id="cb13-10"><a href="#cb13-10"></a><span class="co"># look at prediction breakdown</span></span>
 <span id="cb13-11"><a href="#cb13-11"></a>viz_classification_preds(probs, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classifier Accuracy: 0.6649305555555556 
  Learned interpretable model:
@@ -1134,10 +1101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:268,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888036385,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="51a0fd49-9e89-410f-dcc0-873fb0336a95">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>model.rules_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>[{'col': '#Pregnant',
   'index_col': 0,
@@ -1177,8 +1141,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="bayesian-rule-lists" class="level4" data-number="7.2.1.2">
 <h4 data-number="7.2.1.2" class="anchored" data-anchor-id="bayesian-rule-lists"><span class="header-section-number">7.2.1.2</span> Bayesian rule lists</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:402,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888115129,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8cad1d7b-c896-4e77-f0c5-3697016b1932">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># train classifier (allow more iterations for better accuracy; use BigDataRuleListClassifier for large datasets)</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="co"># All numeric features must be discretized prior to fitting!</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a>disc <span class="op">=</span> ExtraBasicDiscretizer(feat_names, n_bins<span class="op">=</span><span class="dv">3</span>, strategy<span class="op">=</span><span class="st">'uniform'</span>)</span>
@@ -1186,7 +1148,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-5"><a href="#cb17-5"></a>X_test_disc <span class="op">=</span> disc.transform(pd.DataFrame(X_test, columns<span class="op">=</span>feat_names))</span>
 <span id="cb17-6"><a href="#cb17-6"></a></span>
 <span id="cb17-7"><a href="#cb17-7"></a>X_train_disc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/sklearn/preprocessing/_encoders.py:868: FutureWarning: `sparse` was renamed to `sparse_output` in version 1.2 and will be removed in 1.4. `sparse_output` is ignored unless you leave `sparse` to its default value.</code></pre>
 </div>
@@ -1571,8 +1532,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3001,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888123122,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f3cefd2f-af73-4674-a465-a769f6e787b3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>model <span class="op">=</span> BayesianRuleListClassifier(max_iter<span class="op">=</span><span class="dv">3000</span>, class1label<span class="op">=</span><span class="st">"diabetes"</span>, verbose<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb19-2"><a href="#cb19-2"></a>model.fit(X_train_disc.to_numpy(), y_train, feature_names<span class="op">=</span>X_train_disc.columns)</span>
 <span id="cb19-3"><a href="#cb19-3"></a>probs <span class="op">=</span> model.predict_proba(X_test_disc)</span>
@@ -1581,7 +1540,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-6"><a href="#cb19-6"></a><span class="bu">print</span>(<span class="st">"RuleListClassifier Accuracy:"</span>, np.mean(y_test <span class="op">==</span> preds), <span class="st">"</span><span class="ch">\n</span><span class="st"> Learned interpretable model:</span><span class="ch">\n</span><span class="st">"</span>, model)</span>
 <span id="cb19-7"><a href="#cb19-7"></a></span>
 <span id="cb19-8"><a href="#cb19-8"></a>viz_classification_preds(probs, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>RuleListClassifier Accuracy: 0.7309027777777778 
  Learned interpretable model:
@@ -1609,8 +1567,6 @@ ELSE probability of diabetes: 77.8% (47.3%-96.8%)
 <h4 data-number="7.2.2.1" class="anchored" data-anchor-id="rulefit"><span class="header-section-number">7.2.2.1</span> Rulefit</h4>
 <p>It fits a sparse linear model on rules extracted from decision trees</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2219,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888186683,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e61c4bb7-e2e9-4893-d8fe-9eaebb61795e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># fit a rulefit model</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>model <span class="op">=</span> RuleFitRegressor(max_rules<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb21-3"><a href="#cb21-3"></a>model.fit(X_train_reg, y_train_reg, feature_names<span class="op">=</span>feat_names_reg)</span>
@@ -1629,7 +1585,6 @@ ELSE probability of diabetes: 77.8% (47.3%-96.8%)
 <span id="cb21-16"><a href="#cb21-16"></a><span class="co"># 'support' is the fraction of points it applies to</span></span>
 <span id="cb21-17"><a href="#cb21-17"></a><span class="co">#rules[['rule', 'coef', 'support']].style.background_gradient(cmap='viridis')</span></span>
 <span id="cb21-18"><a href="#cb21-18"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>test mse: 2224531388.26
 test r2: 0.65</code></pre>
@@ -1665,10 +1620,7 @@ GrLivArea &lt;= 1934.0 and TotalBsmtSF &lt;= 1199.0 -11512.20
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:614,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888228065,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b8ca832f-e563-412d-ecbb-a6bf4452b37a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>model._get_rules()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="15">
 
   <div id="df-6e4c42e5-b571-4378-a799-881b462656fe">
@@ -2073,15 +2025,12 @@ GrLivArea &lt;= 1934.0 and TotalBsmtSF &lt;= 1199.0 -11512.20
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:270,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888239705,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9712728a-85bc-47af-d13e-7aa09148aeae">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>rules <span class="op">=</span> model._get_rules()</span>
 <span id="cb24-2"><a href="#cb24-2"></a>rules <span class="op">=</span> rules[rules.coef <span class="op">!=</span> <span class="dv">0</span>].sort_values(<span class="st">"support"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="co"># 'rule' is how the feature is constructed</span></span>
 <span id="cb24-4"><a href="#cb24-4"></a><span class="co"># 'coef' is its weight in the final linear model</span></span>
 <span id="cb24-5"><a href="#cb24-5"></a><span class="co"># 'support' is the fraction of points it applies to</span></span>
 <span id="cb24-6"><a href="#cb24-6"></a>rules[[<span class="st">'rule'</span>, <span class="st">'coef'</span>, <span class="st">'support'</span>]].style.background_gradient(cmap<span class="op">=</span><span class="st">'viridis'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 
 
@@ -2154,8 +2103,6 @@ GrLivArea &lt;= 1934.0 and TotalBsmtSF &lt;= 1199.0 -11512.20
 <section id="figsclassifier" class="level4" data-number="7.2.3.1">
 <h4 data-number="7.2.3.1" class="anchored" data-anchor-id="figsclassifier"><span class="header-section-number">7.2.3.1</span> FIGSClassifier</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1048,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888298850,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="97f93eb4-c44b-459b-e2a6-9ace94a405fd">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># specify a decision tree with a maximum depth</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>figs <span class="op">=</span> FIGSClassifier(max_rules<span class="op">=</span><span class="dv">7</span>)</span>
 <span id="cb25-3"><a href="#cb25-3"></a>figs.fit(X_train, y_train, feature_names<span class="op">=</span>feat_names)</span>
@@ -2167,7 +2114,6 @@ GrLivArea &lt;= 1934.0 and TotalBsmtSF &lt;= 1199.0 -11512.20
 <span id="cb25-9"><a href="#cb25-9"></a><span class="bu">print</span>(<span class="st">"Classifier Accuracy:"</span>, np.mean(y_test <span class="op">==</span> preds), <span class="st">"</span><span class="ch">\n</span><span class="st"> Learned interpretable model:</span><span class="ch">\n</span><span class="st">"</span>, figs)</span>
 <span id="cb25-10"><a href="#cb25-10"></a></span>
 <span id="cb25-11"><a href="#cb25-11"></a>viz_classification_preds(probs, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classifier Accuracy: 0.7152777777777778 
  Learned interpretable model:
@@ -2201,11 +2147,8 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888313138,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="827ec23b-7f84-44ff-d69b-1a416d803742">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="bu">print</span>(<span class="st">'Alternative visualization:'</span>)</span>
 <span id="cb27-2"><a href="#cb27-2"></a>figs.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Alternative visualization:</code></pre>
 </div>
@@ -2214,39 +2157,27 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>dt <span class="op">=</span> extract_sklearn_tree_from_figs(figs, tree_num<span class="op">=</span><span class="dv">0</span>, n_classes<span class="op">=</span><span class="dv">2</span>) <span class="co"># tree_num =  0 or 1</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>viz_model <span class="op">=</span> dtreeviz.model(dt,</span>
 <span id="cb29-3"><a href="#cb29-3"></a>                           X_train<span class="op">=</span>X_train, y_train<span class="op">=</span>y_train,</span>
 <span id="cb29-4"><a href="#cb29-4"></a>                           feature_names<span class="op">=</span>feat_names,</span>
 <span id="cb29-5"><a href="#cb29-5"></a>                           target_name<span class="op">=</span><span class="st">'y'</span>, class_names<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2310,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888380050,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e939cdfe-baf0-4012-91bc-9c4475172c47">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>viz_model.view(scale<span class="op">=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <p><img src="06_XAI_files/figure-html/cell-22-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2440,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888449023,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b9e1c822-a5c0-41c0-8094-6c3dcc49ea09">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>viz_model.view(orientation<span class="op">=</span><span class="st">"LR"</span>, scale<span class="op">=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <p><img src="06_XAI_files/figure-html/cell-23-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3042,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888464947,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="da4563f0-0e13-4402-e357-b86832a40f62">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>x_example <span class="op">=</span> X_train[<span class="dv">13</span>]</span>
 <span id="cb32-2"><a href="#cb32-2"></a>viz_model.view(x<span class="op">=</span>x_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <p><img src="06_XAI_files/figure-html/cell-24-output-1.svg" class="img-fluid"></p>
 </div>
@@ -2256,8 +2187,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <section id="hstreeclassifier" class="level4" data-number="7.2.3.2">
 <h4 data-number="7.2.3.2" class="anchored" data-anchor-id="hstreeclassifier"><span class="header-section-number">7.2.3.2</span> HSTreeClassifier</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:779,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888515748,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="389ae778-ae23-462d-82ad-c71faf0b3044">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># specify a decision tree with a maximum depth</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>dt <span class="op">=</span> HSTreeClassifierCV(max_leaf_nodes<span class="op">=</span><span class="dv">7</span>)</span>
 <span id="cb33-3"><a href="#cb33-3"></a>dt.fit(X_train, y_train, feature_names<span class="op">=</span>feat_names)</span>
@@ -2269,7 +2198,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <span id="cb33-9"><a href="#cb33-9"></a><span class="bu">print</span>(<span class="st">"Classifier Accuracy:"</span>, np.mean(y_test <span class="op">==</span> preds), <span class="st">"</span><span class="ch">\n</span><span class="st"> Learned interpretable model:</span><span class="ch">\n</span><span class="st">"</span>, dt)</span>
 <span id="cb33-10"><a href="#cb33-10"></a></span>
 <span id="cb33-11"><a href="#cb33-11"></a>viz_classification_preds(probs, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classifier Accuracy: 0.7291666666666666 
  Learned interpretable model:
@@ -2303,13 +2231,10 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1412,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888523338,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d040162c-2ea4-4a68-898d-fdcffb71e1b5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="bu">print</span>(<span class="st">'Alternative visualization:'</span>)</span>
 <span id="cb35-2"><a href="#cb35-2"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))</span>
 <span id="cb35-3"><a href="#cb35-3"></a>plot_tree(dt.estimator_, feature_names<span class="op">=</span>feat_names)</span>
 <span id="cb35-4"><a href="#cb35-4"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Alternative visualization:</code></pre>
 </div>
@@ -2329,8 +2254,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <p>Partial dependence plots (PDP) show the dependence between the target response and a set of input features of interest, <strong>marginalizing over the values of all other input features (the ‘complement’ features).</strong> Intuitively, we can interpret the partial dependence as the expected target response as a function of the input features of interest.</p>
 <p>Due to the limits of human perception the size of the set of input feature of interest must be small (usually, one or two) <strong>thus the input features of interest are usually chosen among the most important features.</strong></p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>cal_housing <span class="op">=</span> fetch_california_housing()</span>
 <span id="cb37-2"><a href="#cb37-2"></a>X <span class="op">=</span> pd.DataFrame(cal_housing.data, columns<span class="op">=</span>cal_housing.feature_names)</span>
 <span id="cb37-3"><a href="#cb37-3"></a>y <span class="op">=</span> cal_housing.target</span>
@@ -2338,26 +2261,20 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <span id="cb37-5"><a href="#cb37-5"></a>y <span class="op">-=</span> y.mean()</span>
 <span id="cb37-6"><a href="#cb37-6"></a></span>
 <span id="cb37-7"><a href="#cb37-7"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.1</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="way-partial-dependence-with-different-models" class="level4" data-number="7.3.1.1">
 <h4 data-number="7.3.1.1" class="anchored" data-anchor-id="way-partial-dependence-with-different-models"><span class="header-section-number">7.3.1.1</span> 1-way partial dependence with different models</h4>
 <p>Note that it is important to <strong>check that the model is accurate enough on a test set before plotting the partial dependence</strong> since there would be little use in explaining the impact of a given feature on the prediction function of a poor model.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:745,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888562103,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="07e062e6-b679-4b29-ff4d-d553345fa053">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>est <span class="op">=</span> HistGradientBoostingRegressor(random_state<span class="op">=</span><span class="dv">0</span>) <span class="co"># Similar to lightgbm</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>est.fit(X_train, y_train)</span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="bu">print</span>(<span class="ss">f"Test R2 score: </span><span class="sc">{</span>est<span class="sc">.</span>score(X_test, y_test)<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Test R2 score: 0.85</code></pre>
 </div>
 </div>
 <p>The <code>sklearn.inspection</code> module provides a convenience function <code>from_estimator</code> to create one-way and two-way partial dependence plots.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:970,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888602959,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0a4b0a8f-aa53-4c17-ac66-c6251e9d07bf">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>features <span class="op">=</span> [<span class="st">"MedInc"</span>, <span class="st">"AveOccup"</span>, <span class="st">"HouseAge"</span>, <span class="st">"AveRooms"</span>]</span>
 <span id="cb40-2"><a href="#cb40-2"></a>_, ax <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">7</span>))</span>
 <span id="cb40-3"><a href="#cb40-3"></a>display <span class="op">=</span> PartialDependenceDisplay.from_estimator(</span>
@@ -2374,7 +2291,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <span id="cb40-14"><a href="#cb40-14"></a>    <span class="st">"for the California housing dataset, with HistGradientBoostingRegressor"</span></span>
 <span id="cb40-15"><a href="#cb40-15"></a>)</span>
 <span id="cb40-16"><a href="#cb40-16"></a>display.figure_.subplots_adjust(hspace<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="06_XAI_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
 </div>
@@ -2386,8 +2302,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <h4 data-number="7.3.1.2" class="anchored" data-anchor-id="d-partial-dependence-plots"><span class="header-section-number">7.3.1.2</span> 2D Partial Dependence Plots</h4>
 <p>PDPs with two features of interest enable us to visualize interactions among them. Another consideration is linked to the performance to compute the PDPs. With the tree-based algorithm, when only PDPs are requested, they can be computed on an efficient way using the ‘recursion’ method.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1558,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888663924,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2a93b009-0172-4c04-df8f-7e9fc14205fa">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>features <span class="op">=</span> [<span class="st">"AveOccup"</span>, <span class="st">"HouseAge"</span>, (<span class="st">"AveOccup"</span>, <span class="st">"HouseAge"</span>)]</span>
 <span id="cb41-2"><a href="#cb41-2"></a>_, ax <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">6</span>))</span>
 <span id="cb41-3"><a href="#cb41-3"></a>display <span class="op">=</span> PartialDependenceDisplay.from_estimator(</span>
@@ -2404,7 +2318,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <span id="cb41-14"><a href="#cb41-14"></a>    <span class="st">"for the California housing dataset, with Gradient Boosting"</span></span>
 <span id="cb41-15"><a href="#cb41-15"></a>)</span>
 <span id="cb41-16"><a href="#cb41-16"></a>display.figure_.subplots_adjust(wspace<span class="op">=</span><span class="fl">0.4</span>, hspace<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="06_XAI_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
 </div>
@@ -2420,14 +2333,11 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <p>We will use the fitted model to predict our outcome (probability their player won “man of the match”). <strong>But we repeatedly alter the value for one variable to make a series of predictions.</strong> We could predict the outcome if the team had the ball only 40% of the time. We then predict with them having the ball 50% of the time. Then predict again for 60%. And so on. We trace out predicted outcomes (on the vertical axis) as we move from small values of ball possession to large values (on the horizontal axis).</p>
 <p>In this description, we used only a single row of data. Interactions between features may cause the plot for a single row to be atypical. So, we repeat that mental experiment with multiple rows from the original dataset, and we plot the average predicted outcome on the vertical axis.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:321,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888727708,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c57df82c-7a62-41d6-e69f-fcf3fdbd37d4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'FIFA 2018 Statistics.csv'</span>)</span>
 <span id="cb42-2"><a href="#cb42-2"></a>y <span class="op">=</span> (data[<span class="st">'Man of the Match'</span>] <span class="op">==</span> <span class="st">"Yes"</span>)  <span class="co"># Convert from string "Yes"/"No" to binary</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a>feature_names <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> data.columns <span class="cf">if</span> data[i].dtype <span class="kw">in</span> [np.int64]]</span>
 <span id="cb42-4"><a href="#cb42-4"></a>X <span class="op">=</span> data[feature_names]</span>
 <span id="cb42-5"><a href="#cb42-5"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="29">
 
   <div id="df-bfa1a93a-2a28-41e5-81e2-c4a2ac3ea052">
@@ -2773,28 +2683,19 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>train_X, val_X, train_y, val_y <span class="op">=</span> train_test_split(X, y, random_state<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb43-2"><a href="#cb43-2"></a>tree_model <span class="op">=</span> DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">0</span>, max_depth<span class="op">=</span><span class="dv">5</span>, min_samples_split<span class="op">=</span><span class="dv">5</span>).fit(train_X, train_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Our first example uses a decision tree, which you can see below. In practice, you’ll use more sophistated models for real-world applications.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:426,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888743191,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d1f0bae7-fa19-4790-e57b-2ca2ed6e01ca">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>tree_graph <span class="op">=</span> tree.export_graphviz(tree_model, out_file<span class="op">=</span><span class="va">None</span>, feature_names<span class="op">=</span>feature_names)</span>
 <span id="cb44-2"><a href="#cb44-2"></a>graphviz.Source(tree_graph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <p><img src="06_XAI_files/figure-html/cell-33-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888743191,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="72fdcd0f-1da9-4fa2-bd38-20f532ca2f17">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>feature_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>['Goal Scored',
  'Ball Possession %',
@@ -2817,11 +2718,8 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:696,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888744304,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4c4553ac-c829-4bf9-d258-68af0f7aec90">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>PartialDependenceDisplay.from_estimator(tree_model, val_X, features<span class="op">=</span>[<span class="st">'Goal Scored'</span>], feature_names<span class="op">=</span>feature_names)</span>
 <span id="cb47-2"><a href="#cb47-2"></a>plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>(0.0, 1.0)</code></pre>
 </div>
@@ -2837,11 +2735,8 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <p>From this particular graph, we see that scoring a goal substantially increases your chances of winning “Man of The Match.” But extra goals beyond that appear to have little impact on predictions.</p>
 <p>Here is another example plot:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:691,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888752594,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e4f3b925-ad08-425a-efcb-29f6c035b0e0">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>PartialDependenceDisplay.from_estimator(tree_model, val_X, features<span class="op">=</span>[<span class="st">'Distance Covered (Kms)'</span>], feature_names<span class="op">=</span>feature_names)</span>
 <span id="cb49-2"><a href="#cb49-2"></a>plt.ylim(<span class="dv">0</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>(0.0, 2.0)</code></pre>
 </div>
@@ -2852,13 +2747,10 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <p>This graph seems too simple to represent reality. But that’s because the model is so simple. You should be able to see from the decision tree above that this is representing exactly the model’s structure.</p>
 <p>You can easily compare the structure or implications of different models. Here is the same plot with a Random Forest model.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:482,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888753810,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6992fc34-b3f1-4498-adc3-56f923f49eee">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Build Random Forest model</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>rf_model <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">0</span>).fit(train_X, train_y)</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
 <span id="cb51-4"><a href="#cb51-4"></a>PartialDependenceDisplay.from_estimator(rf_model, val_X, features<span class="op">=</span>[<span class="st">'Distance Covered (Kms)'</span>], feature_names<span class="op">=</span>feature_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>&lt;sklearn.inspection._plot.partial_dependence.PartialDependenceDisplay at 0x7f495beb38e0&gt;</code></pre>
 </div>
@@ -2871,11 +2763,8 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <p>If you are curious about interactions between features, 2D partial dependence plots are also useful. An example may clarify this.</p>
 <p>We will again use the Decision Tree model for this graph. It will create an extremely simple plot, but you should be able to match what you see in the plot to the tree itself.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:479,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888755550,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="95bbaa61-9ffc-4c05-a072-2e11f7073fd6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Similar to previous PDP plot</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>PartialDependenceDisplay.from_estimator(tree_model, val_X, features<span class="op">=</span>[(<span class="st">'Goal Scored'</span>, <span class="st">'Distance Covered (Kms)'</span>)], feature_names<span class="op">=</span>feature_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>&lt;sklearn.inspection._plot.partial_dependence.PartialDependenceDisplay at 0x7f495be2df70&gt;</code></pre>
 </div>
@@ -2894,8 +2783,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <p>While the PDPs are good at showing the average effect of the target features, they can obscure a <strong>heterogeneous relationship</strong> created by interactions. When interactions are present the ICE plot will provide many more insights. For example, we could observe a linear relationship between the median income and the house price in the PD line. However, the ICE lines show that there are some exceptions, where the house price remains constant in some ranges of the median income. We will plot the partial dependence, both individual (ICE) and averaged one (PDP). We limit to only 50 ICE curves to not overcrowd the plot.</p>
 <p>The sklearn.inspection module’s <code>PartialDependenceDisplay.from_estimator</code>convenience function can be used to create ICE plots by setting <code>kind='individual'</code>. But in ICE plots it might not be easy to see the average effect of the input feature of interest. Hence, it is recommended to use ICE plots alongside PDPs. They can be plotted together with <code>kind='both'</code>.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:15196,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888793126,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c01762c6-8004-4e09-f156-21dbcf1a8e48">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>features <span class="op">=</span> [<span class="st">"MedInc"</span>, <span class="st">"AveOccup"</span>, <span class="st">"HouseAge"</span>, <span class="st">"AveRooms"</span>]</span>
 <span id="cb55-2"><a href="#cb55-2"></a>_, ax <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">6</span>))</span>
 <span id="cb55-3"><a href="#cb55-3"></a>display <span class="op">=</span> PartialDependenceDisplay.from_estimator(</span>
@@ -2916,7 +2803,6 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <span id="cb55-18"><a href="#cb55-18"></a>    <span class="st">"for the California housing dataset, with Gradient Boosting"</span></span>
 <span id="cb55-19"><a href="#cb55-19"></a>)</span>
 <span id="cb55-20"><a href="#cb55-20"></a>display.figure_.subplots_adjust(wspace<span class="op">=</span><span class="fl">0.4</span>, hspace<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="06_XAI_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
 </div>
@@ -2929,20 +2815,14 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <h2 data-number="7.4" class="anchored" data-anchor-id="lime"><span class="header-section-number">7.4</span> LIME</h2>
 <p>We’ll use the Iris dataset, and we’ll train a random forest.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>np.random.seed(<span class="dv">1</span>)</span>
 <span id="cb56-2"><a href="#cb56-2"></a>iris <span class="op">=</span> load_iris()</span>
 <span id="cb56-3"><a href="#cb56-3"></a>train, test, labels_train, labels_test <span class="op">=</span> train_test_split(iris.data, iris.target, train_size<span class="op">=</span><span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:987,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888874333,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ab986fee-9edb-4edf-9b75-7cc9816fbb38">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>rf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">500</span>)</span>
 <span id="cb57-2"><a href="#cb57-2"></a>rf.fit(train, labels_train)</span>
 <span id="cb57-3"><a href="#cb57-3"></a>metrics.accuracy_score(labels_test, rf.predict(test))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>0.9666666666666667</code></pre>
 </div>
@@ -2958,28 +2838,19 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <li>To sample perturbed instances - which we do by sampling from a <code>Normal(0,1)</code>, multiplying by the std and adding back the mean.</li>
 </ol>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>explainer <span class="op">=</span> lime.lime_tabular.LimeTabularExplainer(train, feature_names<span class="op">=</span>iris.feature_names, class_names<span class="op">=</span>iris.target_names, discretize_continuous<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="explaining-an-instance" class="level4" data-number="7.4.1.2">
 <h4 data-number="7.4.1.2" class="anchored" data-anchor-id="explaining-an-instance"><span class="header-section-number">7.4.1.2</span> Explaining an instance</h4>
 <p>Since this is a multi-class classification problem, we set the <code>top_labels</code> parameter, so that we only explain the top class.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>i <span class="op">=</span> np.random.randint(<span class="dv">0</span>, test.shape[<span class="dv">0</span>])</span>
 <span id="cb60-2"><a href="#cb60-2"></a>exp <span class="op">=</span> explainer.explain_instance(test[i], rf.predict_proba, num_features<span class="op">=</span><span class="dv">2</span>, top_labels<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We now explain a single instance:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1114,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888907541,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="48527b7a-2662-40f5-db25-21b6eec66175">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>exp.show_in_notebook(show_table<span class="op">=</span><span class="va">True</span>, show_all<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 
 
@@ -40098,10 +39969,7 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:569,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679888974709,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="088691e6-b950-4472-acf7-fab8f5d220d9">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>fig <span class="op">=</span> exp.as_pyplot_figure(label<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="06_XAI_files/figure-html/cell-45-output-1.png" class="img-fluid"></p>
 </div>
@@ -40113,20 +39981,14 @@ Diabetes pedigree function &lt;= 0.404 (Tree #1 root)
 <section id="image-data" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="image-data"><span class="header-section-number">7.4.2</span> Image data</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:6658,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889001715,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fc40aea5-2c39-4194-87f3-8da321b0e954">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>inet_model <span class="op">=</span> tf.keras.applications.inception_v3.InceptionV3()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/inception_v3/inception_v3_weights_tf_dim_ordering_tf_kernels.h5
 96112376/96112376 [==============================] - 0s 0us/step</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:445,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889027155,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7108e146-efc1-430f-b696-cb015ee5b806">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>marcotcr<span class="op">/</span>lime<span class="op">/</span>master<span class="op">/</span>doc<span class="op">/</span>notebooks<span class="op">/</span>data<span class="op">/</span>cat_mouse.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>--2023-03-27 03:50:28--  https://raw.githubusercontent.com/marcotcr/lime/master/doc/notebooks/data/cat_mouse.jpg
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
@@ -40142,8 +40004,6 @@ cat_mouse.jpg         0%[                    ]       0  --.-KB/s               c
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="kw">def</span> transform_img_fn(path_list):</span>
 <span id="cb67-2"><a href="#cb67-2"></a>    out <span class="op">=</span> []</span>
 <span id="cb67-3"><a href="#cb67-3"></a>    <span class="cf">for</span> img_path <span class="kw">in</span> path_list:</span>
@@ -40153,18 +40013,14 @@ cat_mouse.jpg         0%[                    ]       0  --.-KB/s               c
 <span id="cb67-7"><a href="#cb67-7"></a>        x <span class="op">=</span> tf.keras.applications.inception_v3.preprocess_input(x)</span>
 <span id="cb67-8"><a href="#cb67-8"></a>        out.append(x)</span>
 <span id="cb67-9"><a href="#cb67-9"></a>    <span class="cf">return</span> np.vstack(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:14224,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889049562,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d38d0248-0bed-4011-c545-d5881660b36e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>images <span class="op">=</span> transform_img_fn([<span class="st">'cat_mouse.jpg'</span>])</span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="co"># I'm dividing by 2 and adding 0.5 because of how this Inception represents images</span></span>
 <span id="cb68-3"><a href="#cb68-3"></a>plt.imshow(images[<span class="dv">0</span>] <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">0.5</span>)</span>
 <span id="cb68-4"><a href="#cb68-4"></a>preds <span class="op">=</span> inet_model.predict(images)</span>
 <span id="cb68-5"><a href="#cb68-5"></a><span class="cf">for</span> x <span class="kw">in</span> tf.keras.applications.imagenet_utils.decode_predictions(preds)[<span class="dv">0</span>]:</span>
 <span id="cb68-6"><a href="#cb68-6"></a>    <span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>1/1 [==============================] - 12s 12s/step
 Downloading data from https://storage.googleapis.com/download.tensorflow.org/data/imagenet_class_index.json
@@ -40183,17 +40039,11 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 <h4 data-number="7.4.2.1" class="anchored" data-anchor-id="explanation"><span class="header-section-number">7.4.2.1</span> Explanation</h4>
 <p>Now let’s get an explanation</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>explainer <span class="op">=</span> lime_image.LimeImageExplainer()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:25712,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889109337,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="08273a4f-69ac-4e35-d38e-c3e7619678e2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Hide color is the color for a superpixel turned OFF. Alternatively, if it is NONE, the superpixel will be replaced by the average of its pixels</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a>explanation <span class="op">=</span> explainer.explain_instance(images[<span class="dv">0</span>].astype(<span class="st">'double'</span>), inet_model.predict, top_labels<span class="op">=</span><span class="dv">5</span>, hide_color<span class="op">=</span><span class="dv">0</span>, num_samples<span class="op">=</span><span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"1ced0fdec94747bba622b64b339e24b4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -40306,11 +40156,8 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 <section id="now-lets-see-the-explanation-for-the-classes" class="level4" data-number="7.4.2.2">
 <h4 data-number="7.4.2.2" class="anchored" data-anchor-id="now-lets-see-the-explanation-for-the-classes"><span class="header-section-number">7.4.2.2</span> Now let’s see the explanation for the classes</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:764,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889119392,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5d4f60aa-c204-46e3-903c-c8e35341e757">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>temp, mask <span class="op">=</span> explanation.get_image_and_mask(explanation.top_labels[<span class="dv">0</span>], positive_only<span class="op">=</span><span class="va">True</span>, num_features<span class="op">=</span><span class="dv">10</span>, hide_rest<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb73-2"><a href="#cb73-2"></a>plt.imshow(mark_boundaries(temp <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">0.5</span>, mask))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f4944ff6220&gt;</code></pre>
 </div>
@@ -40320,11 +40167,8 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 </div>
 <p>We can also see the ‘pros and cons’ (pros in green, cons in red)</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1477,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889145135,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="80982306-1821-4d53-9df3-3bdda1a717ec">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>temp, mask <span class="op">=</span> explanation.get_image_and_mask(explanation.top_labels[<span class="dv">0</span>], positive_only<span class="op">=</span><span class="va">False</span>, num_features<span class="op">=</span><span class="dv">10</span>, hide_rest<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb75-2"><a href="#cb75-2"></a>plt.imshow(mark_boundaries(temp <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">0.5</span>, mask))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f495d2fac10&gt;</code></pre>
 </div>
@@ -40334,8 +40178,6 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 </div>
 <p>Alternatively, we can also plot explanation weights onto a heatmap visualization. The colorbar shows the values of the weights.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:774,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889177081,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a870f759-7aff-4e67-9132-6fda0e6faa30">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co">#Select the same class explained on the figures above.</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>ind <span class="op">=</span>  explanation.top_labels[<span class="dv">0</span>]</span>
 <span id="cb77-3"><a href="#cb77-3"></a></span>
@@ -40346,7 +40188,6 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 <span id="cb77-8"><a href="#cb77-8"></a><span class="co">#Plot. The visualization makes more sense if a symmetrical colorbar is used.</span></span>
 <span id="cb77-9"><a href="#cb77-9"></a>plt.imshow(heatmap, cmap <span class="op">=</span> <span class="st">'RdBu'</span>, vmin  <span class="op">=</span> <span class="op">-</span>heatmap.<span class="bu">max</span>(), vmax <span class="op">=</span> heatmap.<span class="bu">max</span>())</span>
 <span id="cb77-10"><a href="#cb77-10"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f495feeaca0&gt;</code></pre>
 </div>
@@ -40355,10 +40196,7 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:487,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889187516,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4df5fab3-c80c-452b-cdc5-fdc29eeb6ac6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>dict_heatmap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="53">
 <pre><code>{25: 0.1266119733320075,
  26: 0.12625454084766954,
@@ -40419,11 +40257,8 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 </div>
 <p>Let’s see the explanation for the wombat</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1308,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889201484,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9933e3c6-0bb7-4a20-9171-4b212d608798">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>temp, mask <span class="op">=</span> explanation.get_image_and_mask(explanation.top_labels[<span class="dv">3</span>], positive_only<span class="op">=</span><span class="va">False</span>, num_features<span class="op">=</span><span class="dv">10</span>, hide_rest<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb81-2"><a href="#cb81-2"></a>plt.imshow(mark_boundaries(temp <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">0.5</span>, mask))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f495c4c7bb0&gt;</code></pre>
 </div>
@@ -40444,26 +40279,20 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 <p>But it’s easier to give a concrete, numeric answer if we restate this as: * How much was a prediction driven by the fact that the team scored 3 goals, instead of some baseline number of goals.</p>
 <p>Of course, each team has many features. So if we answer this question for number of goals, we could repeat the process for all other features.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'FIFA 2018 Statistics.csv'</span>)</span>
 <span id="cb83-2"><a href="#cb83-2"></a>y <span class="op">=</span> (data[<span class="st">'Man of the Match'</span>] <span class="op">==</span> <span class="st">"Yes"</span>)  <span class="co"># Convert from string "Yes"/"No" to binary</span></span>
 <span id="cb83-3"><a href="#cb83-3"></a>feature_names <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> data.columns <span class="cf">if</span> data[i].dtype <span class="kw">in</span> [np.int64, np.int64]]</span>
 <span id="cb83-4"><a href="#cb83-4"></a>X <span class="op">=</span> data[feature_names]</span>
 <span id="cb83-5"><a href="#cb83-5"></a>train_X, val_X, train_y, val_y <span class="op">=</span> train_test_split(X, y, random_state<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb83-6"><a href="#cb83-6"></a>my_model <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">0</span>).fit(train_X, train_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We will look at SHAP values for a single row of the dataset (we arbitrarily chose row 5). For context, we’ll look at the raw predictions before looking at the SHAP values.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:248,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889233056,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="80857529-90af-4cdf-d587-b5e39ebaa339">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>row_to_show <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a>data_for_prediction <span class="op">=</span> val_X.iloc[row_to_show]  <span class="co"># use 1 row of data here. Could use multiple rows if desired</span></span>
 <span id="cb84-3"><a href="#cb84-3"></a><span class="co">#data_for_prediction_array = data_for_prediction.values.reshape(1, -1)</span></span>
 <span id="cb84-4"><a href="#cb84-4"></a></span>
 <span id="cb84-5"><a href="#cb84-5"></a>my_model.predict_proba(data_for_prediction.values.reshape(<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/sklearn/base.py:439: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names</code></pre>
 </div>
@@ -40473,23 +40302,17 @@ Downloading data from https://storage.googleapis.com/download.tensorflow.org/dat
 </div>
 <p>The team is 71% likely to have a player win the award. Now, we’ll move onto the code to get SHAP values for that single prediction.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Create object that can calculate shap values</span></span>
 <span id="cb87-2"><a href="#cb87-2"></a>explainer <span class="op">=</span> shap.Explainer(my_model)</span>
 <span id="cb87-3"><a href="#cb87-3"></a></span>
 <span id="cb87-4"><a href="#cb87-4"></a><span class="co"># Calculate Shap values</span></span>
 <span id="cb87-5"><a href="#cb87-5"></a>shap_values <span class="op">=</span> explainer.shap_values(data_for_prediction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The <code>shap_values</code> object above is a list with two arrays. The first array is the SHAP values for a negative outcome (don’t win the award), and the second array is the list of SHAP values for the positive outcome (wins the award). We typically think about predictions in terms of the prediction of a positive outcome, so we’ll pull out SHAP values for positive outcomes (pulling out <code>shap_values[1]</code>).</p>
 <p>It’s cumbersome to review raw arrays, but the shap package has a nice way to visualize the results.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:745,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889272290,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="667033fe-97b2-47f3-f848-fab401e3390b">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a>shap.initjs()</span>
 <span id="cb88-2"><a href="#cb88-2"></a>shap.plots.force(explainer.expected_value[<span class="dv">1</span>], shap_values[<span class="dv">1</span>], data_for_prediction) <span class="co"># You can use view output in full screen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 
 <div align="center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdxJREFUeNq0Vt1Rg0AQJjcpgBJiBWIFkgoMFYhPPAIVECogPuYpdJBYgXQQrMCUkA50V7+d2ZwXuXPGm9khHLu3f9+3l1nkWNvtNqfHLgpfQ1EUS3tz5nAQ0+NIsiAZSc6eDlI8M3J00B/mDuUKDk6kfOebAgW3pkdD0pFcODGW4gKKvOrAUm04MA4QDt1OEIXU9hDigfS5rC1eS5T90gltck1Xrizo257kgySZcNRzgCSxCvgiE9nckPJo2b/B2AcEkk2OwL8bD8gmOKR1GPbaCUqxEgTq0tLvgb6zfo7+DgYGkkWL2tqLDV4RSITfbHPPfJKIrWz4nJQTMPAWA7IbD6imcNaDeDfgk+4No+wZr40BL3g9eQJJCFqRQ54KiSt72lsLpE3o3MCBSxDuq4yOckU2hKXRuwBH3OyMR4g1UpyTYw6mlmBqNdUXRM1NfyF5EPI6JkcpIDBIX8jX6DR/6ckAZJ0wEAdLR8DEk6OfC1Pp8BKo6TQIwPJbvJ6toK5lmuvJoRtfK6Ym1iRYIarRo2UyYHvRN5qpakR3yoizWrouoyuXXQqI185LCw07op5ZyCRGL99h24InP0e9xdQukEKVmhzrqZuRIfwISB//cP3Wk3f8f/yR+BRgAHu00HjLcEQBAAAAAElFTkSuQmCC"></div><script charset="utf-8">!function(t){function e(r){if(n[r])return n[r].exports;var i=n[r]={i:r,l:!1,exports:{}};return t[r].call(i.exports,i,i.exports,e),i.l=!0,i.exports}var n={};return e.m=t,e.c=n,e.i=function(t){return t},e.d=function(t,n,r){e.o(t,n)||Object.defineProperty(t,n,{configurable:!1,enumerable:!0,get:r})},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=410)}([function(t,e,n){"use strict";function r(t,e,n,r,o,a,u,c){if(i(e),!t){var s;if(void 0===e)s=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var l=[n,r,o,a,u,c],f=0;s=new Error(e.replace(/%s/g,function(){return l[f++]})),s.name="Invariant Violation"}throw s.framesToPop=1,s}}var i=function(t){};t.exports=r},function(t,e,n){"use strict";var r=n(8),i=r;t.exports=i},function(t,e,n){"use strict";function r(t){for(var e=arguments.length-1,n="Minified React error #"+t+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant="+t,r=0;r<e;r++)n+="&args[]="+encodeURIComponent(arguments[r+1]);n+=" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";var i=new Error(n);throw i.name="Invariant Violation",i.framesToPop=1,i}t.exports=r},function(t,e,n){"use strict";function r(t){if(null===t||void 0===t)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(t)}function i(){try{if(!Object.assign)return!1;var t=new String("abc");if(t[5]="de","5"===Object.getOwnPropertyNames(t)[0])return!1;for(var e={},n=0;n<10;n++)e["_"+String.fromCharCode(n)]=n;var r=Object.getOwnPropertyNames(e).map(function(t){return e[t]});if("0123456789"!==r.join(""))return!1;var i={};return"abcdefghijklmnopqrst".split("").forEach(function(t){i[t]=t}),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},i)).join("")}catch(t){return!1}}/*
@@ -40571,14 +40394,11 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="summary-plots"><span class="header-section-number">7.5.2</span> Summary Plots</h3>
 <p>In addition to this nice breakdown for each prediction, the <a href="https://github.com/slundberg/shap">Shap library</a> offers great visualizations of groups of Shap values. We will focus on two of these visualizations. These visualizations have conceptual similarities to permutation importance and partial dependence plots.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889361688,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7d9b4e70-b1c3-4914-c8f5-0c729e7fa125">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Calculate shap_values for all of val_X rather than a single row, to have more data for plot.</span></span>
 <span id="cb89-2"><a href="#cb89-2"></a>shap_values <span class="op">=</span> explainer.shap_values(val_X)</span>
 <span id="cb89-3"><a href="#cb89-3"></a></span>
 <span id="cb89-4"><a href="#cb89-4"></a><span class="co"># Make plot. Index of [1] is explained in text below.</span></span>
 <span id="cb89-5"><a href="#cb89-5"></a>shap.summary_plot(shap_values[<span class="dv">1</span>], val_X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/shap/plots/_beeswarm.py:664: UserWarning: No data for colormapping provided via 'c'. Parameters 'vmin', 'vmax' will be ignored</code></pre>
 </div>
@@ -40596,14 +40416,11 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 <section id="dependence-contribution-plots" class="level3" data-number="7.5.3">
 <h3 data-number="7.5.3" class="anchored" data-anchor-id="dependence-contribution-plots"><span class="header-section-number">7.5.3</span> Dependence Contribution Plots</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:722,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889421710,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7f0a5482-c2a2-43d7-fa7a-7d5d9baabf8e">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># calculate shap values. This is what we will plot.</span></span>
 <span id="cb91-2"><a href="#cb91-2"></a>shap_values <span class="op">=</span> explainer.shap_values(X)</span>
 <span id="cb91-3"><a href="#cb91-3"></a></span>
 <span id="cb91-4"><a href="#cb91-4"></a><span class="co"># make plot.</span></span>
 <span id="cb91-5"><a href="#cb91-5"></a>shap.dependence_plot(<span class="st">'Ball Possession %'</span>, shap_values[<span class="dv">1</span>], X, interaction_index<span class="op">=</span><span class="st">"Goal Scored"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="06_XAI_files/figure-html/cell-62-output-1.png" class="img-fluid"></p>
 </div>
@@ -40613,8 +40430,6 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 <h3 data-number="7.5.4" class="anchored" data-anchor-id="image-data-1"><span class="header-section-number">7.5.4</span> Image data</h3>
 <p>Deep SHAP is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT. The implementation here differs from the original DeepLIFT by using a distribution of background samples instead of a single reference value, and using Shapley equations to linearize components such as max, softmax, products, divisions, etc. Note that some of these enhancements have also been since integrated into DeepLIFT.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:85675,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889545080,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="548d1147-296c-4378-c866-499dcca5c6cc">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a>batch_size <span class="op">=</span> <span class="dv">128</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a>num_classes <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb92-3"><a href="#cb92-3"></a>epochs <span class="op">=</span> <span class="dv">12</span></span>
@@ -40662,7 +40477,6 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 <span id="cb92-45"><a href="#cb92-45"></a>score <span class="op">=</span> model.evaluate(x_test, y_test, verbose<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb92-46"><a href="#cb92-46"></a><span class="bu">print</span>(<span class="st">'Test loss:'</span>, score[<span class="dv">0</span>])</span>
 <span id="cb92-47"><a href="#cb92-47"></a><span class="bu">print</span>(<span class="st">'Test accuracy:'</span>, score[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 11490434/11490434 [==============================] - 0s 0us/step
@@ -40698,8 +40512,6 @@ Test accuracy: 0.9930999875068665</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4427,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889549491,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e90efc09-f77a-4e6c-a474-d0c77d67375a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># select a set of background examples to take an expectation over</span></span>
 <span id="cb94-2"><a href="#cb94-2"></a>background <span class="op">=</span> x_train[np.random.choice(x_train.shape[<span class="dv">0</span>], <span class="dv">100</span>, replace<span class="op">=</span><span class="va">False</span>)]</span>
 <span id="cb94-3"><a href="#cb94-3"></a></span>
@@ -40708,7 +40520,6 @@ Test accuracy: 0.9930999875068665</code></pre>
 <span id="cb94-6"><a href="#cb94-6"></a><span class="co"># ...or pass tensors directly</span></span>
 <span id="cb94-7"><a href="#cb94-7"></a><span class="co"># e = shap.DeepExplainer((model.layers[0].input, model.layers[-1].output), background)</span></span>
 <span id="cb94-8"><a href="#cb94-8"></a>shap_values <span class="op">=</span> e.shap_values(x_test[<span class="dv">1</span>:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.9/dist-packages/shap/explainers/_deep/deep_tf.py:95: UserWarning: keras is no longer supported, please use tf.keras instead.
 /usr/local/lib/python3.9/dist-packages/shap/explainers/_deep/deep_tf.py:100: UserWarning: Your TensorFlow version is newer than 2.4.0 and so graph support has been removed in eager mode and some static graphs may not be supported. See PR #1483 for discussion.
@@ -40719,21 +40530,15 @@ Lambda fuctions will be no more assumed to be used in the statement where they a
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:16,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889549492,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1350352c-cac0-40df-9320-bf93def2bf5a">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="bu">len</span>(shap_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="63">
 <pre><code>10</code></pre>
 </div>
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2879,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679889552361,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="804bf68c-cfe4-4521-8ef0-af7eadf69f07">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># plot the feature attributions</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a><span class="co"># 10 classes, thus we have 10 plots!</span></span>
 <span id="cb98-3"><a href="#cb98-3"></a>shap.image_plot(shap_values, <span class="op">-</span>x_test[<span class="dv">1</span>:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="06_XAI_files/figure-html/cell-66-output-1.png" class="img-fluid"></p>
 </div>

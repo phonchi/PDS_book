@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Appendix B — Introduction to Colab</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title">Appendix B — Introduction to Colab</h1>
 </div>
 
 
@@ -297,24 +297,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="B.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">B.1</span> Setup</h2>
 <p>You can lookup the resources first:</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> multiprocessing</span>
 <span id="cb1-2"><a href="#cb1-2"></a>cores <span class="op">=</span> multiprocessing.cpu_count() <span class="co"># Count the number of cores in a computer</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>cores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> psutil <span class="im">import</span> virtual_memory</span>
 <span id="cb2-2"><a href="#cb2-2"></a>ram_gb <span class="op">=</span> virtual_memory().total <span class="op">/</span> <span class="fl">1e9</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="bu">print</span>(<span class="st">'Your runtime has </span><span class="sc">{:.1f}</span><span class="st"> gigabytes of available RAM</span><span class="ch">\n</span><span class="st">'</span>.<span class="bu">format</span>(ram_gb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co"># Is this notebook running on Colab or Kaggle?</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>IS_COLAB <span class="op">=</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules</span>
@@ -330,13 +322,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13"></a><span class="cf">else</span>:</span>
 <span id="cb3-14"><a href="#cb3-14"></a>  <span class="im">from</span> tensorflow.python.client <span class="im">import</span> device_lib </span>
 <span id="cb3-15"><a href="#cb3-15"></a>  <span class="bu">print</span>(device_lib.list_local_devices())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">!</span>nvidia<span class="op">-</span>smi <span class="op">-</span>L</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>V100 &gt; P100 &gt; T4 &gt; K80 (but most of the time you get K80 or T4 using the free Colab)</p>
 </section>
@@ -354,11 +342,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>There are additional options for running some or all cells in the <strong>Runtime</strong> menu.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="text-cells" class="level3" data-number="B.2.2">
@@ -377,17 +362,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="working-with-bash" class="level2" data-number="B.3">
 <h2 data-number="B.3" class="anchored" data-anchor-id="working-with-bash"><span class="header-section-number">B.3</span> Working with Bash</h2>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">!</span>pip install colab<span class="op">-</span>xterm <span class="op">-</span>qq</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="op">%</span>load_ext colabxterm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">%</span>xterm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="working-with-python" class="level2" data-number="B.4">
@@ -395,37 +374,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Colaboratory is built on top of <a href="https://jupyter.org/">Jupyter Notebook</a>. Below are some examples of convenience functions provided.</p>
 <p>Long running python processes can be interrupted. Run the following cell and select <strong>Runtime -&gt; Interrupt execution</strong> (<em>hotkey: Cmd/Ctrl-M I</em>) to stop execution.</p>
 <div class="cell" data-cellview="both" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> time</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="st">"Sleeping"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a>time.sleep(<span class="dv">90</span>) <span class="co"># sleep for a while; interrupt me!</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(<span class="st">"Done Sleeping"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="system-aliases" class="level3" data-number="B.4.1">
 <h3 data-number="B.4.1" class="anchored" data-anchor-id="system-aliases"><span class="header-section-number">B.4.1</span> System aliases</h3>
 <p>Jupyter includes shortcuts for common operations, such as ls:</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="op">%</span>ls <span class="op">/</span><span class="bu">bin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p><code>!</code> calls out to a shell (in a new process), while <code>%</code> affects the process associated with the notebook</p>
 <!--- https://stackoverflow.com/questions/45784499/what-is-the-difference-between-and-in-jupyter-notebooks
 -->
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">!</span>cd sample_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="op">%</span>cd sample_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>That <code>!ls</code> probably generated a large output. You can select the cell and clear the output by either:</p>
 <ol type="1">
@@ -434,95 +401,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>Execute any other process using <code>!</code> with string interpolation from python variables, and note the result can be assigned to a variable:</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>message <span class="op">=</span> <span class="st">'Colaboratory is great!'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">!</span>echo <span class="op">-</span>e <span class="st">'</span><span class="sc">{message}</span><span class="ch">\n</span><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-cellview="both" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>foo <span class="op">=</span> <span class="op">!</span>echo <span class="op">-</span>e <span class="st">'</span><span class="sc">{message}</span><span class="ch">\n</span><span class="st">'</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>foo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">!</span>mkdir test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>OUT_DIR <span class="op">=</span> <span class="st">'./test'</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="op">!</span>rm <span class="op">-</span>rf {OUT_DIR}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">!</span>apt<span class="op">-</span>get <span class="op">-</span>qq install htop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="magics" class="level3" data-number="B.4.2">
 <h3 data-number="B.4.2" class="anchored" data-anchor-id="magics"><span class="header-section-number">B.4.2</span> Magics</h3>
 <p>Colaboratory shares the notion of magics from Jupyter. There are shorthand annotations that change how a cell’s text is executed. To learn more, see <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">Jupyter’s magics page</a>.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%</span>load_ext autoreload</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="op">%</span>autoreload <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="automatic-completions-and-exploring-code" class="level3" data-number="B.4.3">
 <h3 data-number="B.4.3" class="anchored" data-anchor-id="automatic-completions-and-exploring-code"><span class="header-section-number">B.4.3</span> Automatic completions and exploring code</h3>
 <p>Colab provides automatic completions to explore attributes of Python objects, as well as to quickly view documentation strings. As an example, first run the following cell to import the <a href="http://www.numpy.org"><code>numpy</code></a> module.</p>
 <div class="cell" data-cellview="both" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>If you now insert your cursor after <code>np</code> and press <strong>Period</strong>(<code>.</code>), you will see the list of available completions within the <code>np</code> module.</p>
 <div class="cell" data-cellview="both" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>If you type an open parenthesis after any function or class in the module, you will see a pop-up of its documentation string:</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>np.ndarray()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>np.<span class="bu">min</span>??</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">help</span>(np.<span class="bu">min</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>When hovering over the method name the <code>Open in tab</code> link will open the documentation in a persistent pane. The <code>View source</code> link will navigate to the source code for the method.</p>
 </section>
@@ -540,8 +468,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="B.5.1" class="anchored" data-anchor-id="uploading-files-from-your-local-file-system"><span class="header-section-number">B.5.1</span> Uploading files from your local file system</h3>
 <p><code>files.upload</code> returns a dictionary of the files which were uploaded. The dictionary is keyed by the file name and values are the data which were uploaded.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">from</span> google.colab <span class="im">import</span> files</span>
 <span id="cb25-2"><a href="#cb25-2"></a></span>
 <span id="cb25-3"><a href="#cb25-3"></a>uploaded <span class="op">=</span> files.upload()</span>
@@ -549,7 +475,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-5"><a href="#cb25-5"></a><span class="cf">for</span> fn <span class="kw">in</span> uploaded.keys():</span>
 <span id="cb25-6"><a href="#cb25-6"></a>  <span class="bu">print</span>(<span class="st">'User uploaded file "</span><span class="sc">{name}</span><span class="st">" with length </span><span class="sc">{length}</span><span class="st"> bytes'</span>.<span class="bu">format</span>(</span>
 <span id="cb25-7"><a href="#cb25-7"></a>      name<span class="op">=</span>fn, length<span class="op">=</span><span class="bu">len</span>(uploaded[fn])))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Files are temporarily stored, and will be removed once you end your session.</p>
 </section>
@@ -557,15 +482,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="B.5.2" class="anchored" data-anchor-id="downloading-files-to-your-local-file-system"><span class="header-section-number">B.5.2</span> Downloading files to your local file system</h3>
 <p><code>files.download</code> will invoke a browser download of the file to your local computer.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="im">from</span> google.colab <span class="im">import</span> files</span>
 <span id="cb26-2"><a href="#cb26-2"></a></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
 <span id="cb26-4"><a href="#cb26-4"></a>  f.write(<span class="st">'some content'</span>)</span>
 <span id="cb26-5"><a href="#cb26-5"></a></span>
 <span id="cb26-6"><a href="#cb26-6"></a>files.download(<span class="st">'example.txt'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="mounting-google-drive-locally" class="level3" data-number="B.5.3">
@@ -574,65 +496,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This only supports reading, writing, and moving files; to programmatically modify sharing settings or other metadata, use one of the other options below.</p>
 <p><strong>Note:</strong> When using the ‘Mount Drive’ button in the file browser, no authentication codes are necessary for notebooks that have only been edited by the current user.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
 <span id="cb27-2"><a href="#cb27-2"></a>drive.mount(<span class="st">'/content/drive'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="op">!</span>ls <span class="op">/</span>content<span class="op">/</span>drive</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'/content/drive/My Drive/foo.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
 <span id="cb29-2"><a href="#cb29-2"></a>  f.write(<span class="st">'Hello Google Drive!'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3"></a><span class="op">!</span>cat <span class="op">/</span>content<span class="op">/</span>drive<span class="op">/</span>My\ Drive<span class="op">/</span>foo.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">#drive.flush_and_unmount()</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="co">#print('All changes made in this colab session should now be visible in Drive.')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">KE8dUFWUM389SdDhGj</span><span class="op">-</span>UJgyGtXpnsqpl<span class="op">/</span>view?usp<span class="op">=</span>sharing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="im">from</span> nsysu <span class="im">import</span> hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>hello()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="im">import</span> sys</span>
 <span id="cb34-2"><a href="#cb34-2"></a>sys.path.append(<span class="st">'/content/drive/MyDrive/colab_test/'</span>)</span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="im">from</span> nsysu_math <span class="im">import</span> hello_math</span>
 <span id="cb34-4"><a href="#cb34-4"></a><span class="co"># file available at https://drive.google.com/file/d/1KAu1yxGmR_oAcCLk4aEltWWM1eMp3FJj/view?usp=sharing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>hello_math()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <blockquote class="blockquote">
 <p>Remember DO NOT store input data in your drive and load from there. The input/output is very slow (store at <code>./</code> instead). Your output data should be stored in your google drive so that it can be accessed next time.</p>
@@ -649,37 +544,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="run-flask-or-other-web-app" class="level2" data-number="B.6">
 <h2 data-number="B.6" class="anchored" data-anchor-id="run-flask-or-other-web-app"><span class="header-section-number">B.6</span> Run Flask or other web app</h2>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">!</span>pip install flask <span class="op">-</span>qq</span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="op">!</span>pip install pyngrok <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="im">from</span> pyngrok <span class="im">import</span> ngrok, conf</span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="im">import</span> getpass</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">print</span>(<span class="st">"Enter your authtoken, which can be copied from https://dashboard.ngrok.com/auth"</span>)</span>
 <span id="cb38-2"><a href="#cb38-2"></a>conf.get_default().auth_token <span class="op">=</span> getpass.getpass()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Setup a tunnel to the streamlit port 8050</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>public_url <span class="op">=</span> ngrok.<span class="ex">connect</span>(<span class="dv">8050</span>)</span>
 <span id="cb39-3"><a href="#cb39-3"></a>public_url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
 <span id="cb40-2"><a href="#cb40-2"></a></span>
 <span id="cb40-3"><a href="#cb40-3"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
@@ -690,18 +571,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb40-8"><a href="#cb40-8"></a></span>
 <span id="cb40-9"><a href="#cb40-9"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
 <span id="cb40-10"><a href="#cb40-10"></a>    app.run(port<span class="op">=</span><span class="dv">8050</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="use-different-version-of-pythonenvironment-or-lanaguage" class="level2" data-number="B.7">
 <h2 data-number="B.7" class="anchored" data-anchor-id="use-different-version-of-pythonenvironment-or-lanaguage"><span class="header-section-number">B.7</span> Use different version of python/environment or lanaguage</h2>
 <p>Refer to <a href="https://stackoverflow.com/questions/60775160/install-python-3-8-kernel-in-google-colaboratory/71511943#71511943">here</a> and <a href="https://github.com/conda-incubator/condacolab">condacolab</a> for more information.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="im">import</span> sys</span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="bu">print</span>(sys.version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Jupyter is named after Julia, Python and R. You can change the kernel to <a href="https://colab.to/r">R</a> or <a href="https://colab.to/julia">Julia</a>.</p>
 </section>
@@ -710,29 +587,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The Dogs vs.&nbsp;Cats dataset that we will use isn’t packaged with Keras. It was made available by Kaggle as part of a computer vision competition in late 2013, back when convnets weren’t mainstream. You can download the original dataset from <a href="www.kaggle.com/c/dogs-vs-cats/data">www.kaggle.com/c/dogs-vs-cats/data</a>.</p>
 <p>But you can also use Kaggle API. First, you need to create a Kaggle API key and download it to your local machine. Just navigate to the Kaggle website in a web browser, log in, and go to the My Account page. In your account settings, you’ll find an API section. Clicking the Create New API Token button will generate a <code>kaggle.json</code> key file and will download it to your machine.</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Upload the API’s key JSON file to your Colab</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="co"># session by running the following code in a notebook cell:</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="im">from</span> google.colab <span class="im">import</span> files</span>
 <span id="cb42-4"><a href="#cb42-4"></a>files.upload()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Finally, create a <code>~/.kaggle</code> folder, and copy the key file to it. As a security best practice, you should also make sure that the file is only readable by the current user, yourself:</p>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="op">!</span>mkdir <span class="op">~/</span>.kaggle</span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="op">!</span>cp kaggle.json <span class="op">~/</span>.kaggle<span class="op">/</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a><span class="op">!</span>chmod <span class="dv">600</span> <span class="op">~/</span>.kaggle<span class="op">/</span>kaggle.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># You can now download the data we’re about to use:</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="op">!</span>kaggle competitions download <span class="op">-</span>c dogs<span class="op">-</span>vs<span class="op">-</span>cats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>The first time you try to download the data, you may get a “403 Forbidden” error. That’s because you need to accept the terms associated with the dataset before you download it—you’ll have to go to <a href="www.kaggle.com/c/dogs-vs-cats/rules">www.kaggle.com/c/dogs-vs-cats/rules</a> (while logged into your Kaggle account) and click the I Understand and Accept button. You only need to do this once.</p>
 <p>More information about <a href="https://github.com/Kaggle/kaggle-api">Kaggle API</a></p>

@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Appendix C — Introduction to Kaggle</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
+<h1 class="title">Appendix C — Introduction to Kaggle</h1>
 </div>
 
 
@@ -283,24 +283,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="C.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">C.1</span> Setup</h2>
 <p>You can lookup the resources first:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> multiprocessing</span>
 <span id="cb1-2"><a href="#cb1-2"></a>cores <span class="op">=</span> multiprocessing.cpu_count() <span class="co"># Count the number of cores in a computer</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>cores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> psutil <span class="im">import</span> virtual_memory</span>
 <span id="cb2-2"><a href="#cb2-2"></a>ram_gb <span class="op">=</span> virtual_memory().total <span class="op">/</span> <span class="fl">1e9</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="bu">print</span>(<span class="st">'Your runtime has </span><span class="sc">{:.1f}</span><span class="st"> gigabytes of available RAM</span><span class="ch">\n</span><span class="st">'</span>.<span class="bu">format</span>(ram_gb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co"># Is this notebook running on Colab or Kaggle?</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>IS_COLAB <span class="op">=</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules</span>
@@ -316,13 +308,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13"></a><span class="cf">else</span>:</span>
 <span id="cb3-14"><a href="#cb3-14"></a>  <span class="im">from</span> tensorflow.python.client <span class="im">import</span> device_lib </span>
 <span id="cb3-15"><a href="#cb3-15"></a>  <span class="bu">print</span>(device_lib.list_local_devices())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">!</span>nvidia<span class="op">-</span>smi <span class="op">-</span>L</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>V100 &gt; P100 &gt; T4 &gt; K80 (but most of the time you get K80 or T4 using the free Colab)</p>
 </section>
@@ -337,98 +325,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="C.3.1" class="anchored" data-anchor-id="system-aliases"><span class="header-section-number">C.3.1</span> System aliases</h3>
 <p>Jupyter includes shortcuts for common operations, such as <code>ls</code>:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">%</span>ls <span class="op">/</span>kaggle<span class="op">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p><code>!</code> calls out to a shell (in a new process), while <code>%</code> affects the process associated with the notebook</p>
 <p>Execute any other process using <code>!</code> with string interpolation from python variables, and note the result can be assigned to a variable:</p>
 <div class="cell" data-execution_count="10">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>message <span class="op">=</span> <span class="st">'Kaggle is great!'</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="op">!</span>echo {message}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Kaggle is great!</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>foo <span class="op">=</span> <span class="op">!</span>echo {message}</span>
 <span id="cb8-2"><a href="#cb8-2"></a>foo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>['Kaggle is great!']</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">!</span>mkdir test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>OUT_DIR <span class="op">=</span> <span class="st">'./test'</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="op">!</span>rm <span class="op">-</span>rf {OUT_DIR}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="op">!</span>apt<span class="op">-</span>get  install htop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="magics" class="level3" data-number="C.3.2">
 <h3 data-number="C.3.2" class="anchored" data-anchor-id="magics"><span class="header-section-number">C.3.2</span> Magics</h3>
 <p>Kaggle shares the notion of magics from Jupyter. There are shorthand annotations that change how a cell’s text is executed. To learn more, see <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">Jupyter’s magics page</a>.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">%</span>load_ext autoreload</span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="op">%</span>autoreload <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="automatic-completions-and-exploring-code" class="level3" data-number="C.3.3">
 <h3 data-number="C.3.3" class="anchored" data-anchor-id="automatic-completions-and-exploring-code"><span class="header-section-number">C.3.3</span> Automatic completions and exploring code</h3>
 <p>Colab provides automatic completions to explore attributes of Python objects, as well as to quickly view documentation strings. As an example, first run the following cell to import the <a href="http://www.numpy.org"><code>numpy</code></a> module.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>If you now insert your cursor after <code>np</code> and press <strong>Period</strong>(<code>.</code>), you will see the list of available completions within the <code>np</code> module.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>np.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>If you type an open parenthesis after any function or class in the module, you will see a pop-up of its documentation string:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>??np.ndarray</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">help</span>(np.ndarray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 </section>
@@ -439,34 +391,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You will notice that there is a third option in the “Add Data” modal: Notebook Output Files. Up to 20 GBs of output from a Notebook may be saved to disk in <code>/kaggle/working</code>. This data is saved automatically and you can then reuse that data in any future Notebook: just navigate to the “Data” pane in a Notebook editor, click on “Add Data”, click on the “Notebook Output Files” tab, find a Notebook of interest, and then click to add it to your current Notebook. By chaining Notebooks as data sources in this way, it’s possible to build pipelines and generate more and better content than you could in a single notebook alone. If you need additional temporary scratch space, consider saving to <code>/kaggle/tmp/</code> where the limits are much more generous. Note that the <code>/kaggle/tmp/</code> directory is not guaranteed to be persisted between Notebook runs. For more information, see the <a href="https://www.kaggle.com/docs/notebooks">Kaggle Notebooks documentation</a>.</p>
 <p>Finally, you can add your own dataset by uploading your files.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">!</span>pip install <span class="op">--</span>upgrade <span class="op">--</span>no<span class="op">-</span>cache<span class="op">-</span><span class="bu">dir</span> gdown <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">!</span>gdown <span class="op">--</span>fuzzy https:<span class="op">//</span>drive.google.com<span class="op">/</span><span class="bu">file</span><span class="op">/</span>d<span class="op">/</span><span class="dv">1</span><span class="er">KE8dUFWUM389SdDhGj</span><span class="op">-</span>UJgyGtXpnsqpl<span class="op">/</span>view?usp<span class="op">=</span>sharing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">from</span> nsysu <span class="im">import</span> hello</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>hello()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="op">!</span>ls <span class="op">/</span>kaggle<span class="op">/</span><span class="bu">input</span><span class="op">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="resoruces" class="level3" data-number="C.4.1">
 <h3 data-number="C.4.1" class="anchored" data-anchor-id="resoruces"><span class="header-section-number">C.4.1</span> Resoruces</h3>
