@@ -9,7 +9,7 @@
 <meta name="author" content="phonchi">
 <meta name="dcterms.date" content="2023-03-20">
 
-<title>Practical and Innovative Analytics in Data Science - 6&nbsp; Feature selection and extraction</title>
+<title>Practical and Innovative Analytics in Data Science - 5&nbsp; Feature selection and extraction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_Feature_selection_extraction.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_Feature_selection_extraction.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,49 +142,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_end_to_end_machine_learning_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_Dataset.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_Relational_Database_and_data_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_Clean_feature_engineering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_Feature_selection_extraction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_XAI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_Deploy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -226,28 +226,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">6.1</span> Setup</a></li>
-  <li><a href="#feature-selection" id="toc-feature-selection" class="nav-link" data-scroll-target="#feature-selection"><span class="header-section-number">6.2</span> Feature selection</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">5.1</span> Setup</a></li>
+  <li><a href="#feature-selection" id="toc-feature-selection" class="nav-link" data-scroll-target="#feature-selection"><span class="header-section-number">5.2</span> Feature selection</a>
   <ul class="collapse">
-  <li><a href="#removing-low-variance-features" id="toc-removing-low-variance-features" class="nav-link" data-scroll-target="#removing-low-variance-features"><span class="header-section-number">6.2.1</span> Removing low variance features</a></li>
-  <li><a href="#univariate-feature-selection" id="toc-univariate-feature-selection" class="nav-link" data-scroll-target="#univariate-feature-selection"><span class="header-section-number">6.2.2</span> Univariate feature selection</a></li>
-  <li><a href="#sequential-feature-selection" id="toc-sequential-feature-selection" class="nav-link" data-scroll-target="#sequential-feature-selection"><span class="header-section-number">6.2.3</span> Sequential feature selection</a></li>
-  <li><a href="#feature-selection-from-model" id="toc-feature-selection-from-model" class="nav-link" data-scroll-target="#feature-selection-from-model"><span class="header-section-number">6.2.4</span> Feature selection from model</a></li>
-  <li><a href="#a-concret-example" id="toc-a-concret-example" class="nav-link" data-scroll-target="#a-concret-example"><span class="header-section-number">6.2.5</span> A Concret example</a></li>
+  <li><a href="#removing-low-variance-features" id="toc-removing-low-variance-features" class="nav-link" data-scroll-target="#removing-low-variance-features"><span class="header-section-number">5.2.1</span> Removing low variance features</a></li>
+  <li><a href="#univariate-feature-selection" id="toc-univariate-feature-selection" class="nav-link" data-scroll-target="#univariate-feature-selection"><span class="header-section-number">5.2.2</span> Univariate feature selection</a></li>
+  <li><a href="#sequential-feature-selection" id="toc-sequential-feature-selection" class="nav-link" data-scroll-target="#sequential-feature-selection"><span class="header-section-number">5.2.3</span> Sequential feature selection</a></li>
+  <li><a href="#feature-selection-from-model" id="toc-feature-selection-from-model" class="nav-link" data-scroll-target="#feature-selection-from-model"><span class="header-section-number">5.2.4</span> Feature selection from model</a></li>
+  <li><a href="#a-concret-example" id="toc-a-concret-example" class="nav-link" data-scroll-target="#a-concret-example"><span class="header-section-number">5.2.5</span> A Concret example</a></li>
   </ul></li>
-  <li><a href="#dimensional-reduction" id="toc-dimensional-reduction" class="nav-link" data-scroll-target="#dimensional-reduction"><span class="header-section-number">6.3</span> Dimensional reduction</a></li>
-  <li><a href="#manifold-learning" id="toc-manifold-learning" class="nav-link" data-scroll-target="#manifold-learning"><span class="header-section-number">6.4</span> Manifold learning</a></li>
-  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering"><span class="header-section-number">6.5</span> Clustering</a>
+  <li><a href="#dimensional-reduction" id="toc-dimensional-reduction" class="nav-link" data-scroll-target="#dimensional-reduction"><span class="header-section-number">5.3</span> Dimensional reduction</a></li>
+  <li><a href="#manifold-learning" id="toc-manifold-learning" class="nav-link" data-scroll-target="#manifold-learning"><span class="header-section-number">5.4</span> Manifold learning</a></li>
+  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering"><span class="header-section-number">5.5</span> Clustering</a>
   <ul class="collapse">
-  <li><a href="#cluster-labels-as-a-feature" id="toc-cluster-labels-as-a-feature" class="nav-link" data-scroll-target="#cluster-labels-as-a-feature"><span class="header-section-number">6.5.1</span> Cluster Labels as a feature</a></li>
-  <li><a href="#cluster-distance-as-a-feature" id="toc-cluster-distance-as-a-feature" class="nav-link" data-scroll-target="#cluster-distance-as-a-feature"><span class="header-section-number">6.5.2</span> Cluster distance as a feature</a></li>
+  <li><a href="#cluster-labels-as-a-feature" id="toc-cluster-labels-as-a-feature" class="nav-link" data-scroll-target="#cluster-labels-as-a-feature"><span class="header-section-number">5.5.1</span> Cluster Labels as a feature</a></li>
+  <li><a href="#cluster-distance-as-a-feature" id="toc-cluster-distance-as-a-feature" class="nav-link" data-scroll-target="#cluster-distance-as-a-feature"><span class="header-section-number">5.5.2</span> Cluster distance as a feature</a></li>
   </ul></li>
-  <li><a href="#guideline-to-determine-the-optimal-number-of-features-or-threshold" id="toc-guideline-to-determine-the-optimal-number-of-features-or-threshold" class="nav-link" data-scroll-target="#guideline-to-determine-the-optimal-number-of-features-or-threshold"><span class="header-section-number">6.6</span> Guideline to determine the optimal number of features or threshold?</a>
+  <li><a href="#guideline-to-determine-the-optimal-number-of-features-or-threshold" id="toc-guideline-to-determine-the-optimal-number-of-features-or-threshold" class="nav-link" data-scroll-target="#guideline-to-determine-the-optimal-number-of-features-or-threshold"><span class="header-section-number">5.6</span> Guideline to determine the optimal number of features or threshold?</a>
   <ul class="collapse">
-  <li><a href="#using-clustering-for-semi-supervised-learning" id="toc-using-clustering-for-semi-supervised-learning" class="nav-link" data-scroll-target="#using-clustering-for-semi-supervised-learning"><span class="header-section-number">6.6.1</span> Using Clustering for Semi-Supervised Learning</a></li>
-  <li><a href="#feature-agglomeration" id="toc-feature-agglomeration" class="nav-link" data-scroll-target="#feature-agglomeration"><span class="header-section-number">6.6.2</span> Feature agglomeration</a></li>
+  <li><a href="#using-clustering-for-semi-supervised-learning" id="toc-using-clustering-for-semi-supervised-learning" class="nav-link" data-scroll-target="#using-clustering-for-semi-supervised-learning"><span class="header-section-number">5.6.1</span> Using Clustering for Semi-Supervised Learning</a></li>
+  <li><a href="#feature-agglomeration" id="toc-feature-agglomeration" class="nav-link" data-scroll-target="#feature-agglomeration"><span class="header-section-number">5.6.2</span> Feature agglomeration</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.7</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.7</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -256,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></h1>
 </div>
 
 
@@ -294,8 +294,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </tr></tbody></table>
 <p><br></p>
-<section id="setup" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">6.1</span> Setup</h2>
+<section id="setup" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.1</span> Setup</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install Boruta <span class="op">-</span>qq</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install opentsne <span class="op">-</span>qq</span>
@@ -352,11 +352,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-48"><a href="#cb2-48"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> FeatureAgglomeration</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="feature-selection" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="feature-selection"><span class="header-section-number">6.2</span> Feature selection</h2>
+<section id="feature-selection" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="feature-selection"><span class="header-section-number">5.2</span> Feature selection</h2>
 <p>The classes in the <code>sklearn.feature_selection</code> module can be used for feature selection/extraction methods on datasets, either to improve estimators’ accuracy scores or to boost their performance on very high-dimensional datasets.</p>
-<section id="removing-low-variance-features" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="removing-low-variance-features"><span class="header-section-number">6.2.1</span> Removing low variance features</h3>
+<section id="removing-low-variance-features" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="removing-low-variance-features"><span class="header-section-number">5.2.1</span> Removing low variance features</h3>
 <p>Suppose that we have a dataset with boolean features, and we want to remove all features that are either one or zero (on or off) in more than 80% of the samples. Boolean features are Bernoulli random variables, and the variance of such variables is <code>0.8 * (1 - 0.8)</code></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:295,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900372348,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ed0d020c-ed76-4419-c729-24c9fc921437" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>X <span class="op">=</span> pd.DataFrame([[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>]])</span>
@@ -625,8 +625,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>As expected, <code>VarianceThreshold()</code> has removed the first column, which has a probability of containing a zero.</p>
 </section>
-<section id="univariate-feature-selection" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="univariate-feature-selection"><span class="header-section-number">6.2.2</span> Univariate feature selection</h3>
+<section id="univariate-feature-selection" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="univariate-feature-selection"><span class="header-section-number">5.2.2</span> Univariate feature selection</h3>
 <p><code>Scikit-learn</code> exposes feature selection routines as objects that implement the <code>transform()</code> method. For instance, we can perform a <span class="math inline">\(\chi^2\)</span> test to the samples to retrieve only the two best features as follows:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679900443470,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e60667f3-6a13-4dee-94b1-e704d347ec7f" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">True</span>) <span class="co"># Load the iris data set</span></span>
@@ -1071,8 +1071,8 @@ Fold #4 - features selected are: [61  1]</code></pre>
 </div>
 <p>We see that the feature 1 is always selected while the other feature varies depending on the cross-validation fold.</p>
 <p>If we would like to keep our score with similar generalization performance, <strong>we could choose another metric to perform the test or select more features.</strong> For instance, we could select the number of features based on a specific percentile of the highest scores.</p>
-<section id="mutual-information" class="level4" data-number="6.2.2.1">
-<h4 data-number="6.2.2.1" class="anchored" data-anchor-id="mutual-information"><span class="header-section-number">6.2.2.1</span> Mutual information</h4>
+<section id="mutual-information" class="level4" data-number="5.2.2.1">
+<h4 data-number="5.2.2.1" class="anchored" data-anchor-id="mutual-information"><span class="header-section-number">5.2.2.1</span> Mutual information</h4>
 <p>The <a href="https://www.kaggle.com/toramky/automobile-dataset"><em>Automobile</em></a> dataset consists of 193 cars from the 1985 model year. The goal for this dataset is to predict a car’s <code>price</code> (the target) from 23 of the car’s features, such as <code>make</code>, <code>body_style</code>, and <code>horsepower</code>. In this example, we’ll rank the features with mutual information and investigate the results by data visualization. (The original dataset requires data cleaning, you could refer to https://skill-lync.com/student-projects/project-1-1299 for more details)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Uncpmment below if you are using Kaggle</span></span>
@@ -1392,8 +1392,8 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </section>
 </section>
-<section id="sequential-feature-selection" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="sequential-feature-selection"><span class="header-section-number">6.2.3</span> Sequential feature selection</h3>
+<section id="sequential-feature-selection" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="sequential-feature-selection"><span class="header-section-number">5.2.3</span> Sequential feature selection</h3>
 <p>Sequential Feature Selection is available in the <code>SequentialFeatureSelector</code> transformer. SFS can be either forward or backward:</p>
 <ul>
 <li><p>Forward-SFS is a greedy procedure that iteratively finds the best new feature to add to the set of selected features. Concretely, we initially start with zero feature and find the one feature that maximizes a cross-validated score when an estimator is trained on this single feature. Once that first feature is selected, we repeat the procedure by adding a new feature to the set of selected features. The procedure stops when the desired number of selected features is reached, as determined by the <code>n_features_to_select</code> parameter.</p></li>
@@ -1578,8 +1578,8 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="feature-selection-from-model" class="level3" data-number="6.2.4">
-<h3 data-number="6.2.4" class="anchored" data-anchor-id="feature-selection-from-model"><span class="header-section-number">6.2.4</span> Feature selection from model</h3>
+<section id="feature-selection-from-model" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="feature-selection-from-model"><span class="header-section-number">5.2.4</span> Feature selection from model</h3>
 <p><code>SelectFromModel</code> is a meta-transformer that can be used alongside any estimator that assigns importance to each feature through a specific attribute (such as <code>coef_</code>, <code>feature_importances_</code>) or via an <code>importance_getter</code> callable after fitting. The features are considered unimportant and removed if the corresponding importance of the feature values are below the provided threshold parameter.</p>
 <p>Apart from specifying the threshold numerically, there are built-in heuristics for finding a threshold using a string argument. **Available heuristics are “mean”, “median” and float multiples of these like “0.1*mean”. In combination with the threshold criteria, one can use the <code>max_features</code> parameter to set a limit on the number of features to select.**</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:352,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901126308,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="30">
@@ -1761,8 +1761,8 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="a-concret-example" class="level3" data-number="6.2.5">
-<h3 data-number="6.2.5" class="anchored" data-anchor-id="a-concret-example"><span class="header-section-number">6.2.5</span> A Concret example</h3>
+<section id="a-concret-example" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="a-concret-example"><span class="header-section-number">5.2.5</span> A Concret example</h3>
 <p>The following dataset is our old friend which is a record of neighborhoods in California district, predicting the median house value (target) given some information about the neighborhoods, as the average number of rooms, the latitude, the longitude or the median income of people in the neighborhoods (block).</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2800,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901218717,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>X, y <span class="op">=</span> fetch_california_housing(as_frame<span class="op">=</span><span class="va">True</span>, return_X_y<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2298,8 +2298,8 @@ model score on testing data: 0.586090835494786</code></pre>
 <pre><code>Features selected by SelectFromModel: ['MedInc' 'AveBedrms' 'Latitude' 'Longitude']</code></pre>
 </div>
 </div>
-<section id="linear-models-with-sparse-coefficients-lasso" class="level4" data-number="6.2.5.1">
-<h4 data-number="6.2.5.1" class="anchored" data-anchor-id="linear-models-with-sparse-coefficients-lasso"><span class="header-section-number">6.2.5.1</span> Linear models with sparse coefficients (Lasso)</h4>
+<section id="linear-models-with-sparse-coefficients-lasso" class="level4" data-number="5.2.5.1">
+<h4 data-number="5.2.5.1" class="anchored" data-anchor-id="linear-models-with-sparse-coefficients-lasso"><span class="header-section-number">5.2.5.1</span> Linear models with sparse coefficients (Lasso)</h4>
 <p>In it important to keep in mind that the associations extracted depend on the model. To illustrate this point we consider a Lasso model, that performs feature selection with a L1 penalty. Let us fit a Lasso model with a strong regularization parameters <code>alpha</code></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:282,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901473622,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8d389fbe-8dd7-435f-b9fc-8a9da1067dce" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>model <span class="op">=</span> make_pipeline(StandardScaler(), Lasso(alpha<span class="op">=</span><span class="fl">.015</span>))</span>
@@ -2329,8 +2329,8 @@ model score on testing data: 0.5673786563118284</code></pre>
 </div>
 <p>Here the model score is a bit lower, because of the strong regularization. However, it has zeroed out 3 coefficients, selecting a small number of variables to make its prediction.</p>
 </section>
-<section id="randomforest-with-feature-importance" class="level4" data-number="6.2.5.2">
-<h4 data-number="6.2.5.2" class="anchored" data-anchor-id="randomforest-with-feature-importance"><span class="header-section-number">6.2.5.2</span> Randomforest with feature importance</h4>
+<section id="randomforest-with-feature-importance" class="level4" data-number="5.2.5.2">
+<h4 data-number="5.2.5.2" class="anchored" data-anchor-id="randomforest-with-feature-importance"><span class="header-section-number">5.2.5.2</span> Randomforest with feature importance</h4>
 <p>On some algorithms, there are some feature importance methods, inherently built within the model. It is the case in RandomForest models. Let’s investigate the built-in <code>feature_importances_</code> attribute.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:8276,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901529209,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="bbccb1b4-3d67-4f86-d5a3-b6104325fa8b" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>model <span class="op">=</span> RandomForestRegressor()</span>
@@ -2358,8 +2358,8 @@ model score on testing data: 0.8429137479202747</code></pre>
 </div>
 <p><code>MedInc</code> is still the most important feature. It also has a small bias toward high cardinality features, such as the noisy feature <code>rnd_num</code>, which are here predicted having <code>0.1</code> importance, more than <code>HouseAge</code> (which has low cardinality).</p>
 </section>
-<section id="feature-importance-by-permutation" class="level4" data-number="6.2.5.3">
-<h4 data-number="6.2.5.3" class="anchored" data-anchor-id="feature-importance-by-permutation"><span class="header-section-number">6.2.5.3</span> Feature importance by permutation</h4>
+<section id="feature-importance-by-permutation" class="level4" data-number="5.2.5.3">
+<h4 data-number="5.2.5.3" class="anchored" data-anchor-id="feature-importance-by-permutation"><span class="header-section-number">5.2.5.3</span> Feature importance by permutation</h4>
 <p>We introduce here a new technique to evaluate the feature importance of any given fitted model. It basically shuffles a feature and sees how the model changes its prediction. Thus, the change in prediction will correspond to the feature importance.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:11590,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901604491,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c35c365f-42f5-43d3-b4cd-3a96865ddc78" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Any model could be used here</span></span>
@@ -2391,8 +2391,8 @@ model score on testing data: 0.8448700648905965</code></pre>
 </div>
 <p>We see again that the feature <code>MedInc</code>, <code>Latitude</code> and <code>Longitude</code> are important for the model. We note that our random variable <code>rnd_num</code> is now less important than <code>Latitude</code>. Indeed, the feature importance built-in in <code>RandomForest</code> has bias for continuous data, such as <code>AveOccup</code> and <code>rnd_num</code>.</p>
 </section>
-<section id="feature-rejection-using-boruta" class="level4" data-number="6.2.5.4">
-<h4 data-number="6.2.5.4" class="anchored" data-anchor-id="feature-rejection-using-boruta"><span class="header-section-number">6.2.5.4</span> Feature rejection using Boruta</h4>
+<section id="feature-rejection-using-boruta" class="level4" data-number="5.2.5.4">
+<h4 data-number="5.2.5.4" class="anchored" data-anchor-id="feature-rejection-using-boruta"><span class="header-section-number">5.2.5.4</span> Feature rejection using Boruta</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:274,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679901682761,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># define Boruta feature selection method</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>model <span class="op">=</span> RandomForestRegressor()</span>
@@ -2731,8 +2731,8 @@ Rejected:   1</code></pre>
 </section>
 </section>
 </section>
-<section id="dimensional-reduction" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="dimensional-reduction"><span class="header-section-number">6.3</span> Dimensional reduction</h2>
+<section id="dimensional-reduction" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="dimensional-reduction"><span class="header-section-number">5.3</span> Dimensional reduction</h2>
 <p>We now looked at our model-based method for feature engineering: principal component analysis (PCA). You could think of PCA as a partitioning of the variation in the data. PCA is a great tool to help you discover important relationships in the data and can also be used to create more informative features.</p>
 <p>There are two ways you could use PCA for feature engineering.</p>
 <ol type="1">
@@ -3595,10 +3595,10 @@ Name: MI Scores, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="manifold-learning" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="manifold-learning"><span class="header-section-number">6.4</span> Manifold learning</h2>
-<section id="t-sne" class="level4" data-number="6.4.0.1">
-<h4 data-number="6.4.0.1" class="anchored" data-anchor-id="t-sne"><span class="header-section-number">6.4.0.1</span> t-SNE</h4>
+<section id="manifold-learning" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="manifold-learning"><span class="header-section-number">5.4</span> Manifold learning</h2>
+<section id="t-sne" class="level4" data-number="5.4.0.1">
+<h4 data-number="5.4.0.1" class="anchored" data-anchor-id="t-sne"><span class="header-section-number">5.4.0.1</span> t-SNE</h4>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:621,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902121031,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="68">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>digits <span class="op">=</span> load_digits()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -3678,8 +3678,8 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 </section>
-<section id="umap" class="level4" data-number="6.4.0.2">
-<h4 data-number="6.4.0.2" class="anchored" data-anchor-id="umap"><span class="header-section-number">6.4.0.2</span> UMAP</h4>
+<section id="umap" class="level4" data-number="5.4.0.2">
+<h4 data-number="5.4.0.2" class="anchored" data-anchor-id="umap"><span class="header-section-number">5.4.0.2</span> UMAP</h4>
 <p>UMAP is useful for generating visualisations, but if you want to make use of UMAP more generally for machine learning tasks it is important to be be able to train a model and then later pass new data to the model and have it transform that data into the learned space. For example if we use UMAP to learn a latent space and then train a classifier on data transformed into the latent space then the classifier is only useful for prediction if we can transform data for which we want a prediction into the latent space the classifier uses.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:301,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902166193,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="74">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(digits.data, digits.target, stratify<span class="op">=</span>digits.target, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4198,11 +4198,11 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <p>For more interesting datasets the larger dimensional embedding might have been a significant gain – it is certainly worth exploring as one of the parameters in a grid search across a pipeline that includes UMAP.</p>
 </section>
 </section>
-<section id="clustering" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="clustering"><span class="header-section-number">6.5</span> Clustering</h2>
+<section id="clustering" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="clustering"><span class="header-section-number">5.5</span> Clustering</h2>
 <p>When used for feature engineering, we could attempt to discover groups of customers representing a market segment, for instance, or geographic areas that share similar weather patterns. Adding a feature of cluster labels can help machine learning models untangle complicated relationships of space or proximity.</p>
-<section id="cluster-labels-as-a-feature" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="cluster-labels-as-a-feature"><span class="header-section-number">6.5.1</span> Cluster Labels as a feature</h3>
+<section id="cluster-labels-as-a-feature" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="cluster-labels-as-a-feature"><span class="header-section-number">5.5.1</span> Cluster Labels as a feature</h3>
 <p>Applied to a single real-valued feature, clustering acts like a traditional “binning” or “discretization” transform. On multiple features, it’s like “multi-dimensional binning” (sometimes called <em>vector quantization</em>).</p>
 <p>It’s important to remember that this Cluster feature is categorical. Here, it’s shown with a label encoding (that is, as a sequence of integers) as a typical clustering algorithm would produce; depending on your model, a one-hot encoding may be more appropriate. The motivating idea <strong>for adding cluster labels is that the clusters will break up complicated relationships across features into simpler chunks</strong>. Our model can then just learn the simpler chunks one-by-one instead having to learn the complicated whole all at once. It’s a “divide and conquer” strategy.</p>
 <p>As spatial features, <a href="https://www.kaggle.com/camnugent/california-housing-prices"><em>California Housing</em></a>’s <code>'Latitude'</code> and <code>'Longitude'</code> make natural candidates for k-means clustering. In this example we’ll cluster these with <code>'MedInc'</code> (median income) to create economic segments in different regions of California. Since k-means clustering is sensitive to scale, it can be a good idea rescale or normalize data with extreme values. Our features are already roughly on the same scale, so we’ll leave them as-is.</p>
@@ -4498,8 +4498,8 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </div>
 </section>
-<section id="cluster-distance-as-a-feature" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="cluster-distance-as-a-feature"><span class="header-section-number">6.5.2</span> Cluster distance as a feature</h3>
+<section id="cluster-distance-as-a-feature" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="cluster-distance-as-a-feature"><span class="header-section-number">5.5.2</span> Cluster distance as a feature</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:899,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902407085,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="88">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>X_digits, y_digits <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb113-2"><a href="#cb113-2"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X_digits, y_digits, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4559,8 +4559,8 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <p>We reduced the error rate by over 14%!</p>
 </section>
 </section>
-<section id="guideline-to-determine-the-optimal-number-of-features-or-threshold" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="guideline-to-determine-the-optimal-number-of-features-or-threshold"><span class="header-section-number">6.6</span> Guideline to determine the optimal number of features or threshold?</h2>
+<section id="guideline-to-determine-the-optimal-number-of-features-or-threshold" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="guideline-to-determine-the-optimal-number-of-features-or-threshold"><span class="header-section-number">5.6</span> Guideline to determine the optimal number of features or threshold?</h2>
 <p>To determine the optimal hyperparameter, we can use cross validation. For instance, in the above example, we chose the number of clusters <code>k</code> completely arbitrarily. However, we can surely do better. Since K-Means is just a preprocessing step in a classification pipeline, finding a good value for <code>k</code> is the best value of <code>k</code> is simply the one that results in the best classification performance.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># The following cell may take close to 20 minutes to run, or more depending on your hardware!</span></span>
@@ -4575,8 +4575,8 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>grid_clf.score(X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the same way, you can also use cross-validation to evaluate model performance with different numbers of top-ranked features or different numbers of features and choose the optimal number based on the performance metric (e.g., highest accuracy or lowest error).</p>
-<section id="using-clustering-for-semi-supervised-learning" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="using-clustering-for-semi-supervised-learning"><span class="header-section-number">6.6.1</span> Using Clustering for Semi-Supervised Learning</h3>
+<section id="using-clustering-for-semi-supervised-learning" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="using-clustering-for-semi-supervised-learning"><span class="header-section-number">5.6.1</span> Using Clustering for Semi-Supervised Learning</h3>
 <p>Another use case for clustering is in semi-supervised learning, when we have plenty of unlabeled instances and very few labeled instances.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:261,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902620320,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="96">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a>X_digits, y_digits <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
@@ -4705,8 +4705,8 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 <li>Train a new model with these additional labels.</li>
 </ol>
 </section>
-<section id="feature-agglomeration" class="level3" data-number="6.6.2">
-<h3 data-number="6.6.2" class="anchored" data-anchor-id="feature-agglomeration"><span class="header-section-number">6.6.2</span> Feature agglomeration</h3>
+<section id="feature-agglomeration" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="feature-agglomeration"><span class="header-section-number">5.6.2</span> Feature agglomeration</h3>
 <p><code>cluster.FeatureAgglomeration</code> applies Hierarchical clustering to group together features that behave similarly.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:893,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1679902725844,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="113">
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4724,8 +4724,8 @@ Iteration  500, KL divergence 0.7492, 50 iterations in 1.7576 sec
 </div>
 </section>
 </section>
-<section id="references" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="references"><span class="header-section-number">6.7</span> References</h2>
+<section id="references" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="references"><span class="header-section-number">5.7</span> References</h2>
 <ol type="1">
 <li><a href="https://www.kaggle.com/learn/feature-engineering">https://www.kaggle.com/learn/feature-engineering</a></li>
 <li><a href="https://inria.github.io/scikit-learn-mooc/python_scripts/dev_features_importance.html#">https://inria.github.io/scikit-learn-mooc/python_scripts/dev_features_importance.html#</a></li>
@@ -5026,12 +5026,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./04_Clean_feature_engineering.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./06_XAI.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

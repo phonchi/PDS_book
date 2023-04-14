@@ -9,7 +9,7 @@
 <meta name="author" content="phonchi">
 <meta name="dcterms.date" content="2023-02-20">
 
-<title>Practical and Innovative Analytics in Data Science - 3&nbsp; Framing the problem and constructing the dataset</title>
+<title>Practical and Innovative Analytics in Data Science - 2&nbsp; Framing the problem and constructing the dataset</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_Dataset.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_Dataset.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,49 +141,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_end_to_end_machine_learning_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_Dataset.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_Relational_Database_and_data_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_Clean_feature_engineering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_Feature_selection_extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_XAI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_Deploy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -225,33 +225,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">3.1</span> Setup</a></li>
-  <li><a href="#scraping-data-using-beautifulsoup" id="toc-scraping-data-using-beautifulsoup" class="nav-link" data-scroll-target="#scraping-data-using-beautifulsoup"><span class="header-section-number">3.2</span> Scraping data using BeautifulSoup</a></li>
-  <li><a href="#manual-labeling-with-pigeonxt" id="toc-manual-labeling-with-pigeonxt" class="nav-link" data-scroll-target="#manual-labeling-with-pigeonxt"><span class="header-section-number">3.3</span> Manual Labeling with pigeonXT</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">2.1</span> Setup</a></li>
+  <li><a href="#scraping-data-using-beautifulsoup" id="toc-scraping-data-using-beautifulsoup" class="nav-link" data-scroll-target="#scraping-data-using-beautifulsoup"><span class="header-section-number">2.2</span> Scraping data using BeautifulSoup</a></li>
+  <li><a href="#manual-labeling-with-pigeonxt" id="toc-manual-labeling-with-pigeonxt" class="nav-link" data-scroll-target="#manual-labeling-with-pigeonxt"><span class="header-section-number">2.3</span> Manual Labeling with pigeonXT</a>
   <ul class="collapse">
-  <li><a href="#image-classification" id="toc-image-classification" class="nav-link" data-scroll-target="#image-classification"><span class="header-section-number">3.3.1</span> Image classification</a></li>
-  <li><a href="#binary-or-multi-class-text-classification" id="toc-binary-or-multi-class-text-classification" class="nav-link" data-scroll-target="#binary-or-multi-class-text-classification"><span class="header-section-number">3.3.2</span> Binary or multi-class text classification</a></li>
-  <li><a href="#multi-label-text-classification" id="toc-multi-label-text-classification" class="nav-link" data-scroll-target="#multi-label-text-classification"><span class="header-section-number">3.3.3</span> Multi-label text classification</a></li>
+  <li><a href="#image-classification" id="toc-image-classification" class="nav-link" data-scroll-target="#image-classification"><span class="header-section-number">2.3.1</span> Image classification</a></li>
+  <li><a href="#binary-or-multi-class-text-classification" id="toc-binary-or-multi-class-text-classification" class="nav-link" data-scroll-target="#binary-or-multi-class-text-classification"><span class="header-section-number">2.3.2</span> Binary or multi-class text classification</a></li>
+  <li><a href="#multi-label-text-classification" id="toc-multi-label-text-classification" class="nav-link" data-scroll-target="#multi-label-text-classification"><span class="header-section-number">2.3.3</span> Multi-label text classification</a></li>
   </ul></li>
-  <li><a href="#improve-consensus-labels-for-multiannotator-data-with-cleanlab" id="toc-improve-consensus-labels-for-multiannotator-data-with-cleanlab" class="nav-link" data-scroll-target="#improve-consensus-labels-for-multiannotator-data-with-cleanlab"><span class="header-section-number">3.4</span> Improve Consensus Labels for Multiannotator Data with Cleanlab</a>
+  <li><a href="#improve-consensus-labels-for-multiannotator-data-with-cleanlab" id="toc-improve-consensus-labels-for-multiannotator-data-with-cleanlab" class="nav-link" data-scroll-target="#improve-consensus-labels-for-multiannotator-data-with-cleanlab"><span class="header-section-number">2.4</span> Improve Consensus Labels for Multiannotator Data with Cleanlab</a>
   <ul class="collapse">
-  <li><a href="#get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites" id="toc-get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites" class="nav-link" data-scroll-target="#get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites"><span class="header-section-number">3.4.1</span> Get majority vote labels and compute out-of-sample predicted probabilites</a></li>
-  <li><a href="#use-cleanlab-to-get-better-consensus-labels-and-other-statistics" id="toc-use-cleanlab-to-get-better-consensus-labels-and-other-statistics" class="nav-link" data-scroll-target="#use-cleanlab-to-get-better-consensus-labels-and-other-statistics"><span class="header-section-number">3.4.2</span> Use cleanlab to get better consensus labels and other statistics</a></li>
+  <li><a href="#get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites" id="toc-get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites" class="nav-link" data-scroll-target="#get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites"><span class="header-section-number">2.4.1</span> Get majority vote labels and compute out-of-sample predicted probabilites</a></li>
+  <li><a href="#use-cleanlab-to-get-better-consensus-labels-and-other-statistics" id="toc-use-cleanlab-to-get-better-consensus-labels-and-other-statistics" class="nav-link" data-scroll-target="#use-cleanlab-to-get-better-consensus-labels-and-other-statistics"><span class="header-section-number">2.4.2</span> Use cleanlab to get better consensus labels and other statistics</a></li>
   </ul></li>
-  <li><a href="#active-learning-with-modal" id="toc-active-learning-with-modal" class="nav-link" data-scroll-target="#active-learning-with-modal"><span class="header-section-number">3.5</span> Active Learning with modAL</a>
+  <li><a href="#active-learning-with-modal" id="toc-active-learning-with-modal" class="nav-link" data-scroll-target="#active-learning-with-modal"><span class="header-section-number">2.5</span> Active Learning with modAL</a>
   <ul class="collapse">
-  <li><a href="#initializing-the-learner" id="toc-initializing-the-learner" class="nav-link" data-scroll-target="#initializing-the-learner"><span class="header-section-number">3.5.1</span> Initializing the learner</a></li>
-  <li><a href="#the-active-learning-loop" id="toc-the-active-learning-loop" class="nav-link" data-scroll-target="#the-active-learning-loop"><span class="header-section-number">3.5.2</span> The active learning loop</a></li>
-  <li><a href="#iris-example" id="toc-iris-example" class="nav-link" data-scroll-target="#iris-example"><span class="header-section-number">3.5.3</span> Iris example</a></li>
+  <li><a href="#initializing-the-learner" id="toc-initializing-the-learner" class="nav-link" data-scroll-target="#initializing-the-learner"><span class="header-section-number">2.5.1</span> Initializing the learner</a></li>
+  <li><a href="#the-active-learning-loop" id="toc-the-active-learning-loop" class="nav-link" data-scroll-target="#the-active-learning-loop"><span class="header-section-number">2.5.2</span> The active learning loop</a></li>
+  <li><a href="#iris-example" id="toc-iris-example" class="nav-link" data-scroll-target="#iris-example"><span class="header-section-number">2.5.3</span> Iris example</a></li>
   </ul></li>
-  <li><a href="#weak-supervison-using-snorkel" id="toc-weak-supervison-using-snorkel" class="nav-link" data-scroll-target="#weak-supervison-using-snorkel"><span class="header-section-number">3.6</span> Weak Supervison using Snorkel</a>
+  <li><a href="#weak-supervison-using-snorkel" id="toc-weak-supervison-using-snorkel" class="nav-link" data-scroll-target="#weak-supervison-using-snorkel"><span class="header-section-number">2.6</span> Weak Supervison using Snorkel</a>
   <ul class="collapse">
-  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">3.6.1</span> Loading Data</a></li>
-  <li><a href="#writing-labeling-functions-lfs" id="toc-writing-labeling-functions-lfs" class="nav-link" data-scroll-target="#writing-labeling-functions-lfs"><span class="header-section-number">3.6.2</span> Writing Labeling Functions (LFs)</a></li>
-  <li><a href="#training-a-classifier" id="toc-training-a-classifier" class="nav-link" data-scroll-target="#training-a-classifier"><span class="header-section-number">3.6.3</span> Training a Classifier</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">2.6.1</span> Loading Data</a></li>
+  <li><a href="#writing-labeling-functions-lfs" id="toc-writing-labeling-functions-lfs" class="nav-link" data-scroll-target="#writing-labeling-functions-lfs"><span class="header-section-number">2.6.2</span> Writing Labeling Functions (LFs)</a></li>
+  <li><a href="#training-a-classifier" id="toc-training-a-classifier" class="nav-link" data-scroll-target="#training-a-classifier"><span class="header-section-number">2.6.3</span> Training a Classifier</a></li>
   </ul></li>
-  <li><a href="#data-augmentation-using-albumentations" id="toc-data-augmentation-using-albumentations" class="nav-link" data-scroll-target="#data-augmentation-using-albumentations"><span class="header-section-number">3.7</span> Data augmentation using Albumentations</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">3.8</span> Reference</a></li>
+  <li><a href="#data-augmentation-using-albumentations" id="toc-data-augmentation-using-albumentations" class="nav-link" data-scroll-target="#data-augmentation-using-albumentations"><span class="header-section-number">2.7</span> Data augmentation using Albumentations</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">2.8</span> Reference</a></li>
   </ul>
 </nav>
     </div>
@@ -260,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></h1>
 </div>
 
 
@@ -298,8 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </tr></tbody></table>
 <p><br></p>
-<section id="setup" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.1</span> Setup</h2>
+<section id="setup" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">2.1</span> Setup</h2>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:57752,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676862071866,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="17d25047-7cb1-42c5-97d5-63ac188a8209">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>phonchi<span class="op">/</span>pigeonXT.git </span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install cleanlab <span class="op">-</span>qq</span>
@@ -407,22 +407,22 @@ pigeonxt-jupyter 0.7.3 requires numpy&lt;2.0,&gt;=1.23, but you have numpy 1.22.
 <span id="cb5-4"><a href="#cb5-4"></a>    plt.imshow(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="scraping-data-using-beautifulsoup" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="scraping-data-using-beautifulsoup"><span class="header-section-number">3.2</span> Scraping data using BeautifulSoup</h2>
+<section id="scraping-data-using-beautifulsoup" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="scraping-data-using-beautifulsoup"><span class="header-section-number">2.2</span> Scraping data using BeautifulSoup</h2>
 <p>Sometimes we have to build our dataset using crawler. See 1. <a href="https://github.com/marvelje/weather_forecasting">https://github.com/marvelje/weather_forecasting</a> (Constructing weather dataset)</p>
 <ol start="2" type="1">
 <li><p><a href="https://www.kaggle.com/code/pandula/a-simple-tutorial-on-beautifulsoup/notebook">https://www.kaggle.com/code/pandula/a-simple-tutorial-on-beautifulsoup/notebook</a> (Constructing IMDB dataset)</p></li>
 <li><p><a href="https://github.com/sharmasapna/Web-scraping-for-images">https://github.com/sharmasapna/Web-scraping-for-images</a> (Constructing image dataset)</p></li>
 </ol>
 </section>
-<section id="manual-labeling-with-pigeonxt" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="manual-labeling-with-pigeonxt"><span class="header-section-number">3.3</span> Manual Labeling with pigeonXT</h2>
+<section id="manual-labeling-with-pigeonxt" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="manual-labeling-with-pigeonxt"><span class="header-section-number">2.3</span> Manual Labeling with pigeonXT</h2>
 <p>In many data science projects, the first step at which the data science team gets involved is in labeling the image data. Even if the labeling will be automated, the first few images in a proof of concept are almost always hand-labeled. The form and organization will differ based on the problem type (image classification or object detection) and whether an image can have multiple labels or only one. To hand-label images, a rater views the image, determines the label(s), and records the label(s). There are two typical approaches to doing this recording: using a <strong>folder structure</strong> and a <strong>metadata table.</strong></p>
 <p>In a folder organization, raters simply move images to different folders depending on what their label is. All flowers that are daisies are stored in a folder named <em>daisy</em>, for example. Raters can do this quickly because most operating systems provide previews of images and handy ways to select groups of images and move them into folders.</p>
 <p>The problem with the folder approach is that it leads to duplication if an image can have multiple labels—for example, if an image contains both <em>roses</em> and <em>daisies</em>. The alternative, and recommended, approach is to record the label(s) in a metadata table (such as in a spreadsheet or a CSV file) that has at least two columns - one column is the filename of the image file, and the other is the list of labels that are valid for the image.</p>
 <p>A labeling tool should have a facility to display the image, and enable the rater to quickly select valid categories and save the rating to a database. We will use <code>pigeonXT</code> which is a wrapper of Jupyter widget next.</p>
-<section id="image-classification" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="image-classification"><span class="header-section-number">3.3.1</span> Image classification</h3>
+<section id="image-classification" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="image-classification"><span class="header-section-number">2.3.1</span> Image classification</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7767,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676862959368,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d1867a3d-7413-4197-9232-7b7d5837b77e">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">%%</span>bash</span>
 <span id="cb6-2"><a href="#cb6-2"></a>mkdir flower_images</span>
@@ -591,8 +591,8 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 </section>
-<section id="binary-or-multi-class-text-classification" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="binary-or-multi-class-text-classification"><span class="header-section-number">3.3.2</span> Binary or multi-class text classification</h3>
+<section id="binary-or-multi-class-text-classification" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="binary-or-multi-class-text-classification"><span class="header-section-number">2.3.2</span> Binary or multi-class text classification</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:309,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863203973,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="870c273b-1036-483f-967a-4ce72e050693">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>annotations <span class="op">=</span> pixt.annotate(</span>
 <span id="cb13-2"><a href="#cb13-2"></a>        [<span class="st">'I love this movie'</span>, <span class="st">'I was really disappointed by the book'</span>],</span>
@@ -733,8 +733,8 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>annotations.to_csv(<span class="st">"text_class_dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="multi-label-text-classification" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="multi-label-text-classification"><span class="header-section-number">3.3.3</span> Multi-label text classification</h3>
+<section id="multi-label-text-classification" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="multi-label-text-classification"><span class="header-section-number">2.3.3</span> Multi-label text classification</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:309,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863287760,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e1b80dac-52f8-451a-d9d4-52118d2ab401">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df <span class="op">=</span> pd.DataFrame([</span>
 <span id="cb17-2"><a href="#cb17-2"></a>        {<span class="st">'example'</span>: <span class="st">'Star wars'</span>},    </span>
@@ -937,8 +937,8 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <p>Additionally, custom hooks can be attached to each row update (<code>example_process_fn</code>), or when the annotating task is complete(<code>final_process_fn</code>). See https://github.com/dennisbakhuis/pigeonXT for more details.</p>
 </section>
 </section>
-<section id="improve-consensus-labels-for-multiannotator-data-with-cleanlab" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="improve-consensus-labels-for-multiannotator-data-with-cleanlab"><span class="header-section-number">3.4</span> Improve Consensus Labels for Multiannotator Data with Cleanlab</h2>
+<section id="improve-consensus-labels-for-multiannotator-data-with-cleanlab" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="improve-consensus-labels-for-multiannotator-data-with-cleanlab"><span class="header-section-number">2.4</span> Improve Consensus Labels for Multiannotator Data with Cleanlab</h2>
 <p>This example contains classification data that has been labeled by multiple annotators (where each example has been labeled by at least one annotator, but not every annotator has labeled every example)</p>
 <p>For this part, we will generate a toy dataset that has 50 annotators and 300 examples. There are three possible classes, 0, 1 and 2.</p>
 <p>Each annotator annotates approximately 10% of the examples. We also synthetically made the last 5 annotators in our toy dataset have much noisier labels than the rest of the annotators. To generate our multiannotator data, we define a <code>make_data()</code> method</p>
@@ -1258,8 +1258,8 @@ Operation completed over 1 objects/35.6 KiB.                                    
 </div>
 </div>
 <p><code>multiannotator_labels</code> contains the class labels that each annotator chose for each example, with examples that a particular annotator did not label represented using <code>np.nan</code>. <code>X</code> contains the features for each example.</p>
-<section id="get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites"><span class="header-section-number">3.4.1</span> Get majority vote labels and compute out-of-sample predicted probabilites</h3>
+<section id="get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="get-majority-vote-labels-and-compute-out-of-sample-predicted-probabilites"><span class="header-section-number">2.4.1</span> Get majority vote labels and compute out-of-sample predicted probabilites</h3>
 <p>Before training a machine learning model, we must first obtain the consensus labels from the annotators that labeled the data. The simplest way to obtain an initial set of consensus labels is to select it using majority vote.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>majority_vote_label <span class="op">=</span> get_majority_vote_label(multiannotator_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1274,8 +1274,8 @@ Operation completed over 1 objects/35.6 KiB.                                    
 <span id="cb24-6"><a href="#cb24-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="use-cleanlab-to-get-better-consensus-labels-and-other-statistics" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="use-cleanlab-to-get-better-consensus-labels-and-other-statistics"><span class="header-section-number">3.4.2</span> Use cleanlab to get better consensus labels and other statistics</h3>
+<section id="use-cleanlab-to-get-better-consensus-labels-and-other-statistics" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="use-cleanlab-to-get-better-consensus-labels-and-other-statistics"><span class="header-section-number">2.4.2</span> Use cleanlab to get better consensus labels and other statistics</h3>
 <p>Using the annotators’ labels and the out-of-sample predicted probabilites from the model, cleanlab can help us obtain improved consensus labels for our data.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:10370,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676863610660,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a7676ab9-36d7-4e1d-95e0-c9103cdc697d">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>results <span class="op">=</span> get_label_quality_multiannotator(multiannotator_labels, pred_probs, verbose<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2324,8 +2324,8 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <p>After obtaining the improved consensus labels, we can now retrain a better version of our machine learning model using these newly obtained labels. You can also repeatedly iterate this process of getting better consensus labels using the model’s out-of-sample predicted probabilites and then retraining the model with the improved labels to get even better predicted probabilities!</p>
 </section>
 </section>
-<section id="active-learning-with-modal" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="active-learning-with-modal"><span class="header-section-number">3.5</span> Active Learning with modAL</h2>
+<section id="active-learning-with-modal" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="active-learning-with-modal"><span class="header-section-number">2.5</span> Active Learning with modAL</h2>
 <p>In this example, the active learning workflow of modAL is demonstrated - with you in the loop! By running this notebook, you’ll be queried to label digits using the <a href="http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits">DIGITS</a> dataset.</p>
 <p>Here we use the pool-based sampling. In this setting, we assume a small set of labeled data <code>L</code> and a large set of unlabeled data <code>U</code> such that <code>|L|≪|U|</code>.</p>
 <p>The high level description about this strategy is as follows: Queries are selectively drawn from the pool, which is usually assumed to be closed (i.e., static or non-changing), although this is not strictly necessary. Typically, instances are queried in a greedy fashion, according to an informativeness measure used to evaluate all instances in the pool (or, perhaps if <code>U</code> is very large, some subsample thereof).</p>
@@ -2361,8 +2361,8 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 (1247, 64)</code></pre>
 </div>
 </div>
-<section id="initializing-the-learner" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="initializing-the-learner"><span class="header-section-number">3.5.1</span> Initializing the learner</h3>
+<section id="initializing-the-learner" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="initializing-the-learner"><span class="header-section-number">2.5.1</span> Initializing the learner</h3>
 <p>Along with our pool-based sampling strategy, <code>modAL</code>’s modular design allows you to vary parameters surrounding the active learning process, <strong>including the core estimator and query strategy.</strong></p>
 <p>Now we initialize the active learner. Feel free to change the underlying <code>RandomForestClassifier</code> or the <code>uncertainty_sampling</code>!</p>
 <div class="cell">
@@ -2376,8 +2376,8 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <span id="cb35-8"><a href="#cb35-8"></a>n_queries <span class="op">=</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-active-learning-loop" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="the-active-learning-loop"><span class="header-section-number">3.5.2</span> The active learning loop</h3>
+<section id="the-active-learning-loop" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="the-active-learning-loop"><span class="header-section-number">2.5.2</span> The active learning loop</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:256033,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864365852,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7bffe159-4d94-42b6-e548-e77e76368c4a">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>accuracy_scores <span class="op">=</span> [learner.score(X_test, y_test)]</span>
 <span id="cb36-2"><a href="#cb36-2"></a></span>
@@ -2413,8 +2413,8 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 </div>
 <p>By querying hard example to the rater, the performance increase from 83% to 86%!</p>
 </section>
-<section id="iris-example" class="level3" data-number="3.5.3">
-<h3 data-number="3.5.3" class="anchored" data-anchor-id="iris-example"><span class="header-section-number">3.5.3</span> Iris example</h3>
+<section id="iris-example" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="iris-example"><span class="header-section-number">2.5.3</span> Iris example</h3>
 <p>In this example, we use <code>scikit-learn</code>’s <code>k-nearest neighbors classifier</code> as our estimator and default to <code>modAL</code>’s uncertainty sampling query strategy.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Set our RNG seed for reproducibility</span></span>
@@ -2505,8 +2505,8 @@ Accuracy of cleanlab consensus labels = 0.9763513513513513</code></pre>
 <p><img src="02_Dataset_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<section id="update-our-model-by-pool-based-sampling-our-unlabeled-dataset-u" class="level4" data-number="3.5.3.1">
-<h4 data-number="3.5.3.1" class="anchored" data-anchor-id="update-our-model-by-pool-based-sampling-our-unlabeled-dataset-u"><span class="header-section-number">3.5.3.1</span> Update our model by pool-based sampling our “unlabeled” dataset U</h4>
+<section id="update-our-model-by-pool-based-sampling-our-unlabeled-dataset-u" class="level4" data-number="2.5.3.1">
+<h4 data-number="2.5.3.1" class="anchored" data-anchor-id="update-our-model-by-pool-based-sampling-our-unlabeled-dataset-u"><span class="header-section-number">2.5.3.1</span> Update our model by pool-based sampling our “unlabeled” dataset U</h4>
 <p>As we can see, our model is unable to properly learn the underlying data distribution. All of its predictions are for the third class label, and as such it is only as competitive as defaulting its predictions to a single class – if only we had more data!</p>
 <p>Below, we tune our classifier by allowing it to query 20 instances it hasn’t seen before. Using uncertainty sampling, <strong>our classifier aims to reduce the amount of uncertainty in its predictions using a variety of measures</strong> — see https://modal-python.readthedocs.io/en/latest/index.html for more on specific classification uncertainty measures. With each requested query, we remove that record from our pool <code>U</code> and record our model’s accuracy on the raw dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:448,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676864568000,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="99951b46-224e-4b63-da6e-d4b00bd7d71b">
@@ -2601,8 +2601,8 @@ Accuracy after query 20: 0.9267</code></pre>
 </section>
 </section>
 </section>
-<section id="weak-supervison-using-snorkel" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="weak-supervison-using-snorkel"><span class="header-section-number">3.6</span> Weak Supervison using Snorkel</h2>
+<section id="weak-supervison-using-snorkel" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="weak-supervison-using-snorkel"><span class="header-section-number">2.6</span> Weak Supervison using Snorkel</h2>
 <p>We will walk through the process of using <code>Snorkel</code> to build a training set for classifying YouTube comments as spam or not spam. The goal of this tutorial is to illustrate the basic components and concepts of <code>Snorkel</code> in a simple way, but also to dive into the actual process of iteratively developing real applications in <code>Snorkel</code>.</p>
 <p>Our goal is to train a classifier over the comment data that can predict whether a comment is spam or not spam. We have access to a large amount of unlabeled data in the form of YouTube comments with some metadata. In order to train a classifier, we need to label our data, <strong>but doing so by hand for real world applications can often be prohibitively slow and expensive.</strong></p>
 <p>In these cases, we can turn to a weak supervision approach, using <strong>labeling functions (LFs)</strong> in Snorkel: noisy, programmatic rules and heuristics that assign labels to unlabeled training data.</p>
@@ -2691,8 +2691,8 @@ Accuracy after query 20: 0.9267</code></pre>
 <blockquote class="blockquote">
 <p>Note that in more advanced production settings, we will often further split up the available hand-labeled data into a development split, for getting ideas to write labeling functions, and a validation split for e.g.&nbsp;checking our performance without looking at test set scores, hyperparameter tuning, etc. These splits are omitted for simplicity here.</p>
 </blockquote>
-<section id="loading-data" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">3.6.1</span> Loading Data</h3>
+<section id="loading-data" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">2.6.1</span> Loading Data</h3>
 <p>We load the YouTube comments dataset and create Pandas DataFrame objects for the train and test sets. Snorkel provides native support for several DataFrame-like data structures, including <code>Pandas</code>, <code>Dask</code>, and <code>PySpark</code>.</p>
 <p>Each DataFrame consists of the following fields:</p>
 <ul>
@@ -2906,8 +2906,8 @@ Accuracy after query 20: 0.9267</code></pre>
 <span id="cb58-4"><a href="#cb58-4"></a>SPAM <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="writing-labeling-functions-lfs" class="level3" data-number="3.6.2">
-<h3 data-number="3.6.2" class="anchored" data-anchor-id="writing-labeling-functions-lfs"><span class="header-section-number">3.6.2</span> Writing Labeling Functions (LFs)</h3>
+<section id="writing-labeling-functions-lfs" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="writing-labeling-functions-lfs"><span class="header-section-number">2.6.2</span> Writing Labeling Functions (LFs)</h3>
 <p>Labeling functions (LFs) help users encode domain knowledge and other supervision sources programmatically.</p>
 <p>LFs are heuristics that take as input a data point and either assign a label to it (in this case, HAM or SPAM) or abstain (don’t assign any label). <strong>Labeling functions can be noisy: they don’t have perfect accuracy and don’t have to label every data point. Moreover, different labeling functions can overlap (label the same data point) and even conflict (assign different labels to the same data point).</strong> This is expected, and we demonstrate how we deal with this later.</p>
 <p>Because their only requirement is that they map a data point a label (or abstain), they can wrap a wide variety of forms of supervision.</p>
@@ -3247,8 +3247,8 @@ Label Model Accuracy:     84.8%</code></pre>
 <span id="cb76-3"><a href="#cb76-3"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="training-a-classifier" class="level3" data-number="3.6.3">
-<h3 data-number="3.6.3" class="anchored" data-anchor-id="training-a-classifier"><span class="header-section-number">3.6.3</span> Training a Classifier</h3>
+<section id="training-a-classifier" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="training-a-classifier"><span class="header-section-number">2.6.3</span> Training a Classifier</h3>
 <p>In this final section of the tutorial, we’ll use the probabilistic training labels we generated in the last section to train a classifier for our task. The output of the <code>Snorkel</code> <code>LabelModel</code> is just a set of labels which can be used with most popular libraries for performing supervised learning. Note that typically, <code>Snorkel</code> is used (and really shines!) with much more complex, training data-hungry models, but we will use Logistic Regression here for simplicity of exposition.</p>
 <p>For simplicity and speed, we use a simple “bag of n-grams” feature representation: each data point is represented by a one-hot vector marking which words or 2-word combinations are present in the comment text.</p>
 <div class="cell">
@@ -3277,8 +3277,8 @@ Label Model Accuracy:     84.8%</code></pre>
 <p>We observe an additional boost in accuracy over the <code>LabelModel</code> by multiple points! This is in part because the discriminative model generalizes beyond the labeling function’s labels and makes good predictions on all data points, not just the ones covered by labeling functions. By using the label model to transfer the domain knowledge encoded in our LFs to the discriminative model, we were able to generalize beyond the noisy labeling heuristics.</p>
 </section>
 </section>
-<section id="data-augmentation-using-albumentations" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="data-augmentation-using-albumentations"><span class="header-section-number">3.7</span> Data augmentation using Albumentations</h2>
+<section id="data-augmentation-using-albumentations" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="data-augmentation-using-albumentations"><span class="header-section-number">2.7</span> Data augmentation using Albumentations</h2>
 <p><code>Scikit-image</code> reads an image in RGB format which is consistent with <code>Albumentations</code>.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:734,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1676865259947,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b77941fc-9e00-40ea-f54d-1d8d2245ca1b">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>albumentations<span class="op">-</span>team<span class="op">/</span>albumentations_examples<span class="op">/</span>master<span class="op">/</span>notebooks<span class="op">/</span>images<span class="op">/</span>image_3.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3354,8 +3354,8 @@ image_3.jpg         100%[===================&gt;]  56.73K  --.-KB/s    in 0.007s
 </div>
 <p>For more information, please refer to <a href="https://albumentations.ai/docs/#examples">https://albumentations.ai/docs/#examples</a>.</p>
 </section>
-<section id="reference" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="reference"><span class="header-section-number">3.8</span> Reference</h2>
+<section id="reference" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="reference"><span class="header-section-number">2.8</span> Reference</h2>
 <p>This notebook contains the sample from</p>
 <ol type="1">
 <li><a href="https://github.com/dennisbakhuis/pigeonXT/blob/master/pigeonXT_Examples.ipynb">https://github.com/dennisbakhuis/pigeonXT/blob/master/pigeonXT_Examples.ipynb</a></li>
@@ -3660,12 +3660,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01_end_to_end_machine_learning_project.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./03_Relational_Database_and_data_wrangling.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

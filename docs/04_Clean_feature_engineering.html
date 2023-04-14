@@ -9,7 +9,7 @@
 <meta name="author" content="phonchi">
 <meta name="dcterms.date" content="2023-03-13">
 
-<title>Practical and Innovative Analytics in Data Science - 5&nbsp; Data cleaning and feature engineering</title>
+<title>Practical and Innovative Analytics in Data Science - 4&nbsp; Data cleaning and feature engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_Clean_feature_engineering.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_Clean_feature_engineering.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,49 +140,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_end_to_end_machine_learning_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_Dataset.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_Relational_Database_and_data_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_Clean_feature_engineering.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_Feature_selection_extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_XAI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_Deploy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -224,53 +224,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">5.1</span> Setup</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">5.2</span> Exploratory Data Analysis</a></li>
-  <li><a href="#handling-missing-value" id="toc-handling-missing-value" class="nav-link" data-scroll-target="#handling-missing-value"><span class="header-section-number">5.3</span> Handling missing value</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">4.1</span> Setup</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">4.2</span> Exploratory Data Analysis</a></li>
+  <li><a href="#handling-missing-value" id="toc-handling-missing-value" class="nav-link" data-scroll-target="#handling-missing-value"><span class="header-section-number">4.3</span> Handling missing value</a>
   <ul class="collapse">
-  <li><a href="#take-a-first-look-at-the-data" id="toc-take-a-first-look-at-the-data" class="nav-link" data-scroll-target="#take-a-first-look-at-the-data"><span class="header-section-number">5.3.1</span> Take a first look at the data</a></li>
-  <li><a href="#how-many-missing-data-points-do-we-have" id="toc-how-many-missing-data-points-do-we-have" class="nav-link" data-scroll-target="#how-many-missing-data-points-do-we-have"><span class="header-section-number">5.3.2</span> How many missing data points do we have?</a></li>
-  <li><a href="#drop-missing-values" id="toc-drop-missing-values" class="nav-link" data-scroll-target="#drop-missing-values"><span class="header-section-number">5.3.3</span> Drop missing values</a></li>
-  <li><a href="#filling-in-missing-values-automatically" id="toc-filling-in-missing-values-automatically" class="nav-link" data-scroll-target="#filling-in-missing-values-automatically"><span class="header-section-number">5.3.4</span> Filling in missing values automatically</a></li>
-  <li><a href="#imputation-of-missing-value" id="toc-imputation-of-missing-value" class="nav-link" data-scroll-target="#imputation-of-missing-value"><span class="header-section-number">5.3.5</span> Imputation of missing value</a></li>
+  <li><a href="#take-a-first-look-at-the-data" id="toc-take-a-first-look-at-the-data" class="nav-link" data-scroll-target="#take-a-first-look-at-the-data"><span class="header-section-number">4.3.1</span> Take a first look at the data</a></li>
+  <li><a href="#how-many-missing-data-points-do-we-have" id="toc-how-many-missing-data-points-do-we-have" class="nav-link" data-scroll-target="#how-many-missing-data-points-do-we-have"><span class="header-section-number">4.3.2</span> How many missing data points do we have?</a></li>
+  <li><a href="#drop-missing-values" id="toc-drop-missing-values" class="nav-link" data-scroll-target="#drop-missing-values"><span class="header-section-number">4.3.3</span> Drop missing values</a></li>
+  <li><a href="#filling-in-missing-values-automatically" id="toc-filling-in-missing-values-automatically" class="nav-link" data-scroll-target="#filling-in-missing-values-automatically"><span class="header-section-number">4.3.4</span> Filling in missing values automatically</a></li>
+  <li><a href="#imputation-of-missing-value" id="toc-imputation-of-missing-value" class="nav-link" data-scroll-target="#imputation-of-missing-value"><span class="header-section-number">4.3.5</span> Imputation of missing value</a></li>
   </ul></li>
-  <li><a href="#other-data-cleaning-problem" id="toc-other-data-cleaning-problem" class="nav-link" data-scroll-target="#other-data-cleaning-problem"><span class="header-section-number">5.4</span> Other data cleaning problem</a>
+  <li><a href="#other-data-cleaning-problem" id="toc-other-data-cleaning-problem" class="nav-link" data-scroll-target="#other-data-cleaning-problem"><span class="header-section-number">4.4</span> Other data cleaning problem</a>
   <ul class="collapse">
-  <li><a href="#duplicate-data-entry" id="toc-duplicate-data-entry" class="nav-link" data-scroll-target="#duplicate-data-entry"><span class="header-section-number">5.4.1</span> Duplicate data entry</a></li>
-  <li><a href="#inconsistent-data-entry" id="toc-inconsistent-data-entry" class="nav-link" data-scroll-target="#inconsistent-data-entry"><span class="header-section-number">5.4.2</span> Inconsistent data entry</a></li>
-  <li><a href="#character-encoding" id="toc-character-encoding" class="nav-link" data-scroll-target="#character-encoding"><span class="header-section-number">5.4.3</span> Character encoding</a></li>
-  <li><a href="#reading-in-files-with-encoding-problems" id="toc-reading-in-files-with-encoding-problems" class="nav-link" data-scroll-target="#reading-in-files-with-encoding-problems"><span class="header-section-number">5.4.4</span> Reading in files with encoding problems</a></li>
-  <li><a href="#saving-your-files-with-utf-8-encoding" id="toc-saving-your-files-with-utf-8-encoding" class="nav-link" data-scroll-target="#saving-your-files-with-utf-8-encoding"><span class="header-section-number">5.4.5</span> Saving your files with UTF-8 encoding</a></li>
+  <li><a href="#duplicate-data-entry" id="toc-duplicate-data-entry" class="nav-link" data-scroll-target="#duplicate-data-entry"><span class="header-section-number">4.4.1</span> Duplicate data entry</a></li>
+  <li><a href="#inconsistent-data-entry" id="toc-inconsistent-data-entry" class="nav-link" data-scroll-target="#inconsistent-data-entry"><span class="header-section-number">4.4.2</span> Inconsistent data entry</a></li>
+  <li><a href="#character-encoding" id="toc-character-encoding" class="nav-link" data-scroll-target="#character-encoding"><span class="header-section-number">4.4.3</span> Character encoding</a></li>
+  <li><a href="#reading-in-files-with-encoding-problems" id="toc-reading-in-files-with-encoding-problems" class="nav-link" data-scroll-target="#reading-in-files-with-encoding-problems"><span class="header-section-number">4.4.4</span> Reading in files with encoding problems</a></li>
+  <li><a href="#saving-your-files-with-utf-8-encoding" id="toc-saving-your-files-with-utf-8-encoding" class="nav-link" data-scroll-target="#saving-your-files-with-utf-8-encoding"><span class="header-section-number">4.4.5</span> Saving your files with UTF-8 encoding</a></li>
   </ul></li>
-  <li><a href="#scaling-and-normalization" id="toc-scaling-and-normalization" class="nav-link" data-scroll-target="#scaling-and-normalization"><span class="header-section-number">5.5</span> Scaling and normalization</a>
+  <li><a href="#scaling-and-normalization" id="toc-scaling-and-normalization" class="nav-link" data-scroll-target="#scaling-and-normalization"><span class="header-section-number">4.5</span> Scaling and normalization</a>
   <ul class="collapse">
-  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization"><span class="header-section-number">5.5.1</span> Standardization</a></li>
-  <li><a href="#scaling" id="toc-scaling" class="nav-link" data-scroll-target="#scaling"><span class="header-section-number">5.5.2</span> Scaling</a></li>
-  <li><a href="#logarithm-transform-and-binning" id="toc-logarithm-transform-and-binning" class="nav-link" data-scroll-target="#logarithm-transform-and-binning"><span class="header-section-number">5.5.3</span> Logarithm transform and binning</a></li>
-  <li><a href="#power-transfrom" id="toc-power-transfrom" class="nav-link" data-scroll-target="#power-transfrom"><span class="header-section-number">5.5.4</span> Power transfrom</a></li>
-  <li><a href="#quantile-transfrom" id="toc-quantile-transfrom" class="nav-link" data-scroll-target="#quantile-transfrom"><span class="header-section-number">5.5.5</span> Quantile transfrom</a></li>
+  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization"><span class="header-section-number">4.5.1</span> Standardization</a></li>
+  <li><a href="#scaling" id="toc-scaling" class="nav-link" data-scroll-target="#scaling"><span class="header-section-number">4.5.2</span> Scaling</a></li>
+  <li><a href="#logarithm-transform-and-binning" id="toc-logarithm-transform-and-binning" class="nav-link" data-scroll-target="#logarithm-transform-and-binning"><span class="header-section-number">4.5.3</span> Logarithm transform and binning</a></li>
+  <li><a href="#power-transfrom" id="toc-power-transfrom" class="nav-link" data-scroll-target="#power-transfrom"><span class="header-section-number">4.5.4</span> Power transfrom</a></li>
+  <li><a href="#quantile-transfrom" id="toc-quantile-transfrom" class="nav-link" data-scroll-target="#quantile-transfrom"><span class="header-section-number">4.5.5</span> Quantile transfrom</a></li>
   </ul></li>
-  <li><a href="#encoding" id="toc-encoding" class="nav-link" data-scroll-target="#encoding"><span class="header-section-number">5.6</span> Encoding</a>
+  <li><a href="#encoding" id="toc-encoding" class="nav-link" data-scroll-target="#encoding"><span class="header-section-number">4.6</span> Encoding</a>
   <ul class="collapse">
-  <li><a href="#one-hot-encoding" id="toc-one-hot-encoding" class="nav-link" data-scroll-target="#one-hot-encoding"><span class="header-section-number">5.6.1</span> One-hot encoding</a></li>
-  <li><a href="#ordinal-encoding" id="toc-ordinal-encoding" class="nav-link" data-scroll-target="#ordinal-encoding"><span class="header-section-number">5.6.2</span> Ordinal encoding</a></li>
-  <li><a href="#target-encoding" id="toc-target-encoding" class="nav-link" data-scroll-target="#target-encoding"><span class="header-section-number">5.6.3</span> Target encoding</a></li>
+  <li><a href="#one-hot-encoding" id="toc-one-hot-encoding" class="nav-link" data-scroll-target="#one-hot-encoding"><span class="header-section-number">4.6.1</span> One-hot encoding</a></li>
+  <li><a href="#ordinal-encoding" id="toc-ordinal-encoding" class="nav-link" data-scroll-target="#ordinal-encoding"><span class="header-section-number">4.6.2</span> Ordinal encoding</a></li>
+  <li><a href="#target-encoding" id="toc-target-encoding" class="nav-link" data-scroll-target="#target-encoding"><span class="header-section-number">4.6.3</span> Target encoding</a></li>
   </ul></li>
-  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering"><span class="header-section-number">5.7</span> Feature Engineering</a>
+  <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering"><span class="header-section-number">4.7</span> Feature Engineering</a>
   <ul class="collapse">
-  <li><a href="#mathematical-transforms" id="toc-mathematical-transforms" class="nav-link" data-scroll-target="#mathematical-transforms"><span class="header-section-number">5.7.1</span> Mathematical Transforms</a></li>
-  <li><a href="#counts" id="toc-counts" class="nav-link" data-scroll-target="#counts"><span class="header-section-number">5.7.2</span> Counts</a></li>
-  <li><a href="#group-transforms" id="toc-group-transforms" class="nav-link" data-scroll-target="#group-transforms"><span class="header-section-number">5.7.3</span> Group Transforms</a></li>
+  <li><a href="#mathematical-transforms" id="toc-mathematical-transforms" class="nav-link" data-scroll-target="#mathematical-transforms"><span class="header-section-number">4.7.1</span> Mathematical Transforms</a></li>
+  <li><a href="#counts" id="toc-counts" class="nav-link" data-scroll-target="#counts"><span class="header-section-number">4.7.2</span> Counts</a></li>
+  <li><a href="#group-transforms" id="toc-group-transforms" class="nav-link" data-scroll-target="#group-transforms"><span class="header-section-number">4.7.3</span> Group Transforms</a></li>
   </ul></li>
-  <li><a href="#data-centric-ai-with-cleanlab" id="toc-data-centric-ai-with-cleanlab" class="nav-link" data-scroll-target="#data-centric-ai-with-cleanlab"><span class="header-section-number">5.8</span> Data-centric AI with CleanLab</a>
+  <li><a href="#data-centric-ai-with-cleanlab" id="toc-data-centric-ai-with-cleanlab" class="nav-link" data-scroll-target="#data-centric-ai-with-cleanlab"><span class="header-section-number">4.8</span> Data-centric AI with CleanLab</a>
   <ul class="collapse">
-  <li><a href="#use-cleanlearning-for-everything" id="toc-use-cleanlearning-for-everything" class="nav-link" data-scroll-target="#use-cleanlearning-for-everything"><span class="header-section-number">5.8.1</span> Use <code>CleanLearning()</code> for everything</a></li>
-  <li><a href="#use-cleanlearning-to-find_label_issues-in-one-line-of-code" id="toc-use-cleanlearning-to-find_label_issues-in-one-line-of-code" class="nav-link" data-scroll-target="#use-cleanlearning-to-find_label_issues-in-one-line-of-code"><span class="header-section-number">5.8.2</span> Use <code>CleanLearning()</code> to <code>find_label_issues()</code> in one line of code</a></li>
-  <li><a href="#use-cleanlab-to-find-dataset-level-and-class-level-issues" id="toc-use-cleanlab-to-find-dataset-level-and-class-level-issues" class="nav-link" data-scroll-target="#use-cleanlab-to-find-dataset-level-and-class-level-issues"><span class="header-section-number">5.8.3</span> Use <code>cleanlab</code> to find dataset-level and class-level issues</a></li>
-  <li><a href="#clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels" id="toc-clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels" class="nav-link" data-scroll-target="#clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels"><span class="header-section-number">5.8.4</span> Clean your test set too if you’re doing ML with noisy labels!</a></li>
-  <li><a href="#one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score" id="toc-one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score" class="nav-link" data-scroll-target="#one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score"><span class="header-section-number">5.8.5</span> One score to rule them all – use cleanlab’s overall dataset health score</a></li>
+  <li><a href="#use-cleanlearning-for-everything" id="toc-use-cleanlearning-for-everything" class="nav-link" data-scroll-target="#use-cleanlearning-for-everything"><span class="header-section-number">4.8.1</span> Use <code>CleanLearning()</code> for everything</a></li>
+  <li><a href="#use-cleanlearning-to-find_label_issues-in-one-line-of-code" id="toc-use-cleanlearning-to-find_label_issues-in-one-line-of-code" class="nav-link" data-scroll-target="#use-cleanlearning-to-find_label_issues-in-one-line-of-code"><span class="header-section-number">4.8.2</span> Use <code>CleanLearning()</code> to <code>find_label_issues()</code> in one line of code</a></li>
+  <li><a href="#use-cleanlab-to-find-dataset-level-and-class-level-issues" id="toc-use-cleanlab-to-find-dataset-level-and-class-level-issues" class="nav-link" data-scroll-target="#use-cleanlab-to-find-dataset-level-and-class-level-issues"><span class="header-section-number">4.8.3</span> Use <code>cleanlab</code> to find dataset-level and class-level issues</a></li>
+  <li><a href="#clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels" id="toc-clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels" class="nav-link" data-scroll-target="#clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels"><span class="header-section-number">4.8.4</span> Clean your test set too if you’re doing ML with noisy labels!</a></li>
+  <li><a href="#one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score" id="toc-one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score" class="nav-link" data-scroll-target="#one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score"><span class="header-section-number">4.8.5</span> One score to rule them all – use cleanlab’s overall dataset health score</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></h1>
 </div>
 
 
@@ -317,8 +317,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </tr></tbody></table>
 <p><br></p>
-<section id="setup" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.1</span> Setup</h2>
+<section id="setup" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">4.1</span> Setup</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install fancyimpute <span class="op">-</span>q</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install thefuzz <span class="op">-</span>q</span>
@@ -462,15 +462,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-88"><a href="#cb3-88"></a>    _ <span class="op">=</span> plt.title(title, fontsize<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exploratory-data-analysis" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">5.2</span> Exploratory Data Analysis</h2>
+<section id="exploratory-data-analysis" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">4.2</span> Exploratory Data Analysis</h2>
 <p>You can checkout some of useful EDA tools <a href="https://github.com/ydataai/ydata-profiling">pandas-profiling</a>, <a href="https://github.com/sfu-db/dataprep">dataprep</a>, <a href="https://github.com/lux-org/lux">lux</a> or <a href="https://github.com/man-group/dtale">dtale</a></p>
 </section>
-<section id="handling-missing-value" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="handling-missing-value"><span class="header-section-number">5.3</span> Handling missing value</h2>
+<section id="handling-missing-value" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="handling-missing-value"><span class="header-section-number">4.3</span> Handling missing value</h2>
 <p>In this section, you’ll learn why you’ve run into the data cleaning problems and, more importantly, how to fix them! Specifically, you’ll learn how to tackle some of the most common data cleaning problems so you can get to actually analyzing your data faster.</p>
-<section id="take-a-first-look-at-the-data" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="take-a-first-look-at-the-data"><span class="header-section-number">5.3.1</span> Take a first look at the data</h3>
+<section id="take-a-first-look-at-the-data" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="take-a-first-look-at-the-data"><span class="header-section-number">4.3.1</span> Take a first look at the data</h3>
 <p>For demonstration, we’ll use a dataset of events that occured in American Football games. You’ll apply your new skills to a dataset of building permits issued in San Francisco. The dataset that we will use was made available by Kaggle. You can download the original dataset from https://www.kaggle.com/datasets/maxhorowitz/nflplaybyplay2009to2016.</p>
 <p>But you can also use Kaggle API. First, you need to create a Kaggle API key and download it to your local machine. Just navigate to the Kaggle website in a web browser, log in, and go to the My Account page. In your account settings, you’ll find an API section. Clicking the Create New API Token button will generate a kaggle.json key file and will download it to your machine.</p>
 <p align="center">
@@ -516,8 +516,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="how-many-missing-data-points-do-we-have" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="how-many-missing-data-points-do-we-have"><span class="header-section-number">5.3.2</span> How many missing data points do we have?</h3>
+<section id="how-many-missing-data-points-do-we-have" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="how-many-missing-data-points-do-we-have"><span class="header-section-number">4.3.2</span> How many missing data points do we have?</h3>
 <p>Ok, now we know that we do have some missing values. Let’s see how many we have in each column.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:722,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678005413,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3f95f721-c2c5-4734-b129-c04bbc44b1e6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># get the number of missing data points per column</span></span>
@@ -556,8 +556,8 @@ dtype: int64</code></pre>
 <p>On the other hand, there are other fields, like <code>PenalizedTeam</code> that also have lot of missing fields. In this case, though, the field is missing because if there was no penalty then it doesn’t make sense to say <em>which</em> team was penalized. For this column, it would make more sense to either leave it empty or to add a third value like “neither” and use that to replace the NA’s.</p>
 <p>We’ll cover some “quick and dirty” techniques that can help you with missing values but will probably also end up removing some useful information or adding some noise to your data.</p>
 </section>
-<section id="drop-missing-values" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="drop-missing-values"><span class="header-section-number">5.3.3</span> Drop missing values</h3>
+<section id="drop-missing-values" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="drop-missing-values"><span class="header-section-number">4.3.3</span> Drop missing values</h3>
 <p>If you’re sure you want to drop rows with missing values, pandas does have a handy function, <code>dropna()</code> to help you do this. Let’s try it out on our NFL dataset!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:998,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678158064,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e2667ff6-98b9-49b2-d54c-aa172f21dbb4">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># remove all the rows that contain a missing value results in empty dataset</span></span>
@@ -1167,8 +1167,8 @@ Columns with na's dropped: 41</code></pre>
 </div>
 <p>Here, the first and last row have been dropped, because they contain only two non-null values.</p>
 </section>
-<section id="filling-in-missing-values-automatically" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="filling-in-missing-values-automatically"><span class="header-section-number">5.3.4</span> Filling in missing values automatically</h3>
+<section id="filling-in-missing-values-automatically" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="filling-in-missing-values-automatically"><span class="header-section-number">4.3.4</span> Filling in missing values automatically</h3>
 <p>Depending on your dataset, it can sometimes make more sense to fill null values with valid ones rather than drop them. Pandas provides <code>fillna()</code>, which returns a copy of the <code>Series</code> or <code>DataFrame</code> with the missing values replaced with one of your choosing.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:276,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678273121,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7e98572f-d512-4738-b784-edd8b83cad05">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># You can fill all of the null entries with a single value, such as -9999:</span></span>
@@ -1539,10 +1539,10 @@ Columns with na's dropped: 41</code></pre>
 </div>
 <p>Notice that when a previous/next value is not available for forward/backward-filling, the null value remains.</p>
 </section>
-<section id="imputation-of-missing-value" class="level3" data-number="5.3.5">
-<h3 data-number="5.3.5" class="anchored" data-anchor-id="imputation-of-missing-value"><span class="header-section-number">5.3.5</span> Imputation of missing value</h3>
-<section id="univariate-feature-imputation" class="level4" data-number="5.3.5.1">
-<h4 data-number="5.3.5.1" class="anchored" data-anchor-id="univariate-feature-imputation"><span class="header-section-number">5.3.5.1</span> Univariate feature imputation</h4>
+<section id="imputation-of-missing-value" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="imputation-of-missing-value"><span class="header-section-number">4.3.5</span> Imputation of missing value</h3>
+<section id="univariate-feature-imputation" class="level4" data-number="4.3.5.1">
+<h4 data-number="4.3.5.1" class="anchored" data-anchor-id="univariate-feature-imputation"><span class="header-section-number">4.3.5.1</span> Univariate feature imputation</h4>
 <p>The <code>SimpleImputer</code> class provides basic strategies for imputing missing values. Missing values can be imputed with a provided constant value, or using the statistics (mean, median or most frequent) of each column in which the missing values are located. This class also allows for different missing values encodings.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678346080,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="88b94f7a-d6cd-4420-fed1-224ff549da6a">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df2 <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>], [np.nan, <span class="dv">3</span>], [<span class="dv">7</span>, <span class="dv">6</span>]])</span>
@@ -1803,8 +1803,8 @@ Columns with na's dropped: 41</code></pre>
 </div>
 </div>
 </section>
-<section id="multivariate-feature-imputation" class="level4" data-number="5.3.5.2">
-<h4 data-number="5.3.5.2" class="anchored" data-anchor-id="multivariate-feature-imputation"><span class="header-section-number">5.3.5.2</span> Multivariate feature imputation</h4>
+<section id="multivariate-feature-imputation" class="level4" data-number="4.3.5.2">
+<h4 data-number="4.3.5.2" class="anchored" data-anchor-id="multivariate-feature-imputation"><span class="header-section-number">4.3.5.2</span> Multivariate feature imputation</h4>
 <p>A more sophisticated approach is to use the <code>IterativeImputer</code> class, which models each feature with missing values as a function of other features, and uses that estimate for imputation.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:266,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678452550,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5110a165-bca6-40eb-a1fe-7689ba032aaa">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>imp <span class="op">=</span> IterativeImputer(max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
@@ -1913,10 +1913,10 @@ Columns with na's dropped: 41</code></pre>
 </section>
 </section>
 </section>
-<section id="other-data-cleaning-problem" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="other-data-cleaning-problem"><span class="header-section-number">5.4</span> Other data cleaning problem</h2>
-<section id="duplicate-data-entry" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="duplicate-data-entry"><span class="header-section-number">5.4.1</span> Duplicate data entry</h3>
+<section id="other-data-cleaning-problem" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="other-data-cleaning-problem"><span class="header-section-number">4.4</span> Other data cleaning problem</h2>
+<section id="duplicate-data-entry" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="duplicate-data-entry"><span class="header-section-number">4.4.1</span> Duplicate data entry</h3>
 <p>In addition to missing data, you will often encounter duplicated data in real-world datasets. Fortunately, <code>pandas</code> provides an easy means of detecting and removing duplicate entries.</p>
 <p>You can easily spot duplicate values using the <code>duplicated()</code> method in <code>pandas</code>, which returns a Boolean mask indicating whether an entry in a DataFrame is a duplicate of an earlier one. Let’s create another example <code>DataFrame</code> to see this in action.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:286,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678642594,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="48db6e0c-02eb-41c9-84b3-c965c67b9b8a">
@@ -2279,8 +2279,8 @@ dtype: bool</code></pre>
 </div>
 </div>
 </section>
-<section id="inconsistent-data-entry" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="inconsistent-data-entry"><span class="header-section-number">5.4.2</span> Inconsistent data entry</h3>
+<section id="inconsistent-data-entry" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="inconsistent-data-entry"><span class="header-section-number">4.4.2</span> Inconsistent data entry</h3>
 <p>We will use the dataset that is modified from https://www.kaggle.com/datasets/zusmani/pakistanintellectualcapitalcs.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1201,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678704614,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a4581b7b-9985-46f6-c5e4-7d8e535b0b82">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d alexisbcook<span class="op">/</span>pakistan<span class="op">-</span>intellectual<span class="op">-</span>capital</span>
@@ -2512,8 +2512,8 @@ dtype: bool</code></pre>
 <span id="cb51-4"><a href="#cb51-4"></a>professors[<span class="st">'Country'</span>] <span class="op">=</span> professors[<span class="st">'Country'</span>].<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that <code>.str()</code> provide vectorized method for columns. See https://realpython.com/python-data-cleaning-numpy-pandas/#tidying-up-fields-in-the-data for more details.</p>
-<section id="use-fuzzy-matching-to-correct-inconsistent-data-entry" class="level4" data-number="5.4.2.1">
-<h4 data-number="5.4.2.1" class="anchored" data-anchor-id="use-fuzzy-matching-to-correct-inconsistent-data-entry"><span class="header-section-number">5.4.2.1</span> Use fuzzy matching to correct inconsistent data entry</h4>
+<section id="use-fuzzy-matching-to-correct-inconsistent-data-entry" class="level4" data-number="4.4.2.1">
+<h4 data-number="4.4.2.1" class="anchored" data-anchor-id="use-fuzzy-matching-to-correct-inconsistent-data-entry"><span class="header-section-number">4.4.2.1</span> Use fuzzy matching to correct inconsistent data entry</h4>
 <p>Alright, let’s take another look at the <code>Country</code> column and see if there’s any more data cleaning we need to do</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:372,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678826606,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f2c5fdba-0225-4273-e84c-943507c7eb1b">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># get all the unique values in the 'Country' column</span></span>
@@ -2606,8 +2606,8 @@ dtype: bool</code></pre>
 <p>Now we only have “south korea” in our dataframe and we didn’t have to change anything by hand.</p>
 </section>
 </section>
-<section id="character-encoding" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="character-encoding"><span class="header-section-number">5.4.3</span> Character encoding</h3>
+<section id="character-encoding" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="character-encoding"><span class="header-section-number">4.4.3</span> Character encoding</h3>
 <p>There are two main data types you’ll encounter when working with text in Python 3. One is is the <code>string</code>, which is what text is by default.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:280,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678678954167,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a6e81e3d-9783-41a6-b99a-f80c5f18ea99">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># start with a string</span></span>
@@ -2656,8 +2656,8 @@ dtype: bool</code></pre>
 </div>
 <p><strong>The best time to convert non UTF-8 input into UTF-8 is when you read in files</strong>, which we’ll talk about next.</p>
 </section>
-<section id="reading-in-files-with-encoding-problems" class="level3" data-number="5.4.4">
-<h3 data-number="5.4.4" class="anchored" data-anchor-id="reading-in-files-with-encoding-problems"><span class="header-section-number">5.4.4</span> Reading in files with encoding problems</h3>
+<section id="reading-in-files-with-encoding-problems" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="reading-in-files-with-encoding-problems"><span class="header-section-number">4.4.4</span> Reading in files with encoding problems</h3>
 <p>Most files you’ll encounter will probably be encoded with UTF-8. This is what Python expects by default, so most of the time you won’t run into problems. However, sometimes you’ll get an error like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2739,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679026492,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e86a2aef-092b-4039-a363-5363f59ba4ac">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d kemical<span class="op">/</span>kickstarter<span class="op">-</span>projects</span>
@@ -2913,8 +2913,8 @@ dtype: bool</code></pre>
 <p>Yep, looks like <code>chardet</code> was right! The file reads in with no problem (although we do get a warning about datatypes) and when we look at the first few rows it seems to be fine.</p>
 <p>What if the encoding <code>chardet</code> guesses isn’t right? Since <code>chardet</code> is basically just a fancy guesser, sometimes it will guess the wrong encoding. <strong>One thing you can try is looking at more or less of the file and seeing if you get a different result and then try that.</strong></p>
 </section>
-<section id="saving-your-files-with-utf-8-encoding" class="level3" data-number="5.4.5">
-<h3 data-number="5.4.5" class="anchored" data-anchor-id="saving-your-files-with-utf-8-encoding"><span class="header-section-number">5.4.5</span> Saving your files with UTF-8 encoding</h3>
+<section id="saving-your-files-with-utf-8-encoding" class="level3" data-number="4.4.5">
+<h3 data-number="4.4.5" class="anchored" data-anchor-id="saving-your-files-with-utf-8-encoding"><span class="header-section-number">4.4.5</span> Saving your files with UTF-8 encoding</h3>
 <p>Finally, once you’ve gone through all the trouble of getting your file into UTF-8, you’ll probably want to keep it that way. The easiest way to do that is to save your files with UTF-8 encoding. The good news is, since UTF-8 is the standard encoding in Python, when you save a file it will be saved as UTF-8 by default:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># save our file (will be saved as UTF-8 by default!)</span></span>
@@ -3147,10 +3147,10 @@ dtype: bool</code></pre>
 </div>
 </section>
 </section>
-<section id="scaling-and-normalization" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="scaling-and-normalization"><span class="header-section-number">5.5</span> Scaling and normalization</h2>
-<section id="standardization" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="standardization"><span class="header-section-number">5.5.1</span> Standardization</h3>
+<section id="scaling-and-normalization" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="scaling-and-normalization"><span class="header-section-number">4.5</span> Scaling and normalization</h2>
+<section id="standardization" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="standardization"><span class="header-section-number">4.5.1</span> Standardization</h3>
 <p>By scaling your variables, you can help compare different variables on equal footing. The <a href="https://scikit-learn.org/stable/modules/preprocessing.html"><code>preprocessing</code></a> module provides the <code>StandardScaler</code> utility class, which is a quick and easy way to perform the following operation on an array-like dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Uncpmment below if you are using Kaggle</span></span>
@@ -3620,8 +3620,8 @@ dtype: float64</code></pre>
 </div>
 <p>Note that it is possible to disable either centering or scaling by either passing <code>with_mean=False</code> or <code>with_std=False</code> to the constructor of <code>StandardScaler</code>.</p>
 </section>
-<section id="scaling" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="scaling"><span class="header-section-number">5.5.2</span> Scaling</h3>
+<section id="scaling" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="scaling"><span class="header-section-number">4.5.2</span> Scaling</h3>
 <p>An alternative standardization is scaling features to lie between a given minimum and maximum value, often between zero and one.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:365,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679273263,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="31b351b0-8ee1-4f6b-f473-e9aa9c7bffc1">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span>
@@ -3828,8 +3828,8 @@ dtype: float64</code></pre>
 </div>
 <p>Note that you can scale to any range by specifying <code>feature_range=(min, max)</code>.</p>
 </section>
-<section id="logarithm-transform-and-binning" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="logarithm-transform-and-binning"><span class="header-section-number">5.5.3</span> Logarithm transform and binning</h3>
+<section id="logarithm-transform-and-binning" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="logarithm-transform-and-binning"><span class="header-section-number">4.5.3</span> Logarithm transform and binning</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>x <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">10.0</span>, <span class="fl">100.0</span>, <span class="fl">1000.0</span>, <span class="fl">10000.0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -3865,8 +3865,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="power-transfrom" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="power-transfrom"><span class="header-section-number">5.5.4</span> Power transfrom</h3>
+<section id="power-transfrom" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="power-transfrom"><span class="header-section-number">4.5.4</span> Power transfrom</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>train_x, test_x <span class="op">=</span> load_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -3932,8 +3932,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="quantile-transfrom" class="level3" data-number="5.5.5">
-<h3 data-number="5.5.5" class="anchored" data-anchor-id="quantile-transfrom"><span class="header-section-number">5.5.5</span> Quantile transfrom</h3>
+<section id="quantile-transfrom" class="level3" data-number="4.5.5">
+<h3 data-number="4.5.5" class="anchored" data-anchor-id="quantile-transfrom"><span class="header-section-number">4.5.5</span> Quantile transfrom</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:284,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679414070,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d9d9eb05-70b6-417e-8660-eb1057278d9c">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>transformer <span class="op">=</span> QuantileTransformer(n_quantiles<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">0</span>, output_distribution<span class="op">=</span><span class="st">'normal'</span>)</span>
 <span id="cb117-2"><a href="#cb117-2"></a>transformer.fit(train_x[num_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3961,10 +3961,10 @@ dtype: float64</code></pre>
 </div>
 </section>
 </section>
-<section id="encoding" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="encoding"><span class="header-section-number">5.6</span> Encoding</h2>
-<section id="one-hot-encoding" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="one-hot-encoding"><span class="header-section-number">5.6.1</span> One-hot encoding</h3>
+<section id="encoding" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="encoding"><span class="header-section-number">4.6</span> Encoding</h2>
+<section id="one-hot-encoding" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="one-hot-encoding"><span class="header-section-number">4.6.1</span> One-hot encoding</h3>
 <p>One possibility to convert categorical features to features that can be used with <code>scikit-learn</code> estimators is to use a one-of-K, also known as one-hot or dummy encoding. This type of encoding can be obtained with the <code>OneHotEncoder</code>, which transforms each categorical feature with <code>n_categories</code> possible values into <code>n_categories</code> binary features, with one of them 1, and all others 0.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>enc <span class="op">=</span> OneHotEncoder(drop<span class="op">=</span><span class="va">None</span>, handle_unknown<span class="op">=</span><span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4348,8 +4348,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="ordinal-encoding" class="level3" data-number="5.6.2">
-<h3 data-number="5.6.2" class="anchored" data-anchor-id="ordinal-encoding"><span class="header-section-number">5.6.2</span> Ordinal encoding</h3>
+<section id="ordinal-encoding" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="ordinal-encoding"><span class="header-section-number">4.6.2</span> Ordinal encoding</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>enc <span class="op">=</span> OrdinalEncoder(handle_unknown<span class="op">=</span><span class="st">'use_encoded_value'</span>, unknown_value<span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -4703,8 +4703,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="target-encoding" class="level3" data-number="5.6.3">
-<h3 data-number="5.6.3" class="anchored" data-anchor-id="target-encoding"><span class="header-section-number">5.6.3</span> Target encoding</h3>
+<section id="target-encoding" class="level3" data-number="4.6.3">
+<h3 data-number="4.6.3" class="anchored" data-anchor-id="target-encoding"><span class="header-section-number">4.6.3</span> Target encoding</h3>
 <p>The <a href="https://www.kaggle.com/datasets/odedgolden/movielens-1m-dataset"><em>MovieLens1M</em></a> dataset contains one-million movie ratings by users of the MovieLens website, with features describing each user and movie. This hidden cell sets everything up:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1262,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679596640,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="115450f9-68e4-4816-9d28-06519272c8ab">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d odedgolden<span class="op">/</span>movielens<span class="op">-</span><span class="dv">1</span><span class="er">m</span><span class="op">-</span>dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5002,8 +5002,8 @@ dtype: float64</code></pre>
 <p>If you would like to use KFold encoding, take a look at http://contrib.scikit-learn.org/category_encoders/wrapper.html#category_encoders.wrapper.NestedCVWrapper</p>
 </section>
 </section>
-<section id="feature-engineering" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="feature-engineering"><span class="header-section-number">5.7</span> Feature Engineering</h2>
+<section id="feature-engineering" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="feature-engineering"><span class="header-section-number">4.7</span> Feature Engineering</h2>
 <p>We’ll see how adding a few synthetic features to a dataset can improve the predictive performance of a random forest model.</p>
 <p>The <a href="https://www.kaggle.com/sinamhd9/concrete-comprehensive-strength"><em>Concrete</em></a> dataset contains a variety of concrete formulations and the resulting product’s <em>compressive strength</em>, which is a measure of how much load that kind of concrete can bear. The task for this dataset is to predict a concrete’s compressive strength given its formulation.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1329,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679703887,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ef2a37a5-3474-462e-c534-f57500839a42">
@@ -5236,8 +5236,8 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>And sure enough, performance improved! This is evidence that these new ratio features exposed important information to the model that it wasn’t detecting before.</p>
-<section id="mathematical-transforms" class="level3" data-number="5.7.1">
-<h3 data-number="5.7.1" class="anchored" data-anchor-id="mathematical-transforms"><span class="header-section-number">5.7.1</span> Mathematical Transforms</h3>
+<section id="mathematical-transforms" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="mathematical-transforms"><span class="header-section-number">4.7.1</span> Mathematical Transforms</h3>
 <p>We’ll use four datasets that having a range of feature types: <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents"><em>US Traffic Accidents</em></a>, <a href="https://www.kaggle.com/toramky/automobile-dataset"><em>1985 Automobiles</em></a>, and <a href="https://www.kaggle.com/pankajjsh06/ibm-watson-marketing-customer-value-data"><em>Customer Lifetime Value</em></a>. The following hidden cell loads them up.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:4160,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679742877,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="517cb519-519e-431c-9c8b-4f8bc423925f">
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1"></a><span class="op">!</span>kaggle datasets download <span class="op">-</span>d sobhanmoosavi<span class="op">/</span>us<span class="op">-</span>accidents</span>
@@ -5300,8 +5300,8 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <span id="cb158-7"><a href="#cb158-7"></a>sns.kdeplot(accidents.LogWindSpeed, shade<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axs[<span class="dv">1</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="counts" class="level3" data-number="5.7.2">
-<h3 data-number="5.7.2" class="anchored" data-anchor-id="counts"><span class="header-section-number">5.7.2</span> Counts</h3>
+<section id="counts" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="counts"><span class="header-section-number">4.7.2</span> Counts</h3>
 <p>Features describing the presence or absence of something often come in sets, the set of risk factors for a disease, say. You can aggregate such features by creating a <strong>count</strong>. These features will be <em>binary</em> (<code>1</code> for Present, <code>0</code> for Absent) or <em>boolean</em> (<code>True</code> or <code>False</code>). In Python, booleans can be added up just as if they were integers.</p>
 <p>In <em>Traffic Accidents</em> are several features indicating whether some roadway object was near the accident. This will create a count of the total number of roadway features nearby using the <code>sum()</code> method:</p>
 <div class="cell">
@@ -5313,8 +5313,8 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 <span id="cb159-6"><a href="#cb159-6"></a>accidents[roadway_features <span class="op">+</span> [<span class="st">"RoadwayFeatures"</span>]].head(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="group-transforms" class="level3" data-number="5.7.3">
-<h3 data-number="5.7.3" class="anchored" data-anchor-id="group-transforms"><span class="header-section-number">5.7.3</span> Group Transforms</h3>
+<section id="group-transforms" class="level3" data-number="4.7.3">
+<h3 data-number="4.7.3" class="anchored" data-anchor-id="group-transforms"><span class="header-section-number">4.7.3</span> Group Transforms</h3>
 <p>Finally we have <strong>Group transforms</strong>, which aggregate information across multiple rows grouped by some category. With a group transform you can create features like: “the average income of a person’s state of residence,” or “the proportion of movies released on a weekday, by genre.” If you had discovered a category interaction, a group transform over that categry could be something good to investigate.</p>
 <p>Using an aggregation function, a group transform combines two features: a categorical feature that provides the grouping and another feature whose values you wish to aggregate. For an “average income by state”, you would choose <code>State</code> for the grouping feature, <code>mean()</code> for the aggregation function, and <code>Income</code> for the aggregated feature. To compute this in Pandas, we use the <code>groupby()</code> and <code>transform()</code> methods:</p>
 <div class="cell">
@@ -5339,8 +5339,8 @@ Downloading ibm-watson-marketing-customer-value-data.zip to /content
 </div>
 </section>
 </section>
-<section id="data-centric-ai-with-cleanlab" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="data-centric-ai-with-cleanlab"><span class="header-section-number">5.8</span> Data-centric AI with CleanLab</h2>
+<section id="data-centric-ai-with-cleanlab" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="data-centric-ai-with-cleanlab"><span class="header-section-number">4.8</span> Data-centric AI with CleanLab</h2>
 <p><code>cleanlab</code> automatically finds and fixes errors in any ML dataset. This data-centric AI package facilitates machine learning with messy, real-world data by providing clean labels during training.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679765497,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6d719863-2044-4afa-c783-2466ff8f7cc4">
 <div class="sourceCode cell-code" id="cb162"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb162-1"><a href="#cb162-1"></a>data_dict <span class="op">=</span> make_data()</span>
@@ -5368,8 +5368,8 @@ class_names</code></pre>
 </div>
 </div>
 <p>The figure above represents a toy dataset we’ll use to demonstrate various <code>cleanlab</code> functionality. In this data, the features <code>X</code> are 2-dimensional and examples are colored according to their given label above. The given label happens to be incorrect for some of the examples (circled in red) in this dataset!</p>
-<section id="use-cleanlearning-for-everything" class="level3" data-number="5.8.1">
-<h3 data-number="5.8.1" class="anchored" data-anchor-id="use-cleanlearning-for-everything"><span class="header-section-number">5.8.1</span> Use <code>CleanLearning()</code> for everything</h3>
+<section id="use-cleanlearning-for-everything" class="level3" data-number="4.8.1">
+<h3 data-number="4.8.1" class="anchored" data-anchor-id="use-cleanlearning-for-everything"><span class="header-section-number">4.8.1</span> Use <code>CleanLearning()</code> for everything</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:301,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679814443,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2404d122-18dd-465b-8a82-d4a770156f21">
 <div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1"></a><span class="co"># For comparison, this is how you would have trained your model normally (without Cleanlab)</span></span>
 <span id="cb165-2"><a href="#cb165-2"></a>yourFavoriteModel <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span>SEED)</span>
@@ -5399,8 +5399,8 @@ class_names</code></pre>
 </div>
 <p>Note! Accuracy refers to the accuracy with respect to the true error-free labels of a test set., i.e.&nbsp;what we actually care about in practice because that’s what real-world model performance is based on!</p>
 </section>
-<section id="use-cleanlearning-to-find_label_issues-in-one-line-of-code" class="level3" data-number="5.8.2">
-<h3 data-number="5.8.2" class="anchored" data-anchor-id="use-cleanlearning-to-find_label_issues-in-one-line-of-code"><span class="header-section-number">5.8.2</span> Use <code>CleanLearning()</code> to <code>find_label_issues()</code> in one line of code</h3>
+<section id="use-cleanlearning-to-find_label_issues-in-one-line-of-code" class="level3" data-number="4.8.2">
+<h3 data-number="4.8.2" class="anchored" data-anchor-id="use-cleanlearning-to-find_label_issues-in-one-line-of-code"><span class="header-section-number">4.8.2</span> Use <code>CleanLearning()</code> to <code>find_label_issues()</code> in one line of code</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:784,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679861394,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a05cf3ba-979a-416d-90a0-2a841a5cc4fa">
 <div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb170-1"><a href="#cb170-1"></a><span class="co"># One line of code. Literally.</span></span>
 <span id="cb170-2"><a href="#cb170-2"></a>issues <span class="op">=</span> CleanLearning(yourFavoriteModel, seed<span class="op">=</span>SEED).find_label_issues(data, labels)</span>
@@ -5548,8 +5548,8 @@ class_names</code></pre>
 </div>
 <p>Above, the top 20 label issues circled in red are found automatically using <code>cleanlab</code> (no true labels given).</p>
 </section>
-<section id="use-cleanlab-to-find-dataset-level-and-class-level-issues" class="level3" data-number="5.8.3">
-<h3 data-number="5.8.3" class="anchored" data-anchor-id="use-cleanlab-to-find-dataset-level-and-class-level-issues"><span class="header-section-number">5.8.3</span> Use <code>cleanlab</code> to find dataset-level and class-level issues</h3>
+<section id="use-cleanlab-to-find-dataset-level-and-class-level-issues" class="level3" data-number="4.8.3">
+<h3 data-number="4.8.3" class="anchored" data-anchor-id="use-cleanlab-to-find-dataset-level-and-class-level-issues"><span class="header-section-number">4.8.3</span> Use <code>cleanlab</code> to find dataset-level and class-level issues</h3>
 <ul>
 <li>Did you notice that the yellow and seafoam green class above are overlapping?</li>
 <li>How can a model ever know (or learn) what’s ground truth inside the yellow distribution?</li>
@@ -5751,8 +5751,8 @@ class_names</code></pre>
 </div>
 <p>While on one hand that’s a huge improvement, it’s important to remember that choosing among three classes is an easier task than choosing among four classes, so it’s not fair to directly compare these numbers. Instead, the big takeaway is… if you get to choose your classes, combining overlapping classes can make the learning task easier for your model!</p>
 </section>
-<section id="clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels" class="level3" data-number="5.8.4">
-<h3 data-number="5.8.4" class="anchored" data-anchor-id="clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels"><span class="header-section-number">5.8.4</span> Clean your test set too if you’re doing ML with noisy labels!</h3>
+<section id="clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels" class="level3" data-number="4.8.4">
+<h3 data-number="4.8.4" class="anchored" data-anchor-id="clean-your-test-set-too-if-youre-doing-ml-with-noisy-labels"><span class="header-section-number">4.8.4</span> Clean your test set too if you’re doing ML with noisy labels!</h3>
 <p>If your test and training data were randomly split, then be aware that your test labels are likely noisy too! It is thus important to fix label issues in them before we can trust measures like test accuracy.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679946036,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="1a29f912-4252-4c97-90d5-225dcb3df21a">
 <div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb175-1"><a href="#cb175-1"></a><span class="co"># Fit your model on noisily labeled train data</span></span>
@@ -5921,8 +5921,8 @@ Actual Test Accuracy (on corrected test labels) using yourFavoriteModel (+ Clean
 </div>
 </div>
 </section>
-<section id="one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score" class="level3" data-number="5.8.5">
-<h3 data-number="5.8.5" class="anchored" data-anchor-id="one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score"><span class="header-section-number">5.8.5</span> One score to rule them all – use cleanlab’s overall dataset health score</h3>
+<section id="one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score" class="level3" data-number="4.8.5">
+<h3 data-number="4.8.5" class="anchored" data-anchor-id="one-score-to-rule-them-all-use-cleanlabs-overall-dataset-health-score"><span class="header-section-number">4.8.5</span> One score to rule them all – use cleanlab’s overall dataset health score</h3>
 <p>This score can be fairly compared across datasets or across versions of a dataset to track overall dataset quality (a.k.a. dataset health) over time.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:275,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678679959732,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d61ad4db-414f-422d-826e-b7e085e1d61d">
 <div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1"></a><span class="co"># One line of code.</span></span>
@@ -6254,8 +6254,8 @@ Generated with &lt;3 from Cleanlab.
 <p>For more details, see <a href="https://docs.cleanlab.ai/stable/tutorials/indepth_overview.html#">https://docs.cleanlab.ai/stable/tutorials/indepth_overview.html#</a></p>
 </section>
 </section>
-<section id="references" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<section id="references" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
 <ol type="1">
 <li><a href="https://www.kaggle.com/learn/feature-engineering">https://www.kaggle.com/learn/feature-engineering</a></li>
 <li><a href="https://www.kaggle.com/learn/data-cleaning">https://www.kaggle.com/learn/data-cleaning</a></li>
@@ -6557,12 +6557,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./03_Relational_Database_and_data_wrangling.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05_Feature_selection_extraction.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

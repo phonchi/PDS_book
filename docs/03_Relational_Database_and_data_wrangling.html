@@ -9,7 +9,7 @@
 <meta name="author" content="phonchi">
 <meta name="dcterms.date" content="2023-03-06">
 
-<title>Practical and Innovative Analytics in Data Science - 4&nbsp; Relational Database and data wrangling</title>
+<title>Practical and Innovative Analytics in Data Science - 3&nbsp; Relational Database and data wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_Relational_Database_and_data_wrangling.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_Relational_Database_and_data_wrangling.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,49 +140,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_end_to_end_machine_learning_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_Dataset.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_Relational_Database_and_data_wrangling.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_Clean_feature_engineering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_Feature_selection_extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_XAI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_Deploy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -224,29 +224,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#queringing-data-with-bigquery" id="toc-queringing-data-with-bigquery" class="nav-link active" data-scroll-target="#queringing-data-with-bigquery"><span class="header-section-number">4.1</span> Queringing data with BigQuery</a>
+  <li><a href="#queringing-data-with-bigquery" id="toc-queringing-data-with-bigquery" class="nav-link active" data-scroll-target="#queringing-data-with-bigquery"><span class="header-section-number">3.1</span> Queringing data with BigQuery</a>
   <ul class="collapse">
-  <li><a href="#preliminaries-for-google-colab-optional" id="toc-preliminaries-for-google-colab-optional" class="nav-link" data-scroll-target="#preliminaries-for-google-colab-optional"><span class="header-section-number">4.1.1</span> Preliminaries for google colab (optional)</a></li>
-  <li><a href="#create-the-reference" id="toc-create-the-reference" class="nav-link" data-scroll-target="#create-the-reference"><span class="header-section-number">4.1.2</span> Create the reference</a></li>
-  <li><a href="#table-schema" id="toc-table-schema" class="nav-link" data-scroll-target="#table-schema"><span class="header-section-number">4.1.3</span> Table schema</a></li>
-  <li><a href="#select-from-where" id="toc-select-from-where" class="nav-link" data-scroll-target="#select-from-where"><span class="header-section-number">4.1.4</span> Select, From &amp; Where</a></li>
-  <li><a href="#querying-big-dataset" id="toc-querying-big-dataset" class="nav-link" data-scroll-target="#querying-big-dataset"><span class="header-section-number">4.1.5</span> Querying big dataset</a></li>
-  <li><a href="#group-by-having-count" id="toc-group-by-having-count" class="nav-link" data-scroll-target="#group-by-having-count"><span class="header-section-number">4.1.6</span> Group By, Having &amp; Count</a></li>
-  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="header-section-number">4.1.7</span> Order By</a></li>
-  <li><a href="#as-and-with" id="toc-as-and-with" class="nav-link" data-scroll-target="#as-and-with"><span class="header-section-number">4.1.8</span> As and With</a></li>
-  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">4.1.9</span> Joining data</a></li>
-  <li><a href="#nested-and-repeated-data" id="toc-nested-and-repeated-data" class="nav-link" data-scroll-target="#nested-and-repeated-data"><span class="header-section-number">4.1.10</span> Nested and Repeated data</a></li>
-  <li><a href="#analytic-function-optional" id="toc-analytic-function-optional" class="nav-link" data-scroll-target="#analytic-function-optional"><span class="header-section-number">4.1.11</span> Analytic Function (Optional)</a></li>
+  <li><a href="#preliminaries-for-google-colab-optional" id="toc-preliminaries-for-google-colab-optional" class="nav-link" data-scroll-target="#preliminaries-for-google-colab-optional"><span class="header-section-number">3.1.1</span> Preliminaries for google colab (optional)</a></li>
+  <li><a href="#create-the-reference" id="toc-create-the-reference" class="nav-link" data-scroll-target="#create-the-reference"><span class="header-section-number">3.1.2</span> Create the reference</a></li>
+  <li><a href="#table-schema" id="toc-table-schema" class="nav-link" data-scroll-target="#table-schema"><span class="header-section-number">3.1.3</span> Table schema</a></li>
+  <li><a href="#select-from-where" id="toc-select-from-where" class="nav-link" data-scroll-target="#select-from-where"><span class="header-section-number">3.1.4</span> Select, From &amp; Where</a></li>
+  <li><a href="#querying-big-dataset" id="toc-querying-big-dataset" class="nav-link" data-scroll-target="#querying-big-dataset"><span class="header-section-number">3.1.5</span> Querying big dataset</a></li>
+  <li><a href="#group-by-having-count" id="toc-group-by-having-count" class="nav-link" data-scroll-target="#group-by-having-count"><span class="header-section-number">3.1.6</span> Group By, Having &amp; Count</a></li>
+  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="header-section-number">3.1.7</span> Order By</a></li>
+  <li><a href="#as-and-with" id="toc-as-and-with" class="nav-link" data-scroll-target="#as-and-with"><span class="header-section-number">3.1.8</span> As and With</a></li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">3.1.9</span> Joining data</a></li>
+  <li><a href="#nested-and-repeated-data" id="toc-nested-and-repeated-data" class="nav-link" data-scroll-target="#nested-and-repeated-data"><span class="header-section-number">3.1.10</span> Nested and Repeated data</a></li>
+  <li><a href="#analytic-function-optional" id="toc-analytic-function-optional" class="nav-link" data-scroll-target="#analytic-function-optional"><span class="header-section-number">3.1.11</span> Analytic Function (Optional)</a></li>
   </ul></li>
-  <li><a href="#data-wrangling-with-pandas" id="toc-data-wrangling-with-pandas" class="nav-link" data-scroll-target="#data-wrangling-with-pandas"><span class="header-section-number">4.2</span> Data Wrangling with Pandas</a>
+  <li><a href="#data-wrangling-with-pandas" id="toc-data-wrangling-with-pandas" class="nav-link" data-scroll-target="#data-wrangling-with-pandas"><span class="header-section-number">3.2</span> Data Wrangling with Pandas</a>
   <ul class="collapse">
-  <li><a href="#series-objects" id="toc-series-objects" class="nav-link" data-scroll-target="#series-objects"><span class="header-section-number">4.2.1</span> <code>Series</code> objects</a></li>
-  <li><a href="#handling-time" id="toc-handling-time" class="nav-link" data-scroll-target="#handling-time"><span class="header-section-number">4.2.2</span> Handling time</a></li>
-  <li><a href="#periods" id="toc-periods" class="nav-link" data-scroll-target="#periods"><span class="header-section-number">4.2.3</span> Periods</a></li>
-  <li><a href="#dataframe-objects" id="toc-dataframe-objects" class="nav-link" data-scroll-target="#dataframe-objects"><span class="header-section-number">4.2.4</span> <code>DataFrame</code> objects</a></li>
+  <li><a href="#series-objects" id="toc-series-objects" class="nav-link" data-scroll-target="#series-objects"><span class="header-section-number">3.2.1</span> <code>Series</code> objects</a></li>
+  <li><a href="#handling-time" id="toc-handling-time" class="nav-link" data-scroll-target="#handling-time"><span class="header-section-number">3.2.2</span> Handling time</a></li>
+  <li><a href="#periods" id="toc-periods" class="nav-link" data-scroll-target="#periods"><span class="header-section-number">3.2.3</span> Periods</a></li>
+  <li><a href="#dataframe-objects" id="toc-dataframe-objects" class="nav-link" data-scroll-target="#dataframe-objects"><span class="header-section-number">3.2.4</span> <code>DataFrame</code> objects</a></li>
   </ul></li>
-  <li><a href="#what-next" id="toc-what-next" class="nav-link" data-scroll-target="#what-next"><span class="header-section-number">4.3</span> What next?</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4.4</span> References</a></li>
+  <li><a href="#what-next" id="toc-what-next" class="nav-link" data-scroll-target="#what-next"><span class="header-section-number">3.3</span> What next?</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.4</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></h1>
 </div>
 
 
@@ -293,8 +293,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </tr></tbody></table>
 <p><br></p>
-<section id="queringing-data-with-bigquery" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="queringing-data-with-bigquery"><span class="header-section-number">4.1</span> Queringing data with BigQuery</h2>
+<section id="queringing-data-with-bigquery" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="queringing-data-with-bigquery"><span class="header-section-number">3.1</span> Queringing data with BigQuery</h2>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2022-04-23T03:33:52.948724Z&quot;,&quot;iopub.status.busy&quot;:&quot;2022-04-23T03:33:52.948105Z&quot;,&quot;iopub.status.idle&quot;:&quot;2022-04-23T03:33:52.976140Z&quot;,&quot;shell.execute_reply&quot;:&quot;2022-04-23T03:33:52.975047Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2022-04-23T03:33:52.948606Z&quot;}" data-executioninfo="{&quot;elapsed&quot;:270,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678073540159,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-trusted="true" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># For SQL</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> google.cloud <span class="im">import</span> bigquery</span>
@@ -307,8 +307,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Structured Query Language, or SQL, is the programming language used with databases, and it is an important skill for any data scientist. In this example, you’ll build your SQL skills using BigQuery, a web service work as database management system that lets you apply SQL to huge datasets.</p>
-<section id="preliminaries-for-google-colab-optional" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="preliminaries-for-google-colab-optional"><span class="header-section-number">4.1.1</span> Preliminaries for google colab (optional)</h3>
+<section id="preliminaries-for-google-colab-optional" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="preliminaries-for-google-colab-optional"><span class="header-section-number">3.1.1</span> Preliminaries for google colab (optional)</h3>
 <p>We want to start exploring the Google BiqQuery <a href="https://cloud.google.com/bigquery/public-data/">public datasets</a>. Let’s start by walking through the required setup steps, and then we can load and explore some data.</p>
 <p>If you are using colab. Follow <a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries">this quickstart guide</a>, which will explain how to: 1. Create a <a href="https://console.cloud.google.com/cloud-resource-manager">Cloud Platform project</a> if you don’t have one already. 2. <a href="https://support.google.com/cloud/answer/6293499#enable-billing">Enable billing</a> for the project (If you apply the free trial, you already satisfy this condition.) 3. <a href="https://console.cloud.google.com/flows/enableapi?apiid=bigquery">Enable the BigQuery API</a> 4. <a href="https://cloud.google.com/docs/authentication/getting-started">Enabling the Service account</a></p>
 <p>Now we need to authenticate to gain access to the BigQuery API. We will create a client, specifying the service account key file (replace ‘lunar-pact-378812-7a28b789bde2.json’ with your key file).</p>
@@ -345,8 +345,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>client <span class="op">=</span> bigquery.Client(credentials<span class="op">=</span>credentials, project<span class="op">=</span>credentials.project_id,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="create-the-reference" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="create-the-reference"><span class="header-section-number">4.1.2</span> Create the reference</h3>
+<section id="create-the-reference" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="create-the-reference"><span class="header-section-number">3.1.2</span> Create the reference</h3>
 <p>You can also work with Kaggle, which provide bigquery integration that you do not need to setup a google account. <strong>Each Kaggle user can scan 5TB every 30 days for free. Once you hit that limit, you’ll have to wait for it to reset.</strong> See https://www.kaggle.com/product-feedback/48573 for more details.</p>
 <p>The first step in the workflow is to create a <a href="https://cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client"><code>Client</code></a> object. As you’ll soon see, this <code>Client</code> object will play a central role in retrieving information from BigQuery datasets.</p>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2022-04-23T03:34:20.953969Z&quot;,&quot;iopub.status.busy&quot;:&quot;2022-04-23T03:34:20.953692Z&quot;,&quot;iopub.status.idle&quot;:&quot;2022-04-23T03:34:20.959198Z&quot;,&quot;shell.execute_reply&quot;:&quot;2022-04-23T03:34:20.958252Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2022-04-23T03:34:20.953941Z&quot;}" data-trusted="true">
@@ -394,8 +394,8 @@ stories</code></pre>
 </figure>
 </div>
 </section>
-<section id="table-schema" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="table-schema"><span class="header-section-number">4.1.3</span> Table schema</h3>
+<section id="table-schema" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="table-schema"><span class="header-section-number">3.1.3</span> Table schema</h3>
 <p>The structure of a table is called its <strong>schema</strong>. <strong>We need to understand a table’s schema to effectively pull out the data we want.</strong></p>
 <p>In this example, we’ll investigate the <code>full</code> table that we fetched above.</p>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2022-04-23T03:34:27.440936Z&quot;,&quot;iopub.status.busy&quot;:&quot;2022-04-23T03:34:27.440643Z&quot;,&quot;iopub.status.idle&quot;:&quot;2022-04-23T03:34:27.448446Z&quot;,&quot;shell.execute_reply&quot;:&quot;2022-04-23T03:34:27.447878Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2022-04-23T03:34:27.440908Z&quot;}" data-executioninfo="{&quot;elapsed&quot;:355,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1678074144789,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="04ef9a21-91e7-4fc2-f75a-f31030bd5bd1" data-trusted="true" data-execution_count="7">
@@ -745,8 +745,8 @@ stories</code></pre>
 </div>
 </div>
 </section>
-<section id="select-from-where" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="select-from-where"><span class="header-section-number">4.1.4</span> Select, From &amp; Where</h3>
+<section id="select-from-where" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="select-from-where"><span class="header-section-number">3.1.4</span> Select, From &amp; Where</h3>
 <p>Now that you know how to access and examine a dataset, you’re ready to write your first SQL query! As you’ll soon see, <strong>SQL queries will help you sort through a massive dataset, to retrieve only the information that you need.</strong> We’ll begin by using the keywords <strong>SELECT</strong>, <strong>FROM</strong>, and <strong>WHERE</strong> to get data from specific columns based on conditions you specify.</p>
 <p>We’ll use an <a href="https://openaq.org">OpenAQ</a> dataset about air quality. First, we’ll set up everything we need to run queries and take a quick peek at what tables are in our database.</p>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2022-04-23T03:34:34.103476Z&quot;,&quot;iopub.status.busy&quot;:&quot;2022-04-23T03:34:34.103065Z&quot;,&quot;iopub.status.idle&quot;:&quot;2022-04-23T03:34:34.569656Z&quot;,&quot;shell.execute_reply&quot;:&quot;2022-04-23T03:34:34.568998Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2022-04-23T03:34:34.103437Z&quot;}" data-executioninfo="{&quot;elapsed&quot;:751,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677904760800,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="277fe2a4-ba82-47f9-e020-307c5072e1dd" data-trusted="true">
@@ -1006,8 +1006,8 @@ Name: city, dtype: int64</code></pre>
 <span id="cb23-5"><a href="#cb23-5"></a><span class="st">        """</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="querying-big-dataset" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="querying-big-dataset"><span class="header-section-number">4.1.5</span> Querying big dataset</h3>
+<section id="querying-big-dataset" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="querying-big-dataset"><span class="header-section-number">3.1.5</span> Querying big dataset</h3>
 <p>You can estimate the size of any query before running it. Here is an example using the Hacker News dataset. To see how much data a query will scan, we create a <a href="https://cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.job.QueryJobConfig"><code>QueryJobConfig</code></a> object and set the <code>dry_run</code> parameter to <code>True</code>.</p>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2022-04-23T03:43:43.637619Z&quot;,&quot;iopub.status.busy&quot;:&quot;2022-04-23T03:43:43.636879Z&quot;,&quot;iopub.status.idle&quot;:&quot;2022-04-23T03:43:44.083153Z&quot;,&quot;shell.execute_reply&quot;:&quot;2022-04-23T03:43:44.082302Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2022-04-23T03:43:43.637561Z&quot;}" data-executioninfo="{&quot;elapsed&quot;:792,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677904896083,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7c54439f-ddc1-4e53-fe2b-a7a90e2af989" data-trusted="true">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Query to get the score column from every row where the type column has value "job"</span></span>
@@ -1045,8 +1045,8 @@ Name: city, dtype: int64</code></pre>
 </div>
 <p>In this case, the query was cancelled, because the limit of 1 MB was exceeded. However, we can also increase the limit to run the query successfully!</p>
 </section>
-<section id="group-by-having-count" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="group-by-having-count"><span class="header-section-number">4.1.6</span> Group By, Having &amp; Count</h3>
+<section id="group-by-having-count" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="group-by-having-count"><span class="header-section-number">3.1.6</span> Group By, Having &amp; Count</h3>
 <p>Now that you can select raw data, you’re ready to learn how to group your data and count things within those groups.</p>
 <p>The Hacker News dataset contains information on stories and comments from the Hacker News social networking site. We’ll work with the <code>comments</code> table and begin by printing the first few rows</p>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2022-04-23T03:50:17.465984Z&quot;,&quot;iopub.status.busy&quot;:&quot;2022-04-23T03:50:17.465447Z&quot;,&quot;iopub.status.idle&quot;:&quot;2022-04-23T03:50:18.444486Z&quot;,&quot;shell.execute_reply&quot;:&quot;2022-04-23T03:50:18.443937Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2022-04-23T03:50:17.465945Z&quot;}" data-executioninfo="{&quot;elapsed&quot;:1071,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677904944129,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="c3df653f-233f-4318-b8de-bc41cb0be246" data-trusted="true">
@@ -1827,8 +1827,8 @@ Name: city, dtype: int64</code></pre>
 </div>
 </div>
 <p>Now you have the data you want, and it has descriptive names.</p>
-<section id="note-on-using-group-by" class="level4" data-number="4.1.6.1">
-<h4 data-number="4.1.6.1" class="anchored" data-anchor-id="note-on-using-group-by"><span class="header-section-number">4.1.6.1</span> Note on using <strong>GROUP BY</strong></h4>
+<section id="note-on-using-group-by" class="level4" data-number="3.1.6.1">
+<h4 data-number="3.1.6.1" class="anchored" data-anchor-id="note-on-using-group-by"><span class="header-section-number">3.1.6.1</span> Note on using <strong>GROUP BY</strong></h4>
 <p>Note that because it tells SQL how to apply aggregate functions (like <strong>COUNT()</strong>), it doesn’t make sense to use <strong>GROUP BY</strong> without an aggregate function. Similarly, if you have any <strong>GROUP BY</strong> clause, then all variables must be passed to either a 1. <strong>GROUP BY</strong> command, or 2. an aggregation function.</p>
 <p>Consider the query below:</p>
 <div class="cell">
@@ -1862,8 +1862,8 @@ Name: city, dtype: int64</code></pre>
 </div>
 </section>
 </section>
-<section id="order-by" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="order-by"><span class="header-section-number">4.1.7</span> Order By</h3>
+<section id="order-by" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="order-by"><span class="header-section-number">3.1.7</span> Order By</h3>
 <p>Frequently, you’ll want to sort your results. <strong>Let’s use the US Traffic Fatality Records database, which contains information on traffic accidents in the US where at least one person died.</strong></p>
 <p>We’ll investigate the <code>accident_2015</code> table. Here is a view of the first few rows.</p>
 <div class="cell">
@@ -2040,8 +2040,8 @@ Name: city, dtype: int64</code></pre>
 <p>Notice that the data is sorted by the <code>num_accidents</code> column, where the days with more traffic accidents appear first.</p>
 <p>To map the numbers returned for the <code>day_of_week</code> column to the actual day, you might consult <a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions">the BigQuery documentation</a> on the DAYOFWEEK function. It says that it returns “an integer between 1 (Sunday) and 7 (Saturday), inclusively”. So, in 2015, most fatal motor accidents in the US occured on Sunday and Saturday, while the fewest happened on Tuesday.</p>
 </section>
-<section id="as-and-with" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="as-and-with"><span class="header-section-number">4.1.8</span> As and With</h3>
+<section id="as-and-with" class="level3" data-number="3.1.8">
+<h3 data-number="3.1.8" class="anchored" data-anchor-id="as-and-with"><span class="header-section-number">3.1.8</span> As and With</h3>
 <p>On its own, <code>AS</code> is a convenient way to clean up the data returned by your query. <strong>We’re going to use a common table expression (CTE)</strong> to find out <strong>how many Bitcoin transactions were made each day for the entire timespan of a bitcoin transaction dataset.</strong></p>
 <p>We’ll investigate the transactions table. Here is a view of the first few rows.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:942,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677904964332,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0f810490-f2ee-4744-dbc2-5cb730f71760">
@@ -2430,8 +2430,8 @@ Name: city, dtype: int64</code></pre>
 </div>
 <p>As you can see, common table expressions (CTEs) let you shift a lot of your data cleaning into SQL. <strong>That’s an especially good thing in the case of BigQuery, because it is vastly faster than doing the work in Pandas.</strong></p>
 </section>
-<section id="joining-data" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="joining-data"><span class="header-section-number">4.1.9</span> Joining data</h3>
+<section id="joining-data" class="level3" data-number="3.1.9">
+<h3 data-number="3.1.9" class="anchored" data-anchor-id="joining-data"><span class="header-section-number">3.1.9</span> Joining data</h3>
 <p>When our data lives across different tables, how do we analyze it? By JOINing the tables together. A <code>JOIN</code> combines rows in the left table with corresponding rows in the right table, where the meaning of “corresponding” is based on how we specify the join.</p>
 <p>GitHub is the most popular place to collaborate on software projects. A GitHub <strong>repository</strong> (or <strong>repo</strong>) is a collection of files associated with a specific project. Most repos on GitHub are shared under a specific legal license, which determines the legal restrictions on how they are used. <strong>For our example, we’re going to look at how many different files have been released under each license.</strong></p>
 <p>We’ll work with two tables in the database. The first table is the <code>licenses</code> table, which provides the name of each GitHub repo (in the <code>repo_name</code> column) and its corresponding license. Here’s a view of the first five rows.</p>
@@ -3733,8 +3733,8 @@ Name: city, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="nested-and-repeated-data" class="level3" data-number="4.1.10">
-<h3 data-number="4.1.10" class="anchored" data-anchor-id="nested-and-repeated-data"><span class="header-section-number">4.1.10</span> Nested and Repeated data</h3>
+<section id="nested-and-repeated-data" class="level3" data-number="3.1.10">
+<h3 data-number="3.1.10" class="anchored" data-anchor-id="nested-and-repeated-data"><span class="header-section-number">3.1.10</span> Nested and Repeated data</h3>
 <p>So far, you’ve worked with many types of data, including numeric types (integers, floating point values), strings, and the DATETIME type. In this tutorial, you’ll learn how to query nested and repeated data. These are the most complex data types that you can find in BigQuery datasets!</p>
 <p>We’ll work with the Google Analytics Sample dataset. It contains information tracking the behavior of visitors to the Google Merchandise store, an e-commerce website that sells Google branded items.</p>
 <p>We begin by printing the first few rows of the <code>ga_sessions_20170801</code> table. This table tracks visits to the website on August 1, 2017. The table has many nested fields from table preview:</p>
@@ -4099,8 +4099,8 @@ Name: city, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="analytic-function-optional" class="level3" data-number="4.1.11">
-<h3 data-number="4.1.11" class="anchored" data-anchor-id="analytic-function-optional"><span class="header-section-number">4.1.11</span> Analytic Function (Optional)</h3>
+<section id="analytic-function-optional" class="level3" data-number="3.1.11">
+<h3 data-number="3.1.11" class="anchored" data-anchor-id="analytic-function-optional"><span class="header-section-number">3.1.11</span> Analytic Function (Optional)</h3>
 <p>You can also define analytic functions, which also operate on a set of rows like aggregation function. However, unlike aggregate functions, analytic functions return a (potentially different) value for each row in the original table. Analytic functions allow us to perform complex calculations with relatively straightforward syntax. For instance, we can quickly calculate moving averages and running totals, among other quantities.</p>
 <p>We’ll work with the <a href="https://www.kaggle.com/datasf/san-francisco">San Francisco Open Data</a> dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:769,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677905142622,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0ab883e6-7f19-4626-e63e-e9d161737f10">
@@ -4621,13 +4621,13 @@ Name: city, dtype: int64</code></pre>
 <p>You can check https://cloud.google.com/bigquery/docs/reference/standard-sql/introduction and https://googleapis.dev/python/bigquery/latest/index.html for more details.</p>
 </section>
 </section>
-<section id="data-wrangling-with-pandas" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="data-wrangling-with-pandas"><span class="header-section-number">4.2</span> Data Wrangling with Pandas</h2>
-<section id="series-objects" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="series-objects"><span class="header-section-number">4.2.1</span> <code>Series</code> objects</h3>
+<section id="data-wrangling-with-pandas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-wrangling-with-pandas"><span class="header-section-number">3.2</span> Data Wrangling with Pandas</h2>
+<section id="series-objects" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="series-objects"><span class="header-section-number">3.2.1</span> <code>Series</code> objects</h3>
 <p>The <code>Pandas</code> library contains these useful data structures: * <code>Series</code> objects, that we will discuss now. A <code>Series</code> object is 1D array, similar to a column in a spreadsheet (with a column name and row labels). * <code>DataFrame</code> objects. This is a 2D table, similar to a spreadsheet (with column names and row labels).</p>
-<section id="creating-a-series" class="level4" data-number="4.2.1.1">
-<h4 data-number="4.2.1.1" class="anchored" data-anchor-id="creating-a-series"><span class="header-section-number">4.2.1.1</span> Creating a <code>Series</code></h4>
+<section id="creating-a-series" class="level4" data-number="3.2.1.1">
+<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="creating-a-series"><span class="header-section-number">3.2.1.1</span> Creating a <code>Series</code></h4>
 <p>Let’s start by creating our first <code>Series</code> object!</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:313,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677905179704,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="066f5c2f-7b91-4805-bdd3-4efbd3a8712c">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>])</span>
@@ -4662,8 +4662,8 @@ dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="index-labels" class="level4" data-number="4.2.1.2">
-<h4 data-number="4.2.1.2" class="anchored" data-anchor-id="index-labels"><span class="header-section-number">4.2.1.2</span> Index labels</h4>
+<section id="index-labels" class="level4" data-number="3.2.1.2">
+<h4 data-number="3.2.1.2" class="anchored" data-anchor-id="index-labels"><span class="header-section-number">3.2.1.2</span> Index labels</h4>
 <p>Each item in a <code>Series</code> object has a unique identifier called the <em>index label</em>. By default, it is simply the rank of the item in the <code>Series</code> (starting at <code>0</code>) but you can also set the index labels manually:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:269,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677905203549,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8e5a154a-5a2c-4956-a670-4b204f92da32">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>s2 <span class="op">=</span> pd.Series([<span class="dv">68</span>, <span class="dv">83</span>, <span class="dv">112</span>, <span class="dv">68</span>], index<span class="op">=</span>[<span class="st">"alice"</span>, <span class="st">"bob"</span>, <span class="st">"charles"</span>, <span class="st">"darwin"</span>])</span>
@@ -4713,8 +4713,8 @@ dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="initialize-from-dict" class="level4" data-number="4.2.1.3">
-<h4 data-number="4.2.1.3" class="anchored" data-anchor-id="initialize-from-dict"><span class="header-section-number">4.2.1.3</span> Initialize from <code>dict</code></h4>
+<section id="initialize-from-dict" class="level4" data-number="3.2.1.3">
+<h4 data-number="3.2.1.3" class="anchored" data-anchor-id="initialize-from-dict"><span class="header-section-number">3.2.1.3</span> Initialize from <code>dict</code></h4>
 <p>You can create a <code>Series</code> object from a <code>dict</code>. The keys will be used as index labels:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:417,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677905239401,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0ec86122-fb72-4d28-a5fe-91224cf2286b">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>weights <span class="op">=</span> {<span class="st">"alice"</span>: <span class="dv">68</span>, <span class="st">"bob"</span>: <span class="dv">83</span>, <span class="st">"colin"</span>: <span class="dv">86</span>, <span class="st">"darwin"</span>: <span class="dv">68</span>}</span>
@@ -4750,8 +4750,8 @@ dtype: float64</code></pre>
 <p>The resulting <code>Series</code> contains the union of index labels from <code>s2</code> and <code>s3</code>. Since <code>"colin"</code> is missing from <code>s2</code> and <code>"charles"</code> is missing from <code>s3</code>, these items have a <code>NaN</code> result value. (ie. Not-a-Number means <em>missing</em>).</p>
 <p>Automatic alignment is very handy when working with data that may come from various sources with varying structure and missing items</p>
 </section>
-<section id="initialize-with-a-scalar" class="level4" data-number="4.2.1.4">
-<h4 data-number="4.2.1.4" class="anchored" data-anchor-id="initialize-with-a-scalar"><span class="header-section-number">4.2.1.4</span> Initialize with a scalar</h4>
+<section id="initialize-with-a-scalar" class="level4" data-number="3.2.1.4">
+<h4 data-number="3.2.1.4" class="anchored" data-anchor-id="initialize-with-a-scalar"><span class="header-section-number">3.2.1.4</span> Initialize with a scalar</h4>
 <p>You can also initialize a <code>Series</code> object using a scalar and a list of index labels: all items will be set to the scalar.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:281,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677380232112,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="70b47999-f01f-42a2-c5ac-cc6ba0eb688d">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>meaning <span class="op">=</span> pd.Series(<span class="dv">42</span>, [<span class="st">"life"</span>, <span class="st">"universe"</span>, <span class="st">"everything"</span>])</span>
@@ -4783,11 +4783,11 @@ dtype: int64</code></pre>
 <p>There are <em>many</em> options for plotting your data. It is not necessary to list them all here: if you need a particular type of plot (histograms, pie charts, etc.), just look for it in the excellent <a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html">Visualization</a> section of pandas’ documentation, and look at the example code.</p>
 </section>
 </section>
-<section id="handling-time" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="handling-time"><span class="header-section-number">4.2.2</span> Handling time</h3>
+<section id="handling-time" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="handling-time"><span class="header-section-number">3.2.2</span> Handling time</h3>
 <p>Many datasets have timestamps, and pandas is awesome at manipulating such data: * it can represent periods (such as 2016Q3) and frequencies (such as “monthly”) * it can convert periods to actual timestamps, and <em>vice versa</em> * it can resample data and aggregate values any way you like * it can handle timezones.</p>
-<section id="time-range" class="level4" data-number="4.2.2.1">
-<h4 data-number="4.2.2.1" class="anchored" data-anchor-id="time-range"><span class="header-section-number">4.2.2.1</span> Time range</h4>
+<section id="time-range" class="level4" data-number="3.2.2.1">
+<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="time-range"><span class="header-section-number">3.2.2.1</span> Time range</h4>
 <p>Let’s start by creating a time series using <code>pd.date_range()</code>. This returns a <code>DatetimeIndex</code> containing one datetime per hour for 12 hours starting on March 6th 2023 at 5:30pm.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:287,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677380416195,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a991f954-d881-4056-9d55-3dff47422939">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>dates <span class="op">=</span> pd.date_range(<span class="st">'2023/03/06 5:30pm'</span>, periods<span class="op">=</span><span class="dv">12</span>, freq<span class="op">=</span><span class="st">'H'</span>)</span>
@@ -4834,8 +4834,8 @@ Freq: H, dtype: float64</code></pre>
 </div>
 </section>
 </section>
-<section id="periods" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="periods"><span class="header-section-number">4.2.3</span> Periods</h3>
+<section id="periods" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="periods"><span class="header-section-number">3.2.3</span> Periods</h3>
 <p>The <code>pd.period_range()</code> function returns a <code>PeriodIndex</code> instead of a <code>DatetimeIndex</code>. For example, let’s get all quarters in 2022 and 2023:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:287,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677380508261,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b45030fe-3a47-41a3-ec73-48e98bf1712c">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>quarters <span class="op">=</span> pd.period_range(<span class="st">'2022Q1'</span>, periods<span class="op">=</span><span class="dv">8</span>, freq<span class="op">=</span><span class="st">'Q'</span>)</span>
@@ -4857,11 +4857,11 @@ Freq: H, dtype: float64</code></pre>
 </div>
 <p>Pandas also provides many other time-related functions that we recommend you check out in the <a href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html">documentation</a></p>
 </section>
-<section id="dataframe-objects" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="dataframe-objects"><span class="header-section-number">4.2.4</span> <code>DataFrame</code> objects</h3>
+<section id="dataframe-objects" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="dataframe-objects"><span class="header-section-number">3.2.4</span> <code>DataFrame</code> objects</h3>
 <p>A DataFrame object represents a spreadsheet, with cell values, column names and row index labels. You can define expressions to compute columns based on other columns, create pivot-tables, group rows, draw graphs, etc. You can see <code>DataFrame</code> as dictionaries of <code>Series</code>.</p>
-<section id="creating-a-dataframe" class="level4" data-number="4.2.4.1">
-<h4 data-number="4.2.4.1" class="anchored" data-anchor-id="creating-a-dataframe"><span class="header-section-number">4.2.4.1</span> Creating a <code>DataFrame</code></h4>
+<section id="creating-a-dataframe" class="level4" data-number="3.2.4.1">
+<h4 data-number="3.2.4.1" class="anchored" data-anchor-id="creating-a-dataframe"><span class="header-section-number">3.2.4.1</span> Creating a <code>DataFrame</code></h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="co">#%unload_ext google.colab.data_table #cloab only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -5000,8 +5000,8 @@ Freq: H, dtype: float64</code></pre>
 </div>
 <p>A few things to note: * the <code>Series</code> were automatically aligned based on their index, * missing values are represented as <code>NaN</code>, * <code>Series</code> names are ignored (the name <code>"year"</code> was dropped), * <code>DataFrame</code>s are displayed nicely in Jupyter notebooks!</p>
 </section>
-<section id="subsets---accessing-columns" class="level4" data-number="4.2.4.2">
-<h4 data-number="4.2.4.2" class="anchored" data-anchor-id="subsets---accessing-columns"><span class="header-section-number">4.2.4.2</span> Subsets - Accessing columns</h4>
+<section id="subsets---accessing-columns" class="level4" data-number="3.2.4.2">
+<h4 data-number="3.2.4.2" class="anchored" data-anchor-id="subsets---accessing-columns"><span class="header-section-number">3.2.4.2</span> Subsets - Accessing columns</h4>
 <p>You can access columns by using the column name or fancy indexing. They are returned as <code>Series</code> objects:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:276,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677380865928,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="cd95a181-decb-4ce5-c103-44b08034f516">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>people[<span class="st">"birthyear"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5259,8 +5259,8 @@ Name: birthyear, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="multi-index-optional" class="level4" data-number="4.2.4.3">
-<h4 data-number="4.2.4.3" class="anchored" data-anchor-id="multi-index-optional"><span class="header-section-number">4.2.4.3</span> Multi-index (optional)</h4>
+<section id="multi-index-optional" class="level4" data-number="3.2.4.3">
+<h4 data-number="3.2.4.3" class="anchored" data-anchor-id="multi-index-optional"><span class="header-section-number">3.2.4.3</span> Multi-index (optional)</h4>
 <p>You can also create multi-index datafram as follows:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:278,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381098004,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d35413b2-9598-4a53-8811-1a782a338ad0">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>df <span class="op">=</span> pd.DataFrame(</span>
@@ -5661,8 +5661,8 @@ Name: birthyear, dtype: int64</code></pre>
 </div>
 <p>It is noted that most methods return modified copies in pandas.</p>
 </section>
-<section id="subsets---accessing-rows" class="level4" data-number="4.2.4.4">
-<h4 data-number="4.2.4.4" class="anchored" data-anchor-id="subsets---accessing-rows"><span class="header-section-number">4.2.4.4</span> Subsets - Accessing rows</h4>
+<section id="subsets---accessing-rows" class="level4" data-number="3.2.4.4">
+<h4 data-number="3.2.4.4" class="anchored" data-anchor-id="subsets---accessing-rows"><span class="header-section-number">3.2.4.4</span> Subsets - Accessing rows</h4>
 <p>Let’s go back to the <code>people</code> <code>DataFrame</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:291,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381192460,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="52dc74fd-6cc3-4463-c7bc-d1cdf992da13">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6048,8 +6048,8 @@ Name: children, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="adding-and-removing-columns" class="level4" data-number="4.2.4.5">
-<h4 data-number="4.2.4.5" class="anchored" data-anchor-id="adding-and-removing-columns"><span class="header-section-number">4.2.4.5</span> Adding and removing columns</h4>
+<section id="adding-and-removing-columns" class="level4" data-number="3.2.4.5">
+<h4 data-number="3.2.4.5" class="anchored" data-anchor-id="adding-and-removing-columns"><span class="header-section-number">3.2.4.5</span> Adding and removing columns</h4>
 <p>You can generally treat <code>DataFrame</code> objects like dictionaries of <code>Series</code>, so the following work fine:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381329559,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="23297b51-5253-43f1-de45-ad4f538d8002">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>people</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6845,8 +6845,8 @@ Name: birthyear, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="querying-a-dataframe" class="level4" data-number="4.2.4.6">
-<h4 data-number="4.2.4.6" class="anchored" data-anchor-id="querying-a-dataframe"><span class="header-section-number">4.2.4.6</span> Querying a <code>DataFrame</code></h4>
+<section id="querying-a-dataframe" class="level4" data-number="3.2.4.6">
+<h4 data-number="3.2.4.6" class="anchored" data-anchor-id="querying-a-dataframe"><span class="header-section-number">3.2.4.6</span> Querying a <code>DataFrame</code></h4>
 <p>The <code>query()</code> method lets you <strong>filter a <code>DataFrame</code> based on a query expression</strong>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:296,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381694665,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4aac7b55-80ef-49b5-fe89-9528172c4512">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1"></a>people.query(<span class="st">"age &gt; 30 and pets == 0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6960,8 +6960,8 @@ Name: birthyear, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="sorting-a-dataframe" class="level4" data-number="4.2.4.7">
-<h4 data-number="4.2.4.7" class="anchored" data-anchor-id="sorting-a-dataframe"><span class="header-section-number">4.2.4.7</span> Sorting a <code>DataFrame</code></h4>
+<section id="sorting-a-dataframe" class="level4" data-number="3.2.4.7">
+<h4 data-number="3.2.4.7" class="anchored" data-anchor-id="sorting-a-dataframe"><span class="header-section-number">3.2.4.7</span> Sorting a <code>DataFrame</code></h4>
 <p>You can sort a <code>DataFrame</code> by calling its <code>sort_index</code> method. By default it sorts the rows by their index label, in ascending order, but let’s reverse the order:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:268,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381730615,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="29c99c7c-2f5b-419a-c2cc-22fd7a017733">
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1"></a>people.sort_index(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -7355,8 +7355,8 @@ Name: birthyear, dtype: int64</code></pre>
 </div>
 </div>
 </section>
-<section id="plotting-a-dataframe" class="level4" data-number="4.2.4.8">
-<h4 data-number="4.2.4.8" class="anchored" data-anchor-id="plotting-a-dataframe"><span class="header-section-number">4.2.4.8</span> Plotting a <code>DataFrame</code></h4>
+<section id="plotting-a-dataframe" class="level4" data-number="3.2.4.8">
+<h4 data-number="3.2.4.8" class="anchored" data-anchor-id="plotting-a-dataframe"><span class="header-section-number">3.2.4.8</span> Plotting a <code>DataFrame</code></h4>
 <p>Just like for <code>Series</code>, pandas makes it easy to draw nice graphs based on a <code>DataFrame</code>.</p>
 <p>For example, it is trivial to create a line plot from a <code>DataFrame</code>’s data by calling its <code>plot</code> method:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:526,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381902591,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="94403ce1-0060-4661-e2fa-0db5b9499788">
@@ -7371,8 +7371,8 @@ Name: birthyear, dtype: int64</code></pre>
 </div>
 <p>Again, there are way too many options to list here: the best option is to scroll through the <a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html">Visualization</a> page in pandas’ documentation, find the plot you are interested in and look at the example code.</p>
 </section>
-<section id="operations-on-dataframes" class="level4" data-number="4.2.4.9">
-<h4 data-number="4.2.4.9" class="anchored" data-anchor-id="operations-on-dataframes"><span class="header-section-number">4.2.4.9</span> Operations on <code>DataFrame</code>s</h4>
+<section id="operations-on-dataframes" class="level4" data-number="3.2.4.9">
+<h4 data-number="3.2.4.9" class="anchored" data-anchor-id="operations-on-dataframes"><span class="header-section-number">3.2.4.9</span> Operations on <code>DataFrame</code>s</h4>
 <p>Although <code>DataFrame</code>s do not try to mimick NumPy arrays, there are a few similarities. Let’s create a <code>DataFrame</code> to demonstrate this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677381954030,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="d128e487-675f-428b-9219-0dd4bd9e6ada">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1"></a>grades_array <span class="op">=</span> np.array([[<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">9</span>],[<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">2</span>], [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>]])</span>
@@ -8277,8 +8277,8 @@ dtype: bool</code></pre>
 </div>
 </div>
 </section>
-<section id="handling-missing-data" class="level4" data-number="4.2.4.10">
-<h4 data-number="4.2.4.10" class="anchored" data-anchor-id="handling-missing-data"><span class="header-section-number">4.2.4.10</span> Handling missing data</h4>
+<section id="handling-missing-data" class="level4" data-number="3.2.4.10">
+<h4 data-number="3.2.4.10" class="anchored" data-anchor-id="handling-missing-data"><span class="header-section-number">3.2.4.10</span> Handling missing data</h4>
 <p>Dealing with missing data is a frequent task when working with real life data. Pandas offers a few tools to handle missing data.</p>
 <p>Let’s try to fix the problem above. For example, we can decide that missing data should result in a zero, instead of <code>NaN</code>. We can replace all <code>NaN</code> values by a any value using the <code>fillna()</code> method:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:301,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677382419485,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="11285425-cd80-440b-8fea-a18adb29c9c9" data-scrolled="true">
@@ -8791,8 +8791,8 @@ dtype: bool</code></pre>
 </div>
 </div>
 </section>
-<section id="aggregating-with-groupby" class="level4" data-number="4.2.4.11">
-<h4 data-number="4.2.4.11" class="anchored" data-anchor-id="aggregating-with-groupby"><span class="header-section-number">4.2.4.11</span> Aggregating with <code>groupby</code></h4>
+<section id="aggregating-with-groupby" class="level4" data-number="3.2.4.11">
+<h4 data-number="3.2.4.11" class="anchored" data-anchor-id="aggregating-with-groupby"><span class="header-section-number">3.2.4.11</span> Aggregating with <code>groupby</code></h4>
 <p>Similar to the SQL language, pandas allows grouping your data into groups to run calculations over each group.</p>
 <p>First, let’s add some extra data about each person so we can group them, and let’s go back to the <code>final_grades</code> <code>DataFrame</code> so we can see how <code>NaN</code> values are handled:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:324,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677382475284,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e62d921c-6450-4bbc-8ae5-c79fa26620e7" data-scrolled="true">
@@ -9065,12 +9065,12 @@ dtype: bool</code></pre>
 </div>
 <p>That was easy! Note that the <code>NaN</code> values have simply been skipped when computing the means.</p>
 </section>
-<section id="pivot-tables-optional" class="level4" data-number="4.2.4.12">
-<h4 data-number="4.2.4.12" class="anchored" data-anchor-id="pivot-tables-optional"><span class="header-section-number">4.2.4.12</span> Pivot tables (Optional)</h4>
+<section id="pivot-tables-optional" class="level4" data-number="3.2.4.12">
+<h4 data-number="3.2.4.12" class="anchored" data-anchor-id="pivot-tables-optional"><span class="header-section-number">3.2.4.12</span> Pivot tables (Optional)</h4>
 <p>Pandas supports spreadsheet-like <a href="https://en.wikipedia.org/wiki/Pivot_table">pivot tables</a> that allow quick data summarization.</p>
 </section>
-<section id="overview-functions" class="level4" data-number="4.2.4.13">
-<h4 data-number="4.2.4.13" class="anchored" data-anchor-id="overview-functions"><span class="header-section-number">4.2.4.13</span> Overview functions</h4>
+<section id="overview-functions" class="level4" data-number="3.2.4.13">
+<h4 data-number="3.2.4.13" class="anchored" data-anchor-id="overview-functions"><span class="header-section-number">3.2.4.13</span> Overview functions</h4>
 <p>When dealing with large <code>DataFrames</code>, it is useful to get a quick overview of its content. Pandas offers a few functions for this. First, let’s create a large <code>DataFrame</code> with a mix of numeric values, missing values and text values. Notice how Jupyter displays only the corners of the <code>DataFrame</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:332,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677382861029,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="16c58852-9247-4c3a-b529-e12fc3763807">
 <div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1"></a>much_data <span class="op">=</span> np.fromfunction(<span class="kw">lambda</span> x,y: (x<span class="op">+</span>y<span class="op">*</span>y)<span class="op">%</span><span class="dv">17</span><span class="op">*</span><span class="dv">11</span>, (<span class="dv">10000</span>, <span class="dv">26</span>))</span>
@@ -10216,8 +10216,8 @@ memory usage: 2.1+ MB</code></pre>
 </div>
 </div>
 </section>
-<section id="saving-loading" class="level4" data-number="4.2.4.14">
-<h4 data-number="4.2.4.14" class="anchored" data-anchor-id="saving-loading"><span class="header-section-number">4.2.4.14</span> Saving &amp; loading</h4>
+<section id="saving-loading" class="level4" data-number="3.2.4.14">
+<h4 data-number="3.2.4.14" class="anchored" data-anchor-id="saving-loading"><span class="header-section-number">3.2.4.14</span> Saving &amp; loading</h4>
 <p>Pandas can save <code>DataFrame</code>s to various backends, including file formats such as CSV, Excel, JSON, HTML and HDF5, or to a SQL database. Let’s create a <code>DataFrame</code> to demonstrate this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677382934763,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3fce1520-f215-40ec-be1c-978ec3ad0766">
 <div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1"></a>my_df <span class="op">=</span> pd.DataFrame(</span>
@@ -10668,8 +10668,8 @@ bob,Dancing,83.1,1984,3.0
 </div>
 <p>There are more options available, in particular regarding datetime format. Check out the <a href="http://pandas.pydata.org/pandas-docs/stable/io.html">documentation</a> for more details.</p>
 </section>
-<section id="combining-dataframes" class="level4" data-number="4.2.4.15">
-<h4 data-number="4.2.4.15" class="anchored" data-anchor-id="combining-dataframes"><span class="header-section-number">4.2.4.15</span> Combining <code>DataFrame</code>s</h4>
+<section id="combining-dataframes" class="level4" data-number="3.2.4.15">
+<h4 data-number="3.2.4.15" class="anchored" data-anchor-id="combining-dataframes"><span class="header-section-number">3.2.4.15</span> Combining <code>DataFrame</code>s</h4>
 <p>One powerful feature of Pandas is it’s ability to perform SQL-like joins on <code>DataFrame</code>s. Various types of joins are supported: inner joins, left/right outer joins and full joins. To illustrate this, let’s start by creating a couple simple <code>DataFrame</code>s:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:302,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677383013230,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3df2fe64-e3bd-4dd9-b2f0-03933be13d0a">
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1"></a>city_loc <span class="op">=</span> pd.DataFrame(</span>
@@ -11373,8 +11373,8 @@ bob,Dancing,83.1,1984,3.0
 </div>
 </div>
 </section>
-<section id="concatenation" class="level4" data-number="4.2.4.16">
-<h4 data-number="4.2.4.16" class="anchored" data-anchor-id="concatenation"><span class="header-section-number">4.2.4.16</span> Concatenation</h4>
+<section id="concatenation" class="level4" data-number="3.2.4.16">
+<h4 data-number="3.2.4.16" class="anchored" data-anchor-id="concatenation"><span class="header-section-number">3.2.4.16</span> Concatenation</h4>
 <p>Rather than joining <code>DataFrame</code>s, we may just want to concatenate them. That’s what <code>concat()</code> is for:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:265,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677383154129,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f85874d3-f6a1-4cbe-87b6-48ef41a3877e">
 <div class="sourceCode cell-code" id="cb166"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb166-1"><a href="#cb166-1"></a>result_concat <span class="op">=</span> pd.concat([city_loc, city_pop])</span>
@@ -11987,8 +11987,8 @@ bob,Dancing,83.1,1984,3.0
 </div>
 </div>
 </section>
-<section id="categories" class="level4" data-number="4.2.4.17">
-<h4 data-number="4.2.4.17" class="anchored" data-anchor-id="categories"><span class="header-section-number">4.2.4.17</span> Categories</h4>
+<section id="categories" class="level4" data-number="3.2.4.17">
+<h4 data-number="3.2.4.17" class="anchored" data-anchor-id="categories"><span class="header-section-number">3.2.4.17</span> Categories</h4>
 <p>It is quite frequent to have values that represent categories, for example <code>1</code> for female and <code>2</code> for male, or <code>"A"</code> for Good, <code>"B"</code> for Average, <code>"C"</code> for Bad. These categorical values can be hard to read and cumbersome to handle, but fortunately pandas makes it easy. To illustrate this, let’s take the <code>city_pop</code> <code>DataFrame</code> we created earlier, and add a column that represents a category:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:293,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1677383244068,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fd370439-3bf6-4ea2-84c9-e24a17a0de97">
 <div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb170-1"><a href="#cb170-1"></a>city_eco <span class="op">=</span> city_pop.copy()</span>
@@ -12400,13 +12400,13 @@ bob,Dancing,83.1,1984,3.0
 </section>
 </section>
 </section>
-<section id="what-next" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="what-next"><span class="header-section-number">4.3</span> What next?</h2>
+<section id="what-next" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="what-next"><span class="header-section-number">3.3</span> What next?</h2>
 <p>As you probably noticed by now, pandas is quite a large library with <em>many</em> features. Although we went through the most important features, there is still a lot to discover. Probably the best way to learn more is to get your hands dirty with some real-life data. It is also a good idea to go through pandas’ excellent <a href="http://pandas.pydata.org/pandas-docs/stable/index.html">documentation</a>, in particular the <a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html">Cookbook</a>.</p>
 <p>You can also work with BigQuery in Pandas. Check out <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_gbq.html">https://pandas.pydata.org/docs/reference/api/pandas.read_gbq.html</a> and <a href="https://pandas-gbq.readthedocs.io/en/latest/">https://pandas-gbq.readthedocs.io/en/latest/</a> for more details.</p>
 </section>
-<section id="references" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="references"><span class="header-section-number">4.4</span> References</h2>
+<section id="references" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="references"><span class="header-section-number">3.4</span> References</h2>
 <ol type="1">
 <li><a href="https://www.kaggle.com/learn/">https://www.kaggle.com/learn/</a></li>
 <li><a href="https://github.com/ageron/handson-ml3">https://github.com/ageron/handson-ml3</a></li>
@@ -12704,12 +12704,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./02_Dataset.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04_Clean_feature_engineering.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

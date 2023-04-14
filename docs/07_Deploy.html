@@ -9,7 +9,7 @@
 <meta name="author" content="phonchi">
 <meta name="dcterms.date" content="2023-04-10">
 
-<title>Practical and Innovative Analytics in Data Science - 8&nbsp; Deploy and monitoring</title>
+<title>Practical and Innovative Analytics in Data Science - 7&nbsp; Deploy and monitoring</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_Deploy.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_Deploy.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,49 +140,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_end_to_end_machine_learning_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_Dataset.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_Relational_Database_and_data_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_Clean_feature_engineering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_Feature_selection_extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_XAI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07_Deploy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -224,39 +224,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">8.1</span> Setup</a></li>
-  <li><a href="#deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" id="toc-deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" class="nav-link" data-scroll-target="#deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server"><span class="header-section-number">8.2</span> Deploying TensorFlow models to TensorFlow Serving (TFS) on remote server</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">7.1</span> Setup</a></li>
+  <li><a href="#deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" id="toc-deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" class="nav-link" data-scroll-target="#deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server"><span class="header-section-number">7.2</span> Deploying TensorFlow models to TensorFlow Serving (TFS) on remote server</a>
   <ul class="collapse">
-  <li><a href="#exporting-savedmodels" id="toc-exporting-savedmodels" class="nav-link" data-scroll-target="#exporting-savedmodels"><span class="header-section-number">8.2.1</span> Exporting <code>SavedModels</code></a></li>
-  <li><a href="#serve-your-model-with-tensorflow-serving-server-side" id="toc-serve-your-model-with-tensorflow-serving-server-side" class="nav-link" data-scroll-target="#serve-your-model-with-tensorflow-serving-server-side"><span class="header-section-number">8.2.2</span> Serve your model with TensorFlow Serving (Server side)</a></li>
-  <li><a href="#querying-tf-serving-through-the-rest-api-client-side" id="toc-querying-tf-serving-through-the-rest-api-client-side" class="nav-link" data-scroll-target="#querying-tf-serving-through-the-rest-api-client-side"><span class="header-section-number">8.2.3</span> Querying TF Serving through the REST API (client side)</a></li>
-  <li><a href="#deploying-a-new-model-version" id="toc-deploying-a-new-model-version" class="nav-link" data-scroll-target="#deploying-a-new-model-version"><span class="header-section-number">8.2.4</span> Deploying a new model version</a></li>
+  <li><a href="#exporting-savedmodels" id="toc-exporting-savedmodels" class="nav-link" data-scroll-target="#exporting-savedmodels"><span class="header-section-number">7.2.1</span> Exporting <code>SavedModels</code></a></li>
+  <li><a href="#serve-your-model-with-tensorflow-serving-server-side" id="toc-serve-your-model-with-tensorflow-serving-server-side" class="nav-link" data-scroll-target="#serve-your-model-with-tensorflow-serving-server-side"><span class="header-section-number">7.2.2</span> Serve your model with TensorFlow Serving (Server side)</a></li>
+  <li><a href="#querying-tf-serving-through-the-rest-api-client-side" id="toc-querying-tf-serving-through-the-rest-api-client-side" class="nav-link" data-scroll-target="#querying-tf-serving-through-the-rest-api-client-side"><span class="header-section-number">7.2.3</span> Querying TF Serving through the REST API (client side)</a></li>
+  <li><a href="#deploying-a-new-model-version" id="toc-deploying-a-new-model-version" class="nav-link" data-scroll-target="#deploying-a-new-model-version"><span class="header-section-number">7.2.4</span> Deploying a new model version</a></li>
   </ul></li>
-  <li><a href="#deploy-a-rest-api-server-using-bentoml-on-remote-server" id="toc-deploy-a-rest-api-server-using-bentoml-on-remote-server" class="nav-link" data-scroll-target="#deploy-a-rest-api-server-using-bentoml-on-remote-server"><span class="header-section-number">8.3</span> Deploy a REST API server using BentoML on remote server</a>
+  <li><a href="#deploy-a-rest-api-server-using-bentoml-on-remote-server" id="toc-deploy-a-rest-api-server-using-bentoml-on-remote-server" class="nav-link" data-scroll-target="#deploy-a-rest-api-server-using-bentoml-on-remote-server"><span class="header-section-number">7.3</span> Deploy a REST API server using BentoML on remote server</a>
   <ul class="collapse">
-  <li><a href="#train-a-classifier-model-using-the-iris-dataset" id="toc-train-a-classifier-model-using-the-iris-dataset" class="nav-link" data-scroll-target="#train-a-classifier-model-using-the-iris-dataset"><span class="header-section-number">8.3.1</span> Train a classifier model using the iris dataset</a></li>
-  <li><a href="#create-a-bentoml-service-for-serving-the-model" id="toc-create-a-bentoml-service-for-serving-the-model" class="nav-link" data-scroll-target="#create-a-bentoml-service-for-serving-the-model"><span class="header-section-number">8.3.2</span> Create a BentoML Service for serving the model</a></li>
-  <li><a href="#build-and-deploy-bentos" id="toc-build-and-deploy-bentos" class="nav-link" data-scroll-target="#build-and-deploy-bentos"><span class="header-section-number">8.3.3</span> Build and Deploy Bentos 🍱</a></li>
+  <li><a href="#train-a-classifier-model-using-the-iris-dataset" id="toc-train-a-classifier-model-using-the-iris-dataset" class="nav-link" data-scroll-target="#train-a-classifier-model-using-the-iris-dataset"><span class="header-section-number">7.3.1</span> Train a classifier model using the iris dataset</a></li>
+  <li><a href="#create-a-bentoml-service-for-serving-the-model" id="toc-create-a-bentoml-service-for-serving-the-model" class="nav-link" data-scroll-target="#create-a-bentoml-service-for-serving-the-model"><span class="header-section-number">7.3.2</span> Create a BentoML Service for serving the model</a></li>
+  <li><a href="#build-and-deploy-bentos" id="toc-build-and-deploy-bentos" class="nav-link" data-scroll-target="#build-and-deploy-bentos"><span class="header-section-number">7.3.3</span> Build and Deploy Bentos 🍱</a></li>
   </ul></li>
-  <li><a href="#deploy-web-base-application-in-local-computer-using-streamit" id="toc-deploy-web-base-application-in-local-computer-using-streamit" class="nav-link" data-scroll-target="#deploy-web-base-application-in-local-computer-using-streamit"><span class="header-section-number">8.4</span> Deploy web base application in local computer using streamit</a></li>
-  <li><a href="#deploy-web-base-application-in-local-computer-using-gradio" id="toc-deploy-web-base-application-in-local-computer-using-gradio" class="nav-link" data-scroll-target="#deploy-web-base-application-in-local-computer-using-gradio"><span class="header-section-number">8.5</span> Deploy web base application in local computer using Gradio</a>
+  <li><a href="#deploy-web-base-application-in-local-computer-using-streamit" id="toc-deploy-web-base-application-in-local-computer-using-streamit" class="nav-link" data-scroll-target="#deploy-web-base-application-in-local-computer-using-streamit"><span class="header-section-number">7.4</span> Deploy web base application in local computer using streamit</a></li>
+  <li><a href="#deploy-web-base-application-in-local-computer-using-gradio" id="toc-deploy-web-base-application-in-local-computer-using-gradio" class="nav-link" data-scroll-target="#deploy-web-base-application-in-local-computer-using-gradio"><span class="header-section-number">7.5</span> Deploy web base application in local computer using Gradio</a>
   <ul class="collapse">
-  <li><a href="#setting-up-the-image-classification-model" id="toc-setting-up-the-image-classification-model" class="nav-link" data-scroll-target="#setting-up-the-image-classification-model"><span class="header-section-number">8.5.1</span> Setting up the Image Classification Model</a></li>
-  <li><a href="#defining-a-predict-function" id="toc-defining-a-predict-function" class="nav-link" data-scroll-target="#defining-a-predict-function"><span class="header-section-number">8.5.2</span> Defining a predict function</a></li>
-  <li><a href="#creating-a-gradio-interface" id="toc-creating-a-gradio-interface" class="nav-link" data-scroll-target="#creating-a-gradio-interface"><span class="header-section-number">8.5.3</span> Creating a Gradio Interface</a></li>
+  <li><a href="#setting-up-the-image-classification-model" id="toc-setting-up-the-image-classification-model" class="nav-link" data-scroll-target="#setting-up-the-image-classification-model"><span class="header-section-number">7.5.1</span> Setting up the Image Classification Model</a></li>
+  <li><a href="#defining-a-predict-function" id="toc-defining-a-predict-function" class="nav-link" data-scroll-target="#defining-a-predict-function"><span class="header-section-number">7.5.2</span> Defining a predict function</a></li>
+  <li><a href="#creating-a-gradio-interface" id="toc-creating-a-gradio-interface" class="nav-link" data-scroll-target="#creating-a-gradio-interface"><span class="header-section-number">7.5.3</span> Creating a Gradio Interface</a></li>
   </ul></li>
-  <li><a href="#deploy-web-base-applocation-using-tensorflow.js" id="toc-deploy-web-base-applocation-using-tensorflow.js" class="nav-link" data-scroll-target="#deploy-web-base-applocation-using-tensorflow.js"><span class="header-section-number">8.6</span> Deploy web base applocation using Tensorflow.js</a></li>
-  <li><a href="#deploy-mobile-application-using-tensorflow-lite" id="toc-deploy-mobile-application-using-tensorflow-lite" class="nav-link" data-scroll-target="#deploy-mobile-application-using-tensorflow-lite"><span class="header-section-number">8.7</span> Deploy mobile application using Tensorflow Lite</a></li>
-  <li><a href="#monitoring-shift-with-evidently" id="toc-monitoring-shift-with-evidently" class="nav-link" data-scroll-target="#monitoring-shift-with-evidently"><span class="header-section-number">8.8</span> Monitoring shift with evidently</a>
+  <li><a href="#deploy-web-base-applocation-using-tensorflow.js" id="toc-deploy-web-base-applocation-using-tensorflow.js" class="nav-link" data-scroll-target="#deploy-web-base-applocation-using-tensorflow.js"><span class="header-section-number">7.6</span> Deploy web base applocation using Tensorflow.js</a></li>
+  <li><a href="#deploy-mobile-application-using-tensorflow-lite" id="toc-deploy-mobile-application-using-tensorflow-lite" class="nav-link" data-scroll-target="#deploy-mobile-application-using-tensorflow-lite"><span class="header-section-number">7.7</span> Deploy mobile application using Tensorflow Lite</a></li>
+  <li><a href="#monitoring-shift-with-evidently" id="toc-monitoring-shift-with-evidently" class="nav-link" data-scroll-target="#monitoring-shift-with-evidently"><span class="header-section-number">7.8</span> Monitoring shift with evidently</a>
   <ul class="collapse">
-  <li><a href="#the-task-at-hand-bike-demand-forecasting" id="toc-the-task-at-hand-bike-demand-forecasting" class="nav-link" data-scroll-target="#the-task-at-hand-bike-demand-forecasting"><span class="header-section-number">8.8.1</span> The task at hand: bike demand forecasting</a></li>
-  <li><a href="#train-a-model" id="toc-train-a-model" class="nav-link" data-scroll-target="#train-a-model"><span class="header-section-number">8.8.2</span> Train a model</a></li>
-  <li><a href="#the-first-week-in-production" id="toc-the-first-week-in-production" class="nav-link" data-scroll-target="#the-first-week-in-production"><span class="header-section-number">8.8.3</span> The first week in production</a></li>
-  <li><a href="#the-second-week-failing-to-keep-up" id="toc-the-second-week-failing-to-keep-up" class="nav-link" data-scroll-target="#the-second-week-failing-to-keep-up"><span class="header-section-number">8.8.4</span> The second week: failing to keep up</a></li>
-  <li><a href="#week-3-when-things-go-south" id="toc-week-3-when-things-go-south" class="nav-link" data-scroll-target="#week-3-when-things-go-south"><span class="header-section-number">8.8.5</span> Week 3: when things go south</a></li>
-  <li><a href="#data-drift" id="toc-data-drift" class="nav-link" data-scroll-target="#data-drift"><span class="header-section-number">8.8.6</span> Data Drift</a></li>
+  <li><a href="#the-task-at-hand-bike-demand-forecasting" id="toc-the-task-at-hand-bike-demand-forecasting" class="nav-link" data-scroll-target="#the-task-at-hand-bike-demand-forecasting"><span class="header-section-number">7.8.1</span> The task at hand: bike demand forecasting</a></li>
+  <li><a href="#train-a-model" id="toc-train-a-model" class="nav-link" data-scroll-target="#train-a-model"><span class="header-section-number">7.8.2</span> Train a model</a></li>
+  <li><a href="#the-first-week-in-production" id="toc-the-first-week-in-production" class="nav-link" data-scroll-target="#the-first-week-in-production"><span class="header-section-number">7.8.3</span> The first week in production</a></li>
+  <li><a href="#the-second-week-failing-to-keep-up" id="toc-the-second-week-failing-to-keep-up" class="nav-link" data-scroll-target="#the-second-week-failing-to-keep-up"><span class="header-section-number">7.8.4</span> The second week: failing to keep up</a></li>
+  <li><a href="#week-3-when-things-go-south" id="toc-week-3-when-things-go-south" class="nav-link" data-scroll-target="#week-3-when-things-go-south"><span class="header-section-number">7.8.5</span> Week 3: when things go south</a></li>
+  <li><a href="#data-drift" id="toc-data-drift" class="nav-link" data-scroll-target="#data-drift"><span class="header-section-number">7.8.6</span> Data Drift</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.9</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7.9</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></h1>
 </div>
 
 
@@ -303,8 +303,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </tr></tbody></table>
 <p><br></p>
-<section id="setup" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">8.1</span> Setup</h2>
+<section id="setup" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">7.1</span> Setup</h2>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:76776,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015356667,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f730be4f-e38e-4103-c229-9847abeffbfb">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install bentoml <span class="op">-</span>qq</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install pyngrok <span class="op">-</span>qq</span>
@@ -428,11 +428,11 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 <span id="cb9-7"><a href="#cb9-7"></a>        <span class="bu">print</span>(<span class="st">"Go to Settings &gt; Accelerator and select GPU."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server"><span class="header-section-number">8.2</span> Deploying TensorFlow models to TensorFlow Serving (TFS) on remote server</h2>
+<section id="deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="deploying-tensorflow-models-to-tensorflow-serving-tfs-on-remote-server"><span class="header-section-number">7.2</span> Deploying TensorFlow models to TensorFlow Serving (TFS) on remote server</h2>
 <p>You could create your own microservice using any technology you want (e.g., using the Flask library), but why reinvent the wheel when you can just use TF Serving?</p>
-<section id="exporting-savedmodels" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="exporting-savedmodels"><span class="header-section-number">8.2.1</span> Exporting <code>SavedModels</code></h3>
+<section id="exporting-savedmodels" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="exporting-savedmodels"><span class="header-section-number">7.2.1</span> Exporting <code>SavedModels</code></h3>
 <p>TensorFlow provides a simple <code>tf.keras.models.save_model()</code> function to export models to the SavedModel format. All you need to do is give it the model, specifying its name and version number, and the function will save the model’s computation graph and its weights:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1587,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681015839760,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a67c87fd-55f4-47b6-b65d-496c920ab25a" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Load and split the MNIST dataset</span></span>
@@ -676,8 +676,8 @@ Concrete Functions:
 </div>
 <p>A SavedModel contains one or more metagraphs. When you pass a <code>tf.keras</code> model, by default the function saves a simple SavedModel: it saves a single metagraph tagged “serve”, which contains two signature definitions, an initialization function (called <code>_saved_model_init_op</code>) and a default serving function (called <code>serving_default</code>). When saving a <code>tf.keras</code> model, the default serving function corresponds to the model’s <code>call()</code> function, which of course makes predictions.</p>
 </section>
-<section id="serve-your-model-with-tensorflow-serving-server-side" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="serve-your-model-with-tensorflow-serving-server-side"><span class="header-section-number">8.2.2</span> Serve your model with TensorFlow Serving (Server side)</h3>
+<section id="serve-your-model-with-tensorflow-serving-server-side" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="serve-your-model-with-tensorflow-serving-server-side"><span class="header-section-number">7.2.2</span> Serve your model with TensorFlow Serving (Server side)</h3>
 <p>There are many ways to install TF Serving: using the system’s package manager, using a Docker image, installing from source, and more. Since Colab/Kaggle runs on Ubuntu, we can use Ubuntu’s apt package manager like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:88164,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016246520,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="883a6424-5b96-462d-baf7-fe9f7e6c4287" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="cf">if</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules <span class="kw">or</span> <span class="st">"kaggle_secrets"</span> <span class="kw">in</span> sys.modules:</span>
@@ -773,8 +773,8 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 </div>
 </div>
 </section>
-<section id="querying-tf-serving-through-the-rest-api-client-side" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="querying-tf-serving-through-the-rest-api-client-side"><span class="header-section-number">8.2.3</span> Querying TF Serving through the REST API (client side)</h3>
+<section id="querying-tf-serving-through-the-rest-api-client-side" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="querying-tf-serving-through-the-rest-api-client-side"><span class="header-section-number">7.2.3</span> Querying TF Serving through the REST API (client side)</h3>
 <p>Let’s start by creating the query. It must contain the name of the function signature you want to call, and of course the input data. Since the request must use the JSON format, we have to convert the input images from a <code>NumPy</code> array to a Python list:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016407051,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>input_data_json <span class="op">=</span> json.dumps({</span>
@@ -843,8 +843,8 @@ bentoml 1.0.17 requires starlette&lt;0.26, but you have starlette 0.26.1 which i
 </div>
 <p>For more information, please refer to <a href="https://github.com/tensorflow/serving">https://github.com/tensorflow/serving</a> which include the usuage of gRPC.</p>
 </section>
-<section id="deploying-a-new-model-version" class="level3" data-number="8.2.4">
-<h3 data-number="8.2.4" class="anchored" data-anchor-id="deploying-a-new-model-version"><span class="header-section-number">8.2.4</span> Deploying a new model version</h3>
+<section id="deploying-a-new-model-version" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="deploying-a-new-model-version"><span class="header-section-number">7.2.4</span> Deploying a new model version</h3>
 <p>Now let’s create a new model version and export a SavedModel to the <code>my_mnist_model/0002</code> directory, just like earlier:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:79156,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016587187,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="dd9482d5-997c-401e-efaa-844f27f4d380" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Change the architecture</span></span>
@@ -961,11 +961,11 @@ Epoch 10/10
 <p>If you would like to deploy to GCP vertex AI, checkout <a href="https://github.com/ageron/handson-ml3/blob/main/19_training_and_deploying_at_scale.ipynb">here</a>.</p>
 </section>
 </section>
-<section id="deploy-a-rest-api-server-using-bentoml-on-remote-server" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="deploy-a-rest-api-server-using-bentoml-on-remote-server"><span class="header-section-number">8.3</span> Deploy a REST API server using BentoML on remote server</h2>
+<section id="deploy-a-rest-api-server-using-bentoml-on-remote-server" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="deploy-a-rest-api-server-using-bentoml-on-remote-server"><span class="header-section-number">7.3</span> Deploy a REST API server using BentoML on remote server</h2>
 <p>To begin with <code>BentoML</code>, you will need to save your trained models with <code>BentoML</code> API in its model store (a local directory managed by <code>BentoML</code>). The model store is used for managing all your trained models locally as well as accessing them for serving.</p>
-<section id="train-a-classifier-model-using-the-iris-dataset" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="train-a-classifier-model-using-the-iris-dataset"><span class="header-section-number">8.3.1</span> Train a classifier model using the iris dataset</h3>
+<section id="train-a-classifier-model-using-the-iris-dataset" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="train-a-classifier-model-using-the-iris-dataset"><span class="header-section-number">7.3.1</span> Train a classifier model using the iris dataset</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:371,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016805045,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="10886df0-3dcc-416b-dd5d-28b1fa054f57" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Load training data</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>iris <span class="op">=</span> datasets.load_iris()</span>
@@ -1050,8 +1050,8 @@ weighted avg       1.00      1.00      1.00        30
 </div>
 <p>In this example, <code>bentoml.sklearn.get()</code> creates a reference to the saved model in the model store, and <code>to_runner()</code> creates a <code>Runner</code> instance from the model. The <code>Runner</code> abstraction gives <code>BentoServer</code> more flexibility in terms of how to schedule the inference computation, how to dynamically batch inference calls and better take advantage of all hardware resource available.</p>
 </section>
-<section id="create-a-bentoml-service-for-serving-the-model" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="create-a-bentoml-service-for-serving-the-model"><span class="header-section-number">8.3.2</span> Create a BentoML Service for serving the model</h3>
+<section id="create-a-bentoml-service-for-serving-the-model" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="create-a-bentoml-service-for-serving-the-model"><span class="header-section-number">7.3.2</span> Create a BentoML Service for serving the model</h3>
 <p>Services are the core components of BentoML, where the serving logic is defined. With the model saved in the model store, we can define the service by creating a Python file <code>service.py</code> with the following contents:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:348,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681016981559,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="b55b443a-a6e9-499f-c088-9307a10c9d6a" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="op">%%</span>writefile service.py</span>
@@ -1110,8 +1110,8 @@ weighted avg       1.00      1.00      1.00        30
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="op">!</span>kill $(pgrep bentoml)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="build-and-deploy-bentos" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="build-and-deploy-bentos"><span class="header-section-number">8.3.3</span> Build and Deploy Bentos 🍱</h3>
+<section id="build-and-deploy-bentos" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="build-and-deploy-bentos"><span class="header-section-number">7.3.3</span> Build and Deploy Bentos 🍱</h3>
 <p>Once we are happy with the service definition, we can build the model and service into a <code>bento</code>. Bento is the distribution format for a service. It is a self-contained archive that contains all the source code, model files and dependency specifications required to run the service. Checkout <a href="https://docs.bentoml.org/en/latest/concepts/bento.html">Building Bentos</a> for more details.</p>
 <p>To build a Bento, first create a file named <code>bentofile.yaml</code> in your project directory:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:344,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017354065,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="3838692f-9a95-48a3-e014-5d8d9087767f" data-execution_count="45">
@@ -1240,8 +1240,8 @@ Possible next steps:
 <p>For more information, please refer to <a href="https://docs.bentoml.org/en/latest/index.html">https://docs.bentoml.org/en/latest/index.html</a>.</p>
 </section>
 </section>
-<section id="deploy-web-base-application-in-local-computer-using-streamit" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="deploy-web-base-application-in-local-computer-using-streamit"><span class="header-section-number">8.4</span> Deploy web base application in local computer using streamit</h2>
+<section id="deploy-web-base-application-in-local-computer-using-streamit" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="deploy-web-base-application-in-local-computer-using-streamit"><span class="header-section-number">7.4</span> Deploy web base application in local computer using streamit</h2>
 <p>Streamlit’s simple and focused API lets you build incredibly rich and powerful tools. It contains a large number of <a href="https://docs.streamlit.io/library/api-reference">elements</a> and <a href="https://streamlit.io/components">components</a> that you can use.</p>
 <p>There are a few ways to display data (tables, arrays, data frames) in Streamlit apps. Below, <a href="https://docs.streamlit.io/library/api-reference/write-magic/magic"><code>st.write()</code></a> can be used to write anything from text, plots to tables. In addition, when you’ve got the data or model into the state that you want to explore, you can add in widgets like <code>st.slider()</code>, <code>st.button()</code> or <code>st.selectbox()</code>. Finally, Streamlit makes it easy to organize your widgets in a left panel sidebar with <code>st.sidebar</code>. Each element that’s passed to <code>st.sidebar</code> is pinned to the left, allowing users to focus on the content in your app while still having access to UI controls. For example, if you want to add a selectbox and a slider to a sidebar, use <code>st.sidebar.slider</code> and <code>st.sidebar.selectbox</code> instead of <code>st.slider</code> and <code>st.selectbox</code>:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:356,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017564628,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6e6ef853-6fd7-449e-e717-1f305e1976dd" data-execution_count="55">
@@ -1323,11 +1323,11 @@ Possible next steps:
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="op">!</span>kill $(pgrep streamlit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="deploy-web-base-application-in-local-computer-using-gradio" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="deploy-web-base-application-in-local-computer-using-gradio"><span class="header-section-number">8.5</span> Deploy web base application in local computer using Gradio</h2>
+<section id="deploy-web-base-application-in-local-computer-using-gradio" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="deploy-web-base-application-in-local-computer-using-gradio"><span class="header-section-number">7.5</span> Deploy web base application in local computer using Gradio</h2>
 <p>UI models are perfect to use with Gradio’s image input component, so in this section we will build a web demo to classify images using Gradio. We will be able to build the whole web application in Python, and it will look like this.</p>
-<section id="setting-up-the-image-classification-model" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="setting-up-the-image-classification-model"><span class="header-section-number">8.5.1</span> Setting up the Image Classification Model</h3>
+<section id="setting-up-the-image-classification-model" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="setting-up-the-image-classification-model"><span class="header-section-number">7.5.1</span> Setting up the Image Classification Model</h3>
 <p>First, we will need an image classification model. For this tutorial, we will use a pretrained Mobile Net model, as it is easily downloadable from Keras. You can use a different pretrained model or train your own.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:2119,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681017686143,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5916370f-d7c9-4c13-da7f-10b0a3070daf" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a><span class="op">!</span>wget https:<span class="op">//</span>hf.space<span class="op">/</span>embed<span class="op">/</span>abidlabs<span class="op">/</span>keras<span class="op">-</span>image<span class="op">-</span>classifier<span class="op">/</span><span class="bu">file</span><span class="op">/</span>banana.jpg</span>
@@ -1375,8 +1375,8 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 </div>
 </div>
 </section>
-<section id="defining-a-predict-function" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="defining-a-predict-function"><span class="header-section-number">8.5.2</span> Defining a predict function</h3>
+<section id="defining-a-predict-function" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="defining-a-predict-function"><span class="header-section-number">7.5.2</span> Defining a predict function</h3>
 <p>Next, we will need to define a function that takes in the user input, which in this case is an image, and returns the prediction. The prediction should be returned as a dictionary whose keys are class name and values are confidence probabilities. We will load the class names from <a href="https://raw.githubusercontent.com/gradio-app/mobilenet-example/master/labels.txt">this text file</a>.</p>
 <p>In the case of our pretrained model, it will look like this:</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:856,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018031594,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="71">
@@ -1394,8 +1394,8 @@ car.jpg             100%[===================&gt;]  77.76K   457KB/s    in 0.2s
 <p>Let’s break this down. The function takes one parameter: * <code>inp</code>: the input image as a NumPy array</p>
 <p>Then, the function adds a batch dimension, passes it through the model, and returns: * <code>confidences</code>: the predictions, as a dictionary whose keys are class labels and whose values are confidence probabilities</p>
 </section>
-<section id="creating-a-gradio-interface" class="level3" data-number="8.5.3">
-<h3 data-number="8.5.3" class="anchored" data-anchor-id="creating-a-gradio-interface"><span class="header-section-number">8.5.3</span> Creating a Gradio Interface</h3>
+<section id="creating-a-gradio-interface" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="creating-a-gradio-interface"><span class="header-section-number">7.5.3</span> Creating a Gradio Interface</h3>
 <p>Now that we have our predictive function set up, we can create a Gradio Interface around it. In this case, the input component is a drag-and-drop image component. To create this input, we can use the <code>gradio.inputs.Image</code> class, which creates the component and handles the preprocessing to convert that to a numpy array. We will instantiate the class with a parameter that automatically preprocesses the input image to be 224 pixels by 224 pixels, which is the size that MobileNet expects.</p>
 <p>The output component will be a “label”, which displays the top labels in a nice form. Since we don’t want to show all 1,000 class labels, we will customize it to show only the top 3 images.</p>
 <p>Finally, we’ll add one more parameter, the examples, which allows us to prepopulate our interfaces with a few predefined examples. The code for Gradio looks like this:</p>
@@ -1463,8 +1463,8 @@ To create a public link, set `share=True` in `launch()`.</code></pre>
 <p>For more information, please refer to <a href="https://github.com/gradio-app/gradio">https://github.com/gradio-app/gradio</a>.</p>
 </section>
 </section>
-<section id="deploy-web-base-applocation-using-tensorflow.js" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="deploy-web-base-applocation-using-tensorflow.js"><span class="header-section-number">8.6</span> Deploy web base applocation using Tensorflow.js</h2>
+<section id="deploy-web-base-applocation-using-tensorflow.js" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="deploy-web-base-applocation-using-tensorflow.js"><span class="header-section-number">7.6</span> Deploy web base applocation using Tensorflow.js</h2>
 <p>Tensorflow.js is a WebGL accelerated JavaScript library for training and deploying ML models. The TensorFlow.js project includes a <code>tensorflowjs_converter</code> tool that can convert a TensorFlow <code>SavedModel</code> or a Keras model file to the TensorFlow.js Layers format: this is a directory containing a set of sharded weight files in binary format and a model.json file that describes the model’s architecture and links to the weight files. This format is optimized to be downloaded efficiently on the web.</p>
 <p>Users can then download the model and run predictions in the browser using the TensorFlow.js library. Here is a code snippet to give you an idea of what the JavaScript API looks like:</p>
 <pre><code>import * as tf from '@tensorflow/tfjs';
@@ -1473,14 +1473,14 @@ const image = tf.fromPixels(webcamElement);
 const prediction = model.predict(image);</code></pre>
 <p>For more information, please refer to <a href="https://github.com/tensorflow/tfjs">https://github.com/tensorflow/tfjs</a>.</p>
 </section>
-<section id="deploy-mobile-application-using-tensorflow-lite" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="deploy-mobile-application-using-tensorflow-lite"><span class="header-section-number">8.7</span> Deploy mobile application using Tensorflow Lite</h2>
+<section id="deploy-mobile-application-using-tensorflow-lite" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="deploy-mobile-application-using-tensorflow-lite"><span class="header-section-number">7.7</span> Deploy mobile application using Tensorflow Lite</h2>
 <p>Once again, doing justice to this topic would require a whole book. If you want to learn more about TensorFlow Lite, check out the O’Reilly book <a href="https://www.oreilly.com/library/view/practical-deep-learning/9781492034858/">Practical Deep Learning for Cloud, Mobile, and Edge</a> or refer to <a href="https://www.tensorflow.org/lite">https://www.tensorflow.org/lite</a>.</p>
 </section>
-<section id="monitoring-shift-with-evidently" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="monitoring-shift-with-evidently"><span class="header-section-number">8.8</span> Monitoring shift with evidently</h2>
-<section id="the-task-at-hand-bike-demand-forecasting" class="level3" data-number="8.8.1">
-<h3 data-number="8.8.1" class="anchored" data-anchor-id="the-task-at-hand-bike-demand-forecasting"><span class="header-section-number">8.8.1</span> The task at hand: bike demand forecasting</h3>
+<section id="monitoring-shift-with-evidently" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="monitoring-shift-with-evidently"><span class="header-section-number">7.8</span> Monitoring shift with evidently</h2>
+<section id="the-task-at-hand-bike-demand-forecasting" class="level3" data-number="7.8.1">
+<h3 data-number="7.8.1" class="anchored" data-anchor-id="the-task-at-hand-bike-demand-forecasting"><span class="header-section-number">7.8.1</span> The task at hand: bike demand forecasting</h3>
 <p>We took a Kaggle dataset on <a href="https://www.kaggle.com/c/bike-sharing-demand/data">Bike Sharing Demand</a>. Our goal is to predict the volume of bike rentals on an hourly basis. To do that, we have some data about the season, weather, and day of the week.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1683,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018250255,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>content <span class="op">=</span> requests.get(<span class="st">"https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip"</span>).content</span>
@@ -1697,8 +1697,8 @@ const prediction = model.predict(image);</code></pre>
 </div>
 </div>
 </section>
-<section id="train-a-model" class="level3" data-number="8.8.2">
-<h3 data-number="8.8.2" class="anchored" data-anchor-id="train-a-model"><span class="header-section-number">8.8.2</span> Train a model</h3>
+<section id="train-a-model" class="level3" data-number="7.8.2">
+<h3 data-number="7.8.2" class="anchored" data-anchor-id="train-a-model"><span class="header-section-number">7.8.2</span> Train a model</h3>
 <p>We trained a random forest model using data for the four weeks from January. Let’s imagine that in practice, we just started the data collection, and that was all the data available. The performance of the trained model looked acceptable, so we decided to give it a go.</p>
 <p>We further assume that we only learn the ground truth (the actual demand) <strong>at the end of each week.</strong> That is a realistic assumption in real-world machine learning. Integrating and updating different data sources is not always straightforward. Even after the actual event has occurred! Maybe the daily usage data is stored locally and is only sent and merged in the database once per week.</p>
 <p>To run it, we prepare our performance data as a Pandas DataFrame. It should include: * <strong>Model application logs</strong>—features that went into the model and corresponding prediction; and * <strong>Ground truth data</strong>—the actual number of bikes rented each hour as our “target.”</p>
@@ -1978,8 +1978,8 @@ const prediction = model.predict(image);</code></pre>
 <p>We can see that the model has a fine quality given that we only trained on four weeks of data! The error is symmetric and distributed around zero. There is no obvious under- or over-estimation.</p>
 <p><strong>We will continue treating this dataset from model performance in training as our “reference.”</strong> It gives us a good feel of the quality we can expect from our model in production use. So, we can contrast the future performance against this benchmark.</p>
 </section>
-<section id="the-first-week-in-production" class="level3" data-number="8.8.3">
-<h3 data-number="8.8.3" class="anchored" data-anchor-id="the-first-week-in-production"><span class="header-section-number">8.8.3</span> The first week in production</h3>
+<section id="the-first-week-in-production" class="level3" data-number="7.8.3">
+<h3 data-number="7.8.3" class="anchored" data-anchor-id="the-first-week-in-production"><span class="header-section-number">7.8.3</span> The first week in production</h3>
 <p>Observing the model in production has straightforward goals. We want to detect if something goes wrong. Ideally, in advance. We also want to diagnose the root cause and get a quick understanding of how to address it. Maybe, the model degrades too fast, and we need to retrain it more often? Perhaps, the error is too high, and we need to adapt the model and rebuild it? Which new patterns are emerging?</p>
 <p><strong>In our case, we simply start by checking how well the model performs outside the training data.</strong> Our first week becomes what would have otherwise been a holdout dataset.</p>
 <p>For demonstration purposes, we generated all predictions for several weeks ahead in a single batch. In reality, we would run the model sequentially as the data comes in.</p>
@@ -2015,8 +2015,8 @@ const prediction = model.predict(image);</code></pre>
 <p>We can see that the distribution of the actual number of bikes rented remains sufficiently similar. To be more precise, the similarity hypothesis is not rejected. No drift is detected. The distributions of our predictions did not change much either.</p>
 <p>Despite this, a rational decision is to update your model by including the new week’s data. This way, the model can continue to learn, and we can probably improve the error. For the sake of demonstration, we’ll stick to see how fast things go really wrong.</p>
 </section>
-<section id="the-second-week-failing-to-keep-up" class="level3" data-number="8.8.4">
-<h3 data-number="8.8.4" class="anchored" data-anchor-id="the-second-week-failing-to-keep-up"><span class="header-section-number">8.8.4</span> The second week: failing to keep up</h3>
+<section id="the-second-week-failing-to-keep-up" class="level3" data-number="7.8.4">
+<h3 data-number="7.8.4" class="anchored" data-anchor-id="the-second-week-failing-to-keep-up"><span class="header-section-number">7.8.4</span> The second week: failing to keep up</h3>
 <p>Once again, we benchmark our new week against the reference dataset.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5302,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018798567,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9f095762-ca03-42f7-f746-b871a4db268e" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1"></a>regression_perfomance <span class="op">=</span> Report(metrics<span class="op">=</span>[RegressionPreset()])</span>
@@ -2049,8 +2049,8 @@ const prediction = model.predict(image);</code></pre>
 <p>It is tempting to investigate further. Is there anything in the data that can explain this change? If there is some new signal, retraining would likely help the model to keep up. The Target Drift report has a section to help us explore the relationship between the features and the target (or model predictions). ‍When browsing through the individual features, we can inspect if we notice any new patterns. We know that predictions did not change, so we only look at the relations with the target. For example, there is a shift towards higher temperatures (measured in Celsius) with a corresponding increase in rented bikes.</p>
 <p>Maybe, it would pick up these patterns in retraining. But for now, we simply move on to the next week without any updates.</p>
 </section>
-<section id="week-3-when-things-go-south" class="level3" data-number="8.8.5">
-<h3 data-number="8.8.5" class="anchored" data-anchor-id="week-3-when-things-go-south"><span class="header-section-number">8.8.5</span> Week 3: when things go south</h3>
+<section id="week-3-when-things-go-south" class="level3" data-number="7.8.5">
+<h3 data-number="7.8.5" class="anchored" data-anchor-id="week-3-when-things-go-south"><span class="header-section-number">7.8.5</span> Week 3: when things go south</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:5306,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1681018869473,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7360c5e1-e232-4363-991c-f75ca34643b5" data-execution_count="94">
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1"></a>regression_perfomance <span class="op">=</span> Report(metrics<span class="op">=</span>[RegressionPreset()])</span>
 <span id="cb140-2"><a href="#cb140-2"></a>regression_perfomance.run(current_data<span class="op">=</span>current.loc[<span class="st">'2011-02-15 00:00:00'</span>:<span class="st">'2011-02-21 23:00:00'</span>], </span>
@@ -2080,8 +2080,8 @@ const prediction = model.predict(image);</code></pre>
 </div>
 <p>We should retrain as soon as possible and do this often until we learn all the patterns. If we are not comfortable with frequent retraining, we might choose an algorithm that is more suitable for time series or is better in extrapolation.</p>
 </section>
-<section id="data-drift" class="level3" data-number="8.8.6">
-<h3 data-number="8.8.6" class="anchored" data-anchor-id="data-drift"><span class="header-section-number">8.8.6</span> Data Drift</h3>
+<section id="data-drift" class="level3" data-number="7.8.6">
+<h3 data-number="7.8.6" class="anchored" data-anchor-id="data-drift"><span class="header-section-number">7.8.6</span> Data Drift</h3>
 <p>In practice, once we receive the ground truth, we can indeed course-correct quickly. Had we retrained the model after week one, it would have likely ended less dramatically. <strong>But what if we do not have the ground truth available? Can we catch such decay in advance?</strong></p>
 <p>In this case, we can analyze the data drift. We do not need actuals to calculate the error. Instead, our goal is to see if the input data has changed.</p>
 <p><strong>Once again, let’s compare the first week of production to our data in training.</strong> We can, of course, look at all our features. But we can also conclude that categorical features (like “season,” “holiday” and “workingday”) are not likely to change. Let’s look at numerical features only!</p>
@@ -2111,8 +2111,8 @@ const prediction = model.predict(image);</code></pre>
 <p>For more information please refer to <a href="https://github.com/evidentlyai/evidently">https://github.com/evidentlyai/evidently</a>, <a href="https://github.com/SeldonIO/alibi-detect">https://github.com/SeldonIO/alibi-detect</a>, <a href="https://github.com/great-expectations/great_expectations">https://github.com/great-expectations/great_expectations</a> or <a href="https://github.com/whylabs/whylogs">https://github.com/whylabs/whylogs</a>.</p>
 </section>
 </section>
-<section id="references" class="level2" data-number="8.9">
-<h2 data-number="8.9" class="anchored" data-anchor-id="references"><span class="header-section-number">8.9</span> References</h2>
+<section id="references" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="references"><span class="header-section-number">7.9</span> References</h2>
 <ol type="1">
 <li><a href="https://github.com/ageron/handson-ml2/blob/master/19_training_and_deploying_at_scale.ipynb">https://github.com/ageron/handson-ml2/blob/master/19_training_and_deploying_at_scale.ipynb</a></li>
 <li><a href="https://github.com/bentoml/BentoML">https://github.com/bentoml/BentoML</a></li>
@@ -2413,7 +2413,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./06_XAI.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Explainable AI</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

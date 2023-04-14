@@ -1,4 +1,4 @@
-# Preface
+# Preface {.unnumbered}
 This is the companion book for the course [Practical and Innovative Analytics in Data Science](https://phonchi.github.io/nsysu-math608/) open in the Department of Applied Mathematics, National Sun Yat-sen University.
 This course focuses on the practical aspect of data science in the real world. In the course, students will learn to engage in a real-world project requiring them to apply skills from the entire data science pipeline: preparing, organizing, and transforming data, constructing a model, and evaluating results. 
 Moreover, high-level descriptions of how to apply deep learning for computer vision and natural language problems will also be covered.
@@ -6,6 +6,10 @@ Moreover, high-level descriptions of how to apply deep learning for computer vis
 The book is based on several well-known books and resources, including:
 
 - [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 3rd Edition](https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/)
+
+If you would like to review basics about statistical learning, you may refer to 
+
+- [Statistical Learning and Data Mining](https://phonchi.github.io/SLDM_Book/)
 
 If you would like to review basics about Python, you may refer to
 
