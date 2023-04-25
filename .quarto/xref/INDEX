@@ -31,5 +31,11 @@
   },
   "kaggle-explore.ipynb": {
     "kaggle-explore.html": "0a373363"
+  },
+  "08_neural_nets_with_tensorflow.ipynb": {
+    "08_neural_nets_with_tensorflow.html": "995f7b99"
+  },
+  "08_neural_nets_with_pytorch.ipynb": {
+    "08_neural_nets_with_pytorch.html": "e4482084"
   }
 }

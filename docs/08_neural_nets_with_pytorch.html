@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.306">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="phonchi">
+<meta name="dcterms.date" content="2023-04-24">
+
+<title>Practical and Innovative Analytics in Data Science - Appendix D — Introduction to Artificial Neural Networks - Pytorch</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./kaggle-explore.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./NumPy_tutorial.html">Appendices</a></li><li class="breadcrumb-item"><a href="./08_neural_nets_with_pytorch.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Introduction to Artificial Neural Networks - Pytorch</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Practical and Innovative Analytics in Data Science</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_end_to_end_machine_learning_project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">End-to-end Machine Learning project</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_Dataset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Framing the problem and constructing the dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_Relational_Database_and_data_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Relational Database and data wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_Clean_feature_engineering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data cleaning and feature engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_Feature_selection_extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Feature selection and extraction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_XAI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Explainable AI</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_Deploy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deploy and monitoring</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_neural_nets_with_tensorflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to Artificial Neural Networks - Tensorflow</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./NumPy_tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Numpy - multidimensional data arrays for python</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Colab_tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Introduction to Colab</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kaggle-explore.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Introduction to Kaggle</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_neural_nets_with_pytorch.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Introduction to Artificial Neural Networks - Pytorch</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">D.1</span> Setup</a></li>
+  <li><a href="#perceptrons" id="toc-perceptrons" class="nav-link" data-scroll-target="#perceptrons"><span class="header-section-number">D.2</span> Perceptrons</a></li>
+  <li><a href="#tensorflow-playground" id="toc-tensorflow-playground" class="nav-link" data-scroll-target="#tensorflow-playground"><span class="header-section-number">D.3</span> Tensorflow Playground</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">D.3.1</span> Introduction</a></li>
+  </ul></li>
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it"><span class="header-section-number">D.4</span> Try it</a></li>
+  <li><a href="#building-an-image-classifier-using-the-sequential-api" id="toc-building-an-image-classifier-using-the-sequential-api" class="nav-link" data-scroll-target="#building-an-image-classifier-using-the-sequential-api"><span class="header-section-number">D.5</span> Building an Image Classifier Using the Sequential API</a>
+  <ul class="collapse">
+  <li><a href="#creating-the-model-using-the-sequential-api" id="toc-creating-the-model-using-the-sequential-api" class="nav-link" data-scroll-target="#creating-the-model-using-the-sequential-api"><span class="header-section-number">D.5.1</span> Creating the Model Using the Sequential API</a></li>
+  <li><a href="#compiling-the-model" id="toc-compiling-the-model" class="nav-link" data-scroll-target="#compiling-the-model"><span class="header-section-number">D.5.2</span> Compiling the Model</a></li>
+  <li><a href="#training-and-evaluating-the-model" id="toc-training-and-evaluating-the-model" class="nav-link" data-scroll-target="#training-and-evaluating-the-model"><span class="header-section-number">D.5.3</span> Training and Evaluating the Model</a></li>
+  <li><a href="#using-the-model-to-make-predictions" id="toc-using-the-model-to-make-predictions" class="nav-link" data-scroll-target="#using-the-model-to-make-predictions"><span class="header-section-number">D.5.4</span> Using the Model to Make Predictions</a></li>
+  <li><a href="#try-different-network-architecture-and-hyperparameters" id="toc-try-different-network-architecture-and-hyperparameters" class="nav-link" data-scroll-target="#try-different-network-architecture-and-hyperparameters"><span class="header-section-number">D.5.5</span> Try different network architecture and hyperparameters</a></li>
+  </ul></li>
+  <li><a href="#saving-and-restoring" id="toc-saving-and-restoring" class="nav-link" data-scroll-target="#saving-and-restoring"><span class="header-section-number">D.6</span> Saving and Restoring</a></li>
+  <li><a href="#using-callbacks-during-training" id="toc-using-callbacks-during-training" class="nav-link" data-scroll-target="#using-callbacks-during-training"><span class="header-section-number">D.7</span> Using Callbacks during Training</a></li>
+  <li><a href="#pytorch-references" id="toc-pytorch-references" class="nav-link" data-scroll-target="#pytorch-references"><span class="header-section-number">D.8</span> Pytorch references</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Appendix D — Introduction to Artificial Neural Networks - Pytorch</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>phonchi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 24, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+
+<table align="left">
+<tbody><tr><td>
+<a href="https://colab.research.google.com/github/phonchi/nsysu-math608/blob/master/static_files/presentations/08_neural_nets_with_pytorch.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+</td>
+<td>
+<a target="_blank" href="https://kaggle.com/kernels/welcome?src=https://github.com/phonchi/nsysu-math608/blob/master/static_files/presentations/08_neural_nets_with_pytorch.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg"></a>
+</td>
+
+</tr></tbody></table>
+<p><br></p>
+<section id="setup" class="level2" data-number="D.1">
+<h2 data-number="D.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">D.1</span> Setup</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install torchinfo <span class="op">-</span>qq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:678,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146255244,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9bfc3994-561b-490d-a2c8-e75f539b7aad">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Python ≥3.7 is recommended</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> sys</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="cf">assert</span> sys.version_info <span class="op">&gt;=</span> (<span class="dv">3</span>, <span class="dv">7</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">import</span> os</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="im">from</span> time <span class="im">import</span> strftime</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="im">import</span> gc</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co"># Scikit-Learn ≥1.01 is recommended</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="im">from</span> packaging <span class="im">import</span> version</span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="im">import</span> sklearn</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Perceptron</span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="cf">assert</span> version.parse(sklearn.__version__) <span class="op">&gt;=</span> version.parse(<span class="st">"1.0.1"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co"># Pytorch related</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="im">import</span> torch</span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim </span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F</span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="im">from</span> torchinfo <span class="im">import</span> summary</span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="im">from</span> fastai.vision.<span class="bu">all</span> <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="co"># Common imports</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> ListedColormap</span>
+<span id="cb2-34"><a href="#cb2-34"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a>plt.rc(<span class="st">'font'</span>, size<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-36"><a href="#cb2-36"></a>plt.rc(<span class="st">'axes'</span>, labelsize<span class="op">=</span><span class="dv">14</span>, titlesize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-37"><a href="#cb2-37"></a>plt.rc(<span class="st">'legend'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-38"><a href="#cb2-38"></a>plt.rc(<span class="st">'xtick'</span>, labelsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-39"><a href="#cb2-39"></a>plt.rc(<span class="st">'ytick'</span>, labelsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="co"># to make this notebook's output stable across runs</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb2-43"><a href="#cb2-43"></a>torch.manual_seed(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>&lt;torch._C.Generator at 0x7f1b310fe9b0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:5506,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146187484,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="ef7224f3-bd12-44d7-882d-0b52b8a494bd">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">if</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules:  <span class="co"># extra code</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="op">%</span>pip install <span class="op">-</span>q <span class="op">-</span>U tensorboard<span class="op">-</span>plugin<span class="op">-</span>profile</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 48.8 MB/s eta 0:00:00</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="kw">not</span> torch.cuda.device_count():</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">"No GPU was detected. Neural nets can be very slow without a GPU."</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="cf">if</span> <span class="st">"google.colab"</span> <span class="kw">in</span> sys.modules:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>        <span class="bu">print</span>(<span class="st">"Go to Runtime &gt; Change runtime and select a GPU hardware "</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>              <span class="st">"accelerator."</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="cf">if</span> <span class="st">"kaggle_secrets"</span> <span class="kw">in</span> sys.modules:</span>
+<span id="cb6-7"><a href="#cb6-7"></a>        <span class="bu">print</span>(<span class="st">"Go to Settings &gt; Accelerator and select GPU."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="perceptrons" class="level2" data-number="D.2">
+<h2 data-number="D.2" class="anchored" data-anchor-id="perceptrons"><span class="header-section-number">D.2</span> Perceptrons</h2>
+<p>Let’s use the iris dataset from openml. This is a famous dataset that contains the sepal and petal length and width of 150 iris flowers of three different species: Iris-Setosa, Iris-Versicolor, and Iris-Virginica</p>
+<center>
+<img src="https://drive.google.com/uc?id=1YdzLV9grRNMQaaDz7JHEhj_TbTzr9NDJ" alt="drawing" width="600">
+</center>
+<p>You can find more information about the dataset <a href="https://api.openml.org/d/61">here</a>.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146258534,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="9ae0d8b4-9b66-4ff7-fdd7-20a58be711c3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>iris <span class="op">=</span> load_iris(as_frame<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(iris.data.shape)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>iris.data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(150, 4)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+  <div id="df-11d3349b-b9d6-4a7c-9bcc-bdabc2f62fb9">
+    <div class="colab-df-container">
+      <div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sepal length (cm)</th>
+<th data-quarto-table-cell-role="th">sepal width (cm)</th>
+<th data-quarto-table-cell-role="th">petal length (cm)</th>
+<th data-quarto-table-cell-role="th">petal width (cm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>4.7</td>
+<td>3.2</td>
+<td>1.3</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>1.5</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-11d3349b-b9d6-4a7c-9bcc-bdabc2f62fb9')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-11d3349b-b9d6-4a7c-9bcc-bdabc2f62fb9 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-11d3349b-b9d6-4a7c-9bcc-bdabc2f62fb9');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+</div>
+<p>For simplicity, here we perform binary classification based on two features.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146258881,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f288cebf-9923-43cd-a861-c97dad93546c">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Choose two features and setup a binary classification problem</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>X <span class="op">=</span> iris.data[[<span class="st">"petal length (cm)"</span>, <span class="st">"petal width (cm)"</span>]].to_numpy()</span>
+<span id="cb9-3"><a href="#cb9-3"></a>y <span class="op">=</span> (iris.target <span class="op">==</span> <span class="dv">0</span>)  <span class="co"># Iris setosa</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># Build Perceptron model</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>per_clf <span class="op">=</span> Perceptron(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a>per_clf.fit(X, y)</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co"># Test on two new instances</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>X_new <span class="op">=</span> [[<span class="dv">2</span>, <span class="fl">0.5</span>], [<span class="dv">3</span>, <span class="dv">1</span>]]</span>
+<span id="cb9-11"><a href="#cb9-11"></a>y_pred <span class="op">=</span> per_clf.predict(X_new)  <span class="co"># predicts True and False for these 2 flowers</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>y_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>array([ True, False])</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:390,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146259665,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="8467d1ea-1fe7-4fb3-ce90-190ce1c1771f">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Plot the decision boundary</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>a <span class="op">=</span> <span class="op">-</span>per_clf.coef_[<span class="dv">0</span>, <span class="dv">0</span>] <span class="op">/</span> per_clf.coef_[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb11-4"><a href="#cb11-4"></a>b <span class="op">=</span> <span class="op">-</span>per_clf.intercept_ <span class="op">/</span> per_clf.coef_[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb11-5"><a href="#cb11-5"></a>axes <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>]</span>
+<span id="cb11-6"><a href="#cb11-6"></a>x0, x1 <span class="op">=</span> np.meshgrid(</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    np.linspace(axes[<span class="dv">0</span>], axes[<span class="dv">1</span>], <span class="dv">500</span>).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    np.linspace(axes[<span class="dv">2</span>], axes[<span class="dv">3</span>], <span class="dv">200</span>).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb11-9"><a href="#cb11-9"></a>)</span>
+<span id="cb11-10"><a href="#cb11-10"></a>X_new <span class="op">=</span> np.c_[x0.ravel(), x1.ravel()]</span>
+<span id="cb11-11"><a href="#cb11-11"></a>y_predict <span class="op">=</span> per_clf.predict(X_new)</span>
+<span id="cb11-12"><a href="#cb11-12"></a>zz <span class="op">=</span> y_predict.reshape(x0.shape)</span>
+<span id="cb11-13"><a href="#cb11-13"></a>custom_cmap <span class="op">=</span> ListedColormap([<span class="st">'#9898ff'</span>, <span class="st">'#fafab0'</span>])</span>
+<span id="cb11-14"><a href="#cb11-14"></a></span>
+<span id="cb11-15"><a href="#cb11-15"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
+<span id="cb11-16"><a href="#cb11-16"></a>plt.plot(X[y <span class="op">==</span> <span class="dv">0</span>, <span class="dv">0</span>], X[y <span class="op">==</span> <span class="dv">0</span>, <span class="dv">1</span>], <span class="st">"bs"</span>, label<span class="op">=</span><span class="st">"Not Iris setosa"</span>)</span>
+<span id="cb11-17"><a href="#cb11-17"></a>plt.plot(X[y <span class="op">==</span> <span class="dv">1</span>, <span class="dv">0</span>], X[y <span class="op">==</span> <span class="dv">1</span>, <span class="dv">1</span>], <span class="st">"yo"</span>, label<span class="op">=</span><span class="st">"Iris setosa"</span>)</span>
+<span id="cb11-18"><a href="#cb11-18"></a>plt.plot([axes[<span class="dv">0</span>], axes[<span class="dv">1</span>]], [a <span class="op">*</span> axes[<span class="dv">0</span>] <span class="op">+</span> b, a <span class="op">*</span> axes[<span class="dv">1</span>] <span class="op">+</span> b], <span class="st">"k-"</span>,</span>
+<span id="cb11-19"><a href="#cb11-19"></a>         linewidth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb11-20"><a href="#cb11-20"></a>plt.contourf(x0, x1, zz, cmap<span class="op">=</span>custom_cmap)</span>
+<span id="cb11-21"><a href="#cb11-21"></a>plt.xlabel(<span class="st">"Petal length"</span>)</span>
+<span id="cb11-22"><a href="#cb11-22"></a>plt.ylabel(<span class="st">"Petal width"</span>)</span>
+<span id="cb11-23"><a href="#cb11-23"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
+<span id="cb11-24"><a href="#cb11-24"></a>plt.axis(axes)</span>
+<span id="cb11-25"><a href="#cb11-25"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="08_neural_nets_with_pytorch_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="tensorflow-playground" class="level2" data-number="D.3">
+<h2 data-number="D.3" class="anchored" data-anchor-id="tensorflow-playground"><span class="header-section-number">D.3</span> Tensorflow Playground</h2>
+<p><a href="http://playground.tensorflow.org/">http://playground.tensorflow.org/</a></p>
+<section id="introduction" class="level3" data-number="D.3.1">
+<h3 data-number="D.3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">D.3.1</span> Introduction</h3>
+<p>The Playground provides mainly 6 different types of datasets. 1. Classification: Circle, Exclusive or, Gaussian, spiral. 2. Regression: Plane, Multi Gaussian.</p>
+<p>Small circle points are represented as data points that correspond to Positive (+) and Negative (-). Positive represented by blue, Negative represented by orange. These same colours are used in representing Data, Neuron, Weight values.</p>
+<p>The datasets all have 2 input features and 1 output label. The 2 input features, <code>X1</code> and <code>X2</code>, are represented by the coordinates.</p>
+<ul>
+<li><p>The data points (represented by small circles) are initially colored orange or blue, which correspond to positive one and negative one.</p></li>
+<li><p>In the hidden layers, the lines are colored by the weights of the connections between neurons. Blue shows a positive weight, which means the network is using that output of the neuron as given. An orange line shows that the network is assiging a negative weight.</p></li>
+<li><p>In the output layer, the dots are colored orange or blue depending on their original values. The background color shows what the network is predicting for a particular area. <strong>The intensity of the color shows how confident that prediction is</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="try-it" class="level2" data-number="D.4">
+<h2 data-number="D.4" class="anchored" data-anchor-id="try-it"><span class="header-section-number">D.4</span> Try it</h2>
+<ul>
+<li><p><strong>Layers and patterns</strong>: try training the default neural network by clicking the “Run” button (top left). Notice how it quickly finds a good solution for the classification task. Notice that the neurons in the first hidden layer have learned simple patterns, while the neurons in the second hidden layer have learned to combine the simple patterns of the first hidden layer into more complex patterns). In general, the more layers, the more complex the patterns can be.</p></li>
+<li><p><strong>Activation function</strong>: try replacing the Tanh activation function with the ReLU activation function, and train the network again. Notice that it finds a solution even faster.</p></li>
+<li><p><strong>Local minima</strong>: modify the network architecture to have just one hidden layer with three neurons. Train it multiple times (to reset the network weights, just add and remove a neuron). Notice that the training time varies a lot, and sometimes it even gets stuck in a local minimum.</p></li>
+<li><p><strong>Too small</strong>: now remove one neuron to keep just 2. Notice that the neural network is now incapable of finding a good solution, even if you try multiple times. The model has too few parameters and it systematically underfits the training set.</p></li>
+<li><p><strong>Large enough</strong>: next, set the number of neurons to 8 and train the network several times. Notice that it is now consistently fast and never gets stuck. This highlights an important finding in neural network theory: large neural networks almost never get stuck in local minima, and even when they do these local optima are almost as good as the global optimum. However, they can still get stuck on long plateaus for a long time.</p></li>
+<li><p><strong>Deep net and vanishing gradients</strong>: now change the dataset to be the spiral (bottom right dataset under “DATA”). Change the network architecture to have 4 hidden layers with 4 neurons each. Notice that training takes much longer, and often gets stuck on plateaus for long periods of time. Also notice that the neurons in the highest layers (i.e.&nbsp;on the right) tend to evolve faster than the neurons in the lowest layers (i.e.&nbsp;on the left). This problem, called the “vanishing gradients” problem, can be alleviated using better weight initialization and other techniques, better optimizers (such as AdaGrad or Adam), or using Batch Normalization.</p></li>
+</ul>
+</section>
+<section id="building-an-image-classifier-using-the-sequential-api" class="level2" data-number="D.5">
+<h2 data-number="D.5" class="anchored" data-anchor-id="building-an-image-classifier-using-the-sequential-api"><span class="header-section-number">D.5</span> Building an Image Classifier Using the Sequential API</h2>
+<p>First let’s import pytorch.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:231,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146271460,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5b1daf27-a1a7-4a4b-dcbb-708025434f52">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>torch.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>'2.0.0+cu118'</code></pre>
+</div>
+</div>
+<p>First, we need to load a dataset. We will tackle Fashion MNIST, which is a drop-in replacement of MNIST. It has the exact same format as MNIST (70,000 grayscale images of <span class="math inline">\(28 \times 28\)</span> pixels each, with 10 classes), but the images represent fashion items rather than handwritten digits, so each class is more diverse and the problem turns out to be significantly more challenging than MNIST. <strong>For example, a simple linear model reaches about 92% accuracy on MNIST, but only about 83% on Fashion MNIST.</strong></p>
+<p>Let’s start by loading the fashion MNIST dataset. <code>Pytorch</code> has a number of functions to load popular datasets in <code>datasets</code>. The dataset is already split for you between a training set and a test set, but it can be useful to split the training set further to have a validation set:</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:5561,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146334738,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="0c73c63d-c7d4-4819-fdd2-66606ec74107">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>transform <span class="op">=</span> transforms.Compose([transforms.ToTensor(), <span class="kw">lambda</span> x: x<span class="op">/</span><span class="dv">255</span>])</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a>trainset <span class="op">=</span> datasets.FashionMNIST(</span>
+<span id="cb14-4"><a href="#cb14-4"></a>    root<span class="op">=</span><span class="st">"data"</span>,            </span>
+<span id="cb14-5"><a href="#cb14-5"></a>    train<span class="op">=</span><span class="va">True</span>,             </span>
+<span id="cb14-6"><a href="#cb14-6"></a>    download<span class="op">=</span><span class="va">True</span>,         </span>
+<span id="cb14-7"><a href="#cb14-7"></a>    transform<span class="op">=</span>transform,  </span>
+<span id="cb14-8"><a href="#cb14-8"></a>)</span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a>testset <span class="op">=</span> datasets.FashionMNIST(</span>
+<span id="cb14-11"><a href="#cb14-11"></a>    root<span class="op">=</span><span class="st">"data"</span>,           </span>
+<span id="cb14-12"><a href="#cb14-12"></a>    train<span class="op">=</span><span class="va">False</span>,           </span>
+<span id="cb14-13"><a href="#cb14-13"></a>    download<span class="op">=</span><span class="va">True</span>,         </span>
+<span id="cb14-14"><a href="#cb14-14"></a>    transform<span class="op">=</span>transform,</span>
+<span id="cb14-15"><a href="#cb14-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to data/FashionMNIST/raw/train-images-idx3-ubyte.gz</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 26421880/26421880 [00:01&lt;00:00, 15937675.15it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Extracting data/FashionMNIST/raw/train-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw/train-labels-idx1-ubyte.gz</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 29515/29515 [00:00&lt;00:00, 271715.97it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Extracting data/FashionMNIST/raw/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 4422102/4422102 [00:00&lt;00:00, 5055744.32it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Extracting data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 5148/5148 [00:00&lt;00:00, 20841966.21it/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Extracting data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+</div>
+<p>Let’s split the full training set into a validation set and a (smaller) training set. Now the validation set contains 5,000 images, and the test set contains 10,000 images.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Preparing for validaion test</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a>trainset, validset <span class="op">=</span> torch.utils.data.random_split(trainset, [<span class="dv">55000</span>, <span class="dv">5000</span>])</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># Data Loader</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>trainloader <span class="op">=</span> torch.utils.data.DataLoader(trainset, batch_size<span class="op">=</span><span class="dv">32</span>, shuffle<span class="op">=</span><span class="va">True</span>, num_workers<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb25-7"><a href="#cb25-7"></a>validloader <span class="op">=</span> torch.utils.data.DataLoader(validset, batch_size<span class="op">=</span><span class="dv">32</span>, shuffle<span class="op">=</span><span class="va">False</span>, num_workers<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb25-8"><a href="#cb25-8"></a>testloader <span class="op">=</span> torch.utils.data.DataLoader(testset, batch_size<span class="op">=</span><span class="dv">32</span>, shuffle<span class="op">=</span><span class="va">False</span>, num_workers<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that the order of Pytorch is <code>[batch, channel, height, width]</code>.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:229,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146416608,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f24d9ad3-c65d-4581-9d0c-1ccdc036d656">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="cf">for</span> X, y <span class="kw">in</span> trainloader:</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    <span class="bu">print</span>(<span class="st">"Shape of X [N, C, H, W]: "</span>, X.shape)</span>
+<span id="cb26-3"><a href="#cb26-3"></a>    <span class="bu">print</span>(<span class="st">"Shape of y: "</span>, y.shape, y.dtype)</span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="bu">print</span>(y)</span>
+<span id="cb26-5"><a href="#cb26-5"></a>    <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape of X [N, C, H, W]:  torch.Size([32, 1, 28, 28])
+Shape of y:  torch.Size([32]) torch.int64
+tensor([3, 4, 5, 7, 7, 0, 6, 2, 0, 1, 1, 5, 2, 8, 8, 0, 5, 1, 8, 7, 7, 3, 4, 1,
+        5, 1, 0, 9, 6, 7, 3, 0])</code></pre>
+</div>
+</div>
+<p>The labels are the class IDs from 0 to 9.</p>
+<p>Here are the corresponding class names:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>class_names <span class="op">=</span> [<span class="st">"T-shirt/top"</span>, <span class="st">"Trouser"</span>, <span class="st">"Pullover"</span>, <span class="st">"Dress"</span>, <span class="st">"Coat"</span>,</span>
+<span id="cb28-2"><a href="#cb28-2"></a>               <span class="st">"Sandal"</span>, <span class="st">"Shirt"</span>, <span class="st">"Sneaker"</span>, <span class="st">"Bag"</span>, <span class="st">"Ankle boot"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s take a look at a sample of the images in the dataset:</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:3082,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146922842,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f2938908-50d2-47e1-af05-21ab7fea6e39">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>dataiter <span class="op">=</span> <span class="bu">iter</span>(trainloader)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="bu">print</span>(dataiter)</span>
+<span id="cb29-3"><a href="#cb29-3"></a>images, labels <span class="op">=</span> <span class="bu">next</span>(dataiter)</span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a></span>
+<span id="cb29-6"><a href="#cb29-6"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">5</span>))</span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="cf">for</span> idx <span class="kw">in</span> np.arange(<span class="dv">20</span>):</span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="co"># xticks=[], yticks=[] is empty to print the images without any ticks around them</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="co">#np.sqeeze : Remove single-dimensional entries from the shape of an array.</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a>  ax <span class="op">=</span> fig.add_subplot(<span class="dv">4</span>, <span class="bu">int</span>(<span class="dv">20</span><span class="op">/</span><span class="dv">4</span>), idx<span class="op">+</span><span class="dv">1</span>, xticks<span class="op">=</span>[], yticks<span class="op">=</span>[])</span>
+<span id="cb29-11"><a href="#cb29-11"></a>  ax.imshow(np.squeeze(images[idx]), cmap<span class="op">=</span><span class="st">'binary'</span>)</span>
+<span id="cb29-12"><a href="#cb29-12"></a>   <span class="co"># .item() gets the value contained in a Tensor</span></span>
+<span id="cb29-13"><a href="#cb29-13"></a>  ax.set_title(class_names[labels[idx].item()])</span>
+<span id="cb29-14"><a href="#cb29-14"></a>  fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;torch.utils.data.dataloader._MultiProcessingDataLoaderIter object at 0x7f1ac0892dc0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="08_neural_nets_with_pytorch_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="creating-the-model-using-the-sequential-api" class="level3" data-number="D.5.1">
+<h3 data-number="D.5.1" class="anchored" data-anchor-id="creating-the-model-using-the-sequential-api"><span class="header-section-number">D.5.1</span> Creating the Model Using the Sequential API</h3>
+<p>Now let’s build the neural network! Here is a classification MLP with two hidden layers:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>model <span class="op">=</span> torch.nn.Sequential(</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    torch.nn.Flatten(),</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    torch.nn.Linear(<span class="dv">28</span> <span class="op">*</span> <span class="dv">28</span>, <span class="dv">300</span>),</span>
+<span id="cb31-4"><a href="#cb31-4"></a>    torch.nn.ReLU(),</span>
+<span id="cb31-5"><a href="#cb31-5"></a>    torch.nn.Linear(<span class="dv">300</span>, <span class="dv">100</span>),</span>
+<span id="cb31-6"><a href="#cb31-6"></a>    torch.nn.ReLU(),</span>
+<span id="cb31-7"><a href="#cb31-7"></a>    torch.nn.Linear(<span class="dv">100</span>, <span class="dv">10</span>)</span>
+<span id="cb31-8"><a href="#cb31-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We build the first layer and add it to the model. It is a <code>Flatten</code> layer whose role is simply to convert each input image into a 1D array: if it receives input data <code>X</code>, it computes <code>X.reshape(-1, 1)</code>. This layer does not have any parameters, it is just there to do some simple preprocessing.</li>
+<li>Next we add a <code>Linear</code> hidden layer with 300 neurons. It will use the <code>ReLU</code> activation function. Each <code>Linear</code> layer manages its own weight matrix, containing all the connection weights between the neurons and their inputs. It also manages a vector of weight bias terms (one per neuron in the next layer).</li>
+<li>Next we add a second <code>Linear</code> hidden layer with 100 neurons, also using the <code>ReLU</code> activation function.</li>
+<li>Finally, we add a <code>Linear</code> output layer with 10 neurons (one per class)</li>
+</ul>
+<p>The model’s <code>summary()</code> method displays all the model’s layers, including each layer’s name (which is automatically generated unless you set it when creating the layer), its output shape (None means the batch size can be anything), and its number of parameters. The summary ends with the total number of parameters, including trainable and non-trainable parameters. Here we only have trainable parameters. Since we have not specified the shape of input in the model definition, <strong>you should specify the input shape</strong>.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:239,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682149785397,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7b5c217e-33a9-49ed-dcc4-bb37c493bc6f">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>summary(model, input_size<span class="op">=</span>(<span class="dv">32</span>, <span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<pre><code>==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+Sequential                               [32, 10]                  --
+├─Flatten: 1-1                           [32, 784]                 --
+├─Linear: 1-2                            [32, 300]                 235,500
+├─ReLU: 1-3                              [32, 300]                 --
+├─Linear: 1-4                            [32, 100]                 30,100
+├─ReLU: 1-5                              [32, 100]                 --
+├─Linear: 1-6                            [32, 10]                  1,010
+==========================================================================================
+Total params: 266,610
+Trainable params: 266,610
+Non-trainable params: 0
+Total mult-adds (M): 8.53
+==========================================================================================
+Input size (MB): 0.10
+Forward/backward pass size (MB): 0.10
+Params size (MB): 1.07
+Estimated Total Size (MB): 1.27
+==========================================================================================</code></pre>
+</div>
+</div>
+<p>Note that Linear layers often have a lot of parameters. For example, the first hidden layer has <code>784×300</code> connection weights, plus 300 bias terms, which adds up to 235,500 parameters! This gives the model quite a lot of flexibility to fit the training data, but it also means that the model runs the risk of overfitting, especially when you do not have a lot of training data!</p>
+<p>All the parameters of a layer can be accessed using <code>parameters</code> or <code>named_parameters</code>. For a Linear layer, this includes both the connection weights and the bias terms:</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:249,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682149788355,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6f45a253-3560-4719-ff0a-b3b61bc88a1a">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=784, out_features=300, bias=True)
+  (2): ReLU()
+  (3): Linear(in_features=300, out_features=100, bias=True)
+  (4): ReLU()
+  (5): Linear(in_features=100, out_features=10, bias=True)
+)</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682149789438,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="4767cc29-1a96-4981-cb5f-9a31cf802cec">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="cf">for</span> name, param <span class="kw">in</span> model[<span class="dv">1</span>].named_parameters():</span>
+<span id="cb36-2"><a href="#cb36-2"></a>    <span class="bu">print</span>(name, param)</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    <span class="bu">print</span>(param.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>weight Parameter containing:
+tensor([[-0.0008,  0.0200,  0.0067,  ..., -0.0131, -0.0300,  0.0034],
+        [-0.0015, -0.0090,  0.0235,  ..., -0.0063,  0.0129,  0.0004],
+        [-0.0313,  0.0174, -0.0309,  ..., -0.0151, -0.0003, -0.0060],
+        ...,
+        [-0.0189,  0.0302,  0.0253,  ...,  0.0066, -0.0163,  0.0019],
+        [-0.0316,  0.0122,  0.0078,  ...,  0.0180, -0.0269,  0.0266],
+        [-0.0120, -0.0033, -0.0263,  ...,  0.0092, -0.0053, -0.0234]],
+       device='cuda:0', requires_grad=True)
+torch.Size([300, 784])
+bias Parameter containing:
+tensor([-9.2447e-03, -2.8974e-02,  7.2220e-03, -3.3954e-02,  2.2371e-02,
+         1.8663e-02, -4.9257e-03, -2.1786e-02, -6.3649e-06,  1.6387e-02,
+        -2.2864e-02,  5.9067e-03,  7.7610e-03, -6.7648e-03,  2.9585e-04,
+        -2.6493e-02, -5.4183e-03,  7.9403e-03, -8.6405e-03,  2.9657e-02,
+         1.5868e-02, -9.9445e-03,  1.7332e-02, -2.3654e-02,  2.2842e-02,
+         2.5317e-02,  2.4360e-02, -8.2912e-03,  3.1216e-02,  1.5463e-02,
+        -1.0169e-02,  2.5816e-02, -1.3469e-02, -3.2832e-02,  1.2529e-02,
+        -2.7177e-02,  6.2815e-03, -1.4683e-02, -2.1896e-02, -1.7237e-02,
+         1.0154e-02,  2.1535e-02,  3.2067e-02,  2.8216e-03, -3.1141e-02,
+         9.2012e-03,  3.5173e-02,  6.1674e-03, -6.3851e-03, -1.4740e-02,
+        -1.6019e-02, -2.6387e-02, -1.7757e-02, -3.9408e-03,  1.1568e-02,
+         4.2389e-03, -2.8631e-02, -1.3997e-03,  3.1402e-02, -3.5590e-02,
+         2.4734e-02,  2.8789e-02,  6.8656e-03,  5.9841e-03, -2.5894e-02,
+         1.3375e-02,  2.5252e-02,  2.3386e-02,  3.0545e-02,  8.2353e-03,
+         3.0568e-02, -3.4779e-02, -3.4079e-02,  3.0365e-02, -2.4662e-02,
+        -1.9887e-03, -6.9185e-03,  5.1128e-04, -5.2750e-03, -2.6210e-02,
+        -2.9502e-02,  1.0410e-02,  2.8435e-02, -3.0872e-02, -3.4853e-02,
+        -2.9207e-02, -1.3540e-02, -2.6068e-02,  2.6272e-03,  3.4383e-02,
+         3.5367e-03,  2.9826e-02, -3.0363e-02,  2.8289e-02, -1.5520e-02,
+         2.8845e-02,  8.3951e-03, -2.3115e-02,  3.1465e-02, -7.2679e-03,
+         1.8229e-02,  9.3152e-03, -3.5144e-02,  1.6315e-02, -3.3828e-02,
+         2.3353e-02,  2.8609e-02, -2.6712e-02,  3.1670e-02,  1.7699e-02,
+         2.0659e-03,  2.8378e-02, -1.6027e-02, -1.8193e-02,  2.7328e-02,
+        -3.4533e-02,  8.5889e-04,  9.4282e-03, -2.6854e-02, -2.1584e-02,
+         2.6076e-02,  3.2076e-02,  8.5227e-03,  1.3048e-02,  1.1044e-02,
+         6.0950e-03, -3.3592e-02,  2.8679e-02, -5.2404e-04,  1.6140e-02,
+         2.4623e-02, -2.4162e-03,  3.2872e-02, -1.0452e-02,  5.5769e-03,
+        -1.4323e-02, -2.3068e-02, -1.5116e-02,  2.4937e-02, -1.9900e-03,
+         1.8617e-02,  1.9982e-02,  1.1068e-02,  3.1604e-02, -3.0483e-02,
+         5.3171e-03, -1.6588e-02, -1.3809e-03,  2.7469e-02, -1.0831e-03,
+        -1.2490e-02,  2.1345e-02,  1.4646e-02, -1.6319e-02, -3.3509e-02,
+         3.1080e-02, -2.3143e-02, -2.2578e-02,  1.4178e-02,  3.0439e-03,
+         1.6791e-02,  1.4951e-02,  2.1536e-02,  1.1985e-02, -2.3818e-02,
+        -2.7063e-02, -3.2855e-02,  2.3895e-02, -1.0812e-02, -3.1468e-03,
+        -1.0324e-02,  1.1700e-02, -4.4395e-03,  2.9190e-02,  6.4556e-03,
+         2.4577e-02, -6.9744e-03, -9.4140e-03,  3.2622e-02,  1.9515e-03,
+         3.0799e-02, -2.5119e-02,  3.0590e-02, -2.7039e-02, -2.1676e-02,
+         2.0446e-02,  2.6810e-02, -1.5904e-03, -2.1362e-02,  2.1427e-02,
+        -4.6989e-03, -1.5359e-03, -2.8713e-02, -2.7395e-02, -9.5997e-03,
+        -6.3844e-03,  3.3899e-02,  1.2112e-02, -3.4466e-02,  2.6060e-02,
+         2.5547e-02,  1.0490e-02, -1.6767e-02,  1.6235e-02, -1.4759e-02,
+         1.0598e-02,  2.3993e-02,  2.7616e-02, -2.2009e-02,  1.3510e-02,
+         1.7211e-02, -8.0213e-03,  1.5486e-02,  2.6799e-02,  2.4796e-02,
+        -2.4025e-02,  2.6916e-02,  2.0536e-02,  1.5900e-02, -1.0640e-02,
+        -3.2833e-02,  7.8252e-03,  3.0454e-02,  9.9070e-03, -1.7561e-02,
+        -5.8674e-03, -2.1999e-02, -2.6726e-02,  1.0378e-02,  2.7650e-02,
+        -2.7787e-02, -2.0327e-02, -2.2503e-02,  1.7165e-02, -3.4127e-02,
+        -6.2338e-03,  2.8526e-02, -2.6287e-02, -3.4710e-02, -3.1144e-02,
+         2.3019e-02, -3.2435e-03,  7.6013e-03,  2.3533e-02, -1.0957e-02,
+        -2.9534e-02,  1.4351e-04, -7.0979e-03,  2.6821e-02, -3.0888e-02,
+        -1.4907e-03,  1.0754e-02,  2.7180e-02,  2.9236e-02,  1.4429e-02,
+         2.9763e-02,  8.7761e-03, -2.8120e-02, -3.7655e-03, -1.0074e-02,
+         3.1215e-02, -1.8262e-02,  1.7809e-02,  2.7542e-02,  6.4198e-03,
+         1.5621e-02, -1.6357e-02, -1.7261e-02, -2.9069e-02, -1.8037e-02,
+        -5.9544e-03,  3.0685e-03, -2.6223e-02, -3.2612e-02,  1.9598e-02,
+        -2.3883e-02, -3.5633e-02, -2.6732e-02, -2.9994e-02,  1.2320e-02,
+         2.0810e-02, -4.9483e-03,  9.6650e-03, -2.6957e-02, -1.4085e-02,
+         2.4534e-02, -1.3710e-02, -3.0980e-02,  2.2327e-02, -8.2447e-04,
+        -3.0320e-02, -1.4513e-02, -2.4652e-02,  1.2461e-03, -1.8602e-02,
+        -4.4680e-03, -2.9267e-02,  3.1477e-02, -8.2771e-03,  3.2391e-02],
+       device='cuda:0', requires_grad=True)
+torch.Size([300])</code></pre>
+</div>
+</div>
+<p>Notice that the Linear layer initialized the connection weights randomly (which is needed to break symmetry).</p>
+</section>
+<section id="compiling-the-model" class="level3" data-number="D.5.2">
+<h3 data-number="D.5.2" class="anchored" data-anchor-id="compiling-the-model"><span class="header-section-number">D.5.2</span> Compiling the Model</h3>
+<p>Here, we use the high-level API <a href="https://docs.fast.ai/">fastai</a> for training, but you may also use <a href="https://www.pytorchlightning.ai/index.html">Lighting</a> instead.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>data <span class="op">=</span> DataLoaders(trainloader, validloader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>learn <span class="op">=</span> Learner(data, model, loss_func<span class="op">=</span>F.cross_entropy, opt_func<span class="op">=</span>Adam, metrics<span class="op">=</span>[accuracy])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="training-and-evaluating-the-model" class="level3" data-number="D.5.3">
+<h3 data-number="D.5.3" class="anchored" data-anchor-id="training-and-evaluating-the-model"><span class="header-section-number">D.5.3</span> Training and Evaluating the Model</h3>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:599714,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150400652,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7790df64-b081-461f-90c6-49882ec99a26">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>learn.fit(<span class="dv">30</span>, <span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">epoch</th>
+<th data-quarto-table-cell-role="th">train_loss</th>
+<th data-quarto-table-cell-role="th">valid_loss</th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.790450</td>
+<td>0.780884</td>
+<td>0.720000</td>
+<td>00:20</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.686098</td>
+<td>0.695901</td>
+<td>0.753200</td>
+<td>00:17</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0.553506</td>
+<td>0.608219</td>
+<td>0.786600</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.513209</td>
+<td>0.545953</td>
+<td>0.813400</td>
+<td>00:20</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0.479568</td>
+<td>0.516947</td>
+<td>0.819800</td>
+<td>00:18</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0.488435</td>
+<td>0.491999</td>
+<td>0.831600</td>
+<td>00:17</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>0.440884</td>
+<td>0.468577</td>
+<td>0.836600</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>0.458791</td>
+<td>0.459762</td>
+<td>0.840800</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>0.409206</td>
+<td>0.452688</td>
+<td>0.839600</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>0.386557</td>
+<td>0.436145</td>
+<td>0.847200</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>0.386161</td>
+<td>0.424733</td>
+<td>0.848000</td>
+<td>00:20</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>0.372232</td>
+<td>0.428308</td>
+<td>0.848800</td>
+<td>00:26</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>0.396859</td>
+<td>0.417189</td>
+<td>0.848800</td>
+<td>00:20</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>0.334558</td>
+<td>0.404274</td>
+<td>0.854200</td>
+<td>00:19</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>0.355626</td>
+<td>0.399699</td>
+<td>0.859600</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>0.354593</td>
+<td>0.401432</td>
+<td>0.858800</td>
+<td>00:24</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>0.354426</td>
+<td>0.388033</td>
+<td>0.863000</td>
+<td>00:20</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>0.330213</td>
+<td>0.370720</td>
+<td>0.863200</td>
+<td>00:18</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>0.321238</td>
+<td>0.378462</td>
+<td>0.865600</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>0.314699</td>
+<td>0.377342</td>
+<td>0.861600</td>
+<td>00:18</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>0.299304</td>
+<td>0.372751</td>
+<td>0.867400</td>
+<td>00:18</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>0.322843</td>
+<td>0.356741</td>
+<td>0.871400</td>
+<td>00:18</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>0.328895</td>
+<td>0.357033</td>
+<td>0.874000</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>0.301488</td>
+<td>0.362713</td>
+<td>0.870000</td>
+<td>00:18</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>0.306989</td>
+<td>0.354016</td>
+<td>0.873400</td>
+<td>00:23</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>0.318756</td>
+<td>0.348814</td>
+<td>0.874800</td>
+<td>00:18</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>0.276582</td>
+<td>0.345385</td>
+<td>0.876800</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>0.268662</td>
+<td>0.335636</td>
+<td>0.879200</td>
+<td>00:17</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>0.280722</td>
+<td>0.341237</td>
+<td>0.878400</td>
+<td>00:19</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>0.304366</td>
+<td>0.336023</td>
+<td>0.878200</td>
+<td>00:19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:867,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150407868,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="994effe3-77ed-4af3-efe9-b9d64f8e90f3">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>learn.recorder.plot_loss()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="08_neural_nets_with_pytorch_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2906,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150412860,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="2ebc85a5-76f9-4725-976f-3d165297673e">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>fastai_loss, fastai_accuracy <span class="op">=</span> learn.validate(dl<span class="op">=</span>testloader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:252,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150414077,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="f1091d11-95a8-40a1-a825-f1fb606f3c3b">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>fastai_accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<pre><code>0.8761000037193298</code></pre>
+</div>
+</div>
+<p><strong>It is common to get slightly lower performance on the test set than on the validation set, because the hyperparameters are tuned on the validation set</strong>, not the test set (however, in this example, we did not do any hyperparameter tuning, so the lower accuracy is just bad luck).</p>
+</section>
+<section id="using-the-model-to-make-predictions" class="level3" data-number="D.5.4">
+<h3 data-number="D.5.4" class="anchored" data-anchor-id="using-the-model-to-make-predictions"><span class="header-section-number">D.5.4</span> Using the Model to Make Predictions</h3>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:3054,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150426336,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5d4e71b4-493f-454c-d825-8a6f7c30d953">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Use the model to make predictions on the new data</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>predictions, labels <span class="op">=</span> learn.get_preds(dl<span class="op">=</span>testloader)</span>
+<span id="cb45-3"><a href="#cb45-3"></a></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="co"># Print the predicted classes and their corresponding true labels</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="bu">print</span>(<span class="st">'Predicted probs:'</span>, predictions)</span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="bu">print</span>(<span class="st">'Predicted labels:'</span>, labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Predicted probs: tensor([[-10.3676, -10.8953, -11.4818,  ...,   2.2426,  -1.8765,   4.7194],
+        [ -2.0989,  -9.2065,   7.2844,  ..., -51.7720,  -8.7795, -46.2127],
+        [ -2.0484,   6.5507,  -6.7518,  ..., -23.1491, -10.7383, -26.7502],
+        ...,
+        [ -5.0137, -16.9200, -10.1650,  ..., -22.1841,   0.7203, -21.2843],
+        [ -5.0028,   5.4822,  -7.8417,  ..., -11.9855, -12.1367, -15.4872],
+        [ -7.9864,  -6.1703,  -5.9303,  ...,  -2.6586,  -2.9111,  -7.0408]])
+Predicted labels: tensor([9, 2, 1,  ..., 8, 1, 5])</code></pre>
+</div>
+</div>
+<p>You can also use plain <code>Pytorch</code> to do the inference:</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:5172,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150442210,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="91e13466-ad89-42af-809d-f3b735bd5f8f">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>device <span class="op">=</span> torch.device(<span class="st">"cuda"</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">"cpu"</span>)</span>
+<span id="cb47-2"><a href="#cb47-2"></a></span>
+<span id="cb47-3"><a href="#cb47-3"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb47-4"><a href="#cb47-4"></a>test_loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a>correct <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb47-7"><a href="#cb47-7"></a>    <span class="cf">for</span> data, target <span class="kw">in</span> testloader:</span>
+<span id="cb47-8"><a href="#cb47-8"></a>        data, target <span class="op">=</span> data.to(device), target.to(device)</span>
+<span id="cb47-9"><a href="#cb47-9"></a>        output <span class="op">=</span> model(data)      </span>
+<span id="cb47-10"><a href="#cb47-10"></a>        <span class="co"># prediction</span></span>
+<span id="cb47-11"><a href="#cb47-11"></a>        pred <span class="op">=</span> output.argmax(dim<span class="op">=</span><span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)  </span>
+<span id="cb47-12"><a href="#cb47-12"></a>        correct <span class="op">+=</span> pred.eq(target.view_as(pred)).<span class="bu">sum</span>().item()</span>
+<span id="cb47-13"><a href="#cb47-13"></a></span>
+<span id="cb47-14"><a href="#cb47-14"></a>data_count <span class="op">=</span> <span class="bu">len</span>(testloader.dataset)</span>
+<span id="cb47-15"><a href="#cb47-15"></a>percentage <span class="op">=</span> <span class="fl">100.</span> <span class="op">*</span> correct <span class="op">/</span> data_count</span>
+<span id="cb47-16"><a href="#cb47-16"></a><span class="bu">print</span>(percentage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>87.61</code></pre>
+</div>
+</div>
+</section>
+<section id="try-different-network-architecture-and-hyperparameters" class="level3" data-number="D.5.5">
+<h3 data-number="D.5.5" class="anchored" data-anchor-id="try-different-network-architecture-and-hyperparameters"><span class="header-section-number">D.5.5</span> Try different network architecture and hyperparameters</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>learn <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>model <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>gc.collect()</span>
+<span id="cb49-4"><a href="#cb49-4"></a>torch.cuda.empty_cache()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Sometimes applying BN before the activation function works better (there's a debate on this topic)</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>model <span class="op">=</span> torch.nn.Sequential(</span>
+<span id="cb50-3"><a href="#cb50-3"></a>    torch.nn.Flatten(),</span>
+<span id="cb50-4"><a href="#cb50-4"></a>    torch.nn.Linear(<span class="dv">28</span> <span class="op">*</span> <span class="dv">28</span>, <span class="dv">300</span>),</span>
+<span id="cb50-5"><a href="#cb50-5"></a>    torch.nn.BatchNorm1d(<span class="dv">300</span>, momentum<span class="op">=</span><span class="fl">0.99</span>, eps<span class="op">=</span><span class="fl">0.001</span>),</span>
+<span id="cb50-6"><a href="#cb50-6"></a>    torch.nn.PReLU(<span class="dv">300</span>),</span>
+<span id="cb50-7"><a href="#cb50-7"></a>    torch.nn.Dropout(<span class="fl">0.5</span>),</span>
+<span id="cb50-8"><a href="#cb50-8"></a>    torch.nn.Linear(<span class="dv">300</span>, <span class="dv">100</span>),</span>
+<span id="cb50-9"><a href="#cb50-9"></a>    torch.nn.BatchNorm1d(<span class="dv">100</span>, momentum<span class="op">=</span><span class="fl">0.99</span>, eps<span class="op">=</span><span class="fl">0.001</span>),</span>
+<span id="cb50-10"><a href="#cb50-10"></a>    torch.nn.PReLU(<span class="dv">100</span>),</span>
+<span id="cb50-11"><a href="#cb50-11"></a>    torch.nn.Dropout(<span class="fl">0.5</span>),</span>
+<span id="cb50-12"><a href="#cb50-12"></a>    torch.nn.Linear(<span class="dv">100</span>, <span class="dv">10</span>),</span>
+<span id="cb50-13"><a href="#cb50-13"></a>    nn.LogSoftmax(dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb50-14"><a href="#cb50-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150563370,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="e0ed9a87-c34c-40f7-fd0b-18edd0e999dd">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>summary(model, input_size<span class="op">=</span>(<span class="dv">32</span>, <span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/usr/local/lib/python3.9/dist-packages/torchinfo/torchinfo.py:477: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  action_fn=lambda data: sys.getsizeof(data.storage()),
+/usr/local/lib/python3.9/dist-packages/torch/storage.py:665: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return super().__sizeof__() + self.nbytes()</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+Sequential                               [32, 10]                  --
+├─Flatten: 1-1                           [32, 784]                 --
+├─Linear: 1-2                            [32, 300]                 235,500
+├─BatchNorm1d: 1-3                       [32, 300]                 600
+├─PReLU: 1-4                             [32, 300]                 300
+├─Dropout: 1-5                           [32, 300]                 --
+├─Linear: 1-6                            [32, 100]                 30,100
+├─BatchNorm1d: 1-7                       [32, 100]                 200
+├─PReLU: 1-8                             [32, 100]                 100
+├─Dropout: 1-9                           [32, 100]                 --
+├─Linear: 1-10                           [32, 10]                  1,010
+├─LogSoftmax: 1-11                       [32, 10]                  --
+==========================================================================================
+Total params: 267,810
+Trainable params: 267,810
+Non-trainable params: 0
+Total mult-adds (M): 8.57
+==========================================================================================
+Input size (MB): 0.10
+Forward/backward pass size (MB): 0.31
+Params size (MB): 1.07
+Estimated Total Size (MB): 1.48
+==========================================================================================</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>data <span class="op">=</span> DataLoaders(trainloader, validloader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>learn <span class="op">=</span> Learner(data, model, loss_func<span class="op">=</span>F.cross_entropy, opt_func<span class="op">=</span>Adam, metrics<span class="op">=</span>[accuracy])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:1994,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150569670,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6f2cedfa-88ce-41ff-b478-fc44f4c6bce1">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>learn.lr_find()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+</div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>SuggestedLRs(valley=0.0008317637839354575)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="08_neural_nets_with_pytorch_files/figure-html/cell-32-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:680665,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151267295,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="6ba53947-7001-4f80-f5e0-5372e81f6d6f">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>learn.fit_one_cycle(<span class="dv">30</span>, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">epoch</th>
+<th data-quarto-table-cell-role="th">train_loss</th>
+<th data-quarto-table-cell-role="th">valid_loss</th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.536114</td>
+<td>0.492205</td>
+<td>0.831200</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.500279</td>
+<td>0.457570</td>
+<td>0.833200</td>
+<td>00:24</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0.503207</td>
+<td>0.490403</td>
+<td>0.826600</td>
+<td>00:29</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.502929</td>
+<td>0.447084</td>
+<td>0.839400</td>
+<td>00:29</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0.469937</td>
+<td>0.420875</td>
+<td>0.853600</td>
+<td>00:24</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0.481606</td>
+<td>0.436684</td>
+<td>0.848200</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>0.485776</td>
+<td>0.417646</td>
+<td>0.853000</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>0.468681</td>
+<td>0.394094</td>
+<td>0.863200</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>0.453838</td>
+<td>0.423227</td>
+<td>0.844600</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>0.446407</td>
+<td>0.413163</td>
+<td>0.850400</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>0.448527</td>
+<td>0.397825</td>
+<td>0.855600</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>0.448806</td>
+<td>0.389306</td>
+<td>0.860800</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>0.438929</td>
+<td>0.405902</td>
+<td>0.858200</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>0.433270</td>
+<td>0.388356</td>
+<td>0.860200</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>0.405702</td>
+<td>0.350491</td>
+<td>0.872400</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>0.394444</td>
+<td>0.364743</td>
+<td>0.874800</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>0.407924</td>
+<td>0.393063</td>
+<td>0.856200</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>0.376187</td>
+<td>0.345115</td>
+<td>0.872800</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>0.371495</td>
+<td>0.371342</td>
+<td>0.870000</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>0.343097</td>
+<td>0.346637</td>
+<td>0.874600</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>0.324037</td>
+<td>0.338525</td>
+<td>0.878600</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>0.333618</td>
+<td>0.330014</td>
+<td>0.884600</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>0.315893</td>
+<td>0.337856</td>
+<td>0.883400</td>
+<td>00:20</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>0.334329</td>
+<td>0.433380</td>
+<td>0.859200</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>0.279653</td>
+<td>0.335189</td>
+<td>0.881800</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>0.307796</td>
+<td>0.337096</td>
+<td>0.884800</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>0.275426</td>
+<td>0.323011</td>
+<td>0.892400</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>0.250883</td>
+<td>0.320636</td>
+<td>0.891600</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>0.266205</td>
+<td>0.323404</td>
+<td>0.888200</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>0.276716</td>
+<td>0.335915</td>
+<td>0.887200</td>
+<td>00:21</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="saving-and-restoring" class="level2" data-number="D.6">
+<h2 data-number="D.6" class="anchored" data-anchor-id="saving-and-restoring"><span class="header-section-number">D.6</span> Saving and Restoring</h2>
+<p>See <a href="https://jonathan-sands.com/deep%20learning/fastai/pytorch/vision/classifier/2020/11/15/MNIST.html">https://jonathan-sands.com/deep%20learning/fastai/pytorch/vision/classifier/2020/11/15/MNIST.html</a> and <a href="https://benjaminwarner.dev/2021/10/01/inference-with-fastai">https://benjaminwarner.dev/2021/10/01/inference-with-fastai</a></p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:416,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151267701,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5e9bb9d2-55c2-4811-bad5-7321b8d7684f">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>learn.save(<span class="st">"fastai"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+<pre><code>Path('models/fastai.pth')</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:415,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151267702,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="fa3987da-534a-432f-ad71-0c971f846f46">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>learn.load(<span class="st">'fastai'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
+<pre><code>&lt;fastai.learner.Learner at 0x7f1a740e3cd0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:3124,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151270822,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="22f24b47-049e-4711-917d-021304db458e">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>fastai_loss, fastai_accuracy <span class="op">=</span> learn.validate(dl<span class="op">=</span>testloader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+</div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151270822,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="a66ac67a-18ff-48e6-f3d6-857644c04149">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>fastai_accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="70">
+<pre><code>0.8823999762535095</code></pre>
+</div>
+</div>
+<p>You can also save <code>Pytorch</code> model only:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>torch.save(model, <span class="st">"my_torch_model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>model <span class="op">=</span> torch.load(<span class="st">"my_torch_model"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:2844,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151282833,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="19ec2b4e-375b-4a3c-86b1-67d59c5bd558">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>device <span class="op">=</span> torch.device(<span class="st">"cuda"</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">"cpu"</span>)</span>
+<span id="cb68-2"><a href="#cb68-2"></a></span>
+<span id="cb68-3"><a href="#cb68-3"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb68-4"><a href="#cb68-4"></a>test_loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb68-5"><a href="#cb68-5"></a>correct <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb68-6"><a href="#cb68-6"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb68-7"><a href="#cb68-7"></a>    <span class="cf">for</span> data, target <span class="kw">in</span> testloader:</span>
+<span id="cb68-8"><a href="#cb68-8"></a>        data, target <span class="op">=</span> data.to(device), target.to(device)</span>
+<span id="cb68-9"><a href="#cb68-9"></a>        output <span class="op">=</span> model(data)      </span>
+<span id="cb68-10"><a href="#cb68-10"></a>        <span class="co"># prediction</span></span>
+<span id="cb68-11"><a href="#cb68-11"></a>        pred <span class="op">=</span> output.argmax(dim<span class="op">=</span><span class="dv">1</span>, keepdim<span class="op">=</span><span class="va">True</span>)  </span>
+<span id="cb68-12"><a href="#cb68-12"></a>        correct <span class="op">+=</span> pred.eq(target.view_as(pred)).<span class="bu">sum</span>().item()</span>
+<span id="cb68-13"><a href="#cb68-13"></a></span>
+<span id="cb68-14"><a href="#cb68-14"></a>data_count <span class="op">=</span> <span class="bu">len</span>(testloader.dataset)</span>
+<span id="cb68-15"><a href="#cb68-15"></a>percentage <span class="op">=</span> <span class="fl">100.</span> <span class="op">*</span> correct <span class="op">/</span> data_count</span>
+<span id="cb68-16"><a href="#cb68-16"></a><span class="bu">print</span>(percentage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>88.24</code></pre>
+</div>
+</div>
+</section>
+<section id="using-callbacks-during-training" class="level2" data-number="D.7">
+<h2 data-number="D.7" class="anchored" data-anchor-id="using-callbacks-during-training"><span class="header-section-number">D.7</span> Using Callbacks during Training</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>learn <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a>model <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb70-3"><a href="#cb70-3"></a>gc.collect()</span>
+<span id="cb70-4"><a href="#cb70-4"></a>torch.cuda.empty_cache()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Sometimes applying BN before the activation function works better (there's a debate on this topic)</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a>model <span class="op">=</span> torch.nn.Sequential(</span>
+<span id="cb71-3"><a href="#cb71-3"></a>    torch.nn.Flatten(),</span>
+<span id="cb71-4"><a href="#cb71-4"></a>    torch.nn.Linear(<span class="dv">28</span> <span class="op">*</span> <span class="dv">28</span>, <span class="dv">300</span>),</span>
+<span id="cb71-5"><a href="#cb71-5"></a>    torch.nn.BatchNorm1d(<span class="dv">300</span>, momentum<span class="op">=</span><span class="fl">0.99</span>, eps<span class="op">=</span><span class="fl">0.001</span>),</span>
+<span id="cb71-6"><a href="#cb71-6"></a>    torch.nn.PReLU(<span class="dv">300</span>),</span>
+<span id="cb71-7"><a href="#cb71-7"></a>    torch.nn.Dropout(<span class="fl">0.5</span>),</span>
+<span id="cb71-8"><a href="#cb71-8"></a>    torch.nn.Linear(<span class="dv">300</span>, <span class="dv">100</span>),</span>
+<span id="cb71-9"><a href="#cb71-9"></a>    torch.nn.BatchNorm1d(<span class="dv">100</span>, momentum<span class="op">=</span><span class="fl">0.99</span>, eps<span class="op">=</span><span class="fl">0.001</span>),</span>
+<span id="cb71-10"><a href="#cb71-10"></a>    torch.nn.PReLU(<span class="dv">100</span>),</span>
+<span id="cb71-11"><a href="#cb71-11"></a>    torch.nn.Dropout(<span class="fl">0.5</span>),</span>
+<span id="cb71-12"><a href="#cb71-12"></a>    torch.nn.Linear(<span class="dv">100</span>, <span class="dv">10</span>),</span>
+<span id="cb71-13"><a href="#cb71-13"></a>    nn.LogSoftmax(dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb71-14"><a href="#cb71-14"></a>)</span>
+<span id="cb71-15"><a href="#cb71-15"></a></span>
+<span id="cb71-16"><a href="#cb71-16"></a>learn <span class="op">=</span> Learner(data, model, loss_func<span class="op">=</span>F.cross_entropy, opt_func<span class="op">=</span>Adam, metrics<span class="op">=</span>[accuracy])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:681462,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682149549562,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="984e15e4-26a8-417c-b2d4-5e07376035d4">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>learn.fit_one_cycle(<span class="dv">30</span>, <span class="fl">0.01</span>, cbs<span class="op">=</span>[SaveModelCallback(monitor<span class="op">=</span><span class="st">'valid_loss'</span>, fname<span class="op">=</span><span class="st">'model'</span>, at_end<span class="op">=</span><span class="va">True</span>), ShowGraphCallback()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">epoch</th>
+<th data-quarto-table-cell-role="th">train_loss</th>
+<th data-quarto-table-cell-role="th">valid_loss</th>
+<th data-quarto-table-cell-role="th">accuracy</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.502928</td>
+<td>0.479331</td>
+<td>0.827400</td>
+<td>00:24</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.533826</td>
+<td>0.466613</td>
+<td>0.828200</td>
+<td>00:24</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0.518706</td>
+<td>0.473331</td>
+<td>0.827200</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.480978</td>
+<td>0.529183</td>
+<td>0.822000</td>
+<td>00:20</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>0.506808</td>
+<td>0.405815</td>
+<td>0.853000</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0.477145</td>
+<td>0.471803</td>
+<td>0.843000</td>
+<td>00:23</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>0.474596</td>
+<td>0.410654</td>
+<td>0.855800</td>
+<td>00:23</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>0.457896</td>
+<td>0.422041</td>
+<td>0.853000</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>0.450831</td>
+<td>0.419836</td>
+<td>0.852800</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>0.425248</td>
+<td>0.401135</td>
+<td>0.855000</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>0.449351</td>
+<td>0.379731</td>
+<td>0.866400</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>0.422142</td>
+<td>0.408070</td>
+<td>0.859000</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>0.409592</td>
+<td>0.390603</td>
+<td>0.866000</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>0.397809</td>
+<td>0.363653</td>
+<td>0.874000</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>0.384585</td>
+<td>0.361813</td>
+<td>0.874800</td>
+<td>00:23</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>0.396216</td>
+<td>0.373937</td>
+<td>0.866600</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>0.400895</td>
+<td>0.385886</td>
+<td>0.859600</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>0.392388</td>
+<td>0.394157</td>
+<td>0.864600</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>0.369430</td>
+<td>0.358140</td>
+<td>0.876800</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>0.366111</td>
+<td>0.348118</td>
+<td>0.878800</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>0.333376</td>
+<td>0.389643</td>
+<td>0.865600</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>0.348145</td>
+<td>0.336223</td>
+<td>0.875800</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>0.302654</td>
+<td>0.380208</td>
+<td>0.876800</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>0.308771</td>
+<td>0.314582</td>
+<td>0.887800</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>0.302305</td>
+<td>0.321902</td>
+<td>0.889600</td>
+<td>00:21</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>0.275600</td>
+<td>0.332582</td>
+<td>0.882000</td>
+<td>00:21</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>0.292592</td>
+<td>0.333376</td>
+<td>0.876200</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>0.277050</td>
+<td>0.322500</td>
+<td>0.892600</td>
+<td>00:22</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>0.269607</td>
+<td>0.353560</td>
+<td>0.887400</td>
+<td>00:22</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>0.264075</td>
+<td>0.333345</td>
+<td>0.885800</td>
+<td>00:21</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Better model found at epoch 0 with valid_loss value: 0.47933071851730347.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="08_neural_nets_with_pytorch_files/figure-html/cell-43-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Better model found at epoch 1 with valid_loss value: 0.46661290526390076.
+Better model found at epoch 4 with valid_loss value: 0.4058149755001068.
+Better model found at epoch 9 with valid_loss value: 0.40113452076911926.
+Better model found at epoch 10 with valid_loss value: 0.3797314167022705.
+Better model found at epoch 13 with valid_loss value: 0.3636534810066223.
+Better model found at epoch 14 with valid_loss value: 0.3618128001689911.
+Better model found at epoch 18 with valid_loss value: 0.35813993215560913.
+Better model found at epoch 19 with valid_loss value: 0.34811756014823914.
+Better model found at epoch 21 with valid_loss value: 0.336223304271698.
+Better model found at epoch 23 with valid_loss value: 0.31458228826522827.</code></pre>
+</div>
+</div>
+</section>
+<section id="pytorch-references" class="level2" data-number="D.8">
+<h2 data-number="D.8" class="anchored" data-anchor-id="pytorch-references"><span class="header-section-number">D.8</span> Pytorch references</h2>
+<ol type="1">
+<li><p><a href="https://ithelp.ithome.com.tw/articles/10285392">https://ithelp.ithome.com.tw/articles/10285392</a> - Pytorch also has functional and subclassing API!</p></li>
+<li><p><a href="https://github.com/lanpa/tensorboardX">https://github.com/lanpa/tensorboardX</a> - TensorBoard for Pytorch</p></li>
+<li><p><a href="https://docs.fast.ai/">https://docs.fast.ai/</a></p></li>
+<li><p><a href="https://www.pytorchlightning.ai/">https://www.pytorchlightning.ai/</a></p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./kaggle-explore.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Introduction to Kaggle</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

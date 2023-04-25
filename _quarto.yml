@@ -16,10 +16,12 @@ book:
         - 05_Feature_selection_extraction.ipynb
         - 06_XAI.ipynb
         - 07_Deploy.ipynb
+        - 08_neural_nets_with_tensorflow.ipynb
   appendices:
         - NumPy_tutorial.ipynb
         - Colab_tutorial.ipynb
         - kaggle-explore.ipynb
+        - 08_neural_nets_with_pytorch.ipynb
   search:
     location: sidebar
 format:
