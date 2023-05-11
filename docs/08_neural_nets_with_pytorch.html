@@ -66,6 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./09_Convolutional_NeuralNetworks_pytorch.html" rel="next">
 <link href="./kaggle-explore.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -192,6 +193,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to Artificial Neural Networks - Tensorflow</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_Convolutional_NeuralNetworks_tensorflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Image processing with Convolutional Neural Networks - Tensorflow</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_Recurrent_Neural_Networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sequence Processing with RNNs and Attention - Tensforflow</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -225,6 +238,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Introduction to Artificial Neural Networks - Pytorch</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_Convolutional_NeuralNetworks_pytorch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Image processing with Convolutional Neural Networks - Pytorch</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -242,19 +261,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tensorflow-playground" id="toc-tensorflow-playground" class="nav-link" data-scroll-target="#tensorflow-playground"><span class="header-section-number">D.3</span> Tensorflow Playground</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">D.3.1</span> Introduction</a></li>
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it"><span class="header-section-number">D.3.2</span> Try it</a></li>
   </ul></li>
-  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it"><span class="header-section-number">D.4</span> Try it</a></li>
-  <li><a href="#building-an-image-classifier-using-the-sequential-api" id="toc-building-an-image-classifier-using-the-sequential-api" class="nav-link" data-scroll-target="#building-an-image-classifier-using-the-sequential-api"><span class="header-section-number">D.5</span> Building an Image Classifier Using the Sequential API</a>
+  <li><a href="#building-an-image-classifier-using-the-sequential-api" id="toc-building-an-image-classifier-using-the-sequential-api" class="nav-link" data-scroll-target="#building-an-image-classifier-using-the-sequential-api"><span class="header-section-number">D.4</span> Building an Image Classifier Using the Sequential API</a>
   <ul class="collapse">
-  <li><a href="#creating-the-model-using-the-sequential-api" id="toc-creating-the-model-using-the-sequential-api" class="nav-link" data-scroll-target="#creating-the-model-using-the-sequential-api"><span class="header-section-number">D.5.1</span> Creating the Model Using the Sequential API</a></li>
-  <li><a href="#compiling-the-model" id="toc-compiling-the-model" class="nav-link" data-scroll-target="#compiling-the-model"><span class="header-section-number">D.5.2</span> Compiling the Model</a></li>
-  <li><a href="#training-and-evaluating-the-model" id="toc-training-and-evaluating-the-model" class="nav-link" data-scroll-target="#training-and-evaluating-the-model"><span class="header-section-number">D.5.3</span> Training and Evaluating the Model</a></li>
-  <li><a href="#using-the-model-to-make-predictions" id="toc-using-the-model-to-make-predictions" class="nav-link" data-scroll-target="#using-the-model-to-make-predictions"><span class="header-section-number">D.5.4</span> Using the Model to Make Predictions</a></li>
-  <li><a href="#try-different-network-architecture-and-hyperparameters" id="toc-try-different-network-architecture-and-hyperparameters" class="nav-link" data-scroll-target="#try-different-network-architecture-and-hyperparameters"><span class="header-section-number">D.5.5</span> Try different network architecture and hyperparameters</a></li>
+  <li><a href="#creating-the-model-using-the-sequential-api" id="toc-creating-the-model-using-the-sequential-api" class="nav-link" data-scroll-target="#creating-the-model-using-the-sequential-api"><span class="header-section-number">D.4.1</span> Creating the Model Using the Sequential API</a></li>
+  <li><a href="#compiling-the-model" id="toc-compiling-the-model" class="nav-link" data-scroll-target="#compiling-the-model"><span class="header-section-number">D.4.2</span> Compiling the Model</a></li>
+  <li><a href="#training-and-evaluating-the-model" id="toc-training-and-evaluating-the-model" class="nav-link" data-scroll-target="#training-and-evaluating-the-model"><span class="header-section-number">D.4.3</span> Training and Evaluating the Model</a></li>
+  <li><a href="#using-the-model-to-make-predictions" id="toc-using-the-model-to-make-predictions" class="nav-link" data-scroll-target="#using-the-model-to-make-predictions"><span class="header-section-number">D.4.4</span> Using the Model to Make Predictions</a></li>
+  <li><a href="#try-different-network-architecture-and-hyperparameters" id="toc-try-different-network-architecture-and-hyperparameters" class="nav-link" data-scroll-target="#try-different-network-architecture-and-hyperparameters"><span class="header-section-number">D.4.5</span> Try different network architecture and hyperparameters</a></li>
   </ul></li>
-  <li><a href="#saving-and-restoring" id="toc-saving-and-restoring" class="nav-link" data-scroll-target="#saving-and-restoring"><span class="header-section-number">D.6</span> Saving and Restoring</a></li>
-  <li><a href="#using-callbacks-during-training" id="toc-using-callbacks-during-training" class="nav-link" data-scroll-target="#using-callbacks-during-training"><span class="header-section-number">D.7</span> Using Callbacks during Training</a></li>
-  <li><a href="#pytorch-references" id="toc-pytorch-references" class="nav-link" data-scroll-target="#pytorch-references"><span class="header-section-number">D.8</span> Pytorch references</a></li>
+  <li><a href="#saving-and-restoring" id="toc-saving-and-restoring" class="nav-link" data-scroll-target="#saving-and-restoring"><span class="header-section-number">D.5</span> Saving and Restoring</a></li>
+  <li><a href="#using-callbacks-during-training" id="toc-using-callbacks-during-training" class="nav-link" data-scroll-target="#using-callbacks-during-training"><span class="header-section-number">D.6</span> Using Callbacks during Training</a></li>
+  <li><a href="#pytorch-references" id="toc-pytorch-references" class="nav-link" data-scroll-target="#pytorch-references"><span class="header-section-number">D.7</span> Pytorch references</a></li>
   </ul>
 </nav>
     </div>
@@ -300,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </td>
 
 </tr></tbody></table>
-<p><br></p>
+<p>] <br></p>
 <section id="setup" class="level2" data-number="D.1">
 <h2 data-number="D.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">D.1</span> Setup</h2>
 <div class="cell">
@@ -581,9 +600,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>In the output layer, the dots are colored orange or blue depending on their original values. The background color shows what the network is predicting for a particular area. <strong>The intensity of the color shows how confident that prediction is</strong></p></li>
 </ul>
 </section>
-</section>
-<section id="try-it" class="level2" data-number="D.4">
-<h2 data-number="D.4" class="anchored" data-anchor-id="try-it"><span class="header-section-number">D.4</span> Try it</h2>
+<section id="try-it" class="level3" data-number="D.3.2">
+<h3 data-number="D.3.2" class="anchored" data-anchor-id="try-it"><span class="header-section-number">D.3.2</span> Try it</h3>
 <ul>
 <li><p><strong>Layers and patterns</strong>: try training the default neural network by clicking the “Run” button (top left). Notice how it quickly finds a good solution for the classification task. Notice that the neurons in the first hidden layer have learned simple patterns, while the neurons in the second hidden layer have learned to combine the simple patterns of the first hidden layer into more complex patterns). In general, the more layers, the more complex the patterns can be.</p></li>
 <li><p><strong>Activation function</strong>: try replacing the Tanh activation function with the ReLU activation function, and train the network again. Notice that it finds a solution even faster.</p></li>
@@ -593,8 +611,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Deep net and vanishing gradients</strong>: now change the dataset to be the spiral (bottom right dataset under “DATA”). Change the network architecture to have 4 hidden layers with 4 neurons each. Notice that training takes much longer, and often gets stuck on plateaus for long periods of time. Also notice that the neurons in the highest layers (i.e.&nbsp;on the right) tend to evolve faster than the neurons in the lowest layers (i.e.&nbsp;on the left). This problem, called the “vanishing gradients” problem, can be alleviated using better weight initialization and other techniques, better optimizers (such as AdaGrad or Adam), or using Batch Normalization.</p></li>
 </ul>
 </section>
-<section id="building-an-image-classifier-using-the-sequential-api" class="level2" data-number="D.5">
-<h2 data-number="D.5" class="anchored" data-anchor-id="building-an-image-classifier-using-the-sequential-api"><span class="header-section-number">D.5</span> Building an Image Classifier Using the Sequential API</h2>
+</section>
+<section id="building-an-image-classifier-using-the-sequential-api" class="level2" data-number="D.4">
+<h2 data-number="D.4" class="anchored" data-anchor-id="building-an-image-classifier-using-the-sequential-api"><span class="header-section-number">D.4</span> Building an Image Classifier Using the Sequential API</h2>
 <p>First let’s import pytorch.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:231,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682146271460,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5b1daf27-a1a7-4a4b-dcbb-708025434f52">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>torch.__version__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -716,8 +735,8 @@ tensor([3, 4, 5, 7, 7, 0, 6, 2, 0, 1, 1, 5, 2, 8, 8, 0, 5, 1, 8, 7, 7, 3, 4, 1,
 <p><img src="08_neural_nets_with_pytorch_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<section id="creating-the-model-using-the-sequential-api" class="level3" data-number="D.5.1">
-<h3 data-number="D.5.1" class="anchored" data-anchor-id="creating-the-model-using-the-sequential-api"><span class="header-section-number">D.5.1</span> Creating the Model Using the Sequential API</h3>
+<section id="creating-the-model-using-the-sequential-api" class="level3" data-number="D.4.1">
+<h3 data-number="D.4.1" class="anchored" data-anchor-id="creating-the-model-using-the-sequential-api"><span class="header-section-number">D.4.1</span> Creating the Model Using the Sequential API</h3>
 <p>Now let’s build the neural network! Here is a classification MLP with two hidden layers:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>model <span class="op">=</span> torch.nn.Sequential(</span>
@@ -859,8 +878,8 @@ torch.Size([300])</code></pre>
 </div>
 <p>Notice that the Linear layer initialized the connection weights randomly (which is needed to break symmetry).</p>
 </section>
-<section id="compiling-the-model" class="level3" data-number="D.5.2">
-<h3 data-number="D.5.2" class="anchored" data-anchor-id="compiling-the-model"><span class="header-section-number">D.5.2</span> Compiling the Model</h3>
+<section id="compiling-the-model" class="level3" data-number="D.4.2">
+<h3 data-number="D.4.2" class="anchored" data-anchor-id="compiling-the-model"><span class="header-section-number">D.4.2</span> Compiling the Model</h3>
 <p>Here, we use the high-level API <a href="https://docs.fast.ai/">fastai</a> for training, but you may also use <a href="https://www.pytorchlightning.ai/index.html">Lighting</a> instead.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>data <span class="op">=</span> DataLoaders(trainloader, validloader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -869,8 +888,8 @@ torch.Size([300])</code></pre>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>learn <span class="op">=</span> Learner(data, model, loss_func<span class="op">=</span>F.cross_entropy, opt_func<span class="op">=</span>Adam, metrics<span class="op">=</span>[accuracy])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="training-and-evaluating-the-model" class="level3" data-number="D.5.3">
-<h3 data-number="D.5.3" class="anchored" data-anchor-id="training-and-evaluating-the-model"><span class="header-section-number">D.5.3</span> Training and Evaluating the Model</h3>
+<section id="training-and-evaluating-the-model" class="level3" data-number="D.4.3">
+<h3 data-number="D.4.3" class="anchored" data-anchor-id="training-and-evaluating-the-model"><span class="header-section-number">D.4.3</span> Training and Evaluating the Model</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:599714,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150400652,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="7790df64-b081-461f-90c6-49882ec99a26">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>learn.fit(<span class="dv">30</span>, <span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1155,8 +1174,8 @@ torch.Size([300])</code></pre>
 </div>
 <p><strong>It is common to get slightly lower performance on the test set than on the validation set, because the hyperparameters are tuned on the validation set</strong>, not the test set (however, in this example, we did not do any hyperparameter tuning, so the lower accuracy is just bad luck).</p>
 </section>
-<section id="using-the-model-to-make-predictions" class="level3" data-number="D.5.4">
-<h3 data-number="D.5.4" class="anchored" data-anchor-id="using-the-model-to-make-predictions"><span class="header-section-number">D.5.4</span> Using the Model to Make Predictions</h3>
+<section id="using-the-model-to-make-predictions" class="level3" data-number="D.4.4">
+<h3 data-number="D.4.4" class="anchored" data-anchor-id="using-the-model-to-make-predictions"><span class="header-section-number">D.4.4</span> Using the Model to Make Predictions</h3>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3054,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682150426336,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5d4e71b4-493f-454c-d825-8a6f7c30d953">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Use the model to make predictions on the new data</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>predictions, labels <span class="op">=</span> learn.get_preds(dl<span class="op">=</span>testloader)</span>
@@ -1219,8 +1238,8 @@ Predicted labels: tensor([9, 2, 1,  ..., 8, 1, 5])</code></pre>
 </div>
 </div>
 </section>
-<section id="try-different-network-architecture-and-hyperparameters" class="level3" data-number="D.5.5">
-<h3 data-number="D.5.5" class="anchored" data-anchor-id="try-different-network-architecture-and-hyperparameters"><span class="header-section-number">D.5.5</span> Try different network architecture and hyperparameters</h3>
+<section id="try-different-network-architecture-and-hyperparameters" class="level3" data-number="D.4.5">
+<h3 data-number="D.4.5" class="anchored" data-anchor-id="try-different-network-architecture-and-hyperparameters"><span class="header-section-number">D.4.5</span> Try different network architecture and hyperparameters</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>learn <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>model <span class="op">=</span> <span class="va">None</span></span>
@@ -1564,8 +1583,8 @@ Estimated Total Size (MB): 1.48
 </div>
 </section>
 </section>
-<section id="saving-and-restoring" class="level2" data-number="D.6">
-<h2 data-number="D.6" class="anchored" data-anchor-id="saving-and-restoring"><span class="header-section-number">D.6</span> Saving and Restoring</h2>
+<section id="saving-and-restoring" class="level2" data-number="D.5">
+<h2 data-number="D.5" class="anchored" data-anchor-id="saving-and-restoring"><span class="header-section-number">D.5</span> Saving and Restoring</h2>
 <p>See <a href="https://jonathan-sands.com/deep%20learning/fastai/pytorch/vision/classifier/2020/11/15/MNIST.html">https://jonathan-sands.com/deep%20learning/fastai/pytorch/vision/classifier/2020/11/15/MNIST.html</a> and <a href="https://benjaminwarner.dev/2021/10/01/inference-with-fastai">https://benjaminwarner.dev/2021/10/01/inference-with-fastai</a></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:416,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1682151267701,&quot;user&quot;:{&quot;displayName&quot;:&quot;phonchi chung&quot;,&quot;userId&quot;:&quot;13517391734500420886&quot;},&quot;user_tz&quot;:-480}" data-outputid="5e9bb9d2-55c2-4811-bad5-7321b8d7684f">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>learn.save(<span class="st">"fastai"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1638,8 +1657,8 @@ Estimated Total Size (MB): 1.48
 </div>
 </div>
 </section>
-<section id="using-callbacks-during-training" class="level2" data-number="D.7">
-<h2 data-number="D.7" class="anchored" data-anchor-id="using-callbacks-during-training"><span class="header-section-number">D.7</span> Using Callbacks during Training</h2>
+<section id="using-callbacks-during-training" class="level2" data-number="D.6">
+<h2 data-number="D.6" class="anchored" data-anchor-id="using-callbacks-during-training"><span class="header-section-number">D.6</span> Using Callbacks during Training</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>learn <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>model <span class="op">=</span> <span class="va">None</span></span>
@@ -1929,8 +1948,8 @@ Better model found at epoch 23 with valid_loss value: 0.31458228826522827.</code
 </div>
 </div>
 </section>
-<section id="pytorch-references" class="level2" data-number="D.8">
-<h2 data-number="D.8" class="anchored" data-anchor-id="pytorch-references"><span class="header-section-number">D.8</span> Pytorch references</h2>
+<section id="pytorch-references" class="level2" data-number="D.7">
+<h2 data-number="D.7" class="anchored" data-anchor-id="pytorch-references"><span class="header-section-number">D.7</span> Pytorch references</h2>
 <ol type="1">
 <li><p><a href="https://ithelp.ithome.com.tw/articles/10285392">https://ithelp.ithome.com.tw/articles/10285392</a> - Pytorch also has functional and subclassing API!</p></li>
 <li><p><a href="https://github.com/lanpa/tensorboardX">https://github.com/lanpa/tensorboardX</a> - TensorBoard for Pytorch</p></li>
@@ -2233,6 +2252,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./09_Convolutional_NeuralNetworks_pytorch.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Image processing with Convolutional Neural Networks - Pytorch</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

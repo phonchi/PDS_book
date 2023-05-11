@@ -37,5 +37,14 @@
   },
   "08_neural_nets_with_pytorch.ipynb": {
     "08_neural_nets_with_pytorch.html": "e4482084"
+  },
+  "09_Convolutional_NeuralNetworks_tensorflow.ipynb": {
+    "09_Convolutional_NeuralNetworks_tensorflow.html": "edef0bb3"
+  },
+  "10_Recurrent_Neural_Networks.ipynb": {
+    "10_Recurrent_Neural_Networks.html": "261056de"
+  },
+  "09_Convolutional_NeuralNetworks_pytorch.ipynb": {
+    "09_Convolutional_NeuralNetworks_pytorch.html": "d71479e7"
   }
 }
