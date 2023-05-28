@@ -19,6 +19,9 @@ book:
         - 08_neural_nets_with_tensorflow.ipynb
         - 09_Convolutional_NeuralNetworks_tensorflow.ipynb
         - 10_Recurrent_Neural_Networks.ipynb
+        - 11_Transfer_learning.ipynb
+        - 12_Representation_learning.ipynb
+        - 13_Hyperparameter.ipynb
   appendices:
         - NumPy_tutorial.ipynb
         - Colab_tutorial.ipynb

@@ -46,5 +46,14 @@
   },
   "09_Convolutional_NeuralNetworks_pytorch.ipynb": {
     "09_Convolutional_NeuralNetworks_pytorch.html": "d71479e7"
+  },
+  "11_Transfer_learning.ipynb": {
+    "11_Transfer_learning.html": "c60c7b3e"
+  },
+  "12_Representation_learning.ipynb": {
+    "12_Representation_learning.html": "73cd316e"
+  },
+  "13_Hyperparameter.ipynb": {
+    "13_Hyperparameter.html": "190748f3"
   }
 }
